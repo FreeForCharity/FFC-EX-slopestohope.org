@@ -3296,6 +3296,22 @@
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
   </style>
+
+<style>
+    /* Clean up 'About Us' dropdown icons */
+    .nav--toggle-sub li.menu-item-has-children:after {
+        content: none !important;
+    }
+    .nav--toggle-sub .dropdown {
+        display: none !important;
+    }
+    /* Ensure sub-menu still appears on hover if it relied on JS, 
+       but usually these themes are CSS :hover based. 
+       Let's ensure the parent LI has relative positioning just in case. */
+    .main-navigation ul li.menu-item-has-children {
+        position: relative;
+    }
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-75 wp-custom-logo wp-embed-responsive wp-theme-buddyx ally-default layout-boxed  elementor-default elementor-template-full-width elementor-kit-69 elementor-page elementor-page-75">
@@ -3334,7 +3350,7 @@
                   <a href="https://www.coloradogives.org/organization/Slopes-To-Hope">Donate</a></li>
                 <li id="menu-item-13746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13746"><a href="../gallery/index.html">Gallery</a></li>
                 <li id="menu-item-13436" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13436">
-                  <a>About Us</a><span class="dropdown"><i class="dropdown-symbol"></i></span>
+                  <a>About Us</a>
                   <ul class="sub-menu">
                     <li id="menu-item-11253" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-75 current_page_item menu-item-11253">
                       <a href="index.html" aria-current="page">– Our Story</a></li>
@@ -3350,7 +3366,7 @@
                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3614"><a href="https://www.coloradogives.org/organization/Slopes-To-Hope">Donate</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13746"><a href="../gallery/index.html">Gallery</a></li>
                 <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13436">
-                  <a>About Us</a><span class="dropdown"><i class="dropdown-symbol"></i></span>
+                  <a>About Us</a>
                   <ul class="sub-menu">
                     <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-75 current_page_item menu-item-11253">
                       <a href="index.html" aria-current="page">– Our Story</a></li>
