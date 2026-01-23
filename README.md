@@ -103,6 +103,7 @@ docs-backup/                    # Archived documentation
 - **Update JavaScript:** Edit `assets/js/main.js`
 - **Update site config:** Edit `_config.yml`
 - **Add new page:** Create a new `.md` or `.html` file with frontmatter
+- **Add/update sponsors:** See [SPONSORS.md](./SPONSORS.md) for detailed guide or [SPONSORS_QUICK_REFERENCE.md](./SPONSORS_QUICK_REFERENCE.md) for quick templates
 
 ---
 
