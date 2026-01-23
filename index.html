@@ -3374,6 +3374,33 @@
     color: #7f8c8d;
     font-size: 0.9rem;
 }
+/* Social Icons */
+.custom-footer .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+.custom-footer .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.custom-footer .social-icons a:hover {
+    background-color: #ef5455;
+    color: #fff;
+    transform: translateY(-3px);
+}
+.custom-footer .social-icons i {
+    font-size: 1.2rem;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .custom-footer {
@@ -4087,6 +4114,16 @@
                             <p><i class="fas fa-map-marker-alt"></i> <span>400 N. Park Ave #12B<br>Breckenridge, CO 80424</span></p>
                             <p><i class="fas fa-envelope"></i> <a href="mailto:support@slopestohope.com">support@slopestohope.com</a></p>
                         </address>
+                    </div>
+
+                    <!-- Column 4: Social Media -->
+                    <div class="footer-col social-col">
+                        <h3>Connect</h3>
+                        <div class="social-icons">
+                            <a href="https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues" target="_blank" rel="noopener noreferrer" aria-label="Report issues on GitHub" title="Report issues on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
