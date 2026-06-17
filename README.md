@@ -97,6 +97,7 @@ docs-backup/                    # Archived documentation
 ### Making Changes
 
 - **Update homepage:** Edit `index.html`
+- **Update pounds statistics:** See [UPDATING_POUNDS_STATISTICS.md](./UPDATING_POUNDS_STATISTICS.md) for detailed instructions
 - **Update header/footer:** Edit files in `_includes/`
 - **Update page layout:** Edit files in `_layouts/`
 - **Update styles:** Edit `assets/css/styles.css`
