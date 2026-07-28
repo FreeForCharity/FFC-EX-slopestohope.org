@@ -4331,10 +4331,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function animate(el) {
         if (el.dataset.counterDone) return;
-        el.dataset.counterDone = '1';
 
         var to = parseFloat(el.getAttribute('data-to-value'));
         if (isNaN(to)) return;
+        // Flag only once there is a usable target, so a malformed value does
+        // not latch the element as handled.
+        el.dataset.counterDone = '1';
+
         var from = parseFloat(el.getAttribute('data-from-value'));
         if (isNaN(from)) from = 0;
         var duration = parseInt(el.getAttribute('data-duration'), 10);
