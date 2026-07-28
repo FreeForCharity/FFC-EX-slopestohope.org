@@ -4313,4 +4313,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<script>
+// Elementor counter widgets ship their markup with a literal "0" and rely on
+// elementor-frontend + jquery-numerator to animate up to data-to-value. Those
+// scripts came from the old WordPress origin and are no longer served, so the
+// counters stayed at 0. Animate them here instead - no dependencies.
+document.addEventListener('DOMContentLoaded', function () {
+    var counters = document.querySelectorAll('.elementor-counter-number[data-to-value]');
+    if (!counters.length) return;
+
+    function format(value, delimiter) {
+        var text = String(Math.round(value));
+        if (!delimiter) return text;
+        return text.replace(/\B(?=(\d{3})+(?!\d))/g, delimiter);
+    }
+
+    function animate(el) {
+        if (el.dataset.counterDone) return;
+        el.dataset.counterDone = '1';
+
+        var to = parseFloat(el.getAttribute('data-to-value'));
+        if (isNaN(to)) return;
+        var from = parseFloat(el.getAttribute('data-from-value'));
+        if (isNaN(from)) from = 0;
+        var duration = parseInt(el.getAttribute('data-duration'), 10);
+        if (isNaN(duration) || duration < 0) duration = 2000;
+        var delimiter = el.getAttribute('data-delimiter') || '';
+
+        var reduceMotion = window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion || !duration || !window.requestAnimationFrame) {
+            el.textContent = format(to, delimiter);
+            return;
+        }
+
+        var start = null;
+        function step(timestamp) {
+            if (start === null) start = timestamp;
+            var progress = Math.min((timestamp - start) / duration, 1);
+            // easeOutQuad, matching the settle of the original widget
+            var eased = 1 - (1 - progress) * (1 - progress);
+            el.textContent = format(from + (to - from) * eased, delimiter);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                el.textContent = format(to, delimiter);
+            }
+        }
+        window.requestAnimationFrame(step);
+    }
+
+    // Count up once the widget scrolls into view; if IntersectionObserver is
+    // unavailable, just render the final number so it is never left at 0.
+    if (!('IntersectionObserver' in window)) {
+        Array.prototype.forEach.call(counters, function (el) {
+            var to = parseFloat(el.getAttribute('data-to-value'));
+            var delimiter = el.getAttribute('data-delimiter') || '';
+            if (!isNaN(to)) el.textContent = format(to, delimiter);
+        });
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            animate(entry.target);
+        });
+    }, { threshold: 0.25 });
+
+    Array.prototype.forEach.call(counters, function (el) {
+        observer.observe(el);
+    });
+});
+</script>
 </body></html><!-- Page optimized by LiteSpeed Cache @2026-01-05 18:47:54 --><!-- Page cached by LiteSpeed Cache 7.7 on 2026-01-05 18:47:54 --><!-- Guest Mode --><!-- QUIC.cloud CCSS loaded ✅ /ccss/404bd2b42477a4db7e331f45ddf578a2.css --><!-- QUIC.cloud UCSS loaded ✅ /ucss/8b1f027dc64668341437990e2eb28e91.css -->
