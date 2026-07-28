@@ -39,22 +39,30 @@ jobs:
           echo "skip=false" >> "$GITHUB_OUTPUT"
           echo "drift=false" >> "$GITHUB_OUTPUT"
 
-          # The Pages CONFIG is what GitHub actually serves; public/CNAME is
+          # The Pages CONFIG is what GitHub actually serves; the CNAME files are
           # only the build artifact's claim. Resolving from the API catches
           # repos whose file and binding have drifted apart.
           pages_cname=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.cname // ""' 2>/dev/null || echo "")
           pages_url=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.html_url // ""' 2>/dev/null || echo "")
+
+          # The deploy workflow uploads the repository root as the Pages
+          # artifact, so ./CNAME is the file Pages actually reads; public/CNAME
+          # predates that and is kept because this job and the build key off it.
+          # Both are checked, so the two cannot silently drift apart.
           file_cname=""
           [ -f public/CNAME ] && file_cname=$(tr -d '[:space:]' < public/CNAME)
+          root_cname=""
+          [ -f CNAME ] && root_cname=$(tr -d '[:space:]' < CNAME)
 
           if [ -n "${{ inputs.url }}" ]; then
             mode="apex"; target="${{ inputs.url }}"
           elif [ -n "$pages_cname" ]; then
             # Custom domain bound -> full apex/custom-domain verification.
             mode="apex"; target="https://${pages_cname}/"
-            if [ "$file_cname" != "$pages_cname" ]; then
+            if [ "$file_cname" != "$pages_cname" ] || [ "$root_cname" != "$pages_cname" ]; then
               echo "drift=true" >> "$GITHUB_OUTPUT"
               echo "file_cname=${file_cname:-<missing>}" >> "$GITHUB_OUTPUT"
+              echo "root_cname=${root_cname:-<missing>}" >> "$GITHUB_OUTPUT"
             fi
           elif [ -n "$pages_url" ]; then
             # Pages enabled, no custom domain -> pre-cutover deployment smoke
@@ -76,14 +84,17 @@ jobs:
           echo "url=$target" >> "$GITHUB_OUTPUT"
           echo "Smoke target: $target (mode: $mode)"
 
-      - name: Assert public/CNAME matches the Pages custom domain
-        # The Next build keys basePath/asset URLs off public/CNAME, so a file
-        # that disagrees with the actual Pages binding means the site was
-        # built for the WRONG host (broken assets/links at the real domain).
+      - name: Assert the CNAME files match the Pages custom domain
+        # ./CNAME is what Pages serves (the artifact is the repo root) and the
+        # build keys asset URLs off public/CNAME. Either one disagreeing with
+        # the actual Pages binding means the site was built for the WRONG host
+        # (broken assets/links at the real domain), so both are asserted.
         if: steps.url.outputs.mode == 'apex' && steps.url.outputs.drift == 'true'
         run: |
-          echo "::error::public/CNAME (${{ steps.url.outputs.file_cname }}) does not match the Pages custom domain (${{ steps.url.outputs.pages_cname }})."
-          echo "::error::Fix public/CNAME to match the Pages binding (or clear the binding) — the current build targets the wrong host."
+          echo "::error::CNAME files do not match the Pages custom domain (${{ steps.url.outputs.pages_cname }})."
+          echo "::error::  ./CNAME      = ${{ steps.url.outputs.root_cname }}"
+          echo "::error::  public/CNAME = ${{ steps.url.outputs.file_cname }}"
+          echo "::error::Fix both to match the Pages binding (or clear the binding) — the current build targets the wrong host."
           exit 1
 
       - name: Probe live URL over HTTPS (cert-aware retry)
