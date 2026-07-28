@@ -131,9 +131,9 @@ You can choose among available AI models using Copilot's model selector feature.
 // Adjust languages based on your project needs
 {
   "github.copilot.enable": {
-"*": true,
-"typescript": true,
-"typescriptreact": true
+    "*": true,
+    "typescript": true,
+    "typescriptreact": true
   }
 }
 ```
@@ -542,14 +542,14 @@ Example:
 // Good test structure
 describe('ComponentName', () => {
   it('should render correctly', () => {
-render(<ComponentName />)
-expect(screen.getByRole('heading')).toBeInTheDocument()
+    render(<ComponentName />)
+    expect(screen.getByRole('heading')).toBeInTheDocument()
   })
 
   it('should handle user interaction', () => {
-render(<ComponentName />)
-fireEvent.click(screen.getByRole('button'))
-expect(screen.getByText('Updated')).toBeInTheDocument()
+    render(<ComponentName />)
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.getByText('Updated')).toBeInTheDocument()
   })
 })
 ```
@@ -800,4 +800,3 @@ Thank you for helping make Free For Charity better!
 ---
 
 **Questions?** Feel free to open an issue or reach out to the maintainers. We're here to help!
-

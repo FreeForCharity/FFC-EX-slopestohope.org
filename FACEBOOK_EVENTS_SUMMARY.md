@@ -411,4 +411,3 @@ The Facebook Events integration will significantly increase visibility of Free F
 **Prepared By:** GitHub Copilot Agent
 
 **Review Requested From:** Project stakeholders, development team
-

@@ -6,11 +6,11 @@ This document provides a quick reference for the identified differences between 
 
 ## TL;DR - Key Differences
 
-| Area | HTML Version (OLD) | HTML Version (FIXED) | React Version | Status |
-|------|-------------------|---------------------|---------------|--------|
-| **Grid Layouts** | ~~2 columns at 640px~~ | **2 columns at 768px** | 2 columns at 768px | ✅ FIXED |
-| **Navigation** | Desktop nav at 1024px | Desktop nav at 1024px | Desktop nav at 768px | ⚠️ Different (not addressed in this PR) |
-| **Programs Grid** | ~~3 cols at 768px (bug)~~ | **2 cols at 768px** | 2 cols at 768px | ✅ FIXED |
+| Area              | HTML Version (OLD)        | HTML Version (FIXED)   | React Version        | Status                                  |
+| ----------------- | ------------------------- | ---------------------- | -------------------- | --------------------------------------- |
+| **Grid Layouts**  | ~~2 columns at 640px~~    | **2 columns at 768px** | 2 columns at 768px   | ✅ FIXED                                |
+| **Navigation**    | Desktop nav at 1024px     | Desktop nav at 1024px  | Desktop nav at 768px | ⚠️ Different (not addressed in this PR) |
+| **Programs Grid** | ~~3 cols at 768px (bug)~~ | **2 cols at 768px**    | 2 cols at 768px      | ✅ FIXED                                |
 
 ## Visual Breakpoint Comparison
 
@@ -40,81 +40,85 @@ STATUS: IDENTICAL ✅
 
 ### Results Section Grid Columns
 
-| Viewport | Width | HTML | React | Match? |
-|----------|-------|------|-------|--------|
-| Mobile | 375px | 1 col | 1 col | ✅ |
-| Before sm | 639px | 1 col | 1 col | ✅ |
-| sm (640px) | 640px | **2 col** | **1 col** | ❌ |
-| Between | 700px | **2 col** | **1 col** | ❌ |
-| md (768px) | 768px | 2 col | 2 col | ✅ |
-| Between | 900px | 2 col | 2 col | ✅ |
-| lg (1024px) | 1024px | 3 col | 3 col | ✅ |
-| xl (1280px) | 1280px | 4 col | 4 col | ✅ |
-| Desktop | 1920px | 4 col | 4 col | ✅ |
+| Viewport    | Width  | HTML      | React     | Match? |
+| ----------- | ------ | --------- | --------- | ------ |
+| Mobile      | 375px  | 1 col     | 1 col     | ✅     |
+| Before sm   | 639px  | 1 col     | 1 col     | ✅     |
+| sm (640px)  | 640px  | **2 col** | **1 col** | ❌     |
+| Between     | 700px  | **2 col** | **1 col** | ❌     |
+| md (768px)  | 768px  | 2 col     | 2 col     | ✅     |
+| Between     | 900px  | 2 col     | 2 col     | ✅     |
+| lg (1024px) | 1024px | 3 col     | 3 col     | ✅     |
+| xl (1280px) | 1280px | 4 col     | 4 col     | ✅     |
+| Desktop     | 1920px | 4 col     | 4 col     | ✅     |
 
 ### Programs Section Grid Columns
 
-| Viewport | Width | HTML | React | Match? | Notes |
-|----------|-------|------|-------|--------|-------|
-| Mobile | 375px | 1 col | 1 col | ✅ | |
-| Before sm | 639px | 1 col | 1 col | ✅ | |
-| sm (640px) | 640px | **2 col** | **1 col** | ❌ | |
-| Between | 700px | **2 col** | **1 col** | ❌ | |
-| md (768px) | 768px | **3 col** | **2 col** | ❌ | Duplicate CSS rule |
-| Between | 900px | **3 col** | **2 col** | ❌ | Duplicate CSS rule |
-| lg (1024px) | 1024px | 3 col | 3 col | ✅ | |
-| xl (1280px) | 1280px | 3 col | 3 col | ✅ | |
-| Desktop | 1920px | 3 col | 3 col | ✅ | |
+| Viewport    | Width  | HTML      | React     | Match? | Notes              |
+| ----------- | ------ | --------- | --------- | ------ | ------------------ |
+| Mobile      | 375px  | 1 col     | 1 col     | ✅     |                    |
+| Before sm   | 639px  | 1 col     | 1 col     | ✅     |                    |
+| sm (640px)  | 640px  | **2 col** | **1 col** | ❌     |                    |
+| Between     | 700px  | **2 col** | **1 col** | ❌     |                    |
+| md (768px)  | 768px  | **3 col** | **2 col** | ❌     | Duplicate CSS rule |
+| Between     | 900px  | **3 col** | **2 col** | ❌     | Duplicate CSS rule |
+| lg (1024px) | 1024px | 3 col     | 3 col     | ✅     |                    |
+| xl (1280px) | 1280px | 3 col     | 3 col     | ✅     |                    |
+| Desktop     | 1920px | 3 col     | 3 col     | ✅     |                    |
 
 ### Team Section Grid Columns
 
-| Viewport | Width | HTML | React | Match? |
-|----------|-------|------|-------|--------|
-| Mobile | 375px | 1 col | 1 col | ✅ |
-| Before sm | 639px | 1 col | 1 col | ✅ |
-| sm (640px) | 640px | **2 col** | **1 col** | ❌ |
-| Between | 700px | **2 col** | **1 col** | ❌ |
-| md (768px) | 768px | 2 col | 2 col | ✅ |
-| Between | 900px | 2 col | 2 col | ✅ |
-| lg (1024px) | 1024px | 3 col | 3 col | ✅ |
-| xl (1280px) | 1280px | 3 col | 3 col | ✅ |
-| Desktop | 1920px | 3 col | 3 col | ✅ |
+| Viewport    | Width  | HTML      | React     | Match? |
+| ----------- | ------ | --------- | --------- | ------ |
+| Mobile      | 375px  | 1 col     | 1 col     | ✅     |
+| Before sm   | 639px  | 1 col     | 1 col     | ✅     |
+| sm (640px)  | 640px  | **2 col** | **1 col** | ❌     |
+| Between     | 700px  | **2 col** | **1 col** | ❌     |
+| md (768px)  | 768px  | 2 col     | 2 col     | ✅     |
+| Between     | 900px  | 2 col     | 2 col     | ✅     |
+| lg (1024px) | 1024px | 3 col     | 3 col     | ✅     |
+| xl (1280px) | 1280px | 3 col     | 3 col     | ✅     |
+| Desktop     | 1920px | 3 col     | 3 col     | ✅     |
 
 ### Navigation Display
 
-| Viewport | Width | HTML Nav | React Nav | Match? |
-|----------|-------|----------|-----------|--------|
-| Mobile | 375px | Mobile | Mobile | ✅ |
-| Before sm | 639px | Mobile | Mobile | ✅ |
-| sm (640px) | 640px | Mobile | Mobile | ✅ |
-| Between | 700px | Mobile | Mobile | ✅ |
-| md (768px) | 768px | **Mobile** | **Desktop** | ❌ |
-| Between | 900px | **Mobile** | **Desktop** | ❌ |
-| lg (1024px) | 1024px | Desktop | Desktop | ✅ |
-| xl (1280px) | 1280px | Desktop | Desktop | ✅ |
-| Desktop | 1920px | Desktop | Desktop | ✅ |
+| Viewport    | Width  | HTML Nav   | React Nav   | Match? |
+| ----------- | ------ | ---------- | ----------- | ------ |
+| Mobile      | 375px  | Mobile     | Mobile      | ✅     |
+| Before sm   | 639px  | Mobile     | Mobile      | ✅     |
+| sm (640px)  | 640px  | Mobile     | Mobile      | ✅     |
+| Between     | 700px  | Mobile     | Mobile      | ✅     |
+| md (768px)  | 768px  | **Mobile** | **Desktop** | ❌     |
+| Between     | 900px  | **Mobile** | **Desktop** | ❌     |
+| lg (1024px) | 1024px | Desktop    | Desktop     | ✅     |
+| xl (1280px) | 1280px | Desktop    | Desktop     | ✅     |
+| Desktop     | 1920px | Desktop    | Desktop     | ✅     |
 
 ## Device Impact Analysis
 
 ### iPhone SE (375px) ✅
+
 - **Status**: Identical behavior
 - Grid: 1 column
 - Nav: Mobile menu
 - **Impact**: None
 
 ### iPhone 14 Pro (393px) ✅
+
 - **Status**: Identical behavior
 - Grid: 1 column
 - Nav: Mobile menu
 - **Impact**: None
 
 ### Samsung Galaxy S20 (360px) ✅
+
 - **Status**: Identical behavior
 - Grid: 1 column
 - Nav: Mobile menu
 - **Impact**: None
 
 ### Large Phones (640px-767px) ⚠️
+
 - **Status**: Different behavior
 - HTML Grid: 2 columns
 - React Grid: 1 column
@@ -122,6 +126,7 @@ STATUS: IDENTICAL ✅
 - **Impact**: HTML version may be harder to read on some large phones
 
 ### iPad Mini (768px) ⚠️
+
 - **Status**: Different behavior
 - Grid: 2 columns (both)
 - HTML Nav: **Mobile menu**
@@ -129,12 +134,14 @@ STATUS: IDENTICAL ✅
 - **Impact**: HTML version requires extra tap to access navigation
 
 ### iPad Pro (1024px) ✅
+
 - **Status**: Identical behavior
 - Grid: 3 columns
 - Nav: Desktop nav
 - **Impact**: None
 
 ### Desktop (1280px+) ✅
+
 - **Status**: Identical behavior
 - Grid: 3-4 columns
 - Nav: Desktop nav
@@ -154,11 +161,13 @@ Based on typical web traffic patterns:
 ## Recommended Actions
 
 ### Option 1: Align HTML with React (Recommended)
+
 **Change**: Modify HTML CSS to match React breakpoints
 
 **Files to modify**: `html-site/css/styles.css`
 
 **Changes needed**:
+
 1. Change grid 2-column breakpoint from 640px to 768px (3 sections)
 2. Change desktop nav breakpoint from 1024px to 768px
 3. Remove duplicate Programs section media query
@@ -168,9 +177,11 @@ Based on typical web traffic patterns:
 **Effort**: Low (30-60 minutes)
 
 ### Option 2: Keep Current HTML Implementation
+
 **Change**: No code changes
 
-**Rationale**: 
+**Rationale**:
+
 - HTML version uses earlier responsive breakpoints
 - May provide better experience on some devices
 - Differences are minor and don't break functionality
@@ -180,9 +191,11 @@ Based on typical web traffic patterns:
 **Documentation needed**: Update docs to explain intentional differences
 
 ### Option 3: Update Both to New Standard
+
 **Change**: Define new breakpoint strategy for both sites
 
 **Rationale**:
+
 - Opportunity to optimize for modern devices
 - Could improve UX based on analytics data
 
@@ -221,7 +234,7 @@ npx playwright show-report
 2. **Is the tablet navigation difference acceptable?**
    - Affects iPad users (768-1023px range)
    - React shows desktop nav, HTML shows mobile menu
-   
+
 3. **Should we fix the duplicate CSS rule in Programs section?**
    - Low priority bug fix
    - Causes Programs to show 3 columns at 768px instead of 2
@@ -244,4 +257,3 @@ npx playwright show-report
 **Issue**: #35  
 **Tests**: All passing (5/5) ✅  
 **Documentation**: Complete
-

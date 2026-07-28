@@ -140,7 +140,7 @@ While automated deployment is recommended, manual deployment is straightforward.
    git push origin main
    ```
 
-5. **Verify deployment**: 
+5. **Verify deployment**:
    - Check GitHub Actions for workflow status
    - Visit the live site after deployment completes
 
@@ -170,21 +170,22 @@ If you want to use a custom domain:
    ffcworkingsite2.org
    ```
 
-2. **Configure DNS records** at your domain provider:
+1. **Configure DNS records** at your domain provider:
 
    For apex domain (ffcworkingsite2.org):
    - **Type**: A or ALIAS (depending on DNS provider)
    - **Name**: @ (root domain)
    - **Value**: GitHub Pages IP addresses:
+
 - 185.199.108.153
 - 185.199.109.153
 - 185.199.110.153
 - 185.199.111.153
 
-   For www subdomain (optional):
-   - **Type**: CNAME
-   - **Name**: www
-   - **Value**: freeforcharity.github.io
+  For www subdomain (optional):
+  - **Type**: CNAME
+  - **Name**: www
+  - **Value**: freeforcharity.github.io
 
 3. **GitHub Pages Settings**:
    - Navigate to repository Settings → Pages
@@ -211,20 +212,22 @@ After configuring DNS:
 
 ### Build-Time Variables
 
-   Add an A record or CNAME record pointing to GitHub Pages:
+Add an A record or CNAME record pointing to GitHub Pages:
 
-   **For A records** (apex domain like `example.org`):
-   ```
-   185.199.108.153
-   185.199.109.153
-   185.199.110.153
-   185.199.111.153
-   ```
+**For A records** (apex domain like `example.org`):
 
-   **For CNAME record** (subdomain like `www.example.org`):
-   ```
-   <username>.github.io
-   ```
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+**For CNAME record** (subdomain like `www.example.org`):
+
+```
+<username>.github.io
+```
 
 3. **Enable HTTPS** in GitHub Pages settings (recommended)
 
@@ -253,6 +256,7 @@ curl -I https://yourdomain.org
 **Cause**: Incorrect asset paths
 
 **Solution**:
+
 1. Verify all asset paths include the basePath: `/FFC-IN-Single_Page_Template_HTML/`
 2. Check browser console for 404 errors
 3. Ensure files exist in the `html-site/` directory
@@ -264,6 +268,7 @@ curl -I https://yourdomain.org
 **Cause**: Incorrect URL or missing file
 
 **Solution**:
+
 1. Verify the file exists in `html-site/`
 2. Check that the URL includes the basePath prefix
 3. Ensure file names match exactly (case-sensitive)
@@ -275,6 +280,7 @@ curl -I https://yourdomain.org
 **Cause**: Browser cache or deployment delay
 
 **Solution**:
+
 1. Hard refresh browser (Ctrl+F5 or Cmd+Shift+R)
 2. Check GitHub Actions to verify deployment succeeded
 3. Clear browser cache
@@ -287,6 +293,7 @@ curl -I https://yourdomain.org
 **Cause**: Various potential issues
 
 **Solution**:
+
 1. Check workflow logs in Actions tab
 2. Verify repository has GitHub Pages enabled
 3. Check repository permissions
@@ -391,4 +398,3 @@ Before deploying to production:
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [Custom Domain Setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
 - [Troubleshooting GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/troubleshooting-404-errors-for-github-pages-sites)
-

@@ -31,8 +31,8 @@ This document provides a side-by-side comparison of the cookie management system
 ```html
 <div class="cookie-preference-item">
   <label>
-<input type="checkbox" id="cookieAnalytics" />
-<span>Analytics Cookies</span>
+    <input type="checkbox" id="cookieAnalytics" />
+    <span>Analytics Cookies</span>
   </label>
   <p>Helps us understand how visitors interact with our website.</p>
 </div>
@@ -43,15 +43,15 @@ This document provides a side-by-side comparison of the cookie management system
 ```html
 <div class="cookie-preference-item">
   <div class="cookie-preference-header">
-<h3>Analytics Cookies</h3>
-<label class="cookie-toggle">
-<input type="checkbox" id="cookieAnalytics" aria-label="Enable analytics cookies" />
-<span class="cookie-toggle-slider"></span>
-</label>
+    <h3>Analytics Cookies</h3>
+    <label class="cookie-toggle">
+      <input type="checkbox" id="cookieAnalytics" aria-label="Enable analytics cookies" />
+      <span class="cookie-toggle-slider"></span>
+    </label>
   </div>
   <p>
-These cookies help us understand how visitors interact with our website by collecting and
-reporting information anonymously. We use Google Analytics and Microsoft Clarity.
+    These cookies help us understand how visitors interact with our website by collecting and
+    reporting information anonymously. We use Google Analytics and Microsoft Clarity.
   </p>
   <p class="cookie-preference-services">Services: Google Analytics, Microsoft Clarity</p>
 </div>
@@ -74,17 +74,17 @@ function deleteAnalyticsCookies() {
   // Delete common analytics cookies
   const cookiesToDelete = ['_ga', '_gid', '_fbp', 'fr', '_clck', '_clsk']
   cookiesToDelete.forEach((name) => {
-document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
   })
 
   // Delete dynamic _ga_* cookies
   document.cookie.split(';').forEach((cookie) => {
-const cookieName = cookie.split('=')[0].trim()
-if (cookieName.startsWith('_ga_')) {
-document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
-}
+    const cookieName = cookie.split('=')[0].trim()
+    if (cookieName.startsWith('_ga_')) {
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
+    }
   })
 }
 ```
@@ -101,15 +101,15 @@ document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/
 function loadMicrosoftClarity() {
   const CLARITY_PROJECT_ID = 'XXXXXXXXXX'
   if (!document.querySelector('script[src*="clarity.ms"]')) {
-const clarityScript = document.createElement('script')
-clarityScript.textContent = `
+    const clarityScript = document.createElement('script')
+    clarityScript.textContent = `
 (function(c,l,a,r,i,t,y){
 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
 `
-document.head.appendChild(clarityScript)
+    document.head.appendChild(clarityScript)
   }
 }
 ```
@@ -124,10 +124,10 @@ function savePreferences(preferences) {
   setCookie(COOKIE_PREFERENCES_NAME, JSON.stringify(preferences), 365)
 
   if (window.dataLayer) {
-window.dataLayer.push({
-event: 'cookie_consent_update',
-cookie_preferences: preferences,
-})
+    window.dataLayer.push({
+      event: 'cookie_consent_update',
+      cookie_preferences: preferences,
+    })
   }
 }
 ```
@@ -141,22 +141,22 @@ function savePreferences(preferences, previousPreferences) {
 
   // NEW: Check if consent was withdrawn and delete cookies
   if (previousPreferences) {
-if (
-(previousPreferences.analytics && !preferences.analytics) ||
-(previousPreferences.marketing && !preferences.marketing)
-) {
-deleteAnalyticsCookies()
-}
+    if (
+      (previousPreferences.analytics && !preferences.analytics) ||
+      (previousPreferences.marketing && !preferences.marketing)
+    ) {
+      deleteAnalyticsCookies()
+    }
   }
 
   // NEW: Improved dataLayer event format
   if (window.dataLayer) {
-window.dataLayer.push({
-event: 'consent_update', // Changed from 'cookie_consent_update'
-functional_consent: preferences.functional ? 'granted' : 'denied',
-analytics_consent: preferences.analytics ? 'granted' : 'denied',
-marketing_consent: preferences.marketing ? 'granted' : 'denied',
-})
+    window.dataLayer.push({
+      event: 'consent_update', // Changed from 'cookie_consent_update'
+      functional_consent: preferences.functional ? 'granted' : 'denied',
+      analytics_consent: preferences.analytics ? 'granted' : 'denied',
+      marketing_consent: preferences.marketing ? 'granted' : 'denied',
+    })
   }
 }
 ```
@@ -181,18 +181,18 @@ marketing_consent: preferences.marketing ? 'granted' : 'denied',
 // Click outside modal to close
 if (cookiePreferences) {
   cookiePreferences.addEventListener('click', (e) => {
-if (e.target === cookiePreferences) {
-cookiePreferences.classList.remove('show')
-cookieConsent.classList.add('show')
-}
+    if (e.target === cookiePreferences) {
+      cookiePreferences.classList.remove('show')
+      cookieConsent.classList.add('show')
+    }
   })
 }
 
 // Escape key to close modal
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && cookiePreferences.classList.contains('show')) {
-cookiePreferences.classList.remove('show')
-cookieConsent.classList.add('show')
+    cookiePreferences.classList.remove('show')
+    cookieConsent.classList.add('show')
   }
 })
 ```
@@ -208,10 +208,10 @@ cookieConsent.classList.add('show')
 <div id="cookieConsent" class="cookie-consent">
   <!-- After -->
   <div
-id="cookieConsent"
-class="cookie-consent"
-role="region"
-aria-label="Cookie consent notice"
+    id="cookieConsent"
+    class="cookie-consent"
+    role="region"
+    aria-label="Cookie consent notice"
   ></div>
 </div>
 ```
@@ -225,13 +225,13 @@ aria-label="Cookie consent notice"
 
   <!-- After -->
   <div
-id="cookiePreferences"
-class="cookie-modal"
-role="dialog"
-aria-modal="true"
-aria-labelledby="cookie-preferences-title"
+    id="cookiePreferences"
+    class="cookie-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cookie-preferences-title"
   >
-<h2 id="cookie-preferences-title">Cookie Preferences</h2>
+    <h2 id="cookie-preferences-title">Cookie Preferences</h2>
   </div>
 </div>
 ```
@@ -268,8 +268,8 @@ aria-labelledby="cookie-preferences-title"
   color: var(--color-dark);
   border-top: 2px solid #e5e7eb;
   box-shadow:
-0 -4px 6px -1px rgba(0, 0, 0, 0.1),
-0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+    0 -4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 -2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 ```
 
@@ -401,4 +401,3 @@ The HTML static site now has **complete feature parity** with the Next.js primar
 - ✅ Improved analytics tracking
 
 The implementation is production-ready and maintains the same high standards as the Next.js version while working purely with HTML, CSS, and vanilla JavaScript.
-

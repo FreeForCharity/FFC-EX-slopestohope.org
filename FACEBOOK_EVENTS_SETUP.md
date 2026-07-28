@@ -223,10 +223,10 @@ Add the following after consent is updated (look for where `localStorage.setItem
 // After saving consent, dispatch custom event
 const consentEvent = new CustomEvent('cookieConsentChange', {
   detail: {
-necessary: true,
-functional: consent.functional,
-analytics: consent.analytics,
-marketing: consent.marketing,
+    necessary: true,
+    functional: consent.functional,
+    analytics: consent.analytics,
+    marketing: consent.marketing,
   },
 })
 window.dispatchEvent(consentEvent)
@@ -237,12 +237,12 @@ Also add an event listener for opening cookie settings:
 ```typescript
 useEffect(() => {
   const handleOpenSettings = () => {
-setShowBanner(true)
+    setShowBanner(true)
   }
 
   window.addEventListener('openCookieSettings', handleOpenSettings)
   return () => {
-window.removeEventListener('openCookieSettings', handleOpenSettings)
+    window.removeEventListener('openCookieSettings', handleOpenSettings)
   }
 }, [])
 ```
@@ -403,97 +403,97 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Facebook Events Section', () => {
   test.beforeEach(async ({ page }) => {
-await page.goto('/')
+    await page.goto('/')
   })
 
   test('should show events section with heading', async ({ page }) => {
-// Scroll to events section
-await page.locator('#events').scrollIntoViewIfNeeded()
+    // Scroll to events section
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Verify section exists
-await expect(page.locator('#events')).toBeVisible()
+    // Verify section exists
+    await expect(page.locator('#events')).toBeVisible()
 
-// Verify heading
-const heading = page.locator('#events h1')
-await expect(heading).toBeVisible()
-await expect(heading).toContainText('Upcoming Events')
+    // Verify heading
+    const heading = page.locator('#events h1')
+    await expect(heading).toBeVisible()
+    await expect(heading).toContainText('Upcoming Events')
   })
 
   test('should show consent placeholder when cookies not accepted', async ({ page }) => {
-// If cookie banner appears, reject cookies
-const rejectButton = page.locator('button:has-text("Reject All")')
-if (await rejectButton.isVisible({ timeout: 2000 }).catch(() => false)) {
-await rejectButton.click()
-}
+    // If cookie banner appears, reject cookies
+    const rejectButton = page.locator('button:has-text("Reject All")')
+    if (await rejectButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await rejectButton.click()
+    }
 
-// Scroll to events section
-await page.locator('#events').scrollIntoViewIfNeeded()
+    // Scroll to events section
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Verify placeholder is shown
-await expect(page.locator('[data-testid="events-consent-required"]')).toBeVisible()
+    // Verify placeholder is shown
+    await expect(page.locator('[data-testid="events-consent-required"]')).toBeVisible()
 
-// Verify "Manage Cookie Preferences" button exists
-await expect(page.locator('button:has-text("Manage Cookie Preferences")')).toBeVisible()
+    // Verify "Manage Cookie Preferences" button exists
+    await expect(page.locator('button:has-text("Manage Cookie Preferences")')).toBeVisible()
   })
 
   test('should show Facebook widget after accepting cookies', async ({ page }) => {
-// Accept marketing cookies if banner appears
-const acceptButton = page.locator('button:has-text("Accept All")')
-if (await acceptButton.isVisible({ timeout: 2000 }).catch(() => false)) {
-await acceptButton.click()
-}
+    // Accept marketing cookies if banner appears
+    const acceptButton = page.locator('button:has-text("Accept All")')
+    if (await acceptButton.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await acceptButton.click()
+    }
 
-// Scroll to events section
-await page.locator('#events').scrollIntoViewIfNeeded()
+    // Scroll to events section
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Wait for Facebook widget to load (may take a few seconds)
-await page.waitForSelector('.fb-page', { timeout: 10000 })
+    // Wait for Facebook widget to load (may take a few seconds)
+    await page.waitForSelector('.fb-page', { timeout: 10000 })
 
-// Verify Facebook widget container is present
-await expect(page.locator('.fb-page')).toBeVisible()
+    // Verify Facebook widget container is present
+    await expect(page.locator('.fb-page')).toBeVisible()
   })
 
   test('should have link to Facebook page', async ({ page }) => {
-await page.locator('#events').scrollIntoViewIfNeeded()
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Find link to Facebook page
-const fbLink = page.locator('#events a[href*="facebook.com/freeforcharity"]').first()
-await expect(fbLink).toBeVisible()
+    // Find link to Facebook page
+    const fbLink = page.locator('#events a[href*="facebook.com/freeforcharity"]').first()
+    await expect(fbLink).toBeVisible()
 
-// Verify link opens in new tab
-await expect(fbLink).toHaveAttribute('target', '_blank')
-await expect(fbLink).toHaveAttribute('rel', /noopener/)
+    // Verify link opens in new tab
+    await expect(fbLink).toHaveAttribute('target', '_blank')
+    await expect(fbLink).toHaveAttribute('rel', /noopener/)
   })
 
   test('should be keyboard accessible', async ({ page }) => {
-await page.locator('#events').scrollIntoViewIfNeeded()
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Tab to events section link
-await page.keyboard.press('Tab')
+    // Tab to events section link
+    await page.keyboard.press('Tab')
 
-// Check if any element within events section can receive focus
-const focusedElement = page.locator('#events :focus')
-const isEventsSectionFocused = await focusedElement.count().then((count) => count > 0)
+    // Check if any element within events section can receive focus
+    const focusedElement = page.locator('#events :focus')
+    const isEventsSectionFocused = await focusedElement.count().then((count) => count > 0)
 
-// This is informational - keyboard accessibility should be manually verified
-console.log('Events section keyboard accessible:', isEventsSectionFocused)
+    // This is informational - keyboard accessibility should be manually verified
+    console.log('Events section keyboard accessible:', isEventsSectionFocused)
   })
 
   test('should maintain section ID for navigation', async ({ page }) => {
-// Navigate directly to events section via hash
-await page.goto('/#events')
+    // Navigate directly to events section via hash
+    await page.goto('/#events')
 
-// Verify we're at the events section
-const eventsSection = page.locator('#events')
-await expect(eventsSection).toBeVisible()
+    // Verify we're at the events section
+    const eventsSection = page.locator('#events')
+    await expect(eventsSection).toBeVisible()
 
-// Verify the section is scrolled into view
-const isInViewport = await eventsSection.evaluate((el) => {
-const rect = el.getBoundingClientRect()
-return rect.top >= 0 && rect.top < window.innerHeight
-})
+    // Verify the section is scrolled into view
+    const isInViewport = await eventsSection.evaluate((el) => {
+      const rect = el.getBoundingClientRect()
+      return rect.top >= 0 && rect.top < window.innerHeight
+    })
 
-expect(isInViewport).toBe(true)
+    expect(isInViewport).toBe(true)
   })
 })
 ```
@@ -717,12 +717,12 @@ interface FacebookEvent {
   start_time: string
   end_time?: string
   place?: {
-name: string
-location?: {
-city: string
-state: string
-street: string
-}
+    name: string
+    location?: {
+      city: string
+      state: string
+      street: string
+    }
   }
 }
 
@@ -731,30 +731,30 @@ export async function fetchFacebookEvents(): Promise<FacebookEvent[]> {
   const accessToken = process.env.FACEBOOK_ACCESS_TOKEN
 
   if (!pageId || !accessToken) {
-console.error('Facebook credentials not configured')
-return []
+    console.error('Facebook credentials not configured')
+    return []
   }
 
   try {
-const response = await fetch(
-`https://graph.facebook.com/v19.0/${pageId}/events?` +
-`fields=name,description,start_time,end_time,place&` +
-`time_filter=upcoming&` +
-`access_token=${accessToken}`,
-{
-next: { revalidate: 3600 }, // Cache for 1 hour
-}
-)
+    const response = await fetch(
+      `https://graph.facebook.com/v19.0/${pageId}/events?` +
+        `fields=name,description,start_time,end_time,place&` +
+        `time_filter=upcoming&` +
+        `access_token=${accessToken}`,
+      {
+        next: { revalidate: 3600 }, // Cache for 1 hour
+      }
+    )
 
-if (!response.ok) {
-throw new Error(`Facebook API error: ${response.status}`)
-}
+    if (!response.ok) {
+      throw new Error(`Facebook API error: ${response.status}`)
+    }
 
-const data = await response.json()
-return data.data || []
+    const data = await response.json()
+    return data.data || []
   } catch (error) {
-console.error('Error fetching Facebook events:', error)
-return []
+    console.error('Error fetching Facebook events:', error)
+    return []
   }
 }
 ```
@@ -1143,4 +1143,3 @@ Set up monitoring for:
 **Estimated Implementation Time:** 4-6 hours (Phase 1), 16-20 hours (Phase 2)
 
 **Next Steps:** Begin with Phase 1 implementation following steps 1-10 above
-

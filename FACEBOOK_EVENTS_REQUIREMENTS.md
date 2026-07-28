@@ -97,21 +97,21 @@ Facebook uses different URL formats for events:
 ```json
 {
   "data": [
-{
-"id": "123456789",
-"name": "Volunteer Training Workshop",
-"start_time": "2024-12-15T18:00:00-0500",
-"end_time": "2024-12-15T20:00:00-0500",
-"description": "Join us for a hands-on training...",
-"place": {
-"name": "Free For Charity Office",
-"location": {
-"city": "State College",
-"state": "PA",
-"street": "301 Science Park Road"
-}
-}
-}
+    {
+      "id": "123456789",
+      "name": "Volunteer Training Workshop",
+      "start_time": "2024-12-15T18:00:00-0500",
+      "end_time": "2024-12-15T20:00:00-0500",
+      "description": "Join us for a hands-on training...",
+      "place": {
+        "name": "Free For Charity Office",
+        "location": {
+          "city": "State College",
+          "state": "PA",
+          "street": "301 Science Park Road"
+        }
+      }
+    }
   ]
 }
 ```
@@ -410,13 +410,13 @@ When user has not consented to marketing cookies:
 <div className="text-center py-12 px-6 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
   <h3 className="text-2xl font-semibold mb-4">Upcoming Events</h3>
   <p className="text-lg text-gray-600 mb-6">
-To view our upcoming Facebook events, please accept marketing and social media cookies.
+    To view our upcoming Facebook events, please accept marketing and social media cookies.
   </p>
   <button
-onClick={openCookieSettings}
-className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition-colors"
+    onClick={openCookieSettings}
+    className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600 transition-colors"
   >
-Manage Cookie Preferences
+    Manage Cookie Preferences
   </button>
 </div>
 ```
@@ -518,67 +518,67 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Facebook Events Section', () => {
   test.beforeEach(async ({ page }) => {
-await page.goto('/')
+    await page.goto('/')
   })
 
   test('should show events section with heading', async ({ page }) => {
-// Scroll to events section
-await page.locator('#events').scrollIntoViewIfNeeded()
+    // Scroll to events section
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Verify section exists
-await expect(page.locator('#events')).toBeVisible()
+    // Verify section exists
+    await expect(page.locator('#events')).toBeVisible()
 
-// Verify heading
-await expect(page.locator('#events h1, #events h2')).toBeVisible()
+    // Verify heading
+    await expect(page.locator('#events h1, #events h2')).toBeVisible()
   })
 
   test('should show consent placeholder when cookies not accepted', async ({ page }) => {
-// Reject cookies first
-await page.locator('[data-testid="cookie-reject"]').click()
+    // Reject cookies first
+    await page.locator('[data-testid="cookie-reject"]').click()
 
-// Scroll to events section
-await page.locator('#events').scrollIntoViewIfNeeded()
+    // Scroll to events section
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Verify placeholder is shown
-await expect(page.locator('#events [data-testid="events-consent-required"]')).toBeVisible()
+    // Verify placeholder is shown
+    await expect(page.locator('#events [data-testid="events-consent-required"]')).toBeVisible()
   })
 
   test('should load Facebook widget after accepting cookies', async ({ page }) => {
-// Accept marketing cookies
-await page.locator('[data-testid="cookie-accept"]').click()
+    // Accept marketing cookies
+    await page.locator('[data-testid="cookie-accept"]').click()
 
-// Scroll to events section
-await page.locator('#events').scrollIntoViewIfNeeded()
+    // Scroll to events section
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Wait for Facebook SDK to load
-await page.waitForSelector('.fb-page iframe', { timeout: 10000 })
+    // Wait for Facebook SDK to load
+    await page.waitForSelector('.fb-page iframe', { timeout: 10000 })
 
-// Verify Facebook iframe is present
-await expect(page.locator('.fb-page iframe')).toBeVisible()
+    // Verify Facebook iframe is present
+    await expect(page.locator('.fb-page iframe')).toBeVisible()
   })
 
   test('should be accessible', async ({ page }) => {
-await page.locator('#events').scrollIntoViewIfNeeded()
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Check for proper heading hierarchy
-const heading = page.locator('#events h1, #events h2')
-await expect(heading).toBeVisible()
+    // Check for proper heading hierarchy
+    const heading = page.locator('#events h1, #events h2')
+    await expect(heading).toBeVisible()
 
-// Verify section has accessible name
-const section = page.locator('#events')
-await expect(section).toHaveAttribute('id', 'events')
+    // Verify section has accessible name
+    const section = page.locator('#events')
+    await expect(section).toHaveAttribute('id', 'events')
   })
 
   test('should link to Facebook page', async ({ page }) => {
-await page.locator('#events').scrollIntoViewIfNeeded()
+    await page.locator('#events').scrollIntoViewIfNeeded()
 
-// Find link to Facebook page
-const fbLink = page.locator('#events a[href*="facebook.com/freeforcharity"]')
-await expect(fbLink).toBeVisible()
+    // Find link to Facebook page
+    const fbLink = page.locator('#events a[href*="facebook.com/freeforcharity"]')
+    await expect(fbLink).toBeVisible()
 
-// Verify link opens in new tab
-await expect(fbLink).toHaveAttribute('target', '_blank')
-await expect(fbLink).toHaveAttribute('rel', /noopener/)
+    // Verify link opens in new tab
+    await expect(fbLink).toHaveAttribute('target', '_blank')
+    await expect(fbLink).toHaveAttribute('rel', /noopener/)
   })
 })
 ```
@@ -679,4 +679,3 @@ If scores drop significantly, investigate lazy loading or defer Facebook SDK loa
 **Last Reviewed By:** GitHub Copilot Agent
 
 **Next Review Date:** After implementation completion
-

@@ -139,4 +139,3 @@ For answers to common questions about this code of conduct, see the FAQ at
 ---
 
 **CNCF Alignment**: This Code of Conduct aligns with CNCF project standards and is compatible with the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md).
-
