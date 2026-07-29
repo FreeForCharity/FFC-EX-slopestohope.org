@@ -39,11 +39,15 @@ jobs:
           echo "skip=false" >> "$GITHUB_OUTPUT"
           echo "drift=false" >> "$GITHUB_OUTPUT"
 
-          # The Pages CONFIG is what GitHub actually serves; public/CNAME is
+          # The Pages CONFIG is what GitHub actually serves; the CNAME files are
           # only the build artifact's claim. Resolving from the API catches
           # repos whose file and binding have drifted apart.
           pages_cname=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.cname // ""' 2>/dev/null || echo "")
           pages_url=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.html_url // ""' 2>/dev/null || echo "")
+
+          # public/CNAME is the single source of truth: the Next static export
+          # copies public/ verbatim into out/, so out/CNAME - the file Pages
+          # actually serves - is this file.
           file_cname=""
           [ -f public/CNAME ] && file_cname=$(tr -d '[:space:]' < public/CNAME)
 
@@ -77,9 +81,10 @@ jobs:
           echo "Smoke target: $target (mode: $mode)"
 
       - name: Assert public/CNAME matches the Pages custom domain
-        # The Next build keys basePath/asset URLs off public/CNAME, so a file
-        # that disagrees with the actual Pages binding means the site was
-        # built for the WRONG host (broken assets/links at the real domain).
+        # The build keys basePath/asset URLs off public/CNAME and exports it as
+        # out/CNAME, so a file that disagrees with the actual Pages binding means
+        # the site was built for the WRONG host (broken assets/links at the real
+        # domain).
         if: steps.url.outputs.mode == 'apex' && steps.url.outputs.drift == 'true'
         run: |
           echo "::error::public/CNAME (${{ steps.url.outputs.file_cname }}) does not match the Pages custom domain (${{ steps.url.outputs.pages_cname }})."

@@ -474,4 +474,3 @@ clarkemoyer@freeforcharity.org
 Your trust matters to us, and we are committed to protecting your personal information
 and using it responsibly.
 </p>
-

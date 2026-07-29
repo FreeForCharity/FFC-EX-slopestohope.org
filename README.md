@@ -74,19 +74,23 @@ docs-backup/                    # Archived documentation
 ### Setup and Run
 
 1. **Install dependencies:**
+
    ```bash
    bundle install
    ```
 
 2. **Build the site:**
+
    ```bash
    bundle exec jekyll build
    ```
 
 3. **Serve the site locally:**
+
    ```bash
    bundle exec jekyll serve
    ```
+
    Then visit http://localhost:4000
 
 4. **Serve with live reload:**
@@ -109,6 +113,7 @@ docs-backup/                    # Archived documentation
 ## Website Features
 
 ### Homepage Sections
+
 - **Hero Section** - Welcome message with call-to-action buttons
 - **Mission Section** - Mission statement with video
 - **Results 2023** - Impact numbers with animated counters
@@ -120,6 +125,7 @@ docs-backup/                    # Archived documentation
 - **Team Section** - Team member cards
 
 ### Navigation & Layout
+
 - **Sticky Header** - Navigation with mobile hamburger menu
 - **Mobile Menu** - Slide-out panel with overlay
 - **Footer** - Links, social media, contact info
@@ -127,7 +133,9 @@ docs-backup/                    # Archived documentation
 - **Active Nav Highlighting** - Based on scroll position
 
 ### Policy Pages
+
 All legal and policy information is available on separate pages:
+
 - Privacy Policy
 - Cookie Policy
 - Terms of Service
@@ -200,6 +208,7 @@ This site uses Jekyll instead of plain HTML for several benefits:
 ## Migration Notes
 
 This site was previously a pure HTML static site. The Jekyll conversion maintains all functionality while adding:
+
 - Reusable templates
 - Better SEO
 - Easier content updates
@@ -224,6 +233,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 ## Contact
 
 For questions or support, please contact:
+
 - **Email**: clarkemoyer@freeforcharity.org
 - **Website**: https://freeforcharity.github.io/FFC-IN-Single_Page_Template_Jekell/
 
@@ -256,9 +266,11 @@ This repository follows **Cloud Native Computing Foundation (CNCF)** standards f
 ## Historical Context
 
 This repository has evolved through several technology stacks:
+
 1. **React/Next.js Application** → **Pure HTML/CSS/JavaScript** → **Jekyll Static Site**
 
 The Jekyll conversion maintains all functionality while adding benefits of a static site generator. For details on previous conversions:
+
 - [HTML Conversion Summary](./HTML_CONVERSION_SUMMARY.md)
 - [HTML Conversion Assessment](./HTML_CONVERSION_ASSESSMENT.md)
 - [HTML Conversion Verification](./HTML_CONVERSION_VERIFICATION.md)

@@ -34,6 +34,7 @@ Instead of full-page screenshots (slow, brittle), we test specific critical sect
 ### Test File: `tests/visual-regression.spec.ts`
 
 **10 Visual Regression Tests:**
+
 1. Hero Section - Mobile
 2. Hero Section - Desktop
 3. Navigation Header - Mobile
@@ -50,10 +51,11 @@ Instead of full-page screenshots (slow, brittle), we test specific critical sect
 ```typescript
 await expect(element).toHaveScreenshot('name.png', {
   maxDiffPixels: 100, // Allow minor rendering differences
-});
+})
 ```
 
 **Diff Tolerance:**
+
 - Header/Footer/Nav: 50 pixels (mostly static)
 - Hero/Programs: 100 pixels (may have dynamic content)
 
@@ -64,6 +66,7 @@ This prevents false positives from minor anti-aliasing or font rendering differe
 Location: `tests/visual-regression.spec.ts-snapshots/`
 
 **10 Baseline Images:**
+
 - `hero-mobile-chromium-linux.png`
 - `hero-desktop-chromium-linux.png`
 - `header-mobile-chromium-linux.png`
@@ -80,10 +83,12 @@ Location: `tests/visual-regression.spec.ts-snapshots/`
 ### New Workflow: `.github/workflows/test.yml`
 
 **Triggers:**
+
 - Push to main
 - Pull requests to main
 
 **Steps:**
+
 1. Checkout code
 2. Setup Node.js 20 with npm cache
 3. Install dependencies (`npm ci`)
@@ -96,12 +101,13 @@ Location: `tests/visual-regression.spec.ts-snapshots/`
 ### Updated Deploy Workflow
 
 Deploy now waits for BOTH:
+
 - Test & Visual Regression workflow
 - CodeQL Advanced workflow
 
 ```yaml
 workflow_run:
-  workflows: ["Test & Visual Regression", "CodeQL Advanced"]
+  workflows: ['Test & Visual Regression', 'CodeQL Advanced']
   types: [completed]
   branches: ['main']
 ```
@@ -131,11 +137,13 @@ Push to Main
 ## Performance Metrics
 
 ### Test Execution Time
+
 - **Visual Regression Tests Only**: ~9 seconds
 - **All Playwright Tests**: ~30-40 seconds
 - **Full CI Pipeline**: ~4-6 minutes (including CodeQL)
 
 ### Comparison to Alternatives
+
 - **Full Page Screenshots**: 30-60 seconds per test
 - **Section Screenshots**: 1-2 seconds per test ✅
 - **Our Approach**: 10 tests in ~9 seconds ✅
@@ -143,6 +151,7 @@ Push to Main
 ## What Gets Caught
 
 ### Visual Breaking Changes Detected:
+
 ✅ Hero image not loading
 ✅ Navigation menu rendering incorrectly
 ✅ Grid layouts breaking (wrong column count)
@@ -151,6 +160,7 @@ Push to Main
 ✅ Logo/branding changes
 
 ### False Positives Avoided:
+
 ❌ Minor font anti-aliasing differences
 ❌ Small color rendering variations
 ❌ Dynamic content changes (with 100px tolerance)
@@ -175,6 +185,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 **Cause:** Different rendering between environments
 
 **Solution:**
+
 1. Check diff images in CI artifacts
 2. If change is acceptable, update baseline in CI
 3. Download new baseline and commit
@@ -184,6 +195,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 **Cause:** Testing too many elements or full pages
 
 **Solution:**
+
 - Focus on critical sections only
 - Use element selectors, not full page screenshots
 - Test fewer viewport sizes
@@ -193,6 +205,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 **Cause:** maxDiffPixels tolerance too low
 
 **Solution:**
+
 - Increase `maxDiffPixels` for dynamic sections
 - Use higher tolerance for content areas
 - Use lower tolerance for static UI chrome
@@ -200,6 +213,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 ## Best Practices
 
 ### ✅ DO
+
 - Test critical user-facing sections
 - Use appropriate diff tolerance
 - Update baselines when making intentional changes
@@ -207,6 +221,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 - Focus on layout and structure, not content
 
 ### ❌ DON'T
+
 - Screenshot entire pages (too slow, too brittle)
 - Test every viewport size (diminishing returns)
 - Use zero diff tolerance (causes false positives)
@@ -216,6 +231,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 ## Future Enhancements
 
 ### Potential Improvements:
+
 1. Add tests for other key pages (about, contact)
 2. Test dark mode if implemented
 3. Add cross-browser testing (Firefox, Safari)
@@ -223,6 +239,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 5. Add performance budgets to tests
 
 ### Not Recommended:
+
 - Full page screenshots (too slow)
 - Pixel-perfect matching (too brittle)
 - Testing every breakpoint (diminishing returns)
@@ -231,6 +248,7 @@ npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-s
 ## Conclusion
 
 The visual regression testing implementation provides:
+
 - **Fast CI**: ~4-6 minutes total
 - **High Coverage**: Critical homepage sections
 - **Reliable**: Tolerances prevent false positives

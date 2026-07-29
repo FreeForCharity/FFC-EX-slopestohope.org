@@ -1,9 +1,11 @@
 # CICD Workflow Sequence Fix - Summary
 
 ## Issue
+
 The CICD workflows were running out of order on push to main branch, with no logical sequence to protect the branch from errors.
 
 ### Problems Identified
+
 1. **Parallel Execution**: CodeQL and Deploy workflows ran simultaneously when code was pushed
 2. **No Security Gate**: Deployment could complete before security scanning finished
 3. **Race Condition**: No guarantee that security checks passed before deployment
@@ -12,9 +14,11 @@ The CICD workflows were running out of order on push to main branch, with no log
 ## Solution
 
 ### Changes Made
+
 Modified `.github/workflows/deploy.yml` to implement a sequential workflow:
 
 **Before:**
+
 ```yaml
 on:
   push:
@@ -23,10 +27,11 @@ on:
 ```
 
 **After:**
+
 ```yaml
 on:
   workflow_run:
-    workflows: ["CodeQL Advanced"]
+    workflows: ['CodeQL Advanced']
     types:
       - completed
     branches: ['main']
@@ -38,7 +43,7 @@ on:
 1. **Sequential Execution**
    - Deploy workflow now triggers AFTER CodeQL completes
    - Uses `workflow_run` event instead of `push` event
-   
+
 2. **Conditional Deployment**
    - Added check: `if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'`
    - Deploy only proceeds if CodeQL succeeded
@@ -54,21 +59,25 @@ on:
 ## Benefits
 
 ### ✅ Security First
+
 - All code is scanned for vulnerabilities before deployment
 - Vulnerable code cannot reach production
 - Security failures block deployment automatically
 
 ### ✅ Logical Sequence
+
 - Workflows execute in a predictable order
-- No race conditions or parallel execution issues  
+- No race conditions or parallel execution issues
 - Clear dependency chain: Security → Deployment
 
 ### ✅ Main Branch Protection
+
 - Code pushed to main must pass security checks
 - Failed security scans prevent deployment
 - Production site protected from errors
 
 ### ✅ Flexibility Maintained
+
 - Manual deployment option preserved for emergencies
 - workflow_dispatch bypasses security check when needed
 - Individual workflows can be re-run if needed
@@ -95,6 +104,7 @@ on:
 ## Documentation
 
 Created comprehensive workflow documentation:
+
 - `.github/workflows/README.md` - Complete guide to workflows
 - Workflow sequence diagram
 - Troubleshooting guide
@@ -110,16 +120,19 @@ Created comprehensive workflow documentation:
 ## Impact
 
 ### Developer Experience
+
 - No changes to day-to-day workflow
 - Push code → automatic security check → automatic deployment (if clean)
 - Clearer feedback if security issues are found
 
 ### Security Posture
+
 - ✅ Significantly improved
 - All deployments now gated by security scanning
 - Reduced risk of vulnerable code in production
 
 ### Deployment Time
+
 - Minimal impact (~1-2 minutes added for CodeQL)
 - Total time from push to deployment: ~2-3 minutes
 - Acceptable tradeoff for security benefits
@@ -129,6 +142,7 @@ Created comprehensive workflow documentation:
 If issues arise, rollback is simple:
 
 1. Revert `.github/workflows/deploy.yml` to previous version:
+
    ```yaml
    on:
      push:
@@ -144,6 +158,6 @@ If issues arise, rollback is simple:
 
 The CICD workflow sequence has been fixed to follow a logical, secure order:
 
-**CodeQL → Deploy** 
+**CodeQL → Deploy**
 
 This ensures the main branch is protected from errors and vulnerable code cannot be deployed to production. The fix is minimal, non-breaking, and maintains flexibility for emergency deployments while significantly improving security posture.

@@ -21,3 +21,8 @@ vendor/
 _site/
 .jekyll-cache/
 .sass-cache/
+
+# Next.js
+.next/
+out/
+next-env.d.ts

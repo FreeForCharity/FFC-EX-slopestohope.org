@@ -234,4 +234,3 @@ Your work helps nonprofits reduce operating costs and focus more resources on th
 
 **Last Updated**: December 13, 2025  
 **Maintained By**: Free For Charity Maintainers
-

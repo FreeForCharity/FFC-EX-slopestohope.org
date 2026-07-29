@@ -9,6 +9,7 @@ All broken links have been fixed in the repository. The issue was caused by Goog
 **Total:** 15 broken links (all returning 404 errors)
 
 All broken links were from Google Tag Manager placeholder URLs:
+
 ```
 [404] https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX
 ```
@@ -31,11 +32,12 @@ Both requests resulted in 404 errors because `GTM-XXXXXXX` is not a valid Google
 **Action:** Commented out both GTM code blocks while preserving them for future use
 
 ### Before:
+
 ```html
 <!-- Google Tag Manager -->
 <script>
   ;(function (w, d, s, l, i) {
-// ... GTM initialization code ...
+    // ... GTM initialization code ...
   })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX')
 </script>
 
@@ -46,6 +48,7 @@ Both requests resulted in 404 errors because `GTM-XXXXXXX` is not a valid Google
 ```
 
 ### After:
+
 ```html
 <!-- Google Tag Manager (Disabled - Replace GTM-XXXXXXX with actual ID to enable) -->
 <!-- GTM Script Disabled
@@ -89,29 +92,33 @@ To enable Google Tag Manager tracking on the site:
 3. Uncomment the GTM code blocks in `html-site/index.html`
 
 **Example:**
+
 ```html
 <!-- Google Tag Manager -->
 <script>
   ;(function (w, d, s, l, i) {
-// ... GTM initialization code ...
-  })(window, document, 'script', 'dataLayer', 'GTM-ABC1234')  // Replace with real ID
+    // ... GTM initialization code ...
+  })(window, document, 'script', 'dataLayer', 'GTM-ABC1234') // Replace with real ID
 </script>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ABC1234"></iframe>  // Replace with real ID
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ABC1234"></iframe> // Replace with
+  real ID
 </noscript>
 ```
 
 ## Impact
 
 **Positive:**
+
 - ✅ No more 404 errors from GTM placeholder
 - ✅ Cleaner link validation in CI/CD
 - ✅ Code preserved for future GTM implementation
 - ✅ Clear instructions for enabling GTM when ready
 
 **No Negative Impact:**
+
 - Site functionality unchanged (GTM is optional tracking code)
 - No visual changes
 - No performance impact
@@ -120,4 +127,3 @@ To enable Google Tag Manager tracking on the site:
 ## Related Files Modified
 
 - `html-site/index.html` - Commented out GTM code blocks
-

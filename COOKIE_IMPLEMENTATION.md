@@ -20,15 +20,15 @@ Added `loadMicrosoftClarity()` function that:
 function loadMicrosoftClarity() {
   const CLARITY_PROJECT_ID = 'XXXXXXXXXX' // Replace with actual ID
   if (!document.querySelector('script[src*="clarity.ms"]')) {
-const clarityScript = document.createElement('script')
-clarityScript.textContent = `
+    const clarityScript = document.createElement('script')
+    clarityScript.textContent = `
 (function(c,l,a,r,i,t,y){
 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
 `
-document.head.appendChild(clarityScript)
+    document.head.appendChild(clarityScript)
   }
 }
 ```
@@ -49,16 +49,16 @@ Added `deleteAnalyticsCookies()` function that:
 function deleteAnalyticsCookies() {
   const cookiesToDelete = ['_ga', '_gid', '_fbp', 'fr', '_clck', '_clsk']
   cookiesToDelete.forEach((name) => {
-document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
   })
   // Also delete dynamically created _ga_* cookies
   document.cookie.split(';').forEach((cookie) => {
-const cookieName = cookie.split('=')[0].trim()
-if (cookieName.startsWith('_ga_')) {
-document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
-}
+    const cookieName = cookie.split('=')[0].trim()
+    if (cookieName.startsWith('_ga_')) {
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`
+    }
   })
 }
 ```
@@ -242,4 +242,3 @@ The HTML static site now has a complete, advanced cookie management system that 
 ✅ Improved JavaScript with better state management
 
 The system is ready for production use once tracking IDs are configured.
-

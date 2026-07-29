@@ -87,4 +87,3 @@ The following old application URLs have been removed:
 - `https://freeforcharity.org/hub/cart.php?a=confproduct&i=8` (Hosting)
 
 All now use a single unified application form.
-

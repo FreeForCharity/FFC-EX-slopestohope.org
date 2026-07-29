@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   # Run on push to main
   push:
-    branches: ["main"]
+    branches: ['main']
 
   # Allows manual deployment from Actions tab
   workflow_dispatch:
@@ -17,7 +17,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -28,14 +28,60 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
+        # `static_site_generator: next` is deliberately NOT set: it only reads
+        # next.config.js/.mjs, and would write its own next.config.js that Next
+        # then prefers over this repo's next.config.ts, silently discarding it.
+        # See FFC-Cloudflare-Automation#880.
+
+      - name: Restore Next.js cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine base path
+        id: basepath
+        # A custom-domain deploy serves from the origin root, so the base path
+        # must be empty; a bare github.io deploy serves from /<repo>. public/CNAME
+        # is the signal for which one this is.
+        run: |
+          if [ -s "public/CNAME" ]; then
+            echo "Using empty basePath (public/CNAME present: $(cat public/CNAME))"
+            echo "value=" >> "$GITHUB_OUTPUT"
+          else
+            REPO_NAME="${GITHUB_REPOSITORY#*/}"
+            echo "Using /$REPO_NAME basePath (no CNAME - github.io subpath deploy)"
+            echo "value=/$REPO_NAME" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build with Next.js
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.basepath.outputs.value }}
 
       - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
-          # Upload entire repository
-          path: .
+          # `out/` is the static export: Next copies public/ (the clone) into it.
+          path: ./out
+          # Dot-entries matter here - public/.nojekyll must reach the artifact,
+          # or Pages runs the clone through Jekyll and drops _-prefixed paths.
+          # See FFC-Cloudflare-Automation#788.
+          include-hidden-files: true
 
   deploy:
     name: Deploy to GitHub Pages
@@ -48,7 +94,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Post-deploy smoke check
         env:
