@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "verify:clone": "node tools/verify-no-legacy.mjs",
+    "verify:paths": "node tools/lib/resolve-within.mjs",
     "audit:high": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {

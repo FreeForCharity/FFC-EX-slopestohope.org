@@ -23,6 +23,7 @@ import { readFile, writeFile, mkdir, access } from 'node:fs/promises'
 import { join, dirname, extname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
+import { resolveWithin } from './lib/resolve-within.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public')
 const ORIGIN = 'https://slopestohope.com'
@@ -82,8 +83,8 @@ function startServer() {
     try {
       let p = decodeURIComponent(req.url.split('?')[0])
       if (p.endsWith('/')) p += 'index.html'
-      const file = join(ROOT, p.replace(/^\/+/, ''))
-      if (!file.startsWith(ROOT)) {
+      const file = resolveWithin(ROOT, p)
+      if (!file) {
         res.writeHead(403).end()
         return
       }
@@ -180,7 +181,14 @@ async function main() {
     for (const miss of fresh) {
       seen.add(miss)
       const pathOnly = miss.split('?')[0]
-      const dest = join(ROOT, decodeURIComponent(pathOnly).replace(/^\/+/, ''))
+      // The path comes from a URL the cloned site's own JavaScript requested, so
+      // it is not trusted input. Never fetch-and-write one that escapes public/.
+      const dest = resolveWithin(ROOT, decodeURIComponent(pathOnly))
+      if (!dest) {
+        unavailable.push(`${pathOnly} (refused: escapes public/)`)
+        console.log(`   ! ${pathOnly} (refused: escapes public/)`)
+        continue
+      }
       if (await exists(dest)) continue
 
       try {

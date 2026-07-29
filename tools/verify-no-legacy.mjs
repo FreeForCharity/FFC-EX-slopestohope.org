@@ -24,6 +24,7 @@ import { existsSync } from 'node:fs'
 import { join, dirname, extname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
+import { resolveWithin } from './lib/resolve-within.mjs'
 
 // Verify the built static export, not the sources: `out/` is what actually
 // ships, and it is where public/ (the clone) plus anything Next generates are
@@ -100,8 +101,8 @@ function startServer() {
     try {
       let p = decodeURIComponent(req.url.split('?')[0])
       if (p.endsWith('/')) p += 'index.html'
-      const file = join(ROOT, p.replace(/^\/+/, ''))
-      if (!file.startsWith(ROOT)) {
+      const file = resolveWithin(ROOT, p)
+      if (!file) {
         res.writeHead(403).end()
         return
       }
