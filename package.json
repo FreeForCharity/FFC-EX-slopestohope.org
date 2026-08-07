@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "glob": "^13.0.1",
-    "jsdom": "^27.4.0"
+    "jsdom": "^29.0.1"
   }
 }
