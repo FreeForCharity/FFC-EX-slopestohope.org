@@ -196,13 +196,13 @@ Run the responsive comparison tests:
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Run responsive tests
-npx playwright test tests/responsive-comparison.spec.ts
+pnpm exec playwright test tests/responsive-comparison.spec.ts
 
 # View detailed results
-npx playwright show-report
+pnpm exec playwright show-report
 ```
 
 ## Files Reference

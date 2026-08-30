@@ -478,7 +478,7 @@ Manage Cookie Preferences
 
 3. **Build Process**
    - No changes to existing build process
-   - No impact on `npm run build` timing
+   - No impact on `pnpm run build` timing
    - Works with GitHub Pages deployment
 
 ### SEO Considerations
@@ -604,10 +604,10 @@ await expect(fbLink).toHaveAttribute('rel', /noopener/)
 Run Lighthouse before and after implementation:
 
 ```bash
-npm run build
-npm run preview
+pnpm run build
+pnpm run preview
 # In another terminal
-npm run lighthouse
+pnpm run lighthouse
 ```
 
 **Acceptance Criteria:**
