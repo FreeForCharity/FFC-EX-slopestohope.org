@@ -110,7 +110,7 @@ This document provides a comprehensive assessment of the React to HTML conversio
 | `mission-video.spec.ts`      | ✅ Yes          | Should work        | Mission video test               |
 | `social-links.spec.ts`       | ✅ Yes          | Should work        | Footer social links test         |
 
-**Note:** Tests are already configured to run against HTML site via `npm run preview`
+**Note:** Tests are already configured to run against HTML site via `pnpm run preview`
 
 ### 3. Documentation Gaps
 
@@ -153,8 +153,8 @@ This document provides a comprehensive assessment of the React to HTML conversio
 
 #### Task 2.1: Run All Tests Against HTML Site
 
-- [ ] Build HTML site: `npm run build`
-- [ ] Run all tests: `npm test`
+- [ ] Build HTML site: `pnpm run build`
+- [ ] Run all tests: `pnpm test`
 - [ ] Document any failures
 - [ ] Fix HTML issues or update tests as needed
 

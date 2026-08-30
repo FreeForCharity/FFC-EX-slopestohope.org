@@ -2,5 +2,14 @@
   "dependencies": {
     "glob": "^13.0.1",
     "jsdom": "^27.4.0"
+  },
+  "packageManager": "pnpm@10.34.5",
+  "pnpm": {
+    "overrides": {
+      "nanoid@<3.3.18": "^3.3.18",
+      "sharp": "^0.35.3",
+      "minimatch@>=10.0.0 <10.2.3": "^10.2.3",
+      "ws@>=8.0.0 <8.21.0": "^8.21.0"
+    }
   }
 }

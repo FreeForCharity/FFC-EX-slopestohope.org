@@ -173,13 +173,13 @@ The repository includes Playwright end-to-end tests:
 
 ```bash
 # Run tests (after building the site)
-npm test
+pnpm test
 
 # Run tests in headed mode
-npm run test:headed
+pnpm run test:headed
 
 # Run tests with UI
-npm run test:ui
+pnpm run test:ui
 ```
 
 ---

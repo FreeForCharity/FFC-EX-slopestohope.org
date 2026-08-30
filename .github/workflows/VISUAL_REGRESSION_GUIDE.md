@@ -86,7 +86,7 @@ Location: `tests/visual-regression.spec.ts-snapshots/`
 **Steps:**
 1. Checkout code
 2. Setup Node.js 20 with npm cache
-3. Install dependencies (`npm ci`)
+3. Install dependencies (`pnpm install --frozen-lockfile`)
 4. Install Playwright Chromium browser
 5. Run all Playwright tests (including visual regression)
 6. Upload test reports on failure
@@ -162,10 +162,10 @@ When intentional visual changes are made:
 
 ```bash
 # Update all baselines
-npm run test -- visual-regression.spec.ts --update-snapshots
+pnpm run test -- visual-regression.spec.ts --update-snapshots
 
 # Update specific test baseline
-npm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-snapshots
+pnpm run test -- visual-regression.spec.ts -g "Hero Section - Desktop" --update-snapshots
 ```
 
 ## Troubleshooting

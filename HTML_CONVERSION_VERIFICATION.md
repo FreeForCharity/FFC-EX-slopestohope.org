@@ -360,7 +360,7 @@ Policies (all 7 links) ✅ Copyright notice ✅ Contact information
 
 ### What Has Been Tested
 
-✅ **Local Server:** HTML site served successfully on `http://localhost:3000` using `npx serve`  
+✅ **Local Server:** HTML site served successfully on `http://localhost:3000` using `pnpm exec serve`  
 ✅ **HTML Structure:** Valid HTML5 structure verified  
 ✅ **Section Rendering:** All 11 sections render correctly  
 ✅ **Responsive Design:** Tested desktop and mobile layouts  
