@@ -17,12 +17,11 @@ The four removed routes had no inbound links from another captured page. No Give
 - `migration/inventory.json` and `migration/local-browser-audit.json` retain the original shortcode text as source-capture evidence. They are not published.
 - Older repository-root HTML files contain GiveWP CSS variables and selectors. They are outside `public/`, are not copied into `out/`, and are retained because deleting unrelated historical files is unnecessary for this focused cleanup.
 
-## Policy content awaiting an owner decision
+## Policy content
 
 No policy content was changed.
 
-- `/privacy-policy-2/` is a published title-only shell with no policy body.
-- `/terms-of-service-2/` is a published title-only shell with no terms body.
+- `/privacy-policy-2/` and `/terms-of-service-2/` were title-only shells. Drew later approved deleting those two migration routes, and they are no longer published.
 - `privacy-policy.md` and `cookie-policy.md` contain Free For Charity template language, including Free For Charity identity, data practices, and URLs; they are not published by this build.
 - `terms-of-service.md` contains only Free For Charity front matter and no terms body; it is not published by this build.
 - `free-for-charity-donation-policy.md` is a Free For Charity donation-acceptance policy covering cash, securities, real estate, personal property, in-kind contributions, acknowledgments, confidentiality, and board review. It is not a Slopes to Hope policy and is not published by this build.

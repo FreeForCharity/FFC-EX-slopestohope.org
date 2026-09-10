@@ -1,13 +1,15 @@
 {
-  "testedAt": "2026-09-10T21:32:37.387Z",
-  "routes": 31,
+  "testedAt": "2026-09-10T21:43:46.358Z",
+  "routes": 29,
   "excludedRoutes": [
     "/tag/community-across-america/",
     "/tag/caa/",
     "/donation-confirmation/",
     "/donation-failed/",
     "/donor-dashboard/",
-    "/test-donate/"
+    "/test-donate/",
+    "/privacy-policy-2/",
+    "/terms-of-service-2/"
   ],
   "issues": [],
   "knownSourceBrokenLinks": [

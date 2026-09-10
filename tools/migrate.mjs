@@ -8,7 +8,7 @@ export const SOURCE = 'https://slopestohope.com';
 export const ROOT = resolve('public');
 const CACHE = resolve('.migration-cache/source');
 const offline = process.argv.includes('--offline');
-const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.'] };
+const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.', 'Exclude the owner-approved title-only privacy-policy-2 and terms-of-service-2 shells.'] };
 const queue = new Set(), visited = new Set();
 const sha = b => createHash('sha256').update(b).digest('hex');
 export function within(root, path) {
