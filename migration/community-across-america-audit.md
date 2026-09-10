@@ -11,7 +11,7 @@ This audit covers the captured static site on `website-migration-2026-09`. Commu
 ### Visibly incorrect legacy content
 
 - `/faq/` contained Community Across America questions, answers, Community Points copy, volunteer-program copy, and an embedded Community Across America presentation. The legacy sections and embed were removed. The page now directs Slopes to Hope questions to `/contact-us/` without inventing replacement program details.
-- `/tag/community-across-america/` was an empty WordPress tag archive whose title and heading exposed the old name. It is excluded from validation, the generated sitemap, browser audits, and the published output.
+- `/tag/community-across-america/` and `/tag/caa/` were empty, unlinked WordPress tag archives whose titles and headings exposed the old name and its identifier. They are excluded from validation, the generated sitemap, browser audits, and the published output.
 
 ### Harmless unused legacy material retained
 
@@ -24,11 +24,11 @@ This audit covers the captured static site on `website-migration-2026-09`. Commu
 
 ## Published-output requirement
 
-`tools/validate.mjs` scans generated HTML, CSS, JavaScript, and JSON for the legacy name, domain, common identifier variants, Community Points, and the removed presentation ID. Any recurrence fails the build.
+`tools/validate.mjs` scans generated HTML, CSS, JavaScript, and JSON for the legacy name, domain, common identifier variants including `CAA`, Community Points, and the removed presentation ID. Any recurrence fails the build.
 
 ## Verification
 
-- Static validation passed for all 36 publishable routes and confirmed the legacy tag archive is excluded.
+- Static validation passed for all 35 publishable routes and confirmed both legacy tag archives are excluded.
 - The generated `out/` tree and sitemap contain no matching legacy names, URLs, identifiers, presentation ID, or tag route.
 - Browser checks covered all 13 routes that use the rewritten stylesheets at 1440 px and 390 px. They found no legacy requests, missing local assets, JavaScript errors, horizontal overflow, or broken local images. Two unchanged homepage images supplied by GuideStar and Instagram were unavailable to the headless browser.
 - A focused regression passed at both widths for the sanitized FAQ, its Contact link, local asset loading, legacy-domain blocking, and overflow. The mobile run also passed menu open, Partners visibility, and menu close behavior.

@@ -1,8 +1,9 @@
 {
-  "testedAt": "2026-09-10T21:07:47.042Z",
-  "routes": 36,
+  "testedAt": "2026-09-10T21:23:33.418Z",
+  "routes": 35,
   "excludedLegacyRoutes": [
-    "/tag/community-across-america/"
+    "/tag/community-across-america/",
+    "/tag/caa/"
   ],
   "issues": [],
   "knownSourceBrokenLinks": [

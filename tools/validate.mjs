@@ -38,7 +38,7 @@ for(const r of publishedRoutes){
   if(![...d.querySelectorAll('a[href]')].some(a=>a.href===l.url))issues.push({path:r.path,error:'External destination changed',url:l.url});
  }
 }
-const legacyPattern=/community\s*across\s*america|communityacrossamerica|community[_-]?across[_-]?america|acrossamerica|community points|6413b7253c4a550011b7dd9a/i;
+const legacyPattern=/community\s*across\s*america|communityacrossamerica|community[_-]?across[_-]?america|acrossamerica|\bcaa\b|community points|6413b7253c4a550011b7dd9a/i;
 for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
  const contents=await readFile(resolve(root,file),'utf8');
  if(legacyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Community Across America legacy reference in published output'});

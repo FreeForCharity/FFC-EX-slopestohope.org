@@ -1,4 +1,4 @@
-export const EXCLUDED_LEGACY_ROUTES = new Set(['/tag/community-across-america/']);
+export const EXCLUDED_LEGACY_ROUTES = new Set(['/tag/community-across-america/', '/tag/caa/']);
 
 export function sanitizeLegacyContent(document, pathname) {
   if (pathname !== '/faq/') return;

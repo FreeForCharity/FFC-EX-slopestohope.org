@@ -25,7 +25,7 @@ The machine-readable source inventory is in `inventory.json`. It includes source
 - Static validation: all 37 routes preserve captured titles and visible wording; all mapped internal links and local assets resolve; intentional external destinations match the capture; no `.com` asset/page runtime URLs remain.
 - Full browser audit: the original 37-route source capture at 1440 px and 390 px had no missing local requests, `.com` runtime requests, JavaScript errors, or horizontal overflow. The initial Team portrait lazy-load finding was fixed and passed a focused browser regression at both widths.
 - Interaction audit: desktop and mobile newsletter anchors and invalid-email handling, donation and pledge destinations, Gallery lightbox open/next/Escape behavior, Contact form fields and required-field validation, and mobile menu open/navigate/reopen/close behavior pass.
-- Build: the validated static export contains 36 publishable captured routes, generated `robots.txt` and `sitemap.xml`, and the `/staff/` redirect. The empty Community Across America tag archive is excluded.
+- Build: the validated static export contains 35 publishable captured routes, generated `robots.txt` and `sitemap.xml`, and the `/staff/` redirect. The empty Community Across America tag archives are excluded.
 
 No form, donation, CRM, analytics, or email write was sent during testing. HubSpot rendering and client-side validation are verified; end-to-end message delivery still requires an explicitly authorized controlled submission.
 
