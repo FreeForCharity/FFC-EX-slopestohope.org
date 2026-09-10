@@ -1,0 +1,10 @@
+import {cp,rm,readFile,writeFile,mkdir} from 'node:fs/promises';
+import {resolve,relative} from 'node:path';
+const root=resolve('.'),out=resolve('out');
+if(relative(root,out)!=='out')throw new Error('Invalid export directory');
+await rm(out,{recursive:true,force:true});
+await cp(resolve('public'),out,{recursive:true});
+const {routes}=JSON.parse(await readFile('migration/inventory.json'));
+await writeFile(resolve(out,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.map(r=>`<url><loc>https://slopestohope.org${r.path}</loc></url>`).join('')+'</urlset>\n');
+await writeFile(resolve(out,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://slopestohope.org/sitemap.xml\n');
+console.log(`Static export: ${routes.length} captured routes, plus /staff/ compatibility redirect, in out/`);

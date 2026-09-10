@@ -1,0 +1,141 @@
+{
+  "testedAt": "2026-09-10T20:42:17.335Z",
+  "base": "http://127.0.0.1:64785",
+  "results": [
+    {
+      "path": "/team/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Team – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          }
+        ],
+        "widgets": [
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default"
+        ]
+      },
+      "formFrames": []
+    },
+    {
+      "path": "/team/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Team – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          }
+        ],
+        "widgets": [
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default"
+        ]
+      },
+      "formFrames": []
+    }
+  ],
+  "mirrored": []
+}

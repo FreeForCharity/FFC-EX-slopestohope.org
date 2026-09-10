@@ -1,0 +1,23 @@
+/* Open-state rules from BuddyX assets/css/global.min.css, captured 2026-09-10.
+   LiteSpeed's unused-CSS output omitted these interactive states. */
+@media (max-width: 767px) {
+  .mobile-menu-opened .site-header-wrapper {
+    position: relative;
+    z-index: 20000;
+  }
+  .mobile-menu-opened .mobile-menu-close {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10000;
+  }
+  .mobile-menu-opened .primary-menu-container {
+    display: block;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10001;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: transform .3s ease;
+  }
+}
