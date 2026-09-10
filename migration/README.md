@@ -25,14 +25,15 @@ The machine-readable source inventory is in `inventory.json`. It includes source
 - Static validation: all 37 routes preserve captured titles and visible wording; all mapped internal links and local assets resolve; intentional external destinations match the capture; no `.com` asset/page runtime URLs remain.
 - Full browser audit: the original 37-route source capture at 1440 px and 390 px had no missing local requests, `.com` runtime requests, JavaScript errors, or horizontal overflow. The initial Team portrait lazy-load finding was fixed and passed a focused browser regression at both widths.
 - Interaction audit: desktop and mobile newsletter anchors and invalid-email handling, donation and pledge destinations, Gallery lightbox open/next/Escape behavior, Contact form fields and required-field validation, and mobile menu open/navigate/reopen/close behavior pass.
-- Build: the validated static export contains 35 publishable captured routes, generated `robots.txt` and `sitemap.xml`, and the `/staff/` redirect. The empty Community Across America tag archives are excluded.
+- Build: the validated static export contains 31 publishable captured routes, generated `robots.txt` and `sitemap.xml`, and the `/staff/` redirect. Empty Community Across America tag archives and four retired GiveWP workflow pages are excluded.
 
 No form, donation, CRM, analytics, or email write was sent during testing. HubSpot rendering and client-side validation are verified; end-to-end message delivery still requires an explicitly authorized controlled submission.
 
 ## Source-site findings preserved for review
 
 - The live navigation currently exposes two destinations that return 404: `/open-positions/` and `/donations/slopes-to-hope`. They are recorded as known source defects rather than silently changed.
-- Community Across America remnants were classified and sanitized under the later-approved legacy cleanup. See `migration/community-across-america-audit.md`. Some old donation utility pages still render inactive GiveWP shortcodes because they are unrelated to that predecessor site and remain a separate content decision.
+- Community Across America remnants were classified and sanitized under the later-approved legacy cleanup. See `migration/community-across-america-audit.md`.
+- GiveWP was retired by owner decision. Its orphaned workflow pages and shortcode output were removed, and the broken Donors call to action now uses Givebutter. See `migration/givewp-audit.md`.
 - The current newsletter form permits an empty email submission but rejects an invalid email format. This is HubSpot form configuration, not static-site behavior.
 - The existing repository smoke test checks `.org`, follows its intentional redirect to WordPress, and fails because the current live site lacks the policy-footer links and cookie-consent UI expected by the Free For Charity fleet check. That failure does not test this branch's local build.
 - Intentional third-party integrations remain network-dependent, including HubSpot, Givebutter, RallyUp, Google Maps/YouTube/analytics, Instagram, and Elementor's accessibility widget.

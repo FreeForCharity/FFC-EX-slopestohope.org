@@ -1,0 +1,41 @@
+{
+  "testedAt": "2026-09-10T21:33:04.232Z",
+  "siteRoot": "out",
+  "results": [
+    {
+      "width": 1440,
+      "passed": true,
+      "checks": {
+        "donorsGiveNowUsesGivebutter": true,
+        "homeGivebutterLinksPresent": true,
+        "rallyupLinkPresent": true,
+        "coloradoGivesLinkPresent": true,
+        "noLocalFailures": true,
+        "noScriptErrors": true
+      },
+      "missing": [],
+      "errors": []
+    },
+    {
+      "width": 390,
+      "passed": true,
+      "checks": {
+        "donorsGiveNowUsesGivebutter": true,
+        "homeGivebutterLinksPresent": true,
+        "rallyupLinkPresent": true,
+        "coloradoGivesLinkPresent": true,
+        "noLocalFailures": true,
+        "noScriptErrors": true
+      },
+      "missing": [],
+      "errors": []
+    }
+  ],
+  "removedRouteStatuses": {
+    "/donation-confirmation/": 404,
+    "/donation-failed/": 404,
+    "/donor-dashboard/": 404,
+    "/test-donate/": 404
+  },
+  "passed": true
+}

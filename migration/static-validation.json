@@ -1,9 +1,13 @@
 {
-  "testedAt": "2026-09-10T21:23:33.418Z",
-  "routes": 35,
-  "excludedLegacyRoutes": [
+  "testedAt": "2026-09-10T21:32:37.387Z",
+  "routes": 31,
+  "excludedRoutes": [
     "/tag/community-across-america/",
-    "/tag/caa/"
+    "/tag/caa/",
+    "/donation-confirmation/",
+    "/donation-failed/",
+    "/donor-dashboard/",
+    "/test-donate/"
   ],
   "issues": [],
   "knownSourceBrokenLinks": [

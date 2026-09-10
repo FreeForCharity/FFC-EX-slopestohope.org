@@ -3,10 +3,10 @@ import {readFile,access,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {glob} from 'glob';
 import {within} from './migrate.mjs';
-import {EXCLUDED_LEGACY_ROUTES} from './legacy-policy.mjs';
+import {EXCLUDED_ROUTES} from './legacy-policy.mjs';
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Set(['/open-positions/','/donations/slopes-to-hope']);
-const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_LEGACY_ROUTES.has(r.path));
+const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
 const routes=new Set(publishedRoutes.map(r=>r.path));routes.add('/staff/');
 const normalize=s=>s.replace(/\s+/g,' ').trim();
 for(const r of publishedRoutes){
@@ -39,10 +39,12 @@ for(const r of publishedRoutes){
  }
 }
 const legacyPattern=/community\s*across\s*america|communityacrossamerica|community[_-]?across[_-]?america|acrossamerica|\bcaa\b|community points|6413b7253c4a550011b7dd9a/i;
+const giveWpPattern=/givewp|\[give_(?:form|receipt)\b|\/donations\/slopes-to-hope|\/donation-(?:confirmation|failed)\/|\/donor-dashboard\/|\/test-donate\//i;
 for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
  const contents=await readFile(resolve(root,file),'utf8');
  if(legacyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Community Across America legacy reference in published output'});
+ if(giveWpPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'GiveWP legacy reference in published output'});
 }
-const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length,excludedLegacyRoutes:[...EXCLUDED_LEGACY_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
+const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');
 console.log(JSON.stringify(output,null,2));if(issues.length)process.exitCode=1;

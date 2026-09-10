@@ -2,13 +2,13 @@ import { JSDOM, VirtualConsole } from 'jsdom';
 import { mkdir, readFile, writeFile, stat, rm } from 'node:fs/promises';
 import { resolve, dirname, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
-import { EXCLUDED_LEGACY_ROUTES, sanitizeLegacyContent } from './legacy-policy.mjs';
+import { EXCLUDED_ROUTES, sanitizeGiveWpContent, sanitizeLegacyContent } from './legacy-policy.mjs';
 
 export const SOURCE = 'https://slopestohope.com';
 export const ROOT = resolve('public');
 const CACHE = resolve('.migration-cache/source');
 const offline = process.argv.includes('--offline');
-const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.'] };
+const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.'] };
 const queue = new Set(), visited = new Set();
 const sha = b => createHash('sha256').update(b).digest('hex');
 export function within(root, path) {
@@ -87,6 +87,7 @@ async function page(url) {
   // Absolute identity URLs must remain URLs, while navigation/assets are origin-relative.
   const final=dom(html,'https://slopestohope.org'+u.pathname).window.document;
   sanitizeLegacyContent(final, u.pathname);
+  sanitizeGiveWpContent(final, u.pathname);
   const compatCSS=final.createElement('link');compatCSS.rel='stylesheet';compatCSS.href='/assets/static-compat.css';final.head.append(compatCSS);
   const compatJS=final.createElement('script');compatJS.src='/assets/static-compat.js';final.body.append(compatJS);
   // Elementor also hides lightbox URLs inside base64 action settings. Plain
@@ -131,7 +132,7 @@ async function main(){
   }
   await save(resolve('migration/inventory.json'),JSON.stringify(report,null,2)+'\n');
   await save(resolve('public/.nojekyll'),'');
-  for (const route of EXCLUDED_LEGACY_ROUTES) await rm(within(ROOT,route),{recursive:true,force:true});
+  for (const route of EXCLUDED_ROUTES) await rm(within(ROOT,route),{recursive:true,force:true});
   await save(resolve('public/staff/index.html'),'<!doctype html><html lang="en"><meta charset="utf-8"><title>Team – Slopes to Hope</title><meta http-equiv="refresh" content="0;url=/team/"><link rel="canonical" href="https://slopestohope.org/team/"><a href="/team/">Team</a></html>');
   console.log(JSON.stringify({routes:report.routes.length,assets:report.assets.length,failures:report.failures},null,2));
 }
