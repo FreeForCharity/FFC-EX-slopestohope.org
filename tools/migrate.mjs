@@ -1,13 +1,14 @@
 import { JSDOM, VirtualConsole } from 'jsdom';
-import { mkdir, readFile, writeFile, stat } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, stat, rm } from 'node:fs/promises';
 import { resolve, dirname, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
+import { EXCLUDED_LEGACY_ROUTES, sanitizeLegacyContent } from './legacy-policy.mjs';
 
 export const SOURCE = 'https://slopestohope.com';
 export const ROOT = resolve('public');
 const CACHE = resolve('.migration-cache/source');
 const offline = process.argv.includes('--offline');
-const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.'] };
+const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.'] };
 const queue = new Set(), visited = new Set();
 const sha = b => createHash('sha256').update(b).digest('hex');
 export function within(root, path) {
@@ -30,10 +31,14 @@ const localHost = u => ['slopestohope.com','www.slopestohope.com'].includes(u.ho
 export function rewrite(text) {
   return text.replace(/https?:\/\/(?:www\.)?slopestohope\.com(?=[/"'\s<]|$)/g, '')
     .replace(/https?:\\\/\\\/(?:www\.)?slopestohope\.com/g, '')
-    .replace(/https?%3A%2F%2F(?:www\.)?slopestohope\.com/gi, 'https%3A%2F%2Fslopestohope.org');
+    .replace(/https?%3A%2F%2F(?:www\.)?slopestohope\.com/gi, 'https%3A%2F%2Fslopestohope.org')
+    .replace(/https?:\/\/(?:www\.)?communityacrossamerica\.com(?=\/wp-(?:content|includes)\/)/gi, '');
 }
 function assetUrl(value, base=SOURCE) {
-  try { const u=new URL(value,base); if(localHost(u)&&/^\/wp-(content|includes)\//.test(u.pathname)&&!u.pathname.endsWith('/')&&u.pathname!=='/wp-content/uploads') return u; } catch {}
+  try {
+    const u=new URL(value,base), legacyHost=['communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname);
+    if((localHost(u)||legacyHost)&&/^\/wp-(content|includes)\//.test(u.pathname)&&!u.pathname.endsWith('/')&&u.pathname!=='/wp-content/uploads') return legacyHost?new URL(u.pathname+u.search,SOURCE):u;
+  } catch {}
 }
 function enqueue(value,base) {const u=assetUrl(value,base); if(u) queue.add(u.pathname);}
 export function scan(text, base=SOURCE) {
@@ -81,6 +86,7 @@ async function page(url) {
   let html='<!DOCTYPE html>\n'+rewrite(normalized);
   // Absolute identity URLs must remain URLs, while navigation/assets are origin-relative.
   const final=dom(html,'https://slopestohope.org'+u.pathname).window.document;
+  sanitizeLegacyContent(final, u.pathname);
   const compatCSS=final.createElement('link');compatCSS.rel='stylesheet';compatCSS.href='/assets/static-compat.css';final.head.append(compatCSS);
   const compatJS=final.createElement('script');compatJS.src='/assets/static-compat.js';final.body.append(compatJS);
   // Elementor also hides lightbox URLs inside base64 action settings. Plain
@@ -125,6 +131,7 @@ async function main(){
   }
   await save(resolve('migration/inventory.json'),JSON.stringify(report,null,2)+'\n');
   await save(resolve('public/.nojekyll'),'');
+  for (const route of EXCLUDED_LEGACY_ROUTES) await rm(within(ROOT,route),{recursive:true,force:true});
   await save(resolve('public/staff/index.html'),'<!doctype html><html lang="en"><meta charset="utf-8"><title>Team – Slopes to Hope</title><meta http-equiv="refresh" content="0;url=/team/"><link rel="canonical" href="https://slopestohope.org/team/"><a href="/team/">Team</a></html>');
   console.log(JSON.stringify({routes:report.routes.length,assets:report.assets.length,failures:report.failures},null,2));
 }

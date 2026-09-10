@@ -8,5 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
     button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   };
   new MutationObserver(sync).observe(document.body, {attributes: true, attributeFilter: ['class']});
+  const setOpen = open => {
+    document.body.classList.toggle('mobile-menu-opened', open);
+    sync();
+  };
+  // Use a local handler so the menu does not depend on a delayed WordPress bundle.
+  button.addEventListener('click', event => {
+    if (!matchMedia('(max-width: 767px)').matches) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    setOpen(!document.body.classList.contains('mobile-menu-opened'));
+  }, true);
+  document.querySelectorAll('.menu-close, .mobile-menu-close').forEach(close => close.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    setOpen(false);
+  }, true));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') setOpen(false);
+  });
   sync();
 });

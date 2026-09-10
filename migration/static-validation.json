@@ -1,6 +1,9 @@
 {
-  "testedAt": "2026-09-10T20:45:46.857Z",
-  "routes": 37,
+  "testedAt": "2026-09-10T21:07:47.042Z",
+  "routes": 36,
+  "excludedLegacyRoutes": [
+    "/tag/community-across-america/"
+  ],
   "issues": [],
   "knownSourceBrokenLinks": [
     "/open-positions/",

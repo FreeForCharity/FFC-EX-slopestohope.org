@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { serve } from './serve.mjs';
 import { mirrorAsset } from './migrate.mjs';
+import {EXCLUDED_LEGACY_ROUTES} from './legacy-policy.mjs';
 const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const sync=process.argv.includes('--sync');
@@ -10,7 +11,7 @@ const live=process.argv.includes('--live');
 const only=process.argv.find(a=>a.startsWith('--only='))?.slice(7).split(',');
 const label=process.argv.find(a=>a.startsWith('--label='))?.slice(8)||'';
 const inv=JSON.parse(await readFile('migration/inventory.json'));
-const routes=inv.routes.filter(r=>!only||only.includes(r.path));
+const routes=inv.routes.filter(r=>!EXCLUDED_LEGACY_ROUTES.has(r.path)&&(!only||only.includes(r.path)));
 const server=live?null:await serve(resolve(process.env.SITE_ROOT||'public'));
 const base=live?'https://slopestohope.com':`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedge',headless:true});
@@ -26,7 +27,7 @@ for(const width of [1440,390])for(const r of routes){
     if(!['GET','HEAD'].includes(req.method())){record.blockedWrites.push({url:req.url(),method:req.method()});return route.abort();}
     // Do not generate analytics events or submit forms during automated QA.
     if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq/.test(req.url()))return route.abort();
-    if(!live&&['slopestohope.com','www.slopestohope.com'].includes(u.hostname)){record.legacy.push(req.url());return route.abort();}
+    if(!live&&['slopestohope.com','www.slopestohope.com','communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname)){record.legacy.push(req.url());return route.abort();}
     if(sync&&u.origin===base&&/^\/wp-(content|includes)\//.test(u.pathname)){
       try{await readFile(resolve('public','.'+decodeURIComponent(u.pathname)));}
       catch{if(!mirrored.has(u.pathname))mirrored.set(u.pathname,mirrorAsset(u.pathname).catch(e=>({path:u.pathname,error:e.message})));await mirrored.get(u.pathname);}

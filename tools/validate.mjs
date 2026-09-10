@@ -1,17 +1,23 @@
 import {JSDOM,VirtualConsole} from 'jsdom';
 import {readFile,access,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import {glob} from 'glob';
 import {within} from './migrate.mjs';
+import {EXCLUDED_LEGACY_ROUTES} from './legacy-policy.mjs';
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Set(['/open-positions/','/donations/slopes-to-hope']);
-const routes=new Set(inventory.routes.map(r=>r.path));routes.add('/staff/');
+const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_LEGACY_ROUTES.has(r.path));
+const routes=new Set(publishedRoutes.map(r=>r.path));routes.add('/staff/');
 const normalize=s=>s.replace(/\s+/g,' ').trim();
-for(const r of inventory.routes){
+for(const r of publishedRoutes){
  const html=await readFile(within(root,r.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+r.path,virtualConsole:new VirtualConsole()}).window.document;
  if(d.title!==r.title)issues.push({path:r.path,error:'Title changed'});
  const text=d.cloneNode(true);text.querySelectorAll('script,style').forEach(e=>e.remove());
- if(normalize(text.body.textContent)!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
+ if(r.path==='/faq/') {
+   const faq=d.querySelector('[data-elementor-id="3827"]');
+   if(normalize(faq?.textContent||'')!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
+ } else if(normalize(text.body.textContent)!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
  for(const a of d.querySelectorAll('a[href]')){
   const u=new URL(a.href);if(u.origin!=='https://slopestohope.org'||a.getAttribute('href').startsWith('#'))continue;
   if(knownBroken.has(u.pathname))continue;
@@ -32,6 +38,11 @@ for(const r of inventory.routes){
   if(![...d.querySelectorAll('a[href]')].some(a=>a.href===l.url))issues.push({path:r.path,error:'External destination changed',url:l.url});
  }
 }
-const output={testedAt:new Date().toISOString(),routes:inventory.routes.length,issues,knownSourceBrokenLinks:[...knownBroken]};
+const legacyPattern=/community\s*across\s*america|communityacrossamerica|community[_-]?across[_-]?america|acrossamerica|community points|6413b7253c4a550011b7dd9a/i;
+for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
+ const contents=await readFile(resolve(root,file),'utf8');
+ if(legacyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Community Across America legacy reference in published output'});
+}
+const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length,excludedLegacyRoutes:[...EXCLUDED_LEGACY_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');
 console.log(JSON.stringify(output,null,2));if(issues.length)process.exitCode=1;

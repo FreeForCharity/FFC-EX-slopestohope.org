@@ -11,13 +11,17 @@ const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedg
 const results=[],issues=[],writes=[];
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL',name,e.message);}}
 function assert(ok,msg){if(!ok)throw new Error(msg);}
+async function waitForFrame(tab,fragment,timeout=15000){
+ const deadline=Date.now()+timeout;
+ while(Date.now()<deadline){const frame=tab.frames().find(f=>f.url().includes(fragment));if(frame)return frame;await tab.waitForTimeout(250);}
+}
 try{for(const width of requestedWidth?[requestedWidth]:[1440,390]){
 const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});
 await ctx.route('**/*',async route=>{
  const req=route.request(),u=new URL(req.url());
  if(!['GET','HEAD'].includes(req.method())){writes.push({url:req.url(),method:req.method()});return route.abort();}
  if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net/.test(req.url()))return route.abort();
- if(['slopestohope.com','www.slopestohope.com'].includes(u.hostname)){issues.push({legacy:req.url()});return route.abort();}
+ if(['slopestohope.com','www.slopestohope.com','communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname)){issues.push({legacy:req.url()});return route.abort();}
  if(sync&&u.origin===base&&/^\/wp-(content|includes)\//.test(u.pathname))try{await readFile(resolve('public','.'+u.pathname));}catch{try{await mirrorAsset(u.pathname);}catch(e){issues.push({asset:u.pathname,error:e.message});}}
  return route.continue();
 });
@@ -35,7 +39,7 @@ await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout
 await check(`Newsletter anchor and HubSpot email-format validation (${width})`,async()=>{
  await tab.getByRole('link',{name:'Newsletter Signup',exact:true}).click();
  assert(new URL(tab.url()).hash==='#newsletter','Newsletter anchor changed');
- const f=tab.frames().find(f=>f.url().includes('_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f'));assert(f,'Newsletter form frame missing');
+ const f=await waitForFrame(tab,'_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f');assert(f,'Newsletter form frame missing');
  await f.locator('input[type="email"]').fill('invalid-email');await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(600);
  const txt=await f.locator('body').innerText();const invalid=await f.locator('input[type="email"]').evaluate(e=>!e.validity.valid||e.getAttribute('aria-invalid')==='true');assert(invalid||/valid email/i.test(txt),'Invalid email validation not visible');
 });
@@ -58,7 +62,7 @@ await check(`Gallery opens, advances, and closes with Escape (${width})`,async()
 });
 await tab.goto(base+'/contact-us/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);
 await check(`Contact form fields and required-field validation (${width})`,async()=>{
- const f=tab.frames().find(f=>f.url().includes('_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a'));assert(f,'Contact form frame missing');
+ const f=await waitForFrame(tab,'_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a');assert(f,'Contact form frame missing');
  assert(await f.locator('input,textarea,select').count()>=10,'Contact fields missing');
  await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(500);
  assert(/required/i.test(await f.locator('body').innerText()),'Required-field validation not visible');
