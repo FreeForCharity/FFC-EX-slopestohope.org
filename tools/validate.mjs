@@ -13,6 +13,10 @@ for(const r of publishedRoutes){
  const html=await readFile(within(root,r.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+r.path,virtualConsole:new VirtualConsole()}).window.document;
  if(d.title!==r.title)issues.push({path:r.path,error:'Title changed'});
+ const expectedUrl='https://slopestohope.org'+r.path;
+ if(d.querySelector('link[rel="canonical"]')?.href!==expectedUrl)issues.push({path:r.path,error:'Canonical URL missing or incorrect'});
+ if(d.querySelector('meta[property="og:url"]')?.content!==expectedUrl||d.querySelector('meta[name="og:url"]'))issues.push({path:r.path,error:'Open Graph URL missing or incorrect'});
+ if(d.querySelector('link[rel="shortlink"]'))issues.push({path:r.path,error:'WordPress shortlink remains in static output'});
  const text=d.cloneNode(true);text.querySelectorAll('script,style').forEach(e=>e.remove());
  if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
@@ -42,11 +46,13 @@ for(const r of publishedRoutes){
 const legacyPattern=/community\s*across\s*america|communityacrossamerica|community[_-]?across[_-]?america|acrossamerica|\bcaa\b|community points|6413b7253c4a550011b7dd9a/i;
 const giveWpPattern=/givewp|\[give_(?:form|receipt)\b|\/donations\/slopes-to-hope|\/donation-(?:confirmation|failed)\/|\/donor-dashboard\/|\/test-donate\//i;
 const deletedPolicyShellPattern=/\/(?:privacy-policy-2|terms-of-service-2)\//i;
+const brokenInstagramPreviewPattern=/www\.instagram\.com\/reel\/DXXtI72EU5f\/media\//i;
 for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
  const contents=await readFile(resolve(root,file),'utf8');
  if(legacyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Community Across America legacy reference in published output'});
  if(giveWpPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'GiveWP legacy reference in published output'});
  if(deletedPolicyShellPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Deleted title-only policy route in published output'});
+ if(brokenInstagramPreviewPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Broken Instagram preview image remains in published output'});
 }
 const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');

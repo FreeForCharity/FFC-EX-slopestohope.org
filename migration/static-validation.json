@@ -1,6 +1,6 @@
 {
-  "testedAt": "2026-09-11T10:33:39.066Z",
-  "routes": 29,
+  "testedAt": "2026-09-11T11:01:34.296Z",
+  "routes": 8,
   "excludedRoutes": [
     "/tag/community-across-america/",
     "/tag/caa/",
@@ -9,7 +9,28 @@
     "/donor-dashboard/",
     "/test-donate/",
     "/privacy-policy-2/",
-    "/terms-of-service-2/"
+    "/terms-of-service-2/",
+    "/author/drewroberts/",
+    "/elementskit-content/dynamic-content-widget-2e4e699-99/",
+    "/elementskit-content/dynamic-content-widget-b7206bf-99/",
+    "/tag/b3t/",
+    "/tag/breckenridge/",
+    "/tag/breckfest/",
+    "/tag/cable-center/",
+    "/tag/community/",
+    "/tag/demo/",
+    "/tag/fattys/",
+    "/tag/fly-fishing/",
+    "/tag/frisco/",
+    "/tag/local/",
+    "/tag/pizza/",
+    "/tag/public-speaking/",
+    "/tag/summit-co/",
+    "/tag/summit-county/",
+    "/tag/summit/",
+    "/tag/tenmile/",
+    "/tag/toastmasters/",
+    "/volunteer/"
   ],
   "issues": [],
   "knownSourceBrokenLinks": [

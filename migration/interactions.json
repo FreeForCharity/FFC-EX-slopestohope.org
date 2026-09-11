@@ -1,0 +1,49 @@
+{
+  "testedAt": "2026-09-11T10:53:29.673Z",
+  "results": [
+    {
+      "name": "Newsletter anchor and HubSpot email-format validation (1440)",
+      "passed": false,
+      "error": "Newsletter form frame missing"
+    },
+    {
+      "name": "Donation and pledge destinations unchanged (1440)",
+      "passed": true
+    },
+    {
+      "name": "Gallery opens, advances, and closes with Escape (1440)",
+      "passed": true
+    },
+    {
+      "name": "Contact form fields and required-field validation (1440)",
+      "passed": false,
+      "error": "Contact form frame missing"
+    },
+    {
+      "name": "Mobile menu opens, navigates to Partners, and closes",
+      "passed": true
+    },
+    {
+      "name": "Newsletter anchor and HubSpot email-format validation (390)",
+      "passed": false,
+      "error": "Newsletter form frame missing"
+    },
+    {
+      "name": "Donation and pledge destinations unchanged (390)",
+      "passed": true
+    },
+    {
+      "name": "Gallery opens, advances, and closes with Escape (390)",
+      "passed": true
+    },
+    {
+      "name": "Contact form fields and required-field validation (390)",
+      "passed": false,
+      "error": "Contact form frame missing"
+    }
+  ],
+  "issues": [],
+  "blockedWrites": [],
+  "deliveryVerified": false,
+  "note": "No real submissions, donations, CRM writes, or email messages were sent. Validation behavior is not end-to-end delivery verification."
+}

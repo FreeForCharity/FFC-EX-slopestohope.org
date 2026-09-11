@@ -8,7 +8,7 @@ export const SOURCE = 'https://slopestohope.com';
 export const ROOT = resolve('public');
 const CACHE = resolve('.migration-cache/source');
 const offline = process.argv.includes('--offline');
-const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.', 'Exclude the owner-approved title-only privacy-policy-2 and terms-of-service-2 shells.'] };
+const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.', 'Exclude the owner-approved title-only privacy-policy-2 and terms-of-service-2 shells.', 'Exclude unlinked empty WordPress archive and internal-template routes.', 'Normalize canonical and Open Graph URLs for the .org host and remove WordPress shortlinks.', 'Remove the deterministic 404 Instagram preview image while retaining the reel link and embed.'] };
 const queue = new Set(), visited = new Set();
 const sha = b => createHash('sha256').update(b).digest('hex');
 export function within(root, path) {
@@ -99,7 +99,16 @@ async function page(url) {
     el.setAttribute(attr,'#'+encodeURIComponent(converted));
   }
   final.querySelectorAll('a[href=""]').forEach(a=>a.setAttribute('href','/'));
-  final.querySelectorAll('link[rel="canonical"],meta[property="og:url"]').forEach(e=>e.setAttribute(e.tagName==='LINK'?'href':'content','https://slopestohope.org'+u.pathname));
+  final.querySelectorAll('link[rel="canonical"],meta[property="og:url"],meta[name="og:url"]').forEach(e=>{
+    e.setAttribute(e.tagName==='LINK'?'href':'content','https://slopestohope.org'+u.pathname);
+    if(e.tagName==='META'){e.removeAttribute('name');e.setAttribute('property','og:url');}
+  });
+  final.querySelectorAll('link[rel="shortlink"]').forEach(e=>e.remove());
+  for(const image of final.querySelectorAll('img[src*="www.instagram.com/reel/DXXtI72EU5f/media/"]')){
+    const link=image.closest('a');
+    if(link&&link.querySelectorAll('img').length===1&&link.textContent.trim()==='')link.remove();
+    else image.remove();
+  }
   await save(within(ROOT,path),'<!DOCTYPE html>\n'+final.documentElement.outerHTML);
   console.log('Captured',u.pathname);
   return links;
