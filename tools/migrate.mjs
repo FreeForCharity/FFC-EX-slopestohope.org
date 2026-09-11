@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile, stat, rm } from 'node:fs/promises';
 import { resolve, dirname, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { EXCLUDED_ROUTES, sanitizeGiveWpContent, sanitizeLegacyContent } from './legacy-policy.mjs';
+import {applyConsentAndPolicyLinks, applyReleasePolicy} from './release-policy.mjs';
 
 export const SOURCE = 'https://slopestohope.com';
 export const ROOT = resolve('public');
@@ -109,6 +110,7 @@ async function page(url) {
     if(link&&link.querySelectorAll('img').length===1&&link.textContent.trim()==='')link.remove();
     else image.remove();
   }
+  applyConsentAndPolicyLinks(final);
   await save(within(ROOT,path),'<!DOCTYPE html>\n'+final.documentElement.outerHTML);
   console.log('Captured',u.pathname);
   return links;
@@ -143,6 +145,7 @@ async function main(){
   await save(resolve('public/.nojekyll'),'');
   for (const route of EXCLUDED_ROUTES) await rm(within(ROOT,route),{recursive:true,force:true});
   await save(resolve('public/staff/index.html'),'<!doctype html><html lang="en"><meta charset="utf-8"><title>Team – Slopes to Hope</title><meta http-equiv="refresh" content="0;url=/team/"><link rel="canonical" href="https://slopestohope.org/team/"><a href="/team/">Team</a></html>');
+  await applyReleasePolicy(ROOT);
   console.log(JSON.stringify({routes:report.routes.length,assets:report.assets.length,failures:report.failures},null,2));
 }
 if(process.argv[1]&&resolve(process.argv[1])===resolve('tools/migrate.mjs')) await main();

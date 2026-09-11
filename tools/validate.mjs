@@ -4,10 +4,11 @@ import {resolve} from 'node:path';
 import {glob} from 'glob';
 import {within} from './migrate.mjs';
 import {EXCLUDED_ROUTES,REMOVED_CANDID_SEAL_LINKS} from './legacy-policy.mjs';
+import {POLICY_ROUTES} from './release-policy.mjs';
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Set(['/open-positions/','/donations/slopes-to-hope']);
 const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
-const routes=new Set(publishedRoutes.map(r=>r.path));routes.add('/staff/');
+const routes=new Set([...publishedRoutes,...POLICY_ROUTES].map(r=>r.path));routes.add('/staff/');
 const normalize=s=>s.replace(/\s+/g,' ').trim();
 for(const r of publishedRoutes){
  const html=await readFile(within(root,r.path+'index.html'),'utf8');
@@ -17,7 +18,7 @@ for(const r of publishedRoutes){
  if(d.querySelector('link[rel="canonical"]')?.href!==expectedUrl)issues.push({path:r.path,error:'Canonical URL missing or incorrect'});
  if(d.querySelector('meta[property="og:url"]')?.content!==expectedUrl||d.querySelector('meta[name="og:url"]'))issues.push({path:r.path,error:'Open Graph URL missing or incorrect'});
  if(d.querySelector('link[rel="shortlink"]'))issues.push({path:r.path,error:'WordPress shortlink remains in static output'});
- const text=d.cloneNode(true);text.querySelectorAll('script,style').forEach(e=>e.remove());
+ const text=d.cloneNode(true);text.querySelectorAll('script,style,.sth-footer-links').forEach(e=>e.remove());
  if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
    if(normalize(faq?.textContent||'')!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
@@ -54,6 +55,24 @@ for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
  if(deletedPolicyShellPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Deleted title-only policy route in published output'});
  if(brokenInstagramPreviewPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Broken Instagram preview image remains in published output'});
 }
-const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
+for(const route of POLICY_ROUTES){
+ const html=await readFile(within(root,route.path+'index.html'),'utf8');
+ const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
+ if(d.title!==route.title)issues.push({path:route.path,error:'Policy title missing or incorrect'});
+ if(d.querySelector('link[rel="canonical"]')?.href!=='https://slopestohope.org'+route.path)issues.push({path:route.path,error:'Policy canonical URL missing or incorrect'});
+ if(d.querySelector('meta[property="og:url"]')?.content!=='https://slopestohope.org'+route.path)issues.push({path:route.path,error:'Policy Open Graph URL missing or incorrect'});
+ if(!d.querySelector('main')?.textContent.trim())issues.push({path:route.path,error:'Policy body missing'});
+}
+for(const route of [...publishedRoutes,...POLICY_ROUTES]){
+ const html=await readFile(within(root,route.path+'index.html'),'utf8');
+ const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
+ if(!d.querySelector('link[href="/assets/consent.css"]')||!d.querySelector('script[src="/assets/consent.js"]'))issues.push({path:route.path,error:'Consent assets missing'});
+ if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Policy or cookie-settings footer control missing'});
+ if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Analytics loads before consent'});
+ for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
+}
+const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
+for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
+const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length+POLICY_ROUTES.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');
 console.log(JSON.stringify(output,null,2));if(issues.length)process.exitCode=1;

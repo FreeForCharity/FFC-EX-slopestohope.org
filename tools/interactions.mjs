@@ -11,6 +11,7 @@ const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedg
 const results=[],issues=[],writes=[];
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL',name,e.message);}}
 function assert(ok,msg){if(!ok)throw new Error(msg);}
+async function declineAnalytics(tab){const panel=tab.locator('#sth-cookie-consent');if(await panel.isVisible().catch(()=>false))await tab.getByRole('button',{name:'Decline analytics'}).click();}
 async function waitForFrame(tab,fragment,timeout=15000){
  const deadline=Date.now()+timeout;
  while(Date.now()<deadline){const frame=tab.frames().find(f=>f.url().includes(fragment));if(frame)return frame;await tab.waitForTimeout(250);}
@@ -27,7 +28,7 @@ await ctx.route('**/*',async route=>{
 });
 const tab=await ctx.newPage();
 tab.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)issues.push({url:r.url(),status:r.status()});});
-await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);
+await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);await declineAnalytics(tab);
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
  await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='true','Menu did not expand');
@@ -35,7 +36,7 @@ if(width===390)await check('Mobile menu opens, navigates to Partners, and closes
  await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);await tab.locator('.menu-close').click();await tab.waitForTimeout(200);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='false','Menu did not close');
 });
-await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2000);
+await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2000);await declineAnalytics(tab);
 await check(`Newsletter anchor and HubSpot email-format validation (${width})`,async()=>{
  await tab.getByRole('link',{name:'Newsletter Signup',exact:true}).click();
  assert(new URL(tab.url()).hash==='#newsletter','Newsletter anchor changed');

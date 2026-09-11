@@ -1,0 +1,45 @@
+{
+  "testedAt": "2026-09-11T11:26:06.665Z",
+  "results": [
+    {
+      "name": "First visit shows consent (1440)",
+      "passed": true
+    },
+    {
+      "name": "Decline persists without analytics (1440)",
+      "passed": true
+    },
+    {
+      "name": "Policy links and settings work (1440)",
+      "passed": true
+    },
+    {
+      "name": "Accept enables intended analytics (1440)",
+      "passed": true
+    },
+    {
+      "name": "Acceptance persists and layout fits (1440)",
+      "passed": true
+    },
+    {
+      "name": "First visit shows consent (390)",
+      "passed": true
+    },
+    {
+      "name": "Decline persists without analytics (390)",
+      "passed": true
+    },
+    {
+      "name": "Policy links and settings work (390)",
+      "passed": true
+    },
+    {
+      "name": "Accept enables intended analytics (390)",
+      "passed": true
+    },
+    {
+      "name": "Acceptance persists and layout fits (390)",
+      "passed": true
+    }
+  ]
+}

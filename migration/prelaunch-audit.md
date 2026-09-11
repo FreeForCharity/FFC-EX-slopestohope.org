@@ -10,7 +10,7 @@ Completed on 2026-09-11 for `website-migration-2026-09`. No production system, d
 
 ## Published output
 
-The build contains eight content routes plus the `/staff/` compatibility redirect to `/team/`:
+The initial audit contained eight migrated content routes plus the `/staff/` compatibility redirect to `/team/`. The release candidate later added `/privacy-policy/` and `/terms-of-service/` as published routes:
 
 - `/`
 - `/contact-us/`
@@ -20,10 +20,12 @@ The build contains eight content routes plus the `/staff/` compatibility redirec
 - `/our-story/`
 - `/partners/`
 - `/team/`
+- `/privacy-policy/`
+- `/terms-of-service/`
 
 No broken internal links, Candid/GuideStar seal remnants, Community Across America remnants, GiveWP remnants, deleted policy shells, unintended policy files, or site-owned `.com` runtime dependencies remain in published output. The remaining `slopestohope.com` values are the retained Google Analytics linker configuration and Drew's visitor-facing email address.
 
-The build does not require privacy, terms, cookie, consent, refund, or similar policy routes to compile or function. The repository's generic post-deploy fleet smoke workflow expects policy links and a cookie-consent interface when testing a custom domain, so its compliance section would fail until the owner chooses policy content or explicitly configures that workflow. This is an owner content/compliance decision, not a static migration dependency.
+The static migration did not technically depend on policy or consent routes. The release-candidate phase added site-specific Privacy Policy and Terms of Service pages plus real analytics consent to meet the repository's custom-domain smoke requirements and accurately describe the migrated site.
 
 ## Verification
 
