@@ -20,7 +20,9 @@ Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS
 
 ## HubSpot end-to-end status
 
-Both embedded forms loaded and returned HTTP 200 with no validation errors for the authorized test data; HubSpot's email check also returned success. In headless Edge, the newsletter reached Google's normal reCAPTCHA Enterprise token-generation request but remained in `Form is submitting`; the contact form also remained there. A visible automated Edge attempt closed before reCAPTCHA completed. No final HubSpot `/submissions/v3/` request occurred in any attempt, and a read-only CRM lookup after the attempts found zero contacts for the authorized test address. The two authorized submission allowances therefore remain unused. End-to-end submission requires one manual newsletter submission and one manual contact submission in a normal browser because reCAPTCHA did not complete in the automated browser. Details are recorded in `hubspot-end-to-end.json`.
+Both embedded forms completed end to end through the normal Chrome browser using the one-time authorized test data. The Newsletter form displayed its subscription success message and created HubSpot contact `550646425310` at `2026-09-11T19:29:16.315Z`. The Contact Us form displayed its submission success message and updated the same contact; HubSpot recorded the authorized message and referral value, two total form submissions, and two unique forms. A read-only CRM verification confirmed the timestamps, conversion names, counts, and submitted values. Both one-time submission allowances are consumed and neither form may be submitted again during this verification cycle.
+
+Earlier automated Edge attempts remain relevant historical context: HubSpot field and email validation returned HTTP 200, but reCAPTCHA did not complete and no automated final submission request occurred. The successful manual Chrome tests resolved that automation-only limitation. Details are recorded in `hubspot-end-to-end.json`.
 
 ## Retained `.com` references
 

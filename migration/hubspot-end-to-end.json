@@ -1,34 +1,29 @@
 {
-  "testedAt": "2026-09-11T18:50:07.592Z",
+  "verifiedAt": "2026-09-11T19:32:31.713Z",
   "portalId": "244348981",
+  "result": "passed-manual-browser-and-crm-verification",
   "authorizationLimits": {
     "newsletter": 1,
     "contact": 1
   },
-  "finalSubmissionRequestsObserved": 0,
   "allowancesConsumed": {
-    "newsletter": 0,
-    "contact": 0
+    "newsletter": 1,
+    "contact": 1
   },
-  "result": "blocked-before-final-submission",
+  "doNotResubmit": true,
   "forms": [
     {
       "name": "Newsletter signup",
       "formId": "9a181260-20a9-408c-8591-cca3093d7e3f",
       "email": "drew@slopestohope.com",
-      "validation": {
-        "status": 200,
-        "response": "[]"
-      },
-      "emailCheck": {
-        "status": 200,
-        "success": true,
-        "emailShouldResubscribe": false
-      },
-      "recaptcha": "The normal Google reCAPTCHA Enterprise GenerateIT request occurred, but no usable token or visible challenge completed in automated Edge.",
-      "finalRequest": null,
-      "finalResponse": null,
-      "browserState": "Form is submitting"
+      "browser": "Chrome",
+      "browserResult": "Thanks for Subscribing! You've successfully joined our newsletter.",
+      "crmResult": {
+        "contactId": "550646425310",
+        "createdate": "2026-09-11T19:29:16.315Z",
+        "firstConversionDate": "2026-09-11T19:29:16.315Z",
+        "firstConversionEvent": "Slopes to Hope – Reducing Waste and Fostering Hope: Newsletter Form"
+      }
     },
     {
       "name": "Contact form",
@@ -39,26 +34,28 @@
       "reason": "Other",
       "message": "Slopes to Hope website migration verification test — authorized September 11, 2026.",
       "heardAbout": "MIGRATION TEST — local static release candidate",
-      "validation": {
-        "status": 200,
-        "response": "[]"
-      },
-      "emailCheck": {
-        "status": 200,
-        "success": true,
-        "emailShouldResubscribe": false
-      },
-      "recaptcha": "No usable reCAPTCHA token or visible challenge completed in automated Edge.",
-      "finalRequest": null,
-      "finalResponse": null,
-      "browserState": "Form is submitting"
+      "browser": "Chrome",
+      "browserResult": "Form submitted. Thank you, we'll be in touch soon!",
+      "crmResult": {
+        "contactId": "550646425310",
+        "lastmodifieddate": "2026-09-11T19:32:31.713Z",
+        "recentConversionDate": "2026-09-11T19:31:47.808Z",
+        "recentConversionEvent": "Contact Us – Slopes to Hope: Contact Us Form",
+        "messageMatches": true,
+        "heardAboutMatches": true
+      }
     }
   ],
   "crmVerification": {
-    "recordedAt": "2026-09-11T19:00:16.6510160Z",
     "objectType": "CONTACT",
+    "contactId": "550646425310",
     "email": "drew@slopestohope.com",
-    "total": 0
+    "numberOfFormSubmissions": 2,
+    "numberOfUniqueFormsSubmitted": 2
   },
-  "manualActionRequired": "Submit each embedded form once in a normal interactive browser so Google reCAPTCHA can complete. Do not repeat either form after a success message appears."
+  "automatedAttemptHistory": {
+    "result": "blocked-before-final-submission",
+    "finalSubmissionRequestsObserved": 0,
+    "details": "Automated Edge attempts completed HubSpot field and email validation, but Google reCAPTCHA did not complete. No automated submission allowance was consumed. The later authorized manual Chrome submissions completed successfully and are verified above."
+  }
 }
