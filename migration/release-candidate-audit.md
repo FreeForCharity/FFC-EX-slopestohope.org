@@ -25,6 +25,7 @@ Both embedded forms loaded and returned HTTP 200 with no validation errors for t
 ## Retained `.com` references
 
 - `drew@slopestohope.com` is the published organizational contact address and is used on Team and policy pages.
+- The remotely rendered HubSpot contact form supplies `support@slopestohope.com` as its organizational contact link; it is not a static-site dependency.
 - `slopestohope.com` remains in the consented Google tag's cross-domain linker configuration while the live `.com` site remains active.
 
 The ignored `.migration-cache/` contains only reproducible local screenshots and temporary diagnostics. Temporary HubSpot inspection and submission scripts are removed after use and are never published by the build.
