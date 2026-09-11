@@ -48,12 +48,14 @@ const legacyPattern=/community\s*across\s*america|communityacrossamerica|communi
 const giveWpPattern=/givewp|\[give_(?:form|receipt)\b|\/donations\/slopes-to-hope|\/donation-(?:confirmation|failed)\/|\/donor-dashboard\/|\/test-donate\//i;
 const deletedPolicyShellPattern=/\/(?:privacy-policy-2|terms-of-service-2)\//i;
 const brokenInstagramPreviewPattern=/www\.instagram\.com\/reel\/DXXtI72EU5f\/media\//i;
+const elementorAllyPattern=/ea11y|allyWidget|cdn\.elementor\.com\/a11y\/widget\.js/i;
 for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
  const contents=await readFile(resolve(root,file),'utf8');
  if(legacyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Community Across America legacy reference in published output'});
  if(giveWpPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'GiveWP legacy reference in published output'});
  if(deletedPolicyShellPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Deleted title-only policy route in published output'});
  if(brokenInstagramPreviewPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Broken Instagram preview image remains in published output'});
+ if(elementorAllyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Elementor Ally accessibility widget remains in published output'});
 }
 for(const route of POLICY_ROUTES){
  const html=await readFile(within(root,route.path+'index.html'),'utf8');

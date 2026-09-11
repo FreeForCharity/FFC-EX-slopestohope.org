@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-11T11:24:23.856Z",
+  "testedAt": "2026-09-11T18:56:39.578Z",
   "results": [
     {
       "name": "Newsletter anchor and HubSpot email-format validation (1440)",
@@ -41,15 +41,7 @@
   "issues": [],
   "blockedWrites": [
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=19432&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://maps.googleapis.com/maps_api_js_slo/log?hasfast=true",
-      "method": "POST"
-    },
-    {
-      "url": "https://maps.googleapis.com/maps_api_js_slo/log?hasfast=true",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46568&rt=j",
       "method": "POST"
     },
     {
@@ -57,23 +49,7 @@
       "method": "POST"
     },
     {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=19435&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46570&rt=j",
       "method": "POST"
     },
     {
@@ -117,35 +93,7 @@
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=19448&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://graph.instagram.com/logging_client_events",
-      "method": "POST"
-    },
-    {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
     {
@@ -157,23 +105,7 @@
       "method": "POST"
     },
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=19450&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=19453&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46583&rt=j",
       "method": "POST"
     },
     {
@@ -185,19 +117,31 @@
       "method": "POST"
     },
     {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
       "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
     {
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46586&rt=j",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46588&rt=j",
+      "method": "POST"
+    },
+    {
+      "url": "https://graph.instagram.com/logging_client_events",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
       "url": "https://forms-na2.hsforms.com/emailcheck/v1/json-ext?portalId=244348981&formId=9a181260-20a9-408c-8591-cca3093d7e3f&includeFreemailSuggestions=true",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -238,6 +182,10 @@
     },
     {
       "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
       "method": "POST"
     }
   ],

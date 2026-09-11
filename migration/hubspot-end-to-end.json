@@ -1,0 +1,64 @@
+{
+  "testedAt": "2026-09-11T18:50:07.592Z",
+  "portalId": "244348981",
+  "authorizationLimits": {
+    "newsletter": 1,
+    "contact": 1
+  },
+  "finalSubmissionRequestsObserved": 0,
+  "allowancesConsumed": {
+    "newsletter": 0,
+    "contact": 0
+  },
+  "result": "blocked-before-final-submission",
+  "forms": [
+    {
+      "name": "Newsletter signup",
+      "formId": "9a181260-20a9-408c-8591-cca3093d7e3f",
+      "email": "drew@slopestohope.com",
+      "validation": {
+        "status": 200,
+        "response": "[]"
+      },
+      "emailCheck": {
+        "status": 200,
+        "success": true,
+        "emailShouldResubscribe": false
+      },
+      "recaptcha": "The normal Google reCAPTCHA Enterprise GenerateIT request occurred, but no usable token or visible challenge completed in automated Edge.",
+      "finalRequest": null,
+      "finalResponse": null,
+      "browserState": "Form is submitting"
+    },
+    {
+      "name": "Contact form",
+      "formId": "f35f941a-7978-41cc-aabc-4dc669ac9a0a",
+      "firstName": "Drew",
+      "lastName": "Roberts",
+      "email": "drew@slopestohope.com",
+      "reason": "Other",
+      "message": "Slopes to Hope website migration verification test — authorized September 11, 2026.",
+      "heardAbout": "MIGRATION TEST — local static release candidate",
+      "validation": {
+        "status": 200,
+        "response": "[]"
+      },
+      "emailCheck": {
+        "status": 200,
+        "success": true,
+        "emailShouldResubscribe": false
+      },
+      "recaptcha": "No usable reCAPTCHA token or visible challenge completed in automated Edge.",
+      "finalRequest": null,
+      "finalResponse": null,
+      "browserState": "Form is submitting"
+    }
+  ],
+  "crmVerification": {
+    "recordedAt": "2026-09-11T19:00:16.6510160Z",
+    "objectType": "CONTACT",
+    "email": "drew@slopestohope.com",
+    "total": 0
+  },
+  "manualActionRequired": "Submit each embedded form once in a normal interactive browser so Google reCAPTCHA can complete. Do not repeat either form after a success message appears."
+}

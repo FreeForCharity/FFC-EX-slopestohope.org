@@ -1,6 +1,6 @@
 {
-  "testedAt": "2026-09-10T20:33:20.592Z",
-  "base": "http://127.0.0.1:65445",
+  "testedAt": "2026-09-11T18:55:51.155Z",
+  "base": "http://127.0.0.1:54078",
   "results": [
     {
       "path": "/contact-us/",
@@ -12,20 +12,16 @@
       "blockedWrites": [],
       "dom": {
         "title": "Contact Us – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=4f16c19a-0cb9-41db-af1c-f37e3d191831",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=57844081-90cb-453f-aaba-3e2a11644246",
             "title": "Form"
           },
           {
-            "src": "",
-            "title": "archetype"
-          },
-          {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=bei121dffn7b",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1NDA3OA..&hl=en&v=8x-4t2pegToiW8KmThtO4AQt&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=v4hjqntht4m9",
             "title": "reCAPTCHA"
           },
           {
@@ -40,6 +36,21 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -49,49 +60,9 @@
       },
       "formFrames": [
         {
-          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=4f16c19a-0cb9-41db-af1c-f37e3d191831",
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
           "text": "Get Involved!\n\nWe'd love to hear from you! Please fill out the form and we'll get back to you as soon as possible.\n\nFirst Name*\nLast Name*\nEmail*\nPhone Number\n🇺🇸\nMessage\nReason for contact:\n(Select all that apply)*\nClothing donation\nClothing request\nParticipation (Hotel/Resort/other)\nVolunteer\nSponsorship/Partnership\nOther\nHow did you hear about us?*\n\n_____\n\n \n\nMailing address:\n\nSlopes to Hope\n\n400 N. Park Ave #12B\n\nBreckenridge, CO 80424\n\n(970) 316-4046‬\n\nsupport@slopestohope.com\n\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
           "fields": 17
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cHM6Ly9qcy1uYTIuaHNmb3Jtcy5uZXQ6NDQz&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=tizm452nbqjm",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\nprotected by reCAPTCHA",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=bei121dffn7b",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\n\n\n      recaptcha.anchor.Main.init(\"[\\x22ainput\\x22,[\\x22bgdata\\x22,null,null,null,\\x22w75hwqfDlsOaS8OXw5rDjsOUYMOvbMOaY8Kwwr3DrHDDrCI5Wh8pwr/Cl8K/IcKbw4zCi8KhOE4RR2dVNMOkXUjDlsOAKn7Ck2cDRMKIwo7DnMOFw65qQcK4A8KlwqEOw7wxTzTCqsOjw4DCnMK8TjAdw7oWw57ChcKUVsKOJcOlZMKVIsKbFUIQwrUUW2Y3NzDCikxGw7jDtylywotzGwZ0csOOC8KgwqIhJMKyFBE2wrU1YcOmw5M1ZsOIw5dRw48JLD7Dp8OCw5ZlP8KKw45vTcOpfyXCk0DCtHPClDXCkDPCnxp1bMOzU8Ocw5MJASwgEMKHwrbCqTgQXcKtw6tROcKpOcOowpAzwrMFwqoYw4nDjlrCu8OzacKmDMO4FRvDqsKlwoVpHGLDpnB6w4Nyw4zDon8Sw7wnT0ZQc03Cqz4LC8KBKsKgw6ZIZ8O7w7HCu8OswponGiLCuMKcw5vDk8KpV8KZPxBuOn0+wqQhw5Mxw6t3wpjChBHCqsKBw60iwoV6HcOdOgPCrjlawp7CnMOywrDCpTDCk1YkbsK5QsKSOsOtYcKlH0HCugkdNz8wZWjDmC9GwoLCtMO6XcK3w4QeesOIG8KNE8KTWHxyTzBRKSHDk0YTwrBOw6XDnlVNYcKzw5nDmMO1BcK4w6F1G0EBN8O/wp/Coy7DpD7CtcOCeUN3wo4NwpZMTcKsehDCosOOw77CuCvCp0pww4nDjknDrB7CgRVCwovDr8OowoM8w6kFRMKyKGrCucKQAMOhwqDDuQkQwrrDoMKBARAmRMOhAEwNQMO6dXXDl8K2w6HDrGtpDwoOw7jCkMOZw4RRwonDnlrCkgJ/w7zCqBlQwrgwdiUlU1XCk8K/w7XChcKuw7ITHDHCpwJAwolhPsKLc8K1wqjCuhQFegDCi27DhXcJw6k/w6PDqCtDWHtREcKgw4pMw7dCwrIYw57DhyDCrTPClsKKwq/DkCg/ZsKuwqvDjxkoVsO7w47DlMKHw6vDom7Cu1NUdcOlFcKnM8Kbw4fDn8KNNRl4worCtsO/dmkHKcKRFivCvWgqwpRCUVxoaMOhUGnDk03CoMOCFsOVbhjClFIXacKscsK1w6jCrlZSVcOSwpLCk8KOw6fDngdzw6JwDMOWw44XJXfDox1rCXJLw742wpQVb8OUKjd6V8KqfXfDtUg1RsOYw6Mkw4nCi8OdZsKtw77DgMKywoI7BTvCj8KcwrDCqlLCvGgIwqk8w7diw4bDnmrCpMOvN8Krw6ITBMKpZcKCwoN4FcOQw4dbw77DrcKnw7DCvw7Cm0Rue8O5w780BxDCjMKZKcKgQMOMdSENIVrCn8OmWQ8XfMOaecOew5p+DWzDtnUeICR8wrp3w7wzfMK5YcOGw4rDrD/CiH9nQHrDlSzDvMK2P8KzfxI7w5o5cTPCpVBuwrkaw7nDp8KJH1LCvXHDvcKbRsKpfMO2w6wPWcOIKcKVZ1PDqgtbMcOCwprCrHU9w6PDhsO5ScKeUcKENV92w69Zw4tIw6NeCDwDVmDCmBLCvsOCNiMjw4LCv8OWwqbCsRFXwp4pwq3CtDDDuhQiwqzCjsOhVcOCFMKlw6ZaP8Ktw4wdwpjClMKERzY8S8OSAMKyw7HDv35pw7dtwp/Cv0PDqX1ODcKKw5AxwqUcX2bDhsOLeH/DkEZ/XcKFPFDDhGzCrnjCiSdmEsK6BMKTw6/DkMKww4vDisK/RsK2w6nClE/DqiPDhh1NwopRwp9IwrxOD8KywpLDjsORCcKcwrTChHXDkcO4eMOlwqbClMOFw6jCssKswrV/wrgS",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
         }
       ]
     },
@@ -105,15 +76,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Our Story – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nOur Story\n\nAt a Glance:\nFounded: April 3, 2025\n\n- 17,803 lbs Recovered & Redistributed in Year 1\n- 23 Hotel & Ski Resort Partners\n- 28 Nonprofit & Community Recipients\n- Serving Colorado Communities\n\nSlopes to Hope was founded by Drew Roberts after working in Summit County's hospitality industry and seeing firsthand how much usable winter clothing was being left behind each ski season.\n\nHow It Started\n\nWhile working at the Grand Lodge on Peak 7, I saw firsthand how much winter clothing guests left behind each ski season. For years, these items were donated to the local FIRC thrift stores until those stores closed. When I heard about this at our Rotary Club meeting, I started thinking about all the clothing that would no longer have a place to go.\n\nOne question kept coming to mind:\n\n\"What are we going to do with all these clothes?\"\n\nI reached out to local nonprofits, but none could use that volume of clothing. Through Rotary, I was connected with Christ's Body Ministries in Denver, a homeless shelter that could put the clothing to use helping people in need. I then approached several hotels and resorts in Summit County with a simple proposal:\n\n\"Instead of throwing these items away, let me pick them up and deliver them to this shelter in Denver that can get them directly to people in need.\"\n\nSix hotels agreed.\n\nDuring the 2023–2024 ski season, we recovered and distributed 3,052 pounds of winter clothing to Christ's Body Ministries. Seeing the impact of those donations showed there was an opportunity to expand the program.\n\nIt also raised another question:\n\n\"What if more hotels participated?\"\n\nSlopes to Hope was created to answer that question and officially became a Colorado nonprofit on April 3, 2025.\n\nWhere We Are Today\n\nAs of September 2026, 23 hotels and ski resorts throughout Summit County have partnered with Slopes to Hope. During our first full year as a nonprofit, we recovered and redistributed 17,803 pounds of clothing, blankets, linens, and other useful items.\n\nThose donations have been distributed to 28 nonprofit and community organizations serving Summit County, the Denver Metro Area, and Colorado Springs.\n\nWhat started with one question has become a growing network of hotel partners, volunteers, donors, and nonprofit organizations working together to reduce waste and help people across Colorado.\n\nThis is what Slopes to Hope is about:\n\nReducing Waste and Fostering Hope.\n\n\n\"I believe there is a strong will among the people of this world to help those in need. And if they are given the opportunity and resources, I believe they will.\"\n\n- DREW ROBERTS, FOUNDER\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nOur Story\n\nAt a Glance:\nFounded: April 3, 2025\n\n- 17,803 lbs Recovered & Redistributed in Year 1\n- 23 Hotel & Ski Resort Partners\n- 28 Nonprofit & Community Recipients\n- Serving Colorado Communities\n\nSlopes to Hope was founded by Drew Roberts after working in Summit County's hospitality industry and seeing firsthand how much usable winter clothing was being left behind each ski season.\n\nHow It Started\n\nWhile working at the Grand Lodge on Peak 7, I saw firsthand how much winter clothing guests left behind each ski season. For years, these items were donated to the local FIRC thrift stores until those stores closed. When I heard about this at our Rotary Club meeting, I started thinking about all the clothing that would no longer have a place to go.\n\nOne question kept coming to mind:\n\n\"What are we going to do with all these clothes?\"\n\nI reached out to local nonprofits, but none could use that volume of clothing. Through Rotary, I was connected with Christ's Body Ministries in Denver, a homeless shelter that could put the clothing to use helping people in need. I then approached several hotels and resorts in Summit County with a simple proposal:\n\n\"Instead of throwing these items away, let me pick them up and deliver them to this shelter in Denver that can get them directly to people in need.\"\n\nSix hotels agreed.\n\nDuring the 2023–2024 ski season, we recovered and distributed 3,052 pounds of winter clothing to Christ's Body Ministries. Seeing the impact of those donations showed there was an opportunity to expand the program.\n\nIt also raised another question:\n\n\"What if more hotels participated?\"\n\nSlopes to Hope was created to answer that question and officially became a Colorado nonprofit on April 3, 2025.\n\nWhere We Are Today\n\nAs of September 2026, 23 hotels and ski resorts throughout Summit County have partnered with Slopes to Hope. During our first full year as a nonprofit, we recovered and redistributed 17,803 pounds of clothing, blankets, linens, and other useful items.\n\nThose donations have been distributed to 28 nonprofit and community organizations serving Summit County, the Denver Metro Area, and Colorado Springs.\n\nWhat started with one question has become a growing network of hotel partners, volunteers, donors, and nonprofit organizations working together to reduce waste and help people across Colorado.\n\nThis is what Slopes to Hope is about:\n\nReducing Waste and Fostering Hope.\n\n\n\"I believe there is a strong will among the people of this world to help those in need. And if they are given the opportunity and resources, I believe they will.\"\n\n- DREW ROBERTS, FOUNDER\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -121,6 +87,21 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -132,13 +113,7 @@
           "icon-box.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/",
@@ -149,7 +124,11 @@
       "errors": [],
       "blockedWrites": [
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=52022&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46453&rt=j",
+          "method": "POST"
+        },
+        {
+          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
           "method": "POST"
         },
         {
@@ -177,7 +156,7 @@
           "method": "POST"
         },
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=152022&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=146453&rt=j",
           "method": "POST"
         },
         {
@@ -215,20 +194,20 @@
       ],
       "dom": {
         "title": "Slopes to Hope – Reducing Waste and Fostering Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n25,599 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishements, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nMake a \n\ntangible and measurable impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\n$8,068.03\n29%\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n4,743/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n25,599 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishements, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nMake a \n\ntangible and measurable impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\n$8,068.03\n29%\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n4,743/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
         "frames": [
           {
-            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=1",
+            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A54078&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A54078%2F&aoriginsup=1&vf=1",
             "title": "Lost ski town items find new life in Denver homeless shelters"
           },
           {
-            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=6",
+            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A54078&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A54078%2F&aoriginsup=1&vf=6",
             "title": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area"
           },
           {
-            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=378&rd=http%3A%2F%2F127.0.0.1%3A65445&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A318.5%2C%22ls%22%3A10.200000002980232%2C%22le%22%3A222%7D",
+            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=378&rd=http%3A%2F%2F127.0.0.1%3A54078&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A295.39999999990687%2C%22ls%22%3A11.5%2C%22le%22%3A186.19999999995343%7D",
             "title": ""
           },
           {
@@ -236,15 +215,11 @@
             "title": ""
           },
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=d11ac483-222a-4751-81f4-76fb43fbbcd3",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=f1012665-3dbf-40f4-b224-51bac69503a0",
             "title": "Form"
           },
           {
-            "src": "",
-            "title": "archetype"
-          },
-          {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=bsjgg8vxc6lv",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1NDA3OA..&hl=en&v=8x-4t2pegToiW8KmThtO4AQt&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=qqhkylmdcq2l",
             "title": "reCAPTCHA"
           },
           {
@@ -268,6 +243,21 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -277,7 +267,6 @@
           "text-editor.default",
           "elementskit-button.default",
           "elementskit-button.default",
-          "html.default",
           "text-editor.default",
           "divider.default",
           "eael-feature-list.default",
@@ -328,74 +317,9 @@
       },
       "formFrames": [
         {
-          "url": "https://www.google.com/maps/d/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1&ll=39.480814596758265%2C-105.8984324709713&z=7",
-          "text": "Breckenridge Ski Resort\nChrist's Body Ministries\nAll Roads Shelter\nThe Salvation Army Fam...\nLeadville Workforce Ce...\nSlopes to Hope - Locations\nThis map was made with Google My Maps. Create your own.\nTerms\n20 mi\nThis map was created by a user. Learn how to create your own.\nCreate new map\nOpen map\nShared with you\nHelp\nFeedback\nReport inappropriate content\nGoogle Drive",
-          "fields": 1
-        },
-        {
-          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=d11ac483-222a-4751-81f4-76fb43fbbcd3",
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
           "text": "Sign Up for Our Newsletter\n\nStay updated with the latest news, updates, and events!\n\nEmail\nWe'll only contact you about the good stuff, and you can opt out at any time! For the fine print on your data and privacy, see our Privacy Policy here.\nSubmit",
           "fields": 4
-        },
-        {
-          "url": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=378&rd=http%3A%2F%2F127.0.0.1%3A65445&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A318.5%2C%22ls%22%3A10.200000002980232%2C%22le%22%3A222%7D",
-          "text": "keystoneresort\nand\nslopestohope\nOriginal audio\nView profile\nkeystoneresort\nVerified\n4,505 posts · 218K followers\nView more on Instagram\nLike\nComment\nShare\nSave\n1,365 likes\nAdd a comment...\nInstagram",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cHM6Ly9qcy1uYTIuaHNmb3Jtcy5uZXQ6NDQz&hl=en&v=8x-4t2pegToiW8KmThtO4AQt&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=1muderetwosr",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\nprotected by reCAPTCHA",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=bsjgg8vxc6lv",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\n\n\n      recaptcha.anchor.Main.init(\"[\\x22ainput\\x22,[\\x22bgdata\\x22,null,null,null,\\x22w5LDmHx8w790cm7CkDpGw6Rswo1Aw5IBdiTCjCLCgcOrw7bCgcOTw77CoGLCr8Oxwpx8w5F5w4cVQcKiacOBY8KKeC7CsMORw57DhwHCqMKrwqcEw5DCpkzDlcKOwqzDi8OewprClMOrVMKOJMOkQ1okwqccw4R6M1HClVzCiUvCv8Opw6EufMO+aloKwoE9EcOXEAMEw5jCicK6w53CgMKcw74dXcOpwoXDjxjDgMO3ZMO0Pz3Cl8OIfwnCqcKcw6l8woPCisOfwq81KjDCrMKGUDE7w7TCjQJmw77DjRBXS28qw6t5wqxEYcOAG3nCi3vDn8O3wqfCrB9Fw4bDh8KTw4jCnMOjbsOxZEbCi8Kawr3Cp8OYw5ZHwoPCnSs+ZVF9w6LDo8KiLA0qCMKpw4tvaEnCisOXDk7CjkJXwrEKwol4w5JCPBc+w4XDksKgQhrDlgw+wpjClg19dsKQw6bCiMKWw7h/w4tReMOfJknClyTDgn45DsKPwqYTw5jDlQpYw7ZjfsK7w6LCrsK0GDrDrERYwonCumVEwq5nTHPDvijCrsKcw4fCk1zCgC7DhSl6asKywpnClMKDw7nCiws4w67DmMOCbCnCpcOow7bCosO8RgoFwq/ChBIAB0cVw5LDucOQwpbCvExYMnjDuiHDlcKTMcK5AXBBw63Ds8K1L8KQwotpw4tjw63CgXLCoH8TDgDDgMKOdMKYw4A+w57DgWDDk2M9w5LCrFzCusOKKGAgBgJMUljDg1pWwq7Dh1XDncO+w7rDoD3DhMO2RsKYwp7CicOpKsOIJTHDnzQiXcOFXEzDpcOSU8KMLMK2w5/CjMKawrgQwpTCh1vChjxKa2tMTVTDkUnDrMO+R8OAw5jCssKgwrXCsMO8woV7WkwLMhEBWHcwWcOEwoHCox/DnVscwrl7w4bDoMKhw6AWw4zCi8KReTQxw5gBTcKlQCzDssO1GMK7bTNSw7jDuRzDr8KufXMrEcODwqjDlxU9wrbDpMOxw4lWw7jCtDdvCcK9RMOHAmLDrsK8RURUwoMGcMOKO1vDtHNewqMzwpkdwpFWfDjCrjjCgGHDtSrDp1HDgcODBQ1reBwWwrvDvmo0w6DCkMOjw74Nwo3Dg8OhYEomw5ZwwrVobsKRKkDCil3DusKPZE9CPEzDksK3QCLCrnsiw7s5w6oUHBE/BF7CpMKpRlPCrcK1bcKfdcO1wotpacKObmIDw4HDl0rDjgwKw78PRSZyw6tjwqDDok/DmQgCFEVIw5HDu8KDw5cbwoc2EcKOwqMvwrDCucO2w7vDoizDgsOIw6DCnlICEgXCrcOSw51pbMO7w5lDw7PCsSVkw7VdQW1/OMO+wrVLwoDCgMKew4puV8KPOcObVMKpInxLw54Xw4/CrcORw6vCoUvCpFxoanAow4rCrg8Jw69oJ8KbwqBPXMOIOSlgeFAJaMKgwqrCujEVKMKfwoxjSsOYEcKAwoDDuGsyw5/CvMKdwpNgw60LRcOHwqHCtxTCjcKywpPDisOeecKmTifDoDHCnjPDhsK/woHCo8OPw4dWwqsTw6LDq0DCi8OKwrbCi1vDmMK8K3sTw4A+w6xQesKIwpAQesK+w4TDpRLDuVHDthx8w6V7wpbDjjrDscKNXcO8wpPCm8Kww7sbDhLDpzVfwrF0w49+w55Cw5xdH8KyEwHCu8O5w7zCscOgW35hwqR7fhlgw5bDriDClFMOQMOoFEbDvlvDpcKswrzDjxc1w4zCqcKhw6ApfMKMwpnDrDnDrnPDujkQwqTDg13DgFYaE8O4DsKNwr7DkxjD",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=1",
-          "text": "Lost ski town items find new life in Denver homeless shelters\n9NEWS\n9NEWS\n563K subscribers\nWatch on",
-          "fields": 0
-        },
-        {
-          "url": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=6",
-          "text": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area\n9NEWS\n9NEWS\n563K subscribers\nWatch on",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
         }
       ]
     },
@@ -409,19 +333,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "FAQ – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nF.A.Q.\nWhat does Community Across America do?\nWhat makes Community Across America unique?\nHow will individuals in the community benefit?\nHow will local and national organizations benefit?\nHow will businesses, institutions, communities, and governments (sponsors) benefit?\nMisc.\nWill I receive newsletters and promotional emails?\nHow much are Community Points worth? What can I do with them?\nHow do I receive credit for volunteering at an event?\nCan anyone post an event to the calendar?\nIs there a limit to how many events organizers can post?\nHow Can You Help?\nDevelopment\nOperations\nTechnology and Web Design\nCommunity Outreach\nFundraising\nWatch Our Short Video\n\nLearn more about our pilot program and vision!\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nF.A.Q.\n\nFor questions about Slopes to Hope, please contact us.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "https://view.genial.ly/6413b7253c4a550011b7dd9a",
-            "title": "Community Across America"
-          },
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -429,34 +344,29 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
           "spacer.default",
-          "heading.default",
-          "eael-adv-accordion.default",
-          "heading.default",
-          "eael-adv-accordion.default",
-          "heading.default",
-          "eael-adv-accordion.default",
-          "spacer.default",
-          "heading.default",
-          "text-editor.default",
-          "html.default"
+          "heading.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "https://view.genially.com/6413b7253c4a550011b7dd9a",
-          "text": "Page 1 of 10, COVER\nHELPING PEOPLE HELP OTHERS\nCommunity Across America\nPlayback Options\n\nTurn on the sound for a better experience!\n\nGet started free\nStart now",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/donors/",
@@ -468,15 +378,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Donors – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nFounding Donors\n\nIndividuals or organizations that contribute to our cause before June 30th, 2026, will be recognized as founding donors for the lifetime of this organization. Our gratitude will forever be expressed on this dedicated page.\n\nLisa Strauss - Boulder Flatirons Rotary Club\n\nGIVE NOW\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nFounding Donors\n\nIndividuals or organizations that contribute to our cause before June 30th, 2026, will be recognized as founding donors for the lifetime of this organization. Our gratitude will forever be expressed on this dedicated page.\n\nLisa Strauss - Boulder Flatirons Rotary Club\n\nGIVE NOW\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -484,6 +389,21 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -491,279 +411,7 @@
           "image.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/terms-of-service-2/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Terms of Service – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTerms of Service\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/privacy-policy-2/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Privacy Policy – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nPrivacy Policy\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/donation-confirmation/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Donation Confirmation – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\n[give_receipt]\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/donation-failed/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Donation Failed – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nDonation Failed\n\nWe're sorry, your donation failed to process. Please try again or contact site support.\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/donor-dashboard/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Donor Dashboard – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nDonor Dashboard\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/test-donate/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Test DONATE – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\n[give_form id=”11381″]\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/volunteer/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Volunteer – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/team/",
@@ -775,19 +423,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Team – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
-        "images": [
-          "http://127.0.0.1:65445/wp-content/uploads/2026/08/1576649648795.jpg",
-          "http://127.0.0.1:65445/wp-content/uploads/2026/08/unnamed.jpg",
-          "http://127.0.0.1:65445/wp-content/uploads/2026/08/1702315837580.jpg"
-        ],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "images": [],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -815,6 +454,21 @@
             "text": "\n\t\t\t\t\t\t",
             "label": null,
             "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -834,13 +488,7 @@
           "elementskit-team.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/gallery/",
@@ -852,15 +500,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Gallery – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\n2025 – 2026\n\nMARRIOTT’S MOUNTAIN VALLEY LODGE PILLOW COLLECTION\nCOLORADO SPRINGS ROTARY CLUB, SALVATION ARMY FAMILY HOPE CENTER, SPRINGS RESCUE MISSION\nBEAVER RUN RESORT COLLECTION\nKEYSTONE SKI RESORT COLLECTION\nCOLLECTION LOGGING\nBEAVER RUN RESORT BED PILLOW COLLECTION\nVOLUNTEERS SORTING CLOTHES\nBEAVER RUN RESORT PILLOWS AND DISHES COLLECTION\nBEAVER RUN RESORT PILLOWS\nBEAVER RUN RESORT PILLOWS\nELKS LODGE SILVERTHORNE DELIVERY DISHES\nDELIVERY TO HAVEN RIDGE BOULDER\nNEW KID’S SKI CLOTHES\nSTORAGE UNIT\nNEW KID’S SKI BOOTS & GOGGLES\nNEW KID’S SKI CLOTHES\nSILVERTHORNE LIBRARY DONATION BOX COLLECTION\nFIRST TWO DELIVERIES IN 2026\nDELIVERY TO ELKS LODGE SILVERTHORNE – DISHES\nWE NEED A CARGO VAN.\n\n2023 – 2024\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\n2025 – 2026\n\nMARRIOTT’S MOUNTAIN VALLEY LODGE PILLOW COLLECTION\nCOLORADO SPRINGS ROTARY CLUB, SALVATION ARMY FAMILY HOPE CENTER, SPRINGS RESCUE MISSION\nBEAVER RUN RESORT COLLECTION\nKEYSTONE SKI RESORT COLLECTION\nCOLLECTION LOGGING\nBEAVER RUN RESORT BED PILLOW COLLECTION\nVOLUNTEERS SORTING CLOTHES\nBEAVER RUN RESORT PILLOWS AND DISHES COLLECTION\nBEAVER RUN RESORT PILLOWS\nBEAVER RUN RESORT PILLOWS\nELKS LODGE SILVERTHORNE DELIVERY DISHES\nDELIVERY TO HAVEN RIDGE BOULDER\nNEW KID’S SKI CLOTHES\nSTORAGE UNIT\nNEW KID’S SKI BOOTS & GOGGLES\nNEW KID’S SKI CLOTHES\nSILVERTHORNE LIBRARY DONATION BOX COLLECTION\nFIRST TWO DELIVERIES IN 2026\nDELIVERY TO ELKS LODGE SILVERTHORNE – DISHES\nWE NEED A CARGO VAN.\n\n2023 – 2024\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -868,6 +511,21 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -877,13 +535,7 @@
           "image-gallery.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/partners/",
@@ -898,11 +550,11 @@
           "method": "POST"
         },
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=52088&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46480&rt=j",
           "method": "POST"
         },
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=152088&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=146480&rt=j",
           "method": "POST"
         },
         {
@@ -912,17 +564,13 @@
       ],
       "dom": {
         "title": "Partners – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\nRecipient\n\nNonprofits & Organizations\n\n          \n\nAdopt an Angel – Summit County Rotary Club (visit)\n\nDillon Community Church (visit)\n\nReSaddled (visit)\n\nColorado Department of Labor & Employment – Frisco (visit)\n\nColorado Department of Labor & Employment – Leadville (visit)\n\nSummit County Rescue Group (visit)\n\nFamily Intercultural Resource Center – FIRC (visit)\n\nAll the Way Well (visit)\n\nBayaud Works (visit)\n\nChrist’s Body Ministries (visit)\n\nCrutches 4 Africa (visit)\n\nHAAT Force (visit)\n\nEnglewood Police Department (visit)\n\nBridges of Colorado (visit)\n\nMutual Aid Monday (visit)\n\nAssistance League of Denver (visit)\n\nAll Roads (visit)\n\nHaven Ridge (visit)\n\nElks Lodge – Silverthorne (visit)\n\nThe Salvation Army Hope Center – Colorado Springs (visit)\n\nSprings Rescue Mission (visit)\n\nHabitat for Humanity ReStore (visit)\n\nSheridan School District No 2 (visit)\n\nChange the Trend (visit)\n\nCommunity Economic Defense Project (visit)\n\nThe Salvation Army – Denver (visit)\n\nCommunity Ministry (visit)\n\nTrue North Recovery Services (visit)\n\nHazelbrook Community Center (visit)\n\nAdvance Pathways (visit)\n\nParticipating\n\nResorts, Hotels, Organizations\n\n         \n\nSpinnaker Lake Dillon (visit)\n\nReSaddled (visit)\n\nKeystone Resort (visit)\n\nMarriott’s Mountain Valley Lodge at Breckenridge (visit)\n\nThe Residences at Main Street Station (visit)\n\nHyatt Vacation Club at The Ranahan (visit)\n\nHelly Hansen (visit)\n\nBreckenridge Recreation Center (visit)\n\nGrand Lodge on Peak 7 (visit)\n\nGrand Timber Lodge (visit)\n\nArapahoe Basin (visit)\n\nBreckenridge Ski Resort (visit)\n\nBeaver Run Resort (visit)\n\nBreckenridge Nordic Center (visit)\n\nBlueSky Breckenridge – By Vacasa (visit)\n\nHotel Frisco (visit)\n\nGrand Colorado on Peak 8 (visit)\n\nThe Village at Breckenridge (visit)\n\nGreat Western Lodging (visit)\n\nBreckenridge Resort Managers (visit)\n\nOG’s Thrift & Threadz (visit)\n\nTheatre SilCo (visit)\n\nHotel Alpenrock Breckenridge (visit)\n\nSummit Executive Cleaning (visit)\n\nThank You!\n\nDonors and Grantors\n\n         \n\nHigh Country Conservation Center (visit)\n\nTown of Frisco (visit)\n\nRotary Club of Denver Southeast (visit)\n\nRotary Club of Vail Edwards (visit)\n\nRotary Club of Boulder Flatirons (visit)\n\nRotary Club of Denver Cherry Creek (visit)\n\nRotary Club of Highlands Ranch (visit)\n\nRotary Club of Littleton (visit)\n\nRotary Club of Summit County (visit)\n\nRotary Club of Castle Rock (visit)\n\nRotary District 5450 (visit)\n\nKaliber Collision Repair (visit)\n\nLisa Strauss\n\nEric Bahr\n\nJoyce & Allyn Mosher\n\nTom & Debbie Jaskolski\n\nKevin & Jennifer Maher\n\n(Anonymous)\n\nHelp us make a \n\ntangible and measurable impact!\n\nGIVE NOW!\n\nFundraising Goal (2027) – $25,000\n\n$7,140\n20%\n\nWe are attempting to raise $25,000 for our second-year to reach our goal of collecting and distributing 20,000 pounds of winter clothes!\n\nPlease help us divert thousands of pounds of waste from our landfills and provide winter clothing to Coloradans experiencing homelessness and hardships –  both at once!\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\nRecipient\n\nNonprofits & Organizations\n\n          \n\nAdopt an Angel – Summit County Rotary Club (visit)\n\nDillon Community Church (visit)\n\nReSaddled (visit)\n\nColorado Department of Labor & Employment – Frisco (visit)\n\nColorado Department of Labor & Employment – Leadville (visit)\n\nSummit County Rescue Group (visit)\n\nFamily Intercultural Resource Center – FIRC (visit)\n\nAll the Way Well (visit)\n\nBayaud Works (visit)\n\nChrist’s Body Ministries (visit)\n\nCrutches 4 Africa (visit)\n\nHAAT Force (visit)\n\nEnglewood Police Department (visit)\n\nBridges of Colorado (visit)\n\nMutual Aid Monday (visit)\n\nAssistance League of Denver (visit)\n\nAll Roads (visit)\n\nHaven Ridge (visit)\n\nElks Lodge – Silverthorne (visit)\n\nThe Salvation Army Hope Center – Colorado Springs (visit)\n\nSprings Rescue Mission (visit)\n\nHabitat for Humanity ReStore (visit)\n\nSheridan School District No 2 (visit)\n\nChange the Trend (visit)\n\nCommunity Economic Defense Project (visit)\n\nThe Salvation Army – Denver (visit)\n\nCommunity Ministry (visit)\n\nTrue North Recovery Services (visit)\n\nHazelbrook Community Center (visit)\n\nAdvance Pathways (visit)\n\nParticipating\n\nResorts, Hotels, Organizations\n\n         \n\nSpinnaker Lake Dillon (visit)\n\nReSaddled (visit)\n\nKeystone Resort (visit)\n\nMarriott’s Mountain Valley Lodge at Breckenridge (visit)\n\nThe Residences at Main Street Station (visit)\n\nHyatt Vacation Club at The Ranahan (visit)\n\nHelly Hansen (visit)\n\nBreckenridge Recreation Center (visit)\n\nGrand Lodge on Peak 7 (visit)\n\nGrand Timber Lodge (visit)\n\nArapahoe Basin (visit)\n\nBreckenridge Ski Resort (visit)\n\nBeaver Run Resort (visit)\n\nBreckenridge Nordic Center (visit)\n\nBlueSky Breckenridge – By Vacasa (visit)\n\nHotel Frisco (visit)\n\nGrand Colorado on Peak 8 (visit)\n\nThe Village at Breckenridge (visit)\n\nGreat Western Lodging (visit)\n\nBreckenridge Resort Managers (visit)\n\nOG’s Thrift & Threadz (visit)\n\nTheatre SilCo (visit)\n\nHotel Alpenrock Breckenridge (visit)\n\nSummit Executive Cleaning (visit)\n\nThank You!\n\nDonors and Grantors\n\n         \n\nHigh Country Conservation Center (visit)\n\nTown of Frisco (visit)\n\nRotary Club of Denver Southeast (visit)\n\nRotary Club of Vail Edwards (visit)\n\nRotary Club of Boulder Flatirons (visit)\n\nRotary Club of Denver Cherry Creek (visit)\n\nRotary Club of Highlands Ranch (visit)\n\nRotary Club of Littleton (visit)\n\nRotary Club of Summit County (visit)\n\nRotary Club of Castle Rock (visit)\n\nRotary District 5450 (visit)\n\nKaliber Collision Repair (visit)\n\nLisa Strauss\n\nEric Bahr\n\nJoyce & Allyn Mosher\n\nTom & Debbie Jaskolski\n\nKevin & Jennifer Maher\n\n(Anonymous)\n\nHelp us make a \n\ntangible and measurable impact!\n\nGIVE NOW!\n\nFundraising Goal (2027) – $25,000\n\n$7,140\n20%\n\nWe are attempting to raise $25,000 for our second-year to reach our goal of collecting and distributing 20,000 pounds of winter clothes!\n\nPlease help us divert thousands of pounds of waste from our landfills and provide winter clothing to Coloradans experiencing homelessness and hardships –  both at once!\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
         "frames": [
           {
             "src": "https://www.google.com/maps/d/u/3/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1",
             "title": ""
-          },
-          {
-            "src": "",
-            "title": "archetype"
           }
         ],
         "counter": [],
@@ -932,6 +580,21 @@
             "text": "\n\n",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -956,26 +619,10 @@
           "text-editor.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "https://www.google.com/maps/d/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1&ll=0%2C0&z=7",
-          "text": "Breckenridge Ski Resort\nChrist's Body Ministries\nAll Roads Shelter\nThe Salvation Army Fam...\nLeadville Workforce Ce...\nSlopes to Hope - Locations\nThis map was made with Google My Maps. Create your own.\nTerms\nThis map was created by a user. Learn how to create your own.\nCreate new map\nOpen map\nShared with you\nHelp\nFeedback\nReport inappropriate content\nGoogle Drive",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
-      "path": "/elementskit-content/dynamic-content-widget-b7206bf-99/",
+      "path": "/privacy-policy/",
       "width": 1440,
       "missing": [],
       "legacy": [],
@@ -983,101 +630,36 @@
       "errors": [],
       "blockedWrites": [],
       "dom": {
-        "title": "dynamic-content-widget-b7206bf-99 – Slopes to Hope",
-        "text": "Skip to content",
+        "title": "Privacy Policy – Slopes to Hope",
+        "text": "Slopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nPrivacy Policy\n\nEffective September 11, 2026\n\nThis policy explains how information is handled when you visit the Slopes to Hope website or use services linked or embedded here.\n\nInformation you choose to provide\n\nThe newsletter signup and contact forms are provided by HubSpot. When you submit a form, the information you enter is sent to HubSpot for Slopes to Hope so the organization can manage subscriptions, respond to messages, and maintain related records. The fields shown on each form determine what information is requested.\n\nDonation and fundraising links take you to third-party services, including Givebutter, RallyUp, and Colorado Gives. Those providers collect and process the information needed for their services under their own terms and privacy policies. Slopes to Hope does not collect payment-card details through this website.\n\nAnalytics and cookies\n\nWith your permission, this website loads Google Analytics through Google tag GT-MKTP8299 (measurement ID G-XEWDW3TYVZ) to understand site usage. Analytics is not loaded until you accept analytics in the consent interface. You may decline analytics or change your choice at any time using “Cookie settings” in the footer.\n\nYour consent choice is stored in your browser's local storage. Embedded forms and third-party content may use their own cookies or similar technologies when they load or when you interact with them.\n\nHosting and third-party content\n\nThe site is hosted using GitHub Pages. Hosting and network providers may process routine technical information, such as IP addresses, request details, browser information, timestamps, and security logs, to deliver and protect the site.\n\nThe site also links to or embeds services such as Google Maps, Instagram, Facebook, and other third-party websites. Those services receive information according to their own practices when their content loads or when you follow a link.\n\nChoices and contact\n\nYou can decline optional analytics, change your analytics choice through the footer, avoid submitting forms, and choose whether to visit third-party services. Newsletter messages should provide the applicable subscription-management options.\n\nFor questions about this policy or information submitted to Slopes to Hope, email drew@slopestohope.com or use the contact page.\n\nThis policy may be updated as the website and its services change. The effective date above identifies the current version.\n\nCopyright © 2026 Slopes to Hope \nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/elementskit-content/dynamic-content-widget-2e4e699-99/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "dynamic-content-widget-2e4e699-99 – Slopes to Hope",
-        "text": "Skip to content",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/community/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "community – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: community\nTag: community\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
           {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": []
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
-      "path": "/tag/public-speaking/",
+      "path": "/terms-of-service/",
       "width": 1440,
       "missing": [],
       "legacy": [],
@@ -1085,718 +667,33 @@
       "errors": [],
       "blockedWrites": [],
       "dom": {
-        "title": "public speaking – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: public speaking\nTag: public speaking\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
+        "title": "Terms of Service – Slopes to Hope",
+        "text": "Slopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTerms of Service\n\nEffective September 11, 2026\n\nThese terms apply to use of the Slopes to Hope website. By using the site, you agree to these terms.\n\nInformational website\n\nThis website provides general information about Slopes to Hope, its mission, activities, partners, and ways to support or contact the organization. Content may be corrected or updated as circumstances change.\n\nThird-party services and links\n\nThe site links to or embeds services operated by others, including HubSpot, Givebutter, RallyUp, Colorado Gives, Google Maps, Instagram, Facebook, and other third-party websites. Those services are governed by their own terms and policies. Slopes to Hope does not control their availability, content, or data practices.\n\nDonations\n\nDonation and fundraising transactions are handled through the third-party provider selected by the visitor. Any transaction is subject to that provider's checkout information, terms, privacy policy, and confirmation process. This website does not directly process payment-card information.\n\nSite content\n\nSite text, designs, logos, photographs, and other materials may be protected by copyright, trademark, or other rights. You may view the site and share links to it for personal and informational purposes. Contact Slopes to Hope before reusing site content beyond uses allowed by law. Third-party materials remain subject to their respective owners' rights.\n\nAvailability and responsibility\n\nThe site is provided for general informational use. Slopes to Hope does not promise that every page, link, embed, or third-party service will always be available or error-free. To the extent permitted by applicable law, Slopes to Hope is not responsible for losses caused by reliance on site content or by third-party services outside its control.\n\nChanges and contact\n\nThese terms may be updated as the website changes. The effective date above identifies the current version. For questions, email drew@slopestohope.com or use the contact page.\n\nCopyright © 2026 Slopes to Hope \nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
           {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": []
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/toastmasters/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "toastmasters – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: toastmasters\nTag: toastmasters\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/local/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "local – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: local\nTag: local\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/frisco/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "frisco – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: frisco\nTag: frisco\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/summit-county/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "summit county – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: summit county\nTag: summit county\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/summit-co/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "summit co – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: summit co\nTag: summit co\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/summit/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "summit – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: summit\nTag: summit\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/tenmile/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "tenmile – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: tenmile\nTag: tenmile\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/community-across-america/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "community across america – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: community across america\nTag: community across america\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/caa/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "caa – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: caa\nTag: caa\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/fattys/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "fatty’s – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: fatty’s\nTag: fatty’s\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/pizza/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "pizza – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: pizza\nTag: pizza\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/cable-center/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "cable center – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: cable center\nTag: cable center\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/breckenridge/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "breckenridge – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: breckenridge\nTag: breckenridge\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/fly-fishing/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "fly fishing – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: fly fishing\nTag: fly fishing\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/b3t/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "b3t – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: b3t\nTag: b3t\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/breckfest/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "breckfest – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: breckfest\nTag: breckfest\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/demo/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Demo – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTag: Demo\nTag: Demo\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/author/drewroberts/",
-      "width": 1440,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Drew Roberts – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nAuthor: Drew Roberts\nAuthor: Drew Roberts\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "\n\n",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/contact-us/",
@@ -1808,20 +705,16 @@
       "blockedWrites": [],
       "dom": {
         "title": "Contact Us – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=5d0c6194-dc6d-4cad-a62d-707cd0f00a9e",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=ae203d5c-3669-4c04-8ba9-d96232f9dd6e",
             "title": "Form"
           },
           {
-            "src": "",
-            "title": "archetype"
-          },
-          {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=b3ao5qk76h7f",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1NDA3OA..&hl=en&v=8x-4t2pegToiW8KmThtO4AQt&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=epskpsif4uw1",
             "title": "reCAPTCHA"
           },
           {
@@ -1836,6 +729,21 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -1845,49 +753,9 @@
       },
       "formFrames": [
         {
-          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=5d0c6194-dc6d-4cad-a62d-707cd0f00a9e",
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
           "text": "Get Involved!\n\nWe'd love to hear from you! Please fill out the form and we'll get back to you as soon as possible.\n\nFirst Name*\nLast Name*\nEmail*\nPhone Number\n🇺🇸\nMessage\nReason for contact:\n(Select all that apply)*\nClothing donation\nClothing request\nParticipation (Hotel/Resort/other)\nVolunteer\nSponsorship/Partnership\nOther\nHow did you hear about us?*\n\n_____\n\n \n\nMailing address:\n\nSlopes to Hope\n\n400 N. Park Ave #12B\n\nBreckenridge, CO 80424\n\n(970) 316-4046‬\n\nsupport@slopestohope.com\n\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
           "fields": 17
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cHM6Ly9qcy1uYTIuaHNmb3Jtcy5uZXQ6NDQz&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=2bvzu2syi2nu",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\nprotected by reCAPTCHA",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=b3ao5qk76h7f",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\n\n\n      recaptcha.anchor.Main.init(\"[\\x22ainput\\x22,[\\x22bgdata\\x22,null,null,null,\\x22wpFxw6RSw5EKJ8KwDcOwTUXCrSZvOBPCocOowoXDqMOBwq10UsOkBUzCl1PDnEBYwq5IUcOPejNiw4wWwoPDusOPwqxKeXEsw4M4f1TDjcK+ZzEnaFxjUEZcYy55wrdewpbCogUJw5ACw40KwrMOw4A7w500wpwkw4PDoC/CoQdGw4nDhF1FMQ4EUl0XwoVtO3MTW2TCqMOJw6/DsFzDkGzDshrCl3cUI2F/Q8OwwofDoA54esOcw4Fbwr7DrsOXw7ZewrB6G8OMScKTHzfCocKlw4loJ8Ktw6R6wpLCjALDsMO6KyzCqVojSRTCrsOXcsKrw4kew6LDkcOTw4XCo8K0E8O0wrRIw77CgDfCtcOEwrLDrMKEwqJPwohDaU51wqklIMOoCMOxwp0Jw47CscOcw6IlDxHCkcOKw4XCkwDDp8KpJcOFw6vDg8OKw7DDhMKnw73DkCoVFn0iD8O8RTbDqgrCqkUEV04hXMOnw6HDjsK3cMKKw6g/N8KbBsKtwrI9wpYBXsKfw5kAwqTCokQiZVcEwrHCgEjDp8KkAkzCusKgwoQNwonCpzLDkwAxw4cjGsKbwpwhwo02EX/CjsKhw5Q5wqbDvALChGp8OmXDtsOoGD4ywokCwoVqYR7Dqg3DqsKbw4o8w7nDp2gjw6UYwoJdNlnCu8KawpAkwr0IwoR0w6tRw5xfwqUEYicrwp/CqSbDp8KdwpbDhnM+E8Kiw5TDm8KkAFQIHQ3CiMKDagrDv8OrYsO/wobCuRFDBcKlwrYqKsO4w5d9X8KTB8KoXXN9wo7DpcOmwqXCsWkxwqp4wr/CjTXDksKQe1VIw49Pw61CKy/DtcOOdFTChT0IwoBSw7sjUcO6RxUNw4TCoMKyKsKrw6hTw4ppeQ0dcgjDh0UkO8OSezvDkMOjfMKTcmwLI8OiNMOaw4nDtgnDhcOkwoIBw5ZLL0RBw6PCohArScOuwpknwoLCqsKaEUU7w5bDrDxZwrHDpRZRMW3CuX3DvMOwRn14w7TDssOTw4E2wqDDvXDCmGTChlTDoHIUCRbCh8KJw5tLJ8KnPBpYw40uw68+woTDtBEEJ8OTw5XDjMKOwprDuMK1H8KYK8OJDsOQccKuO8KHw43ChcOKdMKGb1d7wovCpsKbCMKzScOFViHDoCTClcO4wprDtsOXJiJfw4bDrsORwplTw4vCicOYwprDl8KXGkPDkEXCmm3Dp1LCksKsLWDDmU8bUMOnw5QJPcOjfsOjw5s/w6bDlVPDsDInw6TCsMOKw5UHVcKMJzo8D8OSFlbCriLDjsOlQj8OXsKpWDc4wplTbFHDmU8eFXDCocOCwpc+VWzCnn7CmULDhwInw6dfw5nDhMKMwrnCjsKxw7PDhGPCn8KuJXTCucO+BcKDwpcrMsKKdsO8w7ssw7IrHwnDlATDrFE5Y8KCLnjCiB/Dt2kKTA0pw4grw7NnwqI5w7zDpEHDuMK8wr0mVMK2CRnCoB4PwozDoMO5QEl9VcOyIcOWTFbDvMKgFy92w5AdK8KJR8KSFn9NFcK6w67DoldNwoURwr7Dk3fCmi3CpxUkQEDCg8OiwrHClcKlahTCvMKpZAIbNlAAwozCqMKGa8KLBWzCjsOWMCF8cBgqw5wRX8KgwrjDhMO2w5xHAsOTFlY6wq/Cmw1TfMKewq3Cgw58VB1jw53DmMOyA8OHw5LCnS5VFcKCdFPDoFbClxwLw6ocJ8OAasOAw4/ChhXDq3sgNsOWwoBpXsOPw6bDncK/woQ+JV8mwqbClcOiPyN3ThHCoTMjVsOXacKiDHVrw4jDhQjD",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
         }
       ]
     },
@@ -1901,15 +769,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Our Story – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nOur Story\n\nAt a Glance:\nFounded: April 3, 2025\n\n- 17,803 lbs Recovered & Redistributed in Year 1\n- 23 Hotel & Ski Resort Partners\n- 28 Nonprofit & Community Recipients\n- Serving Colorado Communities\n\nSlopes to Hope was founded by Drew Roberts after working in Summit County's hospitality industry and seeing firsthand how much usable winter clothing was being left behind each ski season.\n\nHow It Started\n\nWhile working at the Grand Lodge on Peak 7, I saw firsthand how much winter clothing guests left behind each ski season. For years, these items were donated to the local FIRC thrift stores until those stores closed. When I heard about this at our Rotary Club meeting, I started thinking about all the clothing that would no longer have a place to go.\n\nOne question kept coming to mind:\n\n\"What are we going to do with all these clothes?\"\n\nI reached out to local nonprofits, but none could use that volume of clothing. Through Rotary, I was connected with Christ's Body Ministries in Denver, a homeless shelter that could put the clothing to use helping people in need. I then approached several hotels and resorts in Summit County with a simple proposal:\n\n\"Instead of throwing these items away, let me pick them up and deliver them to this shelter in Denver that can get them directly to people in need.\"\n\nSix hotels agreed.\n\nDuring the 2023–2024 ski season, we recovered and distributed 3,052 pounds of winter clothing to Christ's Body Ministries. Seeing the impact of those donations showed there was an opportunity to expand the program.\n\nIt also raised another question:\n\n\"What if more hotels participated?\"\n\nSlopes to Hope was created to answer that question and officially became a Colorado nonprofit on April 3, 2025.\n\nWhere We Are Today\n\nAs of September 2026, 23 hotels and ski resorts throughout Summit County have partnered with Slopes to Hope. During our first full year as a nonprofit, we recovered and redistributed 17,803 pounds of clothing, blankets, linens, and other useful items.\n\nThose donations have been distributed to 28 nonprofit and community organizations serving Summit County, the Denver Metro Area, and Colorado Springs.\n\nWhat started with one question has become a growing network of hotel partners, volunteers, donors, and nonprofit organizations working together to reduce waste and help people across Colorado.\n\nThis is what Slopes to Hope is about:\n\nReducing Waste and Fostering Hope.\n\n\n\"I believe there is a strong will among the people of this world to help those in need. And if they are given the opportunity and resources, I believe they will.\"\n\n- DREW ROBERTS, FOUNDER\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nOur Story\n\nAt a Glance:\nFounded: April 3, 2025\n\n- 17,803 lbs Recovered & Redistributed in Year 1\n- 23 Hotel & Ski Resort Partners\n- 28 Nonprofit & Community Recipients\n- Serving Colorado Communities\n\nSlopes to Hope was founded by Drew Roberts after working in Summit County's hospitality industry and seeing firsthand how much usable winter clothing was being left behind each ski season.\n\nHow It Started\n\nWhile working at the Grand Lodge on Peak 7, I saw firsthand how much winter clothing guests left behind each ski season. For years, these items were donated to the local FIRC thrift stores until those stores closed. When I heard about this at our Rotary Club meeting, I started thinking about all the clothing that would no longer have a place to go.\n\nOne question kept coming to mind:\n\n\"What are we going to do with all these clothes?\"\n\nI reached out to local nonprofits, but none could use that volume of clothing. Through Rotary, I was connected with Christ's Body Ministries in Denver, a homeless shelter that could put the clothing to use helping people in need. I then approached several hotels and resorts in Summit County with a simple proposal:\n\n\"Instead of throwing these items away, let me pick them up and deliver them to this shelter in Denver that can get them directly to people in need.\"\n\nSix hotels agreed.\n\nDuring the 2023–2024 ski season, we recovered and distributed 3,052 pounds of winter clothing to Christ's Body Ministries. Seeing the impact of those donations showed there was an opportunity to expand the program.\n\nIt also raised another question:\n\n\"What if more hotels participated?\"\n\nSlopes to Hope was created to answer that question and officially became a Colorado nonprofit on April 3, 2025.\n\nWhere We Are Today\n\nAs of September 2026, 23 hotels and ski resorts throughout Summit County have partnered with Slopes to Hope. During our first full year as a nonprofit, we recovered and redistributed 17,803 pounds of clothing, blankets, linens, and other useful items.\n\nThose donations have been distributed to 28 nonprofit and community organizations serving Summit County, the Denver Metro Area, and Colorado Springs.\n\nWhat started with one question has become a growing network of hotel partners, volunteers, donors, and nonprofit organizations working together to reduce waste and help people across Colorado.\n\nThis is what Slopes to Hope is about:\n\nReducing Waste and Fostering Hope.\n\n\n\"I believe there is a strong will among the people of this world to help those in need. And if they are given the opportunity and resources, I believe they will.\"\n\n- DREW ROBERTS, FOUNDER\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -1917,6 +780,21 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -1928,13 +806,7 @@
           "icon-box.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/",
@@ -1945,7 +817,11 @@
       "errors": [],
       "blockedWrites": [
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=52220&rt=j",
+          "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46507&rt=j",
           "method": "POST"
         },
         {
@@ -1977,7 +853,7 @@
           "method": "POST"
         },
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=152220&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=146507&rt=j",
           "method": "POST"
         },
         {
@@ -2007,24 +883,40 @@
         {
           "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
           "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
         }
       ],
       "dom": {
         "title": "Slopes to Hope – Reducing Waste and Fostering Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n25,599 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishements, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nMake a measurable\n\nand tangible impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nFundraising Goal (2027) – $25,000\n\n$8,068.03\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n4,743/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n25,599 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishements, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nMake a measurable\n\nand tangible impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nFundraising Goal (2027) – $25,000\n\n$8,068.03\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n4,743/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
         "frames": [
           {
-            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=4",
+            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A54078&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A54078%2F&aoriginsup=1&vf=4",
             "title": "Lost ski town items find new life in Denver homeless shelters"
           },
           {
-            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=1",
+            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A54078&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A54078%2F&aoriginsup=1&vf=1",
             "title": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area"
           },
           {
-            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=368&rd=http%3A%2F%2F127.0.0.1%3A65445&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A337.30000001192093%2C%22ls%22%3A10.100000008940697%2C%22le%22%3A238.70000000298023%7D",
+            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=368&rd=http%3A%2F%2F127.0.0.1%3A54078&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A315.30000000004657%2C%22ls%22%3A11.599999999860302%2C%22le%22%3A206.80000000004657%7D",
             "title": ""
           },
           {
@@ -2032,15 +924,11 @@
             "title": ""
           },
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=b0d8d97c-295b-4c95-ba71-92ce8c496bee",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=814037bd-71c6-41ba-97a3-def19482e2cc",
             "title": "Form"
           },
           {
-            "src": "",
-            "title": "archetype"
-          },
-          {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=3fowsssrl9d9",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1NDA3OA..&hl=en&v=8x-4t2pegToiW8KmThtO4AQt&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=jizohdbc79y6",
             "title": "reCAPTCHA"
           },
           {
@@ -2064,6 +952,21 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -2073,7 +976,6 @@
           "text-editor.default",
           "elementskit-button.default",
           "elementskit-button.default",
-          "html.default",
           "text-editor.default",
           "divider.default",
           "eael-feature-list.default",
@@ -2124,74 +1026,9 @@
       },
       "formFrames": [
         {
-          "url": "https://www.google.com/maps/d/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1&ll=39.480814596758314%2C-105.8984324709713&z=6",
-          "text": "Breckenridge Ski Resort\nAll Roads Shelter\nThe Salvation Army Fam...\nSlopes to Hope - Locations\nAbout\nTerms\n50 mi\nThis map was created by a user. Learn how to create your own.\nCreate new map\nOpen map\nShared with you\nHelp\nFeedback\nReport inappropriate content\nGoogle Drive",
-          "fields": 1
-        },
-        {
-          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=b0d8d97c-295b-4c95-ba71-92ce8c496bee",
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
           "text": "Sign Up for Our Newsletter\n\nStay updated with the latest news, updates, and events!\n\nEmail\nWe'll only contact you about the good stuff, and you can opt out at any time! For the fine print on your data and privacy, see our Privacy Policy here.\nSubmit",
           "fields": 4
-        },
-        {
-          "url": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=368&rd=http%3A%2F%2F127.0.0.1%3A65445&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A337.30000001192093%2C%22ls%22%3A10.100000008940697%2C%22le%22%3A238.70000000298023%7D",
-          "text": "keystoneresort\nand\nslopestohope\nOriginal audio\nView profile\nkeystoneresort\nVerified\n4,505 posts · 218K followers\nView more on Instagram\nLike\nComment\nShare\nSave\n1,365 likes\nAdd a comment...\nInstagram",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cHM6Ly9qcy1uYTIuaHNmb3Jtcy5uZXQ6NDQz&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=o66jl2br6eb6",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\nprotected by reCAPTCHA",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NTQ0NQ..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=3fowsssrl9d9",
-          "text": "This reCAPTCHA is for testing purposes only. Please report to the site admin if you are seeing this.\n\n\n      recaptcha.anchor.Main.init(\"[\\x22ainput\\x22,[\\x22bgdata\\x22,null,null,null,\\x22RWdxw7vCjWYpw4LCgXDDkcKQwpAvHMKEwodGX8OiFS3Dsz1+wqFQw7UYwq/CkjrDqcKJOFvDujTDmQ7DlQPCnE5hwoYlUVvCoXzCqFsPNsKCw6LDjMKfAyPDjlRww4vDvcO5wqNWI2zDuMKbbsKQLMOfwpd7EBvCp8KzYDrDpMK1C3VrUsO9w77ChAvCm8KFw6nChCnCsgoew5nDpcKEUsKUw7fCjsK+w7nCi0XDkwIJL8OCGWvCtH7DmU89GMKXDQsdw7twLitbKcObwpXCtcKGVcKqw5vDgkoEwqQfwojClhnDlcOUwppiwrjDtQzDgxDDhll8X8OgP0rCtzTDjz/CjsOOw7ghw4TCtcOWOh/DriVMw4ZSS8KVHGLDuz0ef3TDm8KOTUxQwp1Sw4tzwqM1wpVkecKCFMOMw7w3wpQqNcKFbMOVwr8vw6HDt3ZfwpxdwpnDo8Kkw7DCqwF7w4DCgsOzPcKSw6/Cp8OJw6YBSik9P8OVUsOvFA0TwoQjDcO0wqHDvCsqCT3Cs8K4wqBKDsKkcmDDkcKKHHVkwqx7w47DnlTChl1kFhrCt8KaNcKKwqAsdARGGx4ua8Kqw7lbBsOLLcKJdgZaw77DnsK/wrYIJmTCrh/CqsKrKDFbasKuGSLCgWXCvURcUTEVw6DCt8KpwqbCt2PDtMObwow2LcKyw7PCikjCpMKRccKJw4syBsKTwrrDl07DtjnCrsKswr7CphvDssK+YMOMw7fCh0o2BsK6wpFbcsOMYwt0TcKMw541wrJMw6PDi3UnwojDgnh0aWcrD8KvHiYvBkTDs35CTx9eOjceaSvDhTzDgh/CnD7CkMKEKxbDtyPDs31Ow7XDgQkzwokvw4zDtmfDs19VRFPCqFAewpTDim/DkcOGe17DiXRIwo1WKUnCo8Kgw65dw6jCmBYgJz8JwokUUcONEUXCjsO2w7ISXMKAFMK2w68ewrprwp1ew6bCosK5TjfCmyTCo8OuT8KMw78fw4jCgsOFw7vDlCLChVLDvj0uOcKcwo4lwo4iw51CcMOlY8O4wp/DtsOhQh/Cpl/Di8Opw4XCuGbCocKdwqhFwqVvwqEhwotDY8OBU1zCmMOta219NMK1w6Ryf1MBw7swwqLDl0Vde8O1wpY7w5dOHcORVcK0wpPDgsK0Xm/CpyzCvU7DhcOoHsKqwoETNiTCshTCrcO/wobCpsKsw6bCrn7Cn8OMwp3Dg8OqwrjCq8OoF8KzYEAoNiPCpcOtw5XDrRJCYAxSP8O4PRQewpvDhzLDoMO2wpjDp8Oqw4bDvhPDhSsQw7XCtRjDl0ssw5DCjMKKXcK9w4LDmcOkw6sOwoVIw6vCi0kGw4lCw4dbe8KRwrLDlMOYKMK+wrXCpwnCscKQwr/CmMK/THTCs8ONw7kgw4ZIw4Adw4YTw4PDv0nCl8K/w6jDn8Ktw77Dn8Odw6VhwrfDlC3DmkoGwp3DjwXCnMOGOytfWi/DvkPCqko2GXl6w6jChsKDwpDDnsKZIMOMKCQkw7pDw4JAw5TDicKYw5NoB8OjY3IRK8Ozw6Ahw64vbBVow78WbMOLw5A2wpTCpsKiw5Btw5/Dh8OPX8OhF8KeRMKgw7nDp8O+wqAWQSkpLmQIFMK3w67Dn8KswqbCjsOPw5t4wqcZD2QocjTCkHolw7gvNsOzwrPCrAfDo8OHezHCgcKVwoHCocKQesOfw4DDlcODw5jCkGvCuUQYwo/CrMOmwrlsw4Now5/Cu8KQw5EWdsO/EcOYScKaw7vCuUM4b2g6w4PCnhgVwprCl8O2w6J+CsO4w7FA",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=4",
-          "text": "Lost ski town items find new life in Denver homeless shelters\n9NEWS\n9NEWS\n563K subscribers\nWatch on",
-          "fields": 0
-        },
-        {
-          "url": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A65445&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A65445%2F&aoriginsup=1&vf=1",
-          "text": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area\n9NEWS\n9NEWS\n563K subscribers\nWatch on",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
         }
       ]
     },
@@ -2205,19 +1042,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "FAQ – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nF.A.Q.\nWhat does Community Across America do?\nWhat makes Community Across America unique?\nHow will individuals in the community benefit?\nHow will local and national organizations benefit?\nHow will businesses, institutions, communities, and governments (sponsors) benefit?\nMisc.\nWill I receive newsletters and promotional emails?\nHow much are Community Points worth? What can I do with them?\nHow do I receive credit for volunteering at an event?\nCan anyone post an event to the calendar?\nIs there a limit to how many events organizers can post?\nHow Can You Help?\nDevelopment\nOperations\nTechnology and Web Design\nCommunity Outreach\nFundraising\nWatch Our Short Video\n\nLearn more about our pilot program and vision!\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nF.A.Q.\n\nFor questions about Slopes to Hope, please contact us.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "https://view.genial.ly/6413b7253c4a550011b7dd9a",
-            "title": "Community Across America"
-          },
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -2225,34 +1053,29 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
           "spacer.default",
-          "heading.default",
-          "eael-adv-accordion.default",
-          "heading.default",
-          "eael-adv-accordion.default",
-          "heading.default",
-          "eael-adv-accordion.default",
-          "spacer.default",
-          "heading.default",
-          "text-editor.default",
-          "html.default"
+          "heading.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "https://view.genially.com/6413b7253c4a550011b7dd9a",
-          "text": "Page 1 of 10, COVER\nHELPING PEOPLE HELP OTHERS\nCommunity Across America\nPlayback Options\n\nTurn on the sound for a better experience!\n\nGet started free\nStart now",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/donors/",
@@ -2264,15 +1087,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Donors – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nFounding Donors\n\nIndividuals or organizations that contribute to our cause before June 30th, 2026, will be recognized as founding donors for the lifetime of this organization. Our gratitude will forever be expressed on this dedicated page.\n\nLisa Strauss - Boulder Flatirons Rotary Club\n\nGIVE NOW\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nFounding Donors\n\nIndividuals or organizations that contribute to our cause before June 30th, 2026, will be recognized as founding donors for the lifetime of this organization. Our gratitude will forever be expressed on this dedicated page.\n\nLisa Strauss - Boulder Flatirons Rotary Club\n\nGIVE NOW\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -2280,6 +1098,21 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -2287,279 +1120,7 @@
           "image.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/terms-of-service-2/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Terms of Service – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTerms of Service\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/privacy-policy-2/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Privacy Policy – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nPrivacy Policy\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/donation-confirmation/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Donation Confirmation – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\n[give_receipt]\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/donation-failed/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Donation Failed – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nDonation Failed\n\nWe're sorry, your donation failed to process. Please try again or contact site support.\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/donor-dashboard/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Donor Dashboard – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nDonor Dashboard\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/test-donate/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Test DONATE – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\n[give_form id=”11381″]\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/volunteer/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Volunteer – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/team/",
@@ -2571,19 +1132,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Team – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
-        "images": [
-          "http://127.0.0.1:65445/wp-content/uploads/2026/08/1576649648795.jpg",
-          "http://127.0.0.1:65445/wp-content/uploads/2026/08/unnamed.jpg",
-          "http://127.0.0.1:65445/wp-content/uploads/2026/08/1702315837580-508x508.jpg"
-        ],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "images": [],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -2611,6 +1163,21 @@
             "text": "\n\t\t\t\t\t\t",
             "label": null,
             "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -2630,13 +1197,7 @@
           "elementskit-team.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/gallery/",
@@ -2648,15 +1209,10 @@
       "blockedWrites": [],
       "dom": {
         "title": "Gallery – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\n2025 – 2026\n\nMARRIOTT’S MOUNTAIN VALLEY LODGE PILLOW COLLECTION\nCOLORADO SPRINGS ROTARY CLUB, SALVATION ARMY FAMILY HOPE CENTER, SPRINGS RESCUE MISSION\nBEAVER RUN RESORT COLLECTION\nKEYSTONE SKI RESORT COLLECTION\nCOLLECTION LOGGING\nBEAVER RUN RESORT BED PILLOW COLLECTION\nVOLUNTEERS SORTING CLOTHES\nBEAVER RUN RESORT PILLOWS AND DISHES COLLECTION\nBEAVER RUN RESORT PILLOWS\nBEAVER RUN RESORT PILLOWS\nELKS LODGE SILVERTHORNE DELIVERY DISHES\nDELIVERY TO HAVEN RIDGE BOULDER\nNEW KID’S SKI CLOTHES\nSTORAGE UNIT\nNEW KID’S SKI BOOTS & GOGGLES\nNEW KID’S SKI CLOTHES\nSILVERTHORNE LIBRARY DONATION BOX COLLECTION\nFIRST TWO DELIVERIES IN 2026\nDELIVERY TO ELKS LODGE SILVERTHORNE – DISHES\nWE NEED A CARGO VAN.\n\n2023 – 2024\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\n2025 – 2026\n\nMARRIOTT’S MOUNTAIN VALLEY LODGE PILLOW COLLECTION\nCOLORADO SPRINGS ROTARY CLUB, SALVATION ARMY FAMILY HOPE CENTER, SPRINGS RESCUE MISSION\nBEAVER RUN RESORT COLLECTION\nKEYSTONE SKI RESORT COLLECTION\nCOLLECTION LOGGING\nBEAVER RUN RESORT BED PILLOW COLLECTION\nVOLUNTEERS SORTING CLOTHES\nBEAVER RUN RESORT PILLOWS AND DISHES COLLECTION\nBEAVER RUN RESORT PILLOWS\nBEAVER RUN RESORT PILLOWS\nELKS LODGE SILVERTHORNE DELIVERY DISHES\nDELIVERY TO HAVEN RIDGE BOULDER\nNEW KID’S SKI CLOTHES\nSTORAGE UNIT\nNEW KID’S SKI BOOTS & GOGGLES\nNEW KID’S SKI CLOTHES\nSILVERTHORNE LIBRARY DONATION BOX COLLECTION\nFIRST TWO DELIVERIES IN 2026\nDELIVERY TO ELKS LODGE SILVERTHORNE – DISHES\nWE NEED A CARGO VAN.\n\n2023 – 2024\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
@@ -2664,6 +1220,21 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -2673,13 +1244,7 @@
           "image-gallery.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
       "path": "/partners/",
@@ -2690,15 +1255,11 @@
       "errors": [],
       "blockedWrites": [
         {
-          "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=46536&rt=j",
           "method": "POST"
         },
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=52286&rt=j",
-          "method": "POST"
-        },
-        {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=152286&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=146536&rt=j",
           "method": "POST"
         },
         {
@@ -2708,17 +1269,13 @@
       ],
       "dom": {
         "title": "Partners – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nRecipient\n\nNonprofits & Organizations\n\n          \n\nAdopt an Angel – Summit County Rotary Club (visit)\n\nDillon Community Church (visit)\n\nReSaddled (visit)\n\nColorado Department of Labor & Employment – Frisco (visit)\n\nColorado Department of Labor & Employment – Leadville (visit)\n\nSummit County Rescue Group (visit)\n\nFamily Intercultural Resource Center – FIRC (visit)\n\nAll the Way Well (visit)\n\nBayaud Works (visit)\n\nChrist’s Body Ministries (visit)\n\nCrutches 4 Africa (visit)\n\nHAAT Force (visit)\n\nEnglewood Police Department (visit)\n\nBridges of Colorado (visit)\n\nMutual Aid Monday (visit)\n\nAssistance League of Denver (visit)\n\nAll Roads (visit)\n\nHaven Ridge (visit)\n\nElks Lodge – Silverthorne (visit)\n\nThe Salvation Army Hope Center – Colorado Springs (visit)\n\nSprings Rescue Mission (visit)\n\nHabitat for Humanity ReStore (visit)\n\nSheridan School District No 2 (visit)\n\nChange the Trend (visit)\n\nCommunity Economic Defense Project (visit)\n\nThe Salvation Army – Denver (visit)\n\nCommunity Ministry (visit)\n\nTrue North Recovery Services (visit)\n\nHazelbrook Community Center (visit)\n\nAdvance Pathways (visit)\n\nParticipating\n\nResorts, Hotels, Organizations\n\n         \n\nSpinnaker Lake Dillon (visit)\n\nReSaddled (visit)\n\nKeystone Resort (visit)\n\nMarriott’s Mountain Valley Lodge at Breckenridge (visit)\n\nThe Residences at Main Street Station (visit)\n\nHyatt Vacation Club at The Ranahan (visit)\n\nHelly Hansen (visit)\n\nBreckenridge Recreation Center (visit)\n\nGrand Lodge on Peak 7 (visit)\n\nGrand Timber Lodge (visit)\n\nArapahoe Basin (visit)\n\nBreckenridge Ski Resort (visit)\n\nBeaver Run Resort (visit)\n\nBreckenridge Nordic Center (visit)\n\nBlueSky Breckenridge – By Vacasa (visit)\n\nHotel Frisco (visit)\n\nGrand Colorado on Peak 8 (visit)\n\nThe Village at Breckenridge (visit)\n\nGreat Western Lodging (visit)\n\nBreckenridge Resort Managers (visit)\n\nOG’s Thrift & Threadz (visit)\n\nTheatre SilCo (visit)\n\nHotel Alpenrock Breckenridge (visit)\n\nSummit Executive Cleaning (visit)\n\nThank You!\n\nDonors and Grantors\n\n         \n\nHigh Country Conservation Center (visit)\n\nTown of Frisco (visit)\n\nRotary Club of Denver Southeast (visit)\n\nRotary Club of Vail Edwards (visit)\n\nRotary Club of Boulder Flatirons (visit)\n\nRotary Club of Denver Cherry Creek (visit)\n\nRotary Club of Highlands Ranch (visit)\n\nRotary Club of Littleton (visit)\n\nRotary Club of Summit County (visit)\n\nRotary Club of Castle Rock (visit)\n\nRotary District 5450 (visit)\n\nKaliber Collision Repair (visit)\n\nLisa Strauss\n\nEric Bahr\n\nJoyce & Allyn Mosher\n\nTom & Debbie Jaskolski\n\nKevin & Jennifer Maher\n\n(Anonymous)\n\nMake a measurable\n\nand tangible impact!\n\nGIVE NOW!\n\nFundraising Goal (2027) – $25,000\n\n$7,140\n\nWe are attempting to raise $25,000 for our second-year to reach our goal of collecting and distributing 20,000 pounds of winter clothes!\n\nPlease help us divert thousands of pounds of waste from our landfills and provide winter clothing to Coloradans experiencing homelessness and hardships –  both at once!\n\nCopyright © 2026 Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nRecipient\n\nNonprofits & Organizations\n\n          \n\nAdopt an Angel – Summit County Rotary Club (visit)\n\nDillon Community Church (visit)\n\nReSaddled (visit)\n\nColorado Department of Labor & Employment – Frisco (visit)\n\nColorado Department of Labor & Employment – Leadville (visit)\n\nSummit County Rescue Group (visit)\n\nFamily Intercultural Resource Center – FIRC (visit)\n\nAll the Way Well (visit)\n\nBayaud Works (visit)\n\nChrist’s Body Ministries (visit)\n\nCrutches 4 Africa (visit)\n\nHAAT Force (visit)\n\nEnglewood Police Department (visit)\n\nBridges of Colorado (visit)\n\nMutual Aid Monday (visit)\n\nAssistance League of Denver (visit)\n\nAll Roads (visit)\n\nHaven Ridge (visit)\n\nElks Lodge – Silverthorne (visit)\n\nThe Salvation Army Hope Center – Colorado Springs (visit)\n\nSprings Rescue Mission (visit)\n\nHabitat for Humanity ReStore (visit)\n\nSheridan School District No 2 (visit)\n\nChange the Trend (visit)\n\nCommunity Economic Defense Project (visit)\n\nThe Salvation Army – Denver (visit)\n\nCommunity Ministry (visit)\n\nTrue North Recovery Services (visit)\n\nHazelbrook Community Center (visit)\n\nAdvance Pathways (visit)\n\nParticipating\n\nResorts, Hotels, Organizations\n\n         \n\nSpinnaker Lake Dillon (visit)\n\nReSaddled (visit)\n\nKeystone Resort (visit)\n\nMarriott’s Mountain Valley Lodge at Breckenridge (visit)\n\nThe Residences at Main Street Station (visit)\n\nHyatt Vacation Club at The Ranahan (visit)\n\nHelly Hansen (visit)\n\nBreckenridge Recreation Center (visit)\n\nGrand Lodge on Peak 7 (visit)\n\nGrand Timber Lodge (visit)\n\nArapahoe Basin (visit)\n\nBreckenridge Ski Resort (visit)\n\nBeaver Run Resort (visit)\n\nBreckenridge Nordic Center (visit)\n\nBlueSky Breckenridge – By Vacasa (visit)\n\nHotel Frisco (visit)\n\nGrand Colorado on Peak 8 (visit)\n\nThe Village at Breckenridge (visit)\n\nGreat Western Lodging (visit)\n\nBreckenridge Resort Managers (visit)\n\nOG’s Thrift & Threadz (visit)\n\nTheatre SilCo (visit)\n\nHotel Alpenrock Breckenridge (visit)\n\nSummit Executive Cleaning (visit)\n\nThank You!\n\nDonors and Grantors\n\n         \n\nHigh Country Conservation Center (visit)\n\nTown of Frisco (visit)\n\nRotary Club of Denver Southeast (visit)\n\nRotary Club of Vail Edwards (visit)\n\nRotary Club of Boulder Flatirons (visit)\n\nRotary Club of Denver Cherry Creek (visit)\n\nRotary Club of Highlands Ranch (visit)\n\nRotary Club of Littleton (visit)\n\nRotary Club of Summit County (visit)\n\nRotary Club of Castle Rock (visit)\n\nRotary District 5450 (visit)\n\nKaliber Collision Repair (visit)\n\nLisa Strauss\n\nEric Bahr\n\nJoyce & Allyn Mosher\n\nTom & Debbie Jaskolski\n\nKevin & Jennifer Maher\n\n(Anonymous)\n\nMake a measurable\n\nand tangible impact!\n\nGIVE NOW!\n\nFundraising Goal (2027) – $25,000\n\n$7,140\n\nWe are attempting to raise $25,000 for our second-year to reach our goal of collecting and distributing 20,000 pounds of winter clothes!\n\nPlease help us divert thousands of pounds of waste from our landfills and provide winter clothing to Coloradans experiencing homelessness and hardships –  both at once!\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
         "frames": [
           {
             "src": "https://www.google.com/maps/d/u/3/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1",
             "title": ""
-          },
-          {
-            "src": "",
-            "title": "archetype"
           }
         ],
         "counter": [],
@@ -2728,6 +1285,21 @@
             "text": "",
             "label": "Open menu",
             "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": [
@@ -2752,26 +1324,10 @@
           "text-editor.default"
         ]
       },
-      "formFrames": [
-        {
-          "url": "https://www.google.com/maps/d/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1&ll=0%2C0&z=6",
-          "text": "Breckenridge Ski Resort\nAll Roads Shelter\nThe Salvation Army Fam...\nSlopes to Hope - Locations\nAbout\nTerms\nThis map was created by a user. Learn how to create your own.\nCreate new map\nOpen map\nShared with you\nHelp\nFeedback\nReport inappropriate content\nGoogle Drive",
-          "fields": 1
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        },
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
-      "path": "/elementskit-content/dynamic-content-widget-b7206bf-99/",
+      "path": "/privacy-policy/",
       "width": 390,
       "missing": [],
       "legacy": [],
@@ -2779,101 +1335,36 @@
       "errors": [],
       "blockedWrites": [],
       "dom": {
-        "title": "dynamic-content-widget-b7206bf-99 – Slopes to Hope",
-        "text": "Skip to content",
+        "title": "Privacy Policy – Slopes to Hope",
+        "text": "Slopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nPrivacy Policy\n\nEffective September 11, 2026\n\nThis policy explains how information is handled when you visit the Slopes to Hope website or use services linked or embedded here.\n\nInformation you choose to provide\n\nThe newsletter signup and contact forms are provided by HubSpot. When you submit a form, the information you enter is sent to HubSpot for Slopes to Hope so the organization can manage subscriptions, respond to messages, and maintain related records. The fields shown on each form determine what information is requested.\n\nDonation and fundraising links take you to third-party services, including Givebutter, RallyUp, and Colorado Gives. Those providers collect and process the information needed for their services under their own terms and privacy policies. Slopes to Hope does not collect payment-card details through this website.\n\nAnalytics and cookies\n\nWith your permission, this website loads Google Analytics through Google tag GT-MKTP8299 (measurement ID G-XEWDW3TYVZ) to understand site usage. Analytics is not loaded until you accept analytics in the consent interface. You may decline analytics or change your choice at any time using “Cookie settings” in the footer.\n\nYour consent choice is stored in your browser's local storage. Embedded forms and third-party content may use their own cookies or similar technologies when they load or when you interact with them.\n\nHosting and third-party content\n\nThe site is hosted using GitHub Pages. Hosting and network providers may process routine technical information, such as IP addresses, request details, browser information, timestamps, and security logs, to deliver and protect the site.\n\nThe site also links to or embeds services such as Google Maps, Instagram, Facebook, and other third-party websites. Those services receive information according to their own practices when their content loads or when you follow a link.\n\nChoices and contact\n\nYou can decline optional analytics, change your analytics choice through the footer, avoid submitting forms, and choose whether to visit third-party services. Newsletter messages should provide the applicable subscription-management options.\n\nFor questions about this policy or information submitted to Slopes to Hope, email drew@slopestohope.com or use the contact page.\n\nThis policy may be updated as the website and its services change. The effective date above identifies the current version.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/elementskit-content/dynamic-content-widget-2e4e699-99/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "dynamic-content-widget-2e4e699-99 – Slopes to Hope",
-        "text": "Skip to content",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/community/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "community – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: community\nTag: community\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
           {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": []
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     },
     {
-      "path": "/tag/public-speaking/",
+      "path": "/terms-of-service/",
       "width": 390,
       "missing": [],
       "legacy": [],
@@ -2881,718 +1372,33 @@
       "errors": [],
       "blockedWrites": [],
       "dom": {
-        "title": "public speaking – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: public speaking\nTag: public speaking\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
+        "title": "Terms of Service – Slopes to Hope",
+        "text": "Slopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nTerms of Service\n\nEffective September 11, 2026\n\nThese terms apply to use of the Slopes to Hope website. By using the site, you agree to these terms.\n\nInformational website\n\nThis website provides general information about Slopes to Hope, its mission, activities, partners, and ways to support or contact the organization. Content may be corrected or updated as circumstances change.\n\nThird-party services and links\n\nThe site links to or embeds services operated by others, including HubSpot, Givebutter, RallyUp, Colorado Gives, Google Maps, Instagram, Facebook, and other third-party websites. Those services are governed by their own terms and policies. Slopes to Hope does not control their availability, content, or data practices.\n\nDonations\n\nDonation and fundraising transactions are handled through the third-party provider selected by the visitor. Any transaction is subject to that provider's checkout information, terms, privacy policy, and confirmation process. This website does not directly process payment-card information.\n\nSite content\n\nSite text, designs, logos, photographs, and other materials may be protected by copyright, trademark, or other rights. You may view the site and share links to it for personal and informational purposes. Contact Slopes to Hope before reusing site content beyond uses allowed by law. Third-party materials remain subject to their respective owners' rights.\n\nAvailability and responsibility\n\nThe site is provided for general informational use. Slopes to Hope does not promise that every page, link, embed, or third-party service will always be available or error-free. To the extent permitted by applicable law, Slopes to Hope is not responsible for losses caused by reliance on site content or by third-party services outside its control.\n\nChanges and contact\n\nThese terms may be updated as the website changes. The effective date above identifies the current version. For questions, email drew@slopestohope.com or use the contact page.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings\n\nAnalytics and privacy\n\nWe use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our Privacy Policy.\n\nAccept analytics\nDecline analytics",
         "overflow": false,
         "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
+        "frames": [],
         "counter": [],
         "progress": [],
         "menu": [
           {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
           }
         ],
         "widgets": []
       },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/toastmasters/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "toastmasters – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: toastmasters\nTag: toastmasters\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/local/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "local – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: local\nTag: local\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/frisco/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "frisco – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: frisco\nTag: frisco\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/summit-county/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "summit county – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: summit county\nTag: summit county\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/summit-co/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "summit co – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: summit co\nTag: summit co\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/summit/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "summit – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: summit\nTag: summit\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/tenmile/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "tenmile – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: tenmile\nTag: tenmile\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/community-across-america/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "community across america – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: community across america\nTag: community across america\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/caa/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "caa – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: caa\nTag: caa\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/fattys/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "fatty’s – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: fatty’s\nTag: fatty’s\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/pizza/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "pizza – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: pizza\nTag: pizza\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/cable-center/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "cable center – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: cable center\nTag: cable center\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/breckenridge/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "breckenridge – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: breckenridge\nTag: breckenridge\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/fly-fishing/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "fly fishing – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: fly fishing\nTag: fly fishing\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/b3t/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "b3t – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: b3t\nTag: b3t\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/breckfest/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "breckfest – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: breckfest\nTag: breckfest\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/tag/demo/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Demo – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nTag: Demo\nTag: Demo\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
-    },
-    {
-      "path": "/author/drewroberts/",
-      "width": 390,
-      "missing": [],
-      "legacy": [],
-      "externalFailures": [],
-      "errors": [],
-      "blockedWrites": [],
-      "dom": {
-        "title": "Drew Roberts – Slopes to Hope",
-        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nAuthor: Drew Roberts\nAuthor: Drew Roberts\n\nIt seems we can’t find what you’re looking for. Perhaps searching can help.\n\nSearch for:\n \nCopyright © 2026 Slopes to Hope",
-        "overflow": false,
-        "images": [],
-        "frames": [
-          {
-            "src": "",
-            "title": "archetype"
-          }
-        ],
-        "counter": [],
-        "progress": [],
-        "menu": [
-          {
-            "text": "",
-            "label": "Open menu",
-            "class": "menu-toggle"
-          }
-        ],
-        "widgets": []
-      },
-      "formFrames": [
-        {
-          "url": "about:blank",
-          "text": "",
-          "fields": 0
-        }
-      ]
+      "formFrames": []
     }
   ],
   "mirrored": []

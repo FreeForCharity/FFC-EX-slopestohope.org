@@ -12,6 +12,11 @@ const footerLinks='<span class="sth-footer-links"><a href="/privacy-policy/">Pri
 
 export function applyConsentAndPolicyLinks(document){
   document.querySelectorAll('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js,#leadin-script-loader-js-js-extra').forEach(node=>node.remove());
+  document.querySelectorAll('#ea11y-widget-js-extra,#ea11y-widget-js').forEach(node=>node.remove());
+  document.querySelectorAll('script:not([src])').forEach(script=>{
+    if(/registerAllyAction|allyWidget:open|ea11yWidget/.test(script.textContent))script.remove();
+  });
+  document.querySelectorAll('link[href="//cdn.elementor.com"]').forEach(node=>node.remove());
   document.querySelectorAll('link[href]').forEach(link=>{if(/google-analytics\.com|googletagmanager\.com/.test(link.href))link.remove();});
   if(!document.querySelector('link[href="/assets/consent.css"]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/consent.css';document.head.appendChild(link);}
   const footer=document.querySelector('.site-info .container');

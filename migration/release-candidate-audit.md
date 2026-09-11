@@ -15,11 +15,12 @@ Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS
 - Consent tests pass at 1440 px and 390 px for first visit, decline, persistence, settings reopening, accept, intended tag loading, policy navigation, and horizontal overflow.
 - The full browser audit passes 20 route/viewport checks with zero missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. Both HubSpot frames rendered at both widths.
 - The interaction suite passes newsletter validation, contact-form validation, donation and pledge destinations, Gallery behavior, and mobile navigation. It blocks all writes.
-- No published Candid/GuideStar, Community Across America, GiveWP, deleted policy-shell, site-owned `.com` runtime dependency, broken internal link, or malformed local route remains.
+- The unused external Elementor Ally widget, its action hook, and its exclusive CSS were removed. A static regression check prevents it from returning.
+- No published Candid/GuideStar, Community Across America, GiveWP, Elementor Ally, deleted policy-shell, site-owned `.com` runtime dependency, broken internal link, or malformed local route remains.
 
 ## HubSpot end-to-end status
 
-The test schemas were inspected read-only and both forms loaded. The authorized real submissions were not sent because automatic approval review required a direct chat authorization after noting that the actions can create HubSpot CRM records, subscriptions, notifications, or email activity. No submission allowance was consumed. After direct authorization, run exactly one newsletter submission and one contact-form submission, record their HTTP and confirmation results, rerun final validation, and update this report.
+Both embedded forms loaded and returned HTTP 200 with no validation errors for the authorized test data; HubSpot's email check also returned success. In headless Edge, the newsletter reached Google's normal reCAPTCHA Enterprise token-generation request but remained in `Form is submitting`; the contact form also remained there. A visible automated Edge attempt closed before reCAPTCHA completed. No final HubSpot `/submissions/v3/` request occurred in any attempt, and a read-only CRM lookup after the attempts found zero contacts for the authorized test address. The two authorized submission allowances therefore remain unused. End-to-end submission requires one manual newsletter submission and one manual contact submission in a normal browser because reCAPTCHA did not complete in the automated browser. Details are recorded in `hubspot-end-to-end.json`.
 
 ## Retained `.com` references
 

@@ -6,7 +6,7 @@ This branch contains a static capture of the public `slopestohope.com` WordPress
 
 - 37 sitemap-discovered public routes, including Home, Gallery, Team, Our Story, Partners, Contact, published utility pages, public taxonomy archives, and Elementor template URLs.
 - 533 source assets mirrored from `wp-content` and `wp-includes`; the completed `public/` tree contains 586 files and is approximately 84 MB.
-- Original navigation, wording, media, Elementor styling and interactions, HubSpot forms, Givebutter donation links, RallyUp pledge link, maps, analytics, social links, and accessibility widget integration.
+- Original navigation, wording, media, Elementor styling and interactions, HubSpot forms, Givebutter donation links, RallyUp pledge link, maps, analytics, and social links.
 - Canonical and Open Graph URLs target `slopestohope.org`. Site-owned asset and page requests are local, while intentional external services remain external.
 - Slopes to Hope-specific Privacy Policy and Terms of Service pages, footer links, and native analytics consent are added for the static release candidate.
 - `/staff/` is retained as a compatibility redirect to the current `/team/` route.
@@ -39,5 +39,5 @@ No form, donation, CRM, analytics, or email write was sent during testing. HubSp
 - Unlinked WordPress archive/template shells were excluded from the static site: 17 empty tag archives, the empty Drew Roberts author archive, two empty ElementsKit internal-content routes, and the empty `/volunteer/` page. The visible Volunteer calls to action already use `/contact-us/`.
 - The current newsletter form permits an empty email submission but rejects an invalid email format. This is HubSpot form configuration, not static-site behavior.
 - The release candidate now provides the policy-footer links and first-visit consent interface expected by the Free For Charity fleet smoke workflow. The current live `.org` redirect still targets WordPress, so the scheduled production check does not yet exercise this branch.
-- Intentional third-party integrations remain network-dependent, including HubSpot, Givebutter, RallyUp, Google Maps/YouTube/analytics, Instagram, and Elementor's accessibility widget.
+- Intentional third-party integrations remain network-dependent, including HubSpot, Givebutter, RallyUp, Google Maps/YouTube/analytics, and Instagram.
 - The final local browser audit passed all eight routes at 1440 px and 390 px with no missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. The final interaction rerun passed donation destinations, Gallery behavior, and mobile navigation. Its HubSpot frame checks could not run because the test browser was denied external network access; the same checks passed in the earlier audit, and read-only endpoint probes returned HTTP 200.
