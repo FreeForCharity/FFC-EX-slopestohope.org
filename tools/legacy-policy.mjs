@@ -2,6 +2,9 @@ export const EXCLUDED_LEGACY_ROUTES = new Set(['/tag/community-across-america/',
 export const EXCLUDED_GIVEWP_ROUTES = new Set(['/donation-confirmation/', '/donation-failed/', '/donor-dashboard/', '/test-donate/']);
 export const EXCLUDED_POLICY_SHELL_ROUTES = new Set(['/privacy-policy-2/', '/terms-of-service-2/']);
 export const EXCLUDED_ROUTES = new Set([...EXCLUDED_LEGACY_ROUTES, ...EXCLUDED_GIVEWP_ROUTES, ...EXCLUDED_POLICY_SHELL_ROUTES]);
+export const REMOVED_CANDID_SEAL_LINKS = new Set([
+  'https://app.candid.org/profile/16353783/slopes-to-hope-33-4379051/?pkId=6af5d7d1-d210-4cfe-a995-a15e189188c5',
+]);
 
 export function sanitizeLegacyContent(document, pathname) {
   if (pathname !== '/faq/') return;

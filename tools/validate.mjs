@@ -3,7 +3,7 @@ import {readFile,access,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {glob} from 'glob';
 import {within} from './migrate.mjs';
-import {EXCLUDED_ROUTES} from './legacy-policy.mjs';
+import {EXCLUDED_ROUTES,REMOVED_CANDID_SEAL_LINKS} from './legacy-policy.mjs';
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Set(['/open-positions/','/donations/slopes-to-hope']);
 const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
@@ -35,6 +35,7 @@ for(const r of publishedRoutes){
   if(b64&&Buffer.from(b64,'base64').toString().includes('slopestohope.com'))issues.push({path:r.path,error:'Legacy host in encoded lightbox action'});
  }
  for(const l of r.links.filter(l=>/^https?:/.test(l.url)&&!new URL(l.url).hostname.endsWith('slopestohope.com'))){
+  if(REMOVED_CANDID_SEAL_LINKS.has(l.url))continue;
   if(![...d.querySelectorAll('a[href]')].some(a=>a.href===l.url))issues.push({path:r.path,error:'External destination changed',url:l.url});
  }
 }

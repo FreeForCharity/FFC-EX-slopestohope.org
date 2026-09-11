@@ -1,0 +1,199 @@
+{
+  "testedAt": "2026-09-11T10:34:02.924Z",
+  "base": "http://127.0.0.1:61476",
+  "results": [
+    {
+      "path": "/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Slopes to Hope – Reducing Waste and Fostering Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n25,599 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishements, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nView Reel on Instagram\n\nBy @keystone_resort\n\nMake a \n\ntangible and measurable impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\n$8,068.03\n28%\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n4,743/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [
+          "https://www.instagram.com/reel/DXXtI72EU5f/media/?size=l"
+        ],
+        "frames": [
+          {
+            "src": "https://www.google.com/maps/d/u/3/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [
+          {
+            "text": "Goal:\n4,743/20,000",
+            "count": "23.7"
+          },
+          {
+            "text": "Goal:\n17,803/10,000",
+            "count": "110"
+          }
+        ],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          }
+        ],
+        "widgets": [
+          "video.default",
+          "video.default",
+          "text-editor.default",
+          "text-editor.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "eael-feature-list.default",
+          "text-editor.default",
+          "html.default",
+          "text-editor.default",
+          "text-editor.default",
+          "divider.default",
+          "text-editor.default",
+          "elementskit-progressbar.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "divider.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "elementskit-progressbar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "html.default",
+          "hubspot-form.default",
+          "heading.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "text-editor.default"
+        ]
+      },
+      "formFrames": []
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Slopes to Hope – Reducing Waste and Fostering Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n25,599 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishements, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nView Reel on Instagram\n\nBy @keystone_resort\n\nMake a measurable\n\nand tangible impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nFundraising Goal (2027) – $25,000\n\n$8,068.03\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n4,743/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [
+          "https://www.instagram.com/reel/DXXtI72EU5f/media/?size=l"
+        ],
+        "frames": [
+          {
+            "src": "https://www.google.com/maps/d/u/3/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [
+          {
+            "text": "Goal:\n4,743/20,000",
+            "count": "23.7"
+          },
+          {
+            "text": "Goal:\n17,803/10,000",
+            "count": "110"
+          }
+        ],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          }
+        ],
+        "widgets": [
+          "video.default",
+          "video.default",
+          "text-editor.default",
+          "text-editor.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "eael-feature-list.default",
+          "text-editor.default",
+          "html.default",
+          "text-editor.default",
+          "text-editor.default",
+          "divider.default",
+          "text-editor.default",
+          "elementskit-progressbar.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "divider.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "elementskit-progressbar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "html.default",
+          "hubspot-form.default",
+          "heading.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "text-editor.default"
+        ]
+      },
+      "formFrames": []
+    }
+  ],
+  "mirrored": []
+}
