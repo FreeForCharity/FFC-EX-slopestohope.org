@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-11T18:53:48.892Z",
+  "testedAt": "2026-09-11T19:02:05.739Z",
   "results": [
     {
       "name": "First visit shows consent (1440)",
@@ -22,6 +22,10 @@
       "passed": true
     },
     {
+      "name": "Revoking consent persists without new analytics (1440)",
+      "passed": true
+    },
+    {
       "name": "First visit shows consent (390)",
       "passed": true
     },
@@ -39,6 +43,10 @@
     },
     {
       "name": "Acceptance persists and layout fits (390)",
+      "passed": true
+    },
+    {
+      "name": "Revoking consent persists without new analytics (390)",
       "passed": true
     }
   ]

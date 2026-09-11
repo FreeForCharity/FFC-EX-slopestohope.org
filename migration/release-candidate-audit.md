@@ -12,7 +12,7 @@ Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS
 ## Verification
 
 - Static validation and the production-equivalent build pass for ten published routes plus the `/staff/` redirect.
-- Consent tests pass at 1440 px and 390 px for first visit, decline, persistence, settings reopening, accept, intended tag loading, policy navigation, and horizontal overflow.
+- Consent tests pass at 1440 px and 390 px for first visit, decline, persistence, settings reopening, accept, intended tag loading, policy navigation, revocation, post-revocation reload, and horizontal overflow.
 - The full browser audit passes 20 route/viewport checks with zero missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. Both HubSpot frames rendered at both widths.
 - The interaction suite passes newsletter validation, contact-form validation, donation and pledge destinations, Gallery behavior, and mobile navigation. It blocks all writes.
 - The unused external Elementor Ally widget, its action hook, and its exclusive CSS were removed. A static regression check prevents it from returning.
