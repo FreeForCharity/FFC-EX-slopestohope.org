@@ -21,3 +21,21 @@
     transition: transform .3s ease;
   }
 }
+
+/* Keep the homepage HubSpot newsletter form at a readable desktop width while
+   remaining fluid on smaller screens. Height stays controlled by HubSpot so
+   validation, consent, and confirmation states are not clipped. */
+.elementor-83 .elementor-element.elementor-element-67f7104 {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.elementor-83 .elementor-element.elementor-element-67f7104 .elementor-widget-container,
+.elementor-83 .elementor-element.elementor-element-67f7104 .hbspt-form,
+.elementor-83 .elementor-element.elementor-element-67f7104 .hs-form-frame,
+.elementor-83 .elementor-element.elementor-element-67f7104 iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
