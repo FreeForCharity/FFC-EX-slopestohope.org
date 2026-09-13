@@ -21,3 +21,8 @@ vendor/
 _site/
 .jekyll-cache/
 .sass-cache/
+
+# Reproducible migration capture and local verification artifacts
+.migration-cache/
+.pnpm-store/
+out/

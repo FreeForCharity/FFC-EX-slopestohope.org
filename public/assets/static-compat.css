@@ -1,0 +1,41 @@
+/* Open-state rules from BuddyX assets/css/global.min.css, captured 2026-09-10.
+   LiteSpeed's unused-CSS output omitted these interactive states. */
+@media (max-width: 767px) {
+  .mobile-menu-opened .site-header-wrapper {
+    position: relative;
+    z-index: 20000;
+  }
+  .mobile-menu-opened .mobile-menu-close {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10000;
+  }
+  .mobile-menu-opened .primary-menu-container {
+    display: block;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10001;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: transform .3s ease;
+  }
+}
+
+/* Keep the homepage HubSpot newsletter form at a readable desktop width while
+   remaining fluid on smaller screens. Height stays controlled by HubSpot so
+   validation, consent, and confirmation states are not clipped. */
+.elementor-83 .elementor-element.elementor-element-67f7104 {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.elementor-83 .elementor-element.elementor-element-67f7104 .elementor-widget-container,
+.elementor-83 .elementor-element.elementor-element-67f7104 .hbspt-form,
+.elementor-83 .elementor-element.elementor-element-67f7104 .hs-form-frame,
+.elementor-83 .elementor-element.elementor-element-67f7104 iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}

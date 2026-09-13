@@ -1,0 +1,419 @@
+{
+  "testedAt": "2026-09-10T20:29:47.124Z",
+  "base": "https://slopestohope.com",
+  "results": [
+    {
+      "path": "/our-story/",
+      "width": 1440,
+      "missing": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [
+        "TypeError: Failed to fetch\n    at https://slopestohope.com/our-story/:525:17491",
+        "ReferenceError: jQuery is not defined\n    at 846 (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:1:8131)\n    at n (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:10979)\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11339\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11374\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11377"
+      ],
+      "blockedWrites": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Our Story – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nOur Story\n\nAt a Glance:\nFounded: April 3, 2025\n\n- 17,803 lbs Recovered & Redistributed in Year 1\n- 23 Hotel & Ski Resort Partners\n- 28 Nonprofit & Community Recipients\n- Serving Colorado Communities\n\nSlopes to Hope was founded by Drew Roberts after working in Summit County's hospitality industry and seeing firsthand how much usable winter clothing was being left behind each ski season.\n\nHow It Started\n\nWhile working at the Grand Lodge on Peak 7, I saw firsthand how much winter clothing guests left behind each ski season. For years, these items were donated to the local FIRC thrift stores until those stores closed. When I heard about this at our Rotary Club meeting, I started thinking about all the clothing that would no longer have a place to go.\n\nOne question kept coming to mind:\n\n\"What are we going to do with all these clothes?\"\n\nI reached out to local nonprofits, but none could use that volume of clothing. Through Rotary, I was connected with Christ's Body Ministries in Denver, a homeless shelter that could put the clothing to use helping people in need. I then approached several hotels and resorts in Summit County with a simple proposal:\n\n\"Instead of throwing these items away, let me pick them up and deliver them to this shelter in Denver that can get them directly to people in need.\"\n\nSix hotels agreed.\n\nDuring the 2023–2024 ski season, we recovered and distributed 3,052 pounds of winter clothing to Christ's Body Ministries. Seeing the impact of those donations showed there was an opportunity to expand the program.\n\nIt also raised another question:\n\n\"What if more hotels participated?\"\n\nSlopes to Hope was created to answer that question and officially became a Colorado nonprofit on April 3, 2025.\n\nWhere We Are Today\n\nAs of September 2026, 23 hotels and ski resorts throughout Summit County have partnered with Slopes to Hope. During our first full year as a nonprofit, we recovered and redistributed 17,803 pounds of clothing, blankets, linens, and other useful items.\n\nThose donations have been distributed to 28 nonprofit and community organizations serving Summit County, the Denver Metro Area, and Colorado Springs.\n\nWhat started with one question has become a growing network of hotel partners, volunteers, donors, and nonprofit organizations working together to reduce waste and help people across Colorado.\n\nThis is what Slopes to Hope is about:\n\nReducing Waste and Fostering Hope.\n\n\n\"I believe there is a strong will among the people of this world to help those in need. And if they are given the opportunity and resources, I believe they will.\"\n\n- DREW ROBERTS, FOUNDER\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "icon-box.default",
+          "icon-box.default",
+          "icon-box.default",
+          "image.default",
+          "icon-box.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "about:blank",
+          "text": "",
+          "fields": 0
+        }
+      ]
+    },
+    {
+      "path": "/donors/",
+      "width": 1440,
+      "missing": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [
+        "TypeError: Failed to fetch\n    at https://slopestohope.com/donors/:514:17485",
+        "ReferenceError: jQuery is not defined\n    at 846 (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:1:8131)\n    at n (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:10979)\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11339\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11374\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11377"
+      ],
+      "blockedWrites": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Donors – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nFounding Donors\n\nIndividuals or organizations that contribute to our cause before June 30th, 2026, will be recognized as founding donors for the lifetime of this organization. Our gratitude will forever be expressed on this dedicated page.\n\nLisa Strauss - Boulder Flatirons Rotary Club\n\nGIVE NOW\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          }
+        ],
+        "widgets": [
+          "eael-cta-box.default",
+          "image.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "about:blank",
+          "text": "",
+          "fields": 0
+        }
+      ]
+    },
+    {
+      "path": "/team/",
+      "width": 1440,
+      "missing": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [
+        "TypeError: Failed to fetch\n    at https://slopestohope.com/team/:581:17886",
+        "ReferenceError: jQuery is not defined\n    at 846 (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:1:8131)\n    at n (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:10979)\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11339\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11374\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11377",
+        "ReferenceError: jQuery is not defined\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/core.js:1:2910",
+        "ReferenceError: jQuery is not defined\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/team.js:1:512",
+        "TypeError: e is not a function\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js:4:1096\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js:4:119\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js:4:150"
+      ],
+      "blockedWrites": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Team – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNDMyIiBoZWlnaHQ9IjQzMiIgdmlld0JveD0iMCAwIDQzMiA0MzIiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+",
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+",
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzc5IiBoZWlnaHQ9IjM1OSIgdmlld0JveD0iMCAwIDM3OSAzNTkiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+",
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDgwMCA4MDAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+"
+        ],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          }
+        ],
+        "widgets": [
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "about:blank",
+          "text": "",
+          "fields": 0
+        }
+      ]
+    },
+    {
+      "path": "/our-story/",
+      "width": 390,
+      "missing": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [
+        "TypeError: Failed to fetch\n    at https://slopestohope.com/our-story/:525:17491",
+        "ReferenceError: jQuery is not defined\n    at 846 (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:1:8131)\n    at n (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:10979)\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11339\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11374\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11377"
+      ],
+      "blockedWrites": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Our Story – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nOur Story\n\nAt a Glance:\nFounded: April 3, 2025\n\n- 17,803 lbs Recovered & Redistributed in Year 1\n- 23 Hotel & Ski Resort Partners\n- 28 Nonprofit & Community Recipients\n- Serving Colorado Communities\n\nSlopes to Hope was founded by Drew Roberts after working in Summit County's hospitality industry and seeing firsthand how much usable winter clothing was being left behind each ski season.\n\nHow It Started\n\nWhile working at the Grand Lodge on Peak 7, I saw firsthand how much winter clothing guests left behind each ski season. For years, these items were donated to the local FIRC thrift stores until those stores closed. When I heard about this at our Rotary Club meeting, I started thinking about all the clothing that would no longer have a place to go.\n\nOne question kept coming to mind:\n\n\"What are we going to do with all these clothes?\"\n\nI reached out to local nonprofits, but none could use that volume of clothing. Through Rotary, I was connected with Christ's Body Ministries in Denver, a homeless shelter that could put the clothing to use helping people in need. I then approached several hotels and resorts in Summit County with a simple proposal:\n\n\"Instead of throwing these items away, let me pick them up and deliver them to this shelter in Denver that can get them directly to people in need.\"\n\nSix hotels agreed.\n\nDuring the 2023–2024 ski season, we recovered and distributed 3,052 pounds of winter clothing to Christ's Body Ministries. Seeing the impact of those donations showed there was an opportunity to expand the program.\n\nIt also raised another question:\n\n\"What if more hotels participated?\"\n\nSlopes to Hope was created to answer that question and officially became a Colorado nonprofit on April 3, 2025.\n\nWhere We Are Today\n\nAs of September 2026, 23 hotels and ski resorts throughout Summit County have partnered with Slopes to Hope. During our first full year as a nonprofit, we recovered and redistributed 17,803 pounds of clothing, blankets, linens, and other useful items.\n\nThose donations have been distributed to 28 nonprofit and community organizations serving Summit County, the Denver Metro Area, and Colorado Springs.\n\nWhat started with one question has become a growing network of hotel partners, volunteers, donors, and nonprofit organizations working together to reduce waste and help people across Colorado.\n\nThis is what Slopes to Hope is about:\n\nReducing Waste and Fostering Hope.\n\n\n\"I believe there is a strong will among the people of this world to help those in need. And if they are given the opportunity and resources, I believe they will.\"\n\n- DREW ROBERTS, FOUNDER\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "icon-box.default",
+          "icon-box.default",
+          "icon-box.default",
+          "image.default",
+          "icon-box.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "about:blank",
+          "text": "",
+          "fields": 0
+        }
+      ]
+    },
+    {
+      "path": "/donors/",
+      "width": 390,
+      "missing": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [
+        "TypeError: Failed to fetch\n    at https://slopestohope.com/donors/:514:17485",
+        "ReferenceError: jQuery is not defined\n    at 846 (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:1:8131)\n    at n (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:10979)\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11339\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11374\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11377"
+      ],
+      "blockedWrites": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Donors – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nFounding Donors\n\nIndividuals or organizations that contribute to our cause before June 30th, 2026, will be recognized as founding donors for the lifetime of this organization. Our gratitude will forever be expressed on this dedicated page.\n\nLisa Strauss - Boulder Flatirons Rotary Club\n\nGIVE NOW\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          }
+        ],
+        "widgets": [
+          "eael-cta-box.default",
+          "image.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "about:blank",
+          "text": "",
+          "fields": 0
+        }
+      ]
+    },
+    {
+      "path": "/team/",
+      "width": 390,
+      "missing": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [
+        "TypeError: Failed to fetch\n    at https://slopestohope.com/team/:581:17886",
+        "ReferenceError: jQuery is not defined\n    at 846 (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:1:8131)\n    at n (https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:10979)\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11339\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11374\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js:16:11377",
+        "ReferenceError: jQuery is not defined\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/core.js:1:2910",
+        "ReferenceError: jQuery is not defined\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/team.js:1:512",
+        "TypeError: e is not a function\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js:4:1096\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js:4:119\n    at https://slopestohope.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js:4:150"
+      ],
+      "blockedWrites": [
+        {
+          "url": "https://slopestohope.com/wp-content/plugins/litespeed-cache/guest.vary.php",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Team – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nBoard of Directors\nDrew Roberts\n\nFounder & Executive Director | Board President\n\nRestaurateur | Rotarian | Community Leader\n\nTammy Kriese\n\nTreasurer\n\nBranch Manager, U.S. Bank Breckenridge\n\nErica Endorf\n\nSecretary\n\nRegional Director of Operations, Sage Hospitality Group\n\nKirk Barrell\n\nBoard Member\n\nEnergy Executive & Geologist | Founder, Barrell Energy | NuQuest2 | Amelia Resources\n\nHelena Robinowitz\n\nBoard Member\n\nSustainability Specialist, Arapahoe Basin Ski Area\n\nAdvisory Board\nMarty Ferris\n\nAdvisor\n\nFinance Director (Retired), Summit County Government\n\nDave Miller\n\nAdvisor\n\nFormer Executive Director, Mountain Top Explorium | Education Foundation of the Summit Board Member\n\nChristy Turner\n\nAdvisor\n\nUniversal Recycling Program Manager, City and County of Denver | Former Community Programs Manager, High Country Conservation Center\n\nVicki Brentin\n\nAdvisor\n\nService Resource Chair, Rotary International District 5450\n\nAngie Layton\n\nAdvisor\n\nPresident, Boulder Flatirons Rotary Club\n\nCopyright © 2026 Slopes to Hope",
+        "overflow": false,
+        "images": [
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNDMyIiBoZWlnaHQ9IjQzMiIgdmlld0JveD0iMCAwIDQzMiA0MzIiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+",
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+",
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzc5IiBoZWlnaHQ9IjM1OSIgdmlld0JveD0iMCAwIDM3OSAzNTkiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+",
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cHM6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDgwMCA4MDAiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+"
+        ],
+        "frames": [
+          {
+            "src": "",
+            "title": "archetype"
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          },
+          {
+            "text": "\n\t\t\t\t\t\t",
+            "label": null,
+            "class": "ekit-team-modal-close"
+          }
+        ],
+        "widgets": [
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "spacer.default",
+          "heading.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default",
+          "elementskit-team.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "about:blank",
+          "text": "",
+          "fields": 0
+        }
+      ]
+    }
+  ],
+  "mirrored": []
+}
