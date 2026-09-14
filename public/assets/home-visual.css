@@ -1,0 +1,60 @@
+/* Preserve existing striped shells and cards, with page-background gaps. */
+.sth-impact-section{display:flex;flex-wrap:wrap;align-content:flex-start;width:100%;margin:0}
+.sth-impact-section>.elementor-element{width:100%}
+.elementor-83 .sth-impact-section .elementor-element.elementor-element-e37aa49{border-radius:50px;overflow:hidden}
+.elementor-83 .elementor-element.elementor-element-ddc038d.sth-fundraising,
+.elementor-83 .elementor-element.elementor-element-ddc038d.sth-impact-panel,
+.elementor-83 .elementor-element.elementor-element-ddc038d.sth-dropoff-panel{margin-bottom:32px;margin-top:0}
+.elementor-83 .sth-impact-panel .elementor-element.elementor-element-5722f67>.elementor-widget-container{margin-top:0}
+.elementor-83 .sth-fundraising{padding-bottom:20px}
+/* Navy primary donation actions; other action buttons retain their blue rules. */
+body.home{--sth-gold:#f4ce46;--sth-navy:#12243a}
+body.home .site-header .donate-menu>a{background:var(--sth-navy);color:#fff;border-color:var(--sth-gold)}
+body.home .elementor-element.elementor-element-93d7298 .elementskit-btn{background:var(--sth-gold);color:var(--sth-navy);border-color:var(--sth-navy)}
+body.home .site-header .donate-menu>a:hover{background:#203a58;color:#fff}
+body.home .elementor-element.elementor-element-93d7298 .elementskit-btn:hover{background:#ffe078;color:var(--sth-navy)}
+body.home .elementor-element.elementor-element-93d7298 .elementskit-btn i{color:inherit}
+body.home .site-header .donate-menu>a{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:40px;min-height:40px;padding:4px 10px;border:1px solid var(--sth-gold);border-radius:6px;font-weight:700;line-height:1.2}
+body.home .site-header .buddyx-desktop-menu .donate-menu>a,
+body.home .site-header .buddyx-mobile-menu .donate-menu>a{height:40px!important;min-height:40px!important;padding:4px 10px!important}
+body.home .elementor-element.elementor-element-93d7298 a:focus-visible,
+body.home .site-header .donate-menu>a:focus-visible,
+.sth-candid a:focus-visible{outline:3px solid #12243a;outline-offset:4px;box-shadow:0 0 0 3px #fff}
+/* Put the fundraising total above the existing percentage/progress track. */
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skill-title,
+.elementor-83 .elementor-element.elementor-element-12f235f .skill-title{position:static;display:block;font-weight:700;font-size:20px;color:#fff;text-align:center;margin-bottom:10px}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skill-bar-content,
+.elementor-83 .elementor-element.elementor-element-12f235f .skill-bar-content{position:static;display:block}
+/* The embedded form retains its configuration and automatic height. */
+.elementor-83 .elementor-element.elementor-element-5b40ce9{margin:0 0 32px;padding:0;box-shadow:0 0 10px 6px #006000 inset}
+.elementor-83 .elementor-element.elementor-element-a341e2f>.elementor-widget-wrap{padding:0}
+.elementor-83 .elementor-element.elementor-element-67f7104>.elementor-widget-container{margin:0;padding:0}
+.sth-candid{display:flex;justify-content:center;width:100%;padding:16px 16px 20px}
+.sth-candid a{display:block;line-height:0;border-radius:3px}
+.sth-candid img{width:100px;height:100px;max-width:100%}
+@media(max-width:767px){
+.elementor-83 .elementor-element.elementor-element-ddc038d.sth-fundraising,
+.elementor-83 .elementor-element.elementor-element-ddc038d.sth-impact-panel,
+.elementor-83 .elementor-element.elementor-element-ddc038d.sth-dropoff-panel,
+.elementor-83 .elementor-element.elementor-element-5b40ce9{margin-bottom:24px}
+.elementor-83 .elementor-element.elementor-element-9a60dfa.elementor-hidden-mobile{display:block}
+.sth-candid img{width:90px;height:90px}
+}
+.sth-newsletter-policy{display:block;width:max-content;max-width:100%;margin:0 auto;padding:10px 14px;min-height:44px;color:#12243a;text-decoration:underline}.sth-newsletter-policy:focus-visible{outline:3px solid #12243a;outline-offset:2px}
+/* Retire the duplicate mobile progress block below Partner; the shared total is above GIVE NOW. */
+.elementor-83 .sth-fundraising .elementor-element.elementor-element-957d42d,
+.elementor-83 .sth-fundraising .elementor-element.elementor-element-ccf0c2f,
+.elementor-83 .sth-fundraising .elementor-element.elementor-element-12f235f{display:none!important}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-bar{position:relative}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-track{position:static}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .number-percentage-wraper{position:absolute;left:auto;right:8px;top:50%;bottom:auto;transform:translateY(-50%);margin:0;color:#12243a;z-index:1}
+
+/* Center the complete label above the bar; retain the original percentage data for its fill. */
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-title{float:none;position:static;width:100%;display:flex;justify-content:space-between;gap:16px;margin:0 0 12px;font-size:20px;line-height:1.4;font-weight:700;text-align:left;color:#fff}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-title span:last-child{text-align:right}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .number-percentage-wraper{visibility:hidden}
+.elementor-83 .elementor-element.elementor-element-5b40ce9{margin-bottom:16px}
+/* Override the theme's navigation link-state color for these two donation actions only. */
+body.home .site-header .donate-menu>a{color:#fff!important}
+body.home .elementor-element.elementor-element-93d7298 .elementskit-btn{color:var(--sth-navy)!important}
+.elementor-83 .elementor-element.elementor-element-9a60dfa .skill-bar-content{transform:none;padding:0;left:auto;top:auto;width:100%}

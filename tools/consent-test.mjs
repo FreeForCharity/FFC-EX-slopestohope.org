@@ -2,32 +2,42 @@ import {chromium} from 'playwright';
 import {serve} from './serve.mjs';
 import {resolve} from 'node:path';
 import {writeFile} from 'node:fs/promises';
-
 const server=await serve(resolve(process.env.SITE_ROOT||'out'));
 const base=`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedge',headless:true});
 const results=[];
 function assert(value,message){if(!value)throw new Error(message);}
-async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(error){results.push({name,passed:false,error:error.message});console.log('FAIL',name,error.message);}}
-
 try{
-  for(const width of [1440,390]){
+  for(const width of [1440,390])for(const saved of [null,'denied','granted']){
     const context=await browser.newContext({viewport:{width,height:900}});
     const analyticsRequests=[];
-    await context.route(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js)/,route=>{analyticsRequests.push(route.request().url());return route.abort();});
+    await context.route('**/*',route=>{
+      const request=route.request();
+      if(/googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js/.test(request.url())){analyticsRequests.push(request.url());return route.abort();}
+      if(!['GET','HEAD'].includes(request.method()))return route.abort();
+      return route.continue();
+    });
+    if(saved)await context.addInitScript(value=>localStorage.setItem('slopesToHopeAnalyticsConsent',value),saved);
     const page=await context.newPage();
-    await page.goto(base+'/',{waitUntil:'domcontentloaded'});
-    await check(`First visit shows consent (${width})`,async()=>{assert(await page.locator('#sth-cookie-consent').isVisible(),'Consent interface is not visible');assert(analyticsRequests.length===0,'Analytics requested before consent');});
-    await page.getByRole('button',{name:'Decline analytics'}).click();
-    await check(`Decline persists without analytics (${width})`,async()=>{assert(await page.evaluate(()=>localStorage.getItem('slopesToHopeAnalyticsConsent'))==='denied','Decline was not stored');await page.reload({waitUntil:'domcontentloaded'});assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent reappeared after decline');assert(analyticsRequests.length===0,'Analytics requested after decline');});
-    await check(`Policy links and settings work (${width})`,async()=>{await page.locator('footer a[href="/privacy-policy/"]').click();await page.waitForURL('**/privacy-policy/');assert((await page.locator('main h1').innerText())==='Privacy Policy','Privacy route did not load');await page.locator('footer [data-open-cookie-settings]').click();assert(await page.locator('#sth-cookie-consent').isVisible(),'Settings did not reopen consent');});
-    await page.getByRole('button',{name:'Accept analytics'}).click();
-    await check(`Accept enables intended analytics (${width})`,async()=>{assert(await page.evaluate(()=>localStorage.getItem('slopesToHopeAnalyticsConsent'))==='granted','Acceptance was not stored');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'Consented HubSpot tracking was not requested');});
-    await check(`Acceptance persists and layout fits (${width})`,async()=>{const count=analyticsRequests.length;await page.goto(base+'/terms-of-service/',{waitUntil:'domcontentloaded'});assert((await page.locator('main h1').innerText())==='Terms of Service','Terms route did not load');assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent reappeared after acceptance');assert(analyticsRequests.length>count,'Analytics preference did not apply after navigation');assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'Consent or policy page causes horizontal overflow');});
-    await check(`Revoking consent persists without new analytics (${width})`,async()=>{await page.locator('footer [data-open-cookie-settings]').click();await page.getByRole('button',{name:'Decline analytics'}).click();assert(await page.evaluate(()=>localStorage.getItem('slopesToHopeAnalyticsConsent'))==='denied','Revocation was not stored');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')===null,'Measurement ID remained active after revocation');assert(await page.evaluate(()=>Array.from(window.dataLayer).some(entry=>entry[0]==='consent'&&entry[1]==='update'&&entry[2]?.analytics_storage==='denied')),'Denied consent update was not recorded');const count=analyticsRequests.length;await page.reload({waitUntil:'domcontentloaded'});assert(analyticsRequests.length===count,'Analytics was requested after revoked choice reloaded');});
+    const name=`No popup or optional analytics; policy navigation (${width}, saved=${saved})`;
+    try{
+      await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+      for(const path of ['/', '/privacy-policy/', '/terms-of-service/']){
+        if(path!=='/'){await page.locator(`footer a[href="${path}"]`).click();await page.waitForURL(base+path);}
+        await page.waitForTimeout(500);
+        assert(await page.locator('#sth-cookie-consent,[data-open-cookie-settings],[data-consent]').count()===0,'Popup controls remain');
+        assert(analyticsRequests.length===0,'Optional analytics was requested');
+        assert(await page.locator('#sth-google-tag,#sth-hubspot-tracking').count()===0,'Tracking loader remains');
+        assert(await page.evaluate(()=>Array.from(window.dataLayer||[]).some(e=>e[0]==='consent'&&e[1]==='default'&&e[2].analytics_storage==='denied')),'Default denial missing');
+        if(path!=='/')assert(await page.locator('main h1').innerText()===(path==='/privacy-policy/'?'Privacy Policy':'Terms of Service'),'Policy page missing');
+        assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),'Horizontal overflow');
+      }
+      await page.reload({waitUntil:'domcontentloaded'});await page.waitForTimeout(500);
+      assert(analyticsRequests.length===0,'Analytics requested after reload');
+      results.push({name,passed:true});console.log('PASS',name);
+    }catch(error){results.push({name,passed:false,error:error.message});console.log('FAIL',name,error.message);}
     await context.close();
   }
 }finally{await browser.close();server.close();}
-
 await writeFile('migration/consent-validation.json',JSON.stringify({testedAt:new Date().toISOString(),results},null,2)+'\n');
 if(results.some(result=>!result.passed))process.exitCode=1;

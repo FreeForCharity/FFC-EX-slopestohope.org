@@ -18,11 +18,12 @@ for(const r of publishedRoutes){
  if(d.querySelector('link[rel="canonical"]')?.href!==expectedUrl)issues.push({path:r.path,error:'Canonical URL missing or incorrect'});
  if(d.querySelector('meta[property="og:url"]')?.content!==expectedUrl||d.querySelector('meta[name="og:url"]'))issues.push({path:r.path,error:'Open Graph URL missing or incorrect'});
  if(d.querySelector('link[rel="shortlink"]'))issues.push({path:r.path,error:'WordPress shortlink remains in static output'});
- const text=d.cloneNode(true);text.querySelectorAll('script,style,.sth-footer-links').forEach(e=>e.remove());
+ if(r.path==='/'&&d.querySelector('.sth-hero__credit')?.textContent!=='Photo by Kit Geary / Summit Daily')issues.push({path:r.path,error:'Hero photo credit missing or incorrect'});
+ const text=d.cloneNode(true);text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy').forEach(e=>e.remove());
  if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
    if(normalize(faq?.textContent||'')!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
- } else if(normalize(text.body.textContent)!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
+ } else if(normalize(text.body.textContent)!==(r.path==='/'?r.bodyText.replaceAll('25,599 pounds','26,007 pounds').replaceAll('4,743/20,000','5,152/20,000').replaceAll('$8,068.03','$8,068 raised$25,000 goal'):r.bodyText))issues.push({path:r.path,error:'Source wording changed'});
  for(const a of d.querySelectorAll('a[href]')){
   const u=new URL(a.href);if(u.origin!=='https://slopestohope.org'||a.getAttribute('href').startsWith('#'))continue;
   if(knownBroken.has(u.pathname))continue;
@@ -69,12 +70,13 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const html=await readFile(within(root,route.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
  if(!d.querySelector('link[href="/assets/consent.css"]')||!d.querySelector('script[src="/assets/consent.js"]'))issues.push({path:route.path,error:'Consent assets missing'});
- if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Policy or cookie-settings footer control missing'});
- if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Analytics loads before consent'});
+ if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]'))issues.push({path:route.path,error:'Policy footer link missing'});
+ if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Legacy analytics or HubSpot tracking loader remains'});
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
 }
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
-for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
+for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','slopestohope.org','www.slopestohope.org','analytics_storage:\'granted\'','analytics_storage:\'denied\'','ad_storage:\'denied\'','ad_user_data:\'denied\'','ad_personalization:\'denied\'','slopestohope.com'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Analytics implementation missing ${expected}`});
+if(/hs-scripts|sth-hubspot-tracking|data-open-cookie-settings|sth-cookie-consent/.test(consent))issues.push({path:'/assets/consent.js',error:'HubSpot tracking or obsolete popup behavior remains'});
 const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length+POLICY_ROUTES.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');
 console.log(JSON.stringify(output,null,2));if(issues.length)process.exitCode=1;

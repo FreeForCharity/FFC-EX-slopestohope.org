@@ -1,0 +1,25 @@
+{
+  "testedAt": "2026-09-12T20:47:31.608Z",
+  "results": [
+    {
+      "width": 1440,
+      "passed": true,
+      "bounds": {
+        "x": 135,
+        "y": 258.515625,
+        "width": 1170,
+        "height": 1000
+      }
+    },
+    {
+      "width": 390,
+      "passed": true,
+      "bounds": {
+        "x": 0,
+        "y": 152.03125,
+        "width": 390,
+        "height": 500
+      }
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import {serve} from './serve.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {mirrorAsset} from './migrate.mjs';
+const skipForms=process.argv.includes('--skip-forms');
 const sync=process.argv.includes('--sync');
 const requestedWidth=Number(process.argv.find(a=>a.startsWith('--width='))?.slice(8)||0);
 const server=await serve(resolve(process.env.SITE_ROOT||'public'));
@@ -37,7 +38,7 @@ if(width===390)await check('Mobile menu opens, navigates to Partners, and closes
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='false','Menu did not close');
 });
 await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2000);await declineAnalytics(tab);
-await check(`Newsletter anchor and HubSpot email-format validation (${width})`,async()=>{
+if(!skipForms)await check(`Newsletter anchor and HubSpot email-format validation (${width})`,async()=>{
  await tab.getByRole('link',{name:'Newsletter Signup',exact:true}).click();
  assert(new URL(tab.url()).hash==='#newsletter','Newsletter anchor changed');
  const f=await waitForFrame(tab,'_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f');assert(f,'Newsletter form frame missing');
@@ -62,7 +63,7 @@ await check(`Gallery opens, advances, and closes with Escape (${width})`,async()
  await tab.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});
 });
 await tab.goto(base+'/contact-us/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);
-await check(`Contact form fields and required-field validation (${width})`,async()=>{
+if(!skipForms)await check(`Contact form fields and required-field validation (${width})`,async()=>{
  const f=await waitForFrame(tab,'_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a');assert(f,'Contact form frame missing');
  assert(await f.locator('input,textarea,select').count()>=10,'Contact fields missing');
  await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(500);

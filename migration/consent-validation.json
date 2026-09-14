@@ -1,52 +1,28 @@
 {
-  "testedAt": "2026-09-11T19:02:05.739Z",
+  "testedAt": "2026-09-13T02:26:33.402Z",
   "results": [
     {
-      "name": "First visit shows consent (1440)",
+      "name": "Production host queues consent defaults before one Google tag configuration",
       "passed": true
     },
     {
-      "name": "Decline persists without analytics (1440)",
+      "name": "Development and preview hosts never initialize Google Analytics",
       "passed": true
     },
     {
-      "name": "Policy links and settings work (1440)",
+      "name": "All intended static routes contain one runtime and no legacy tracker",
       "passed": true
     },
     {
-      "name": "Accept enables intended analytics (1440)",
+      "name": "Intercepted production host initializes one Google tag without transmitting data",
       "passed": true
     },
     {
-      "name": "Acceptance persists and layout fits (1440)",
+      "name": "Localhost requests no Google Analytics and has no consent popup",
       "passed": true
     },
     {
-      "name": "Revoking consent persists without new analytics (1440)",
-      "passed": true
-    },
-    {
-      "name": "First visit shows consent (390)",
-      "passed": true
-    },
-    {
-      "name": "Decline persists without analytics (390)",
-      "passed": true
-    },
-    {
-      "name": "Policy links and settings work (390)",
-      "passed": true
-    },
-    {
-      "name": "Accept enables intended analytics (390)",
-      "passed": true
-    },
-    {
-      "name": "Acceptance persists and layout fits (390)",
-      "passed": true
-    },
-    {
-      "name": "Revoking consent persists without new analytics (390)",
+      "name": "Privacy Policy is aligned and Terms has no obsolete consent reference",
       "passed": true
     }
   ]

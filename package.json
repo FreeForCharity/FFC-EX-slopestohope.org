@@ -6,7 +6,7 @@
     "preview": "node tools/serve.mjs out 4173",
     "test:browser": "node tools/browser-audit.mjs",
     "test:interactions": "node tools/interactions.mjs",
-    "test:consent": "node tools/consent-test.mjs"
+    "test:consent": "node tools/analytics-consent-test.mjs"
   },
   "dependencies": {
     "glob": "^13.0.1",
