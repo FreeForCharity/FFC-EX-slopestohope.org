@@ -7,7 +7,8 @@ const sync=process.argv.includes('--sync');
 const requestedWidth=Number(process.argv.find(a=>a.startsWith('--width='))?.slice(8)||0);
 const server=await serve(resolve(process.env.SITE_ROOT||'public'));
 const base=`http://127.0.0.1:${server.address().port}`;
-const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedge'});
+const browserChannel=process.env.BROWSER_CHANNEL;
+const browser=await chromium.launch(browserChannel?{channel:browserChannel}:{});
 const results=[],issues=[],writes=[];
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL',name,e.message);}}
 function assert(ok,msg){if(!ok)throw new Error(msg);}

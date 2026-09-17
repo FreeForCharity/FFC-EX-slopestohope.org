@@ -15,7 +15,8 @@ const inv=JSON.parse(await readFile('migration/inventory.json'));
 const routes=[...inv.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path)),...POLICY_ROUTES].filter(r=>!only||only.includes(r.path));
 const server=live?null:await serve(resolve(process.env.SITE_ROOT||'public'));
 const base=live?'https://slopestohope.com':`http://127.0.0.1:${server.address().port}`;
-const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedge',headless:true});
+const browserChannel=process.env.BROWSER_CHANNEL;
+const browser=await chromium.launch({...((browserChannel)?{channel:browserChannel}:{}),headless:true});
 const results=[], mirrored=new Map();
 await mkdir('.migration-cache/screenshots',{recursive:true});
 try{

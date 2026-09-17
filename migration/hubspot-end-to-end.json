@@ -2,6 +2,7 @@
   "verifiedAt": "2026-09-11T19:32:31.713Z",
   "portalId": "244348981",
   "result": "passed-manual-browser-and-crm-verification",
+  "redactionNote": "Personally identifying test values and CRM identifiers are redacted in the release artifact; verification outcomes and non-sensitive form identifiers are retained.",
   "authorizationLimits": {
     "newsletter": 1,
     "contact": 1
@@ -15,11 +16,11 @@
     {
       "name": "Newsletter signup",
       "formId": "9a181260-20a9-408c-8591-cca3093d7e3f",
-      "email": "drew@slopestohope.com",
+      "email": "[redacted]",
       "browser": "Chrome",
       "browserResult": "Thanks for Subscribing! You've successfully joined our newsletter.",
       "crmResult": {
-        "contactId": "550646425310",
+        "contactId": "[redacted]",
         "createdate": "2026-09-11T19:29:16.315Z",
         "firstConversionDate": "2026-09-11T19:29:16.315Z",
         "firstConversionEvent": "Slopes to Hope – Reducing Waste and Fostering Hope: Newsletter Form"
@@ -28,16 +29,16 @@
     {
       "name": "Contact form",
       "formId": "f35f941a-7978-41cc-aabc-4dc669ac9a0a",
-      "firstName": "Drew",
-      "lastName": "Roberts",
-      "email": "drew@slopestohope.com",
+      "firstName": "[redacted]",
+      "lastName": "[redacted]",
+      "email": "[redacted]",
       "reason": "Other",
-      "message": "Slopes to Hope website migration verification test — authorized September 11, 2026.",
-      "heardAbout": "MIGRATION TEST — local static release candidate",
+      "message": "[redacted authorized migration verification message]",
+      "heardAbout": "[redacted migration test value]",
       "browser": "Chrome",
       "browserResult": "Form submitted. Thank you, we'll be in touch soon!",
       "crmResult": {
-        "contactId": "550646425310",
+        "contactId": "[redacted]",
         "lastmodifieddate": "2026-09-11T19:32:31.713Z",
         "recentConversionDate": "2026-09-11T19:31:47.808Z",
         "recentConversionEvent": "Contact Us – Slopes to Hope: Contact Us Form",
@@ -48,8 +49,8 @@
   ],
   "crmVerification": {
     "objectType": "CONTACT",
-    "contactId": "550646425310",
-    "email": "drew@slopestohope.com",
+    "contactId": "[redacted]",
+    "email": "[redacted]",
     "numberOfFormSubmissions": 2,
     "numberOfUniqueFormsSubmitted": 2
   },
