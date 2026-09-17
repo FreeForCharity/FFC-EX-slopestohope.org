@@ -5,24 +5,42 @@
   var MEASUREMENT_ID='G-XEWDW3TYVZ';
   var HUBSPOT_PORTAL_ID='244348981';
   var analyticsLoaded=false;
+  window.disableHubSpotCookieBanner=true;
   window.dataLayer=window.dataLayer||[];
   window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
   window.gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
   function preference(){try{return localStorage.getItem(KEY);}catch(_error){return null;}}
   function remember(value){try{localStorage.setItem(KEY,value);}catch(_error){}}
   function loadScript(id,src){if(document.getElementById(id))return;var script=document.createElement('script');script.id=id;script.async=true;script.src=src;document.head.appendChild(script);}
+  function hubSpotQueues(){
+    window._hsq=window._hsq||[];
+    window._hsp=window._hsp||[];
+    return {tracking:window._hsq,privacy:window._hsp};
+  }
+  function enableHubSpotTracking(){
+    var queues=hubSpotQueues();
+    queues.tracking.push(['doNotTrack',{track:true}]);
+    queues.privacy.push(['setHubSpotConsent',{analytics:true,advertisement:false,functionality:true}]);
+    loadScript('sth-hubspot-tracking','https://js-na2.hs-scripts.com/'+HUBSPOT_PORTAL_ID+'.js');
+  }
+  function disableHubSpotTracking(){
+    var queues=hubSpotQueues();
+    queues.tracking.push(['doNotTrack']);
+    queues.privacy.push(['setHubSpotConsent',{analytics:false,advertisement:false,functionality:true}]);
+    queues.privacy.push(['revokeCookieConsent']);
+  }
   function enableAnalytics(){
     window.gtag('consent','update',{analytics_storage:'granted'});
+    enableHubSpotTracking();
     if(analyticsLoaded)return;
     analyticsLoaded=true;
     loadScript('sth-google-tag','https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(TAG_ID));
     window.gtag('js',new Date());
     window.gtag('set','linker',{domains:['slopestohope.com']});
     window.gtag('config',TAG_ID);
-    loadScript('sth-hubspot-tracking','https://js-na2.hs-scripts.com/'+HUBSPOT_PORTAL_ID+'.js');
     document.documentElement.dataset.analyticsMeasurementId=MEASUREMENT_ID;
   }
-  function disableAnalytics(){window.gtag('consent','update',{analytics_storage:'denied'});document.documentElement.removeAttribute('data-analytics-measurement-id');}
+  function disableAnalytics(){window.gtag('consent','update',{analytics_storage:'denied'});disableHubSpotTracking();document.documentElement.removeAttribute('data-analytics-measurement-id');}
   function render(){
     var panel=document.createElement('section');
     panel.className='sth-consent';panel.id='sth-cookie-consent';panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','false');panel.setAttribute('aria-labelledby','sth-consent-title');

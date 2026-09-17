@@ -1,6 +1,10 @@
 {
-  "testedAt": "2026-09-11T19:02:05.739Z",
+  "testedAt": "2026-09-17T20:47:20.936Z",
   "results": [
+    {
+      "name": "Required analytics IDs and independent HubSpot form embeds remain intact",
+      "passed": true
+    },
     {
       "name": "First visit shows consent (1440)",
       "passed": true
@@ -22,7 +26,11 @@
       "passed": true
     },
     {
-      "name": "Revoking consent persists without new analytics (1440)",
+      "name": "Revoking consent disables Google and HubSpot tracking (1440)",
+      "passed": true
+    },
+    {
+      "name": "Revoked visitor can accept and persist a new choice (1440)",
       "passed": true
     },
     {
@@ -46,8 +54,14 @@
       "passed": true
     },
     {
-      "name": "Revoking consent persists without new analytics (390)",
+      "name": "Revoking consent disables Google and HubSpot tracking (390)",
+      "passed": true
+    },
+    {
+      "name": "Revoked visitor can accept and persist a new choice (390)",
       "passed": true
     }
-  ]
+  ],
+  "blockedWrites": [],
+  "note": "All non-GET/HEAD requests were blocked. No forms were submitted, and no CRM or email write was attempted."
 }
