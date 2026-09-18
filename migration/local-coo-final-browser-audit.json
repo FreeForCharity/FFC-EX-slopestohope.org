@@ -1,6 +1,6 @@
 {
-  "testedAt": "2026-09-18T17:53:20.093Z",
-  "base": "http://127.0.0.1:55363",
+  "testedAt": "2026-09-18T18:04:27.986Z",
+  "base": "http://127.0.0.1:61724",
   "results": [
     {
       "path": "/coosummit26/",
@@ -9,7 +9,16 @@
       "legacy": [],
       "externalFailures": [],
       "errors": [],
-      "blockedWrites": [],
+      "blockedWrites": [
+        {
+          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
+          "method": "POST"
+        },
+        {
+          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
+          "method": "POST"
+        }
+      ],
       "dom": {
         "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
         "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCOO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
@@ -17,7 +26,7 @@
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=857dc906-951a-41b8-a9a1-bf697824db16",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=97fe6a25-b317-4bf3-b4d7-91a5f81e641d",
             "title": "Form"
           },
           {
@@ -25,7 +34,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1NTM2Mw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=kynca22mtoa1",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MTcyNA..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=pjnxijj4nay3",
             "title": "reCAPTCHA"
           },
           {
@@ -78,16 +87,7 @@
       "legacy": [],
       "externalFailures": [],
       "errors": [],
-      "blockedWrites": [
-        {
-          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
-          "method": "POST"
-        },
-        {
-          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
-          "method": "POST"
-        }
-      ],
+      "blockedWrites": [],
       "dom": {
         "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
         "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCOO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
@@ -95,7 +95,7 @@
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=2ea8a720-025f-48e1-b23a-f44910a5e2e5",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=992f5071-b97f-48f4-8b73-799d1c6d7c5e",
             "title": "Form"
           },
           {
@@ -103,7 +103,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1NTM2Mw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=7mgvcefdkwcn",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MTcyNA..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=ppyryti385d5",
             "title": "reCAPTCHA"
           },
           {

@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-18T17:48:51.553Z",
+  "testedAt": "2026-09-18T18:01:43.561Z",
   "results": [
     {
       "name": "Required analytics IDs and independent HubSpot form embeds remain intact",
@@ -92,23 +92,7 @@
       "method": "POST"
     },
     {
-      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=42527&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
-      "method": "POST"
-    },
-    {
-      "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43299&rt=j",
       "method": "POST"
     },
     {
@@ -117,6 +101,10 @@
     },
     {
       "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
       "method": "POST"
     }
   ],

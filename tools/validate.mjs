@@ -113,7 +113,7 @@ for(const form of formEmbeds){
  if(d.querySelector('meta[name="description"]')?.content!==description||d.querySelector('meta[property="og:description"]')?.content!==description)issues.push({path:'/coosummit26/',error:'COO Summit description metadata changed'});
  if(d.querySelector('meta[property="og:title"]')?.content!=='COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph title changed'});
  if(d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope'||d.querySelector('meta[property="og:image"]')?.content!=='https://slopestohope.org/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-scaled-600x400.jpg')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph metadata incomplete'});
- if(/Contact%20Us|"page_permalink":"\/contact-us\/"|postId:"71"/.test(html))issues.push({path:'/coosummit26/',error:'Contact Us runtime metadata remains'});
+ if(/Contact%20Us|"page_permalink":"\/contact-us\/"|postId:"71"|context:\{"id":71,"type":"post"\}|data-elementor-id="71"|elementor-71/.test(html))issues.push({path:'/coosummit26/',error:'Contact Us runtime metadata remains'});
  if(/user-scalable\s*=\s*no|maximum-scale\s*=\s*1(?:\.0)?/.test(d.querySelector('meta[name="viewport"]')?.content||''))issues.push({path:'/coosummit26/',error:'COO Summit viewport prevents browser zoom'});
  if(!formWidget?.previousElementSibling?.matches('[data-widget_type="image.default"]'))issues.push({path:'/coosummit26/',error:'COO Summit form is not immediately after the picture'});
 }
