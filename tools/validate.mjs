@@ -100,6 +100,7 @@ for(const form of formEmbeds){
  const loaders=[...d.querySelectorAll('script[src^="https://js-na2.hsforms.net/forms/embed/"]')];
  if(frames.length!==1)issues.push({path:form.path,error:'Expected exactly one HubSpot form frame'});
  else if(frames[0].dataset.region!=='na2'||frames[0].dataset.portalId!=='244348981'||frames[0].dataset.formId!==form.id)issues.push({path:form.path,error:'HubSpot form configuration changed'});
+ else if(!frames[0].previousElementSibling?.matches('script[src="https://js-na2.hsforms.net/forms/embed/244348981.js"][defer]'))issues.push({path:form.path,error:'HubSpot loader and form frame are not the owner-supplied adjacent snippet'});
  if(loaders.length!==1||loaders[0].src!=='https://js-na2.hsforms.net/forms/embed/244348981.js'||!loaders[0].defer)issues.push({path:form.path,error:'Exact HubSpot forms loader missing or duplicated'});
  if(!html.includes(exactLoader)||/hsforms\.net\/forms\/embed\/v2/.test(html))issues.push({path:form.path,error:'HubSpot embed is not the owner-supplied snippet'});
 }

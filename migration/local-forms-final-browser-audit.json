@@ -1,6 +1,6 @@
 {
-  "testedAt": "2026-09-18T17:26:25.636Z",
-  "base": "http://127.0.0.1:59313",
+  "testedAt": "2026-09-18T17:52:57.196Z",
+  "base": "http://127.0.0.1:63217",
   "results": [
     {
       "path": "/contact-us/",
@@ -17,7 +17,7 @@
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=f373749a-f777-4102-ab1c-453fa7768248",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=0ebd5c79-c436-460d-b06b-752f773d298b",
             "title": "Form"
           },
           {
@@ -25,7 +25,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1OTMxMw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=g5pzos759lr9",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzIxNw..&hl=en&v=zqB-6Xpbd3nge38rfdOknQzi&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&ovv=CAB5am5W&cb=kz8w0ud6gczf",
             "title": "reCAPTCHA"
           },
           {
@@ -133,7 +133,11 @@
       "errors": [],
       "blockedWrites": [
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=41078&rt=j",
+          "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=42670&rt=j",
           "method": "POST"
         },
         {
@@ -161,7 +165,7 @@
           "method": "POST"
         },
         {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=141078&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=142670&rt=j",
           "method": "POST"
         },
         {
@@ -204,15 +208,15 @@
         "images": [],
         "frames": [
           {
-            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A59313&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A59313%2F&aoriginsup=1&vf=1",
+            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63217&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A63217%2F&aoriginsup=1&vf=1",
             "title": "Lost ski town items find new life in Denver homeless shelters"
           },
           {
-            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A59313&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A59313%2F&aoriginsup=1&vf=6",
+            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63217&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A63217%2F&aoriginsup=1&vf=6",
             "title": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area"
           },
           {
-            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=378&rd=http%3A%2F%2F127.0.0.1%3A59313&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A364.39999999990687%2C%22ls%22%3A7.199999999953434%2C%22le%22%3A275.69999999995343%7D",
+            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=378&rd=http%3A%2F%2F127.0.0.1%3A63217&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A323.39999999990687%2C%22ls%22%3A7%2C%22le%22%3A234.5%7D",
             "title": ""
           },
           {
@@ -220,7 +224,7 @@
             "title": ""
           },
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=3dac59f3-cdce-42f5-806b-d035f15331aa",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=cd7a5e3b-6ee5-446a-8253-1bd0f418b5b7",
             "title": "Form"
           },
           {
@@ -228,7 +232,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1OTMxMw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=y6pn2nxei7y9",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzIxNw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=39qbzb5mk38u",
             "title": "reCAPTCHA"
           },
           {
@@ -635,7 +639,7 @@
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=861eaa03-4026-4661-990a-c1a77f679f55",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=884a666f-979f-403c-87cb-a49ba9839f0b",
             "title": "Form"
           },
           {
@@ -643,7 +647,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1OTMxMw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=lgroap6dacs5",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzIxNw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=otddpw7p1mbx",
             "title": "reCAPTCHA"
           },
           {
@@ -788,7 +792,7 @@
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=9b422666-1784-431f-a659-dcbfd4f3e66f",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=9e456453-9c4e-47ed-bcbf-9f9bbbde9176",
             "title": "Form"
           },
           {
@@ -796,7 +800,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1OTMxMw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=4kpp1kokz96s",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzIxNw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=8ula4xf2su48",
             "title": "reCAPTCHA"
           },
           {
@@ -904,11 +908,7 @@
       "errors": [],
       "blockedWrites": [
         {
-          "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
-          "method": "POST"
-        },
-        {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=41138&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=42729&rt=j",
           "method": "POST"
         },
         {
@@ -940,15 +940,15 @@
           "method": "POST"
         },
         {
-          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-          "method": "POST"
-        },
-        {
-          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=141138&rt=j",
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=142729&rt=j",
           "method": "POST"
         },
         {
           "url": "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetViewportInfo",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
           "method": "POST"
         },
         {
@@ -979,15 +979,15 @@
         "images": [],
         "frames": [
           {
-            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A59313&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A59313%2F&aoriginsup=1&vf=6",
+            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63217&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A63217%2F&aoriginsup=1&vf=6",
             "title": "Lost ski town items find new life in Denver homeless shelters"
           },
           {
-            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A59313&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A59313%2F&aoriginsup=1&vf=2",
+            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63217&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A63217%2F&aoriginsup=1&vf=2",
             "title": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area"
           },
           {
-            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=368&rd=http%3A%2F%2F127.0.0.1%3A59313&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A416%2C%22ls%22%3A6.5%2C%22le%22%3A331.70000000018626%7D",
+            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=368&rd=http%3A%2F%2F127.0.0.1%3A63217&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A400.60000000009313%2C%22ls%22%3A6.399999999906868%2C%22le%22%3A317.60000000009313%7D",
             "title": ""
           },
           {
@@ -995,7 +995,7 @@
             "title": ""
           },
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=82326c73-2a5e-425d-ae60-c32556810053",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=3b0a5e72-730a-471a-b348-a8b2fe329e0b",
             "title": "Form"
           },
           {
@@ -1003,7 +1003,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1OTMxMw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=jlaxjulf5sv2",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzIxNw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=pxbjncwt6xdb",
             "title": "reCAPTCHA"
           },
           {
@@ -1410,7 +1410,7 @@
         "images": [],
         "frames": [
           {
-            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=6d3842de-d1e4-4898-bb36-807760af896d",
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=7ce15e5e-b3e1-4f26-8d54-3d730aef06a4",
             "title": "Form"
           },
           {
@@ -1418,7 +1418,7 @@
             "title": "archetype"
           },
           {
-            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1OTMxMw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=fa7sx7ede9uh",
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzIxNw..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=293gnarcz0q2",
             "title": "reCAPTCHA"
           },
           {

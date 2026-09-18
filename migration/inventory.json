@@ -10366,7 +10366,7 @@
       "path": "/coosummit26/",
       "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
       "source": "Locally authored promo page using the current Contact Us layout and owner-supplied copy.",
-      "sourceSha256": "7719dbd8e4fa1975078ce5ad10b4a0a168a5e6c50b156e15926a65ca8e8d67d0",
+      "sourceSha256": "016517e2ae99b366f2ff4cd33836feee9fec68698faa0359f5bf54f5fe00c251",
       "navigation": [
         {
           "text": "Close",
@@ -10537,6 +10537,10 @@
           "id": ""
         },
         {
+          "src": "https://js-na2.hsforms.net/forms/embed/244348981.js",
+          "id": ""
+        },
+        {
           "src": "",
           "id": "kirki-viewport-lists"
         },
@@ -10571,10 +10575,6 @@
         {
           "src": "",
           "id": "eael-general-js-extra"
-        },
-        {
-          "src": "https://js-na2.hsforms.net/forms/embed/244348981.js",
-          "id": ""
         },
         {
           "src": "",
