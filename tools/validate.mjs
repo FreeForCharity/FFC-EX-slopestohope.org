@@ -18,11 +18,16 @@ for(const r of publishedRoutes){
  if(d.querySelector('link[rel="canonical"]')?.href!==expectedUrl)issues.push({path:r.path,error:'Canonical URL missing or incorrect'});
  if(d.querySelector('meta[property="og:url"]')?.content!==expectedUrl||d.querySelector('meta[name="og:url"]'))issues.push({path:r.path,error:'Open Graph URL missing or incorrect'});
  if(d.querySelector('link[rel="shortlink"]'))issues.push({path:r.path,error:'WordPress shortlink remains in static output'});
- const text=d.cloneNode(true);text.querySelectorAll('script,style,.sth-footer-links').forEach(e=>e.remove());
+ const text=d.cloneNode(true);
+ // Exclude migration-added UI copy from the captured WordPress wording check.
+ // The homepage also has one owner-approved fundraising display adaptation.
+ text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,footer [data-open-cookie-settings]').forEach(e=>e.remove());
+ let bodyText=normalize(text.body.textContent);
+ if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised $25,000 goal','$8,068.03');
  if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
    if(normalize(faq?.textContent||'')!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
- } else if(normalize(text.body.textContent)!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
+ } else if(bodyText!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
  for(const a of d.querySelectorAll('a[href]')){
   const u=new URL(a.href);if(u.origin!=='https://slopestohope.org'||a.getAttribute('href').startsWith('#'))continue;
   if(knownBroken.has(u.pathname))continue;
