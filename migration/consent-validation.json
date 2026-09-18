@@ -1,12 +1,16 @@
 {
-  "testedAt": "2026-09-17T20:47:20.936Z",
+  "testedAt": "2026-09-18T01:53:28.801Z",
   "results": [
     {
       "name": "Required analytics IDs and independent HubSpot form embeds remain intact",
       "passed": true
     },
     {
-      "name": "First visit shows consent (1440)",
+      "name": "First visit enables analytics without a modal (1440)",
+      "passed": true
+    },
+    {
+      "name": "Cookie settings close with Escape (1440)",
       "passed": true
     },
     {
@@ -34,7 +38,11 @@
       "passed": true
     },
     {
-      "name": "First visit shows consent (390)",
+      "name": "First visit enables analytics without a modal (390)",
+      "passed": true
+    },
+    {
+      "name": "Cookie settings close with Escape (390)",
       "passed": true
     },
     {
@@ -62,6 +70,15 @@
       "passed": true
     }
   ],
-  "blockedWrites": [],
+  "blockedWrites": [
+    {
+      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=6807&rt=j",
+      "method": "POST"
+    }
+  ],
   "note": "All non-GET/HEAD requests were blocked. No forms were submitted, and no CRM or email write was attempted."
 }

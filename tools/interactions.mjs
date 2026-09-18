@@ -30,6 +30,39 @@ await ctx.route('**/*',async route=>{
 const tab=await ctx.newPage();
 tab.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)issues.push({url:r.url(),status:r.status()});});
 await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);await declineAnalytics(tab);
+await check(`Hero respects reduced motion (${width})`,async()=>{const active=await tab.locator('.sth-hero__slide.is-active').evaluateAll(nodes=>nodes.map(node=>Array.from(node.parentElement.children).indexOf(node)));await tab.waitForTimeout(3200);const after=await tab.locator('.sth-hero__slide.is-active').evaluateAll(nodes=>nodes.map(node=>Array.from(node.parentElement.children).indexOf(node)));assert(JSON.stringify(after)===JSON.stringify(active),'Hero auto-advanced despite reduced-motion preference');});
+const motionCtx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'no-preference'});
+await motionCtx.route('**/*',async route=>{
+ const req=route.request(),u=new URL(req.url());
+ if(!['GET','HEAD'].includes(req.method())){writes.push({url:req.url(),method:req.method()});return route.abort();}
+ if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net/.test(req.url()))return route.abort();
+ if(['slopestohope.com','www.slopestohope.com','communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname)){issues.push({legacy:req.url()});return route.abort();}
+ return route.continue();
+});
+const motionTab=await motionCtx.newPage();
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero advances and pauses on hover (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+ const start=await activeIndex();await motionTab.waitForTimeout(3200);const advanced=await activeIndex();assert(advanced!==start,'Hero did not auto-advance with normal motion');
+ await motionTab.locator('.sth-hero').hover();const hovered=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===hovered,'Hero advanced while hovered');
+ await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);assert(await activeIndex()!==hovered,'Hero did not resume after hover ended');
+});
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero pauses and resumes on keyboard focus (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+ await motionTab.locator('.sth-hero__link').focus();const focused=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===focused,'Hero advanced while focused');
+ await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
+});
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero remains paused when hover ends while focus remains (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+ await motionTab.locator('.sth-hero').hover();await motionTab.locator('.sth-hero__link').focus();
+ const engaged=await activeIndex();await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);
+ assert(await activeIndex()===engaged,'Hero resumed after hover ended while focus remained');
+ await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);
+ assert(await activeIndex()!==engaged,'Hero did not resume after both hover and focus ended');
+});
+await motionCtx.close();
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
  await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='true','Menu did not expand');
