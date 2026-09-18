@@ -51,7 +51,7 @@ await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.wa
 await check(`Hero pauses and resumes on keyboard focus (${width})`,async()=>{
  const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
  await motionTab.locator('.sth-hero__link').focus();const focused=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===focused,'Hero advanced while focused');
- await motionTab.locator('#menu-toggle').focus();await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
+ await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
 });
 await motionCtx.close();
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
