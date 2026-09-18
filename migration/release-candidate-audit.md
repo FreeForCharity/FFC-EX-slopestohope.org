@@ -16,7 +16,7 @@ Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS
 - The full browser audit passes 20 route/viewport checks with zero missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. Both HubSpot frames rendered at both widths.
 - The interaction suite passes newsletter validation, contact-form validation, donation and pledge destinations, Gallery behavior, and mobile navigation. It blocks all writes.
 - The unused external Elementor Ally widget, its action hook, and its exclusive CSS were removed. A static regression check prevents it from returning.
-- No published Candid/GuideStar, Community Across America, GiveWP, Elementor Ally, deleted policy-shell, site-owned `.com` runtime dependency, broken internal link, or malformed local route remains.
+- The broken legacy Candid/GuideStar seal embed is removed; the homepage now uses the locally hosted Candid Platinum Transparency 2026 badge linking to the Slopes to Hope Candid profile. No Community Across America, GiveWP, Elementor Ally, deleted policy-shell, site-owned `.com` runtime dependency, broken internal link, or malformed local route remains.
 
 ## HubSpot end-to-end status
 

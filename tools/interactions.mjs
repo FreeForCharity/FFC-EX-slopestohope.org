@@ -30,6 +30,7 @@ await ctx.route('**/*',async route=>{
 const tab=await ctx.newPage();
 tab.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)issues.push({url:r.url(),status:r.status()});});
 await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);await declineAnalytics(tab);
+await check(`Hero respects reduced motion (${width})`,async()=>{const active=await tab.locator('.sth-hero__slide.is-active').evaluateAll(nodes=>nodes.map(node=>Array.from(node.parentElement.children).indexOf(node)));await tab.waitForTimeout(3200);const after=await tab.locator('.sth-hero__slide.is-active').evaluateAll(nodes=>nodes.map(node=>Array.from(node.parentElement.children).indexOf(node)));assert(JSON.stringify(after)===JSON.stringify(active),'Hero auto-advanced despite reduced-motion preference');});
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
  await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='true','Menu did not expand');

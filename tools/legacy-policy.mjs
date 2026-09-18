@@ -30,9 +30,7 @@ export const EXCLUDED_ROUTES = new Set([
   ...EXCLUDED_POLICY_SHELL_ROUTES,
   ...EXCLUDED_ORPHANED_ROUTES,
 ]);
-export const REMOVED_CANDID_SEAL_LINKS = new Set([
-  'https://app.candid.org/profile/16353783/slopes-to-hope-33-4379051/?pkId=6af5d7d1-d210-4cfe-a995-a15e189188c5',
-]);
+export const REMOVED_CANDID_SEAL_LINKS = new Set([]);
 
 export function sanitizeLegacyContent(document, pathname) {
   if (pathname !== '/faq/') return;
