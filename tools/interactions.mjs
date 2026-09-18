@@ -41,12 +41,15 @@ await motionCtx.route('**/*',async route=>{
 });
 const motionTab=await motionCtx.newPage();
 await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
-await check(`Hero advances and pauses when engaged (${width})`,async()=>{
- const slides=motionTab.locator('.sth-hero__slide');
- const activeIndex=async()=>slides.evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+await check(`Hero advances and pauses on hover (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
  const start=await activeIndex();await motionTab.waitForTimeout(3200);const advanced=await activeIndex();assert(advanced!==start,'Hero did not auto-advance with normal motion');
  await motionTab.locator('.sth-hero').hover();const hovered=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===hovered,'Hero advanced while hovered');
- await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);const afterHover=await activeIndex();assert(afterHover!==hovered,'Hero did not resume after hover ended');
+ await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);assert(await activeIndex()!==hovered,'Hero did not resume after hover ended');
+});
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero pauses and resumes on keyboard focus (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
  await motionTab.locator('.sth-hero__link').focus();const focused=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===focused,'Hero advanced while focused');
  await motionTab.locator('#menu-toggle').focus();await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
 });
