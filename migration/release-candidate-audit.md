@@ -1,6 +1,6 @@
 # Release-candidate audit
 
-Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS change, CNAME change, GitHub Pages domain change, or domain cutover was performed.
+Originally prepared on 2026-09-11 and updated through 2026-09-18 on the migration review branch. No merge, deployment, DNS change, CNAME change, GitHub Pages domain change, or domain cutover was performed.
 
 ## Policies and consent
 
@@ -12,9 +12,9 @@ Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS
 ## Verification
 
 - Static validation and the production-equivalent build pass for ten published routes plus the `/staff/` redirect.
-- Consent tests cover 1440 px and 390 px behavior for default-on analytics without a modal, decline, persistence, settings reopening, re-enable, intended tag loading, policy navigation, revocation, post-revocation reload, and horizontal overflow.
+- Consent tests cover 1440 px and 390 px behavior for default-on analytics without a modal, Escape dismissal of Cookie settings, decline, persistence, settings reopening, re-enable, intended tag loading, policy navigation, revocation, post-revocation reload, horizontal overflow, and continued denial of Google advertising consent.
 - The full browser audit passes 20 route/viewport checks with zero missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. Both HubSpot frames rendered at both widths.
-- The interaction suite passes newsletter validation, contact-form validation, donation and pledge destinations, Gallery behavior, and mobile navigation. It blocks all writes.
+- The interaction suite passes reduced-motion hero behavior, newsletter validation, contact-form validation, donation and pledge destinations, Gallery behavior, and mobile navigation. It blocks all non-GET/HEAD writes.
 - The unused external Elementor Ally widget, its action hook, and its exclusive CSS were removed. A static regression check prevents it from returning.
 - The broken legacy Candid/GuideStar seal embed is removed; the homepage now uses the locally hosted Candid Platinum Transparency 2026 badge linking to the Slopes to Hope Candid profile. No Community Across America, GiveWP, Elementor Ally, deleted policy-shell, site-owned `.com` runtime dependency, broken internal link, or malformed local route remains.
 

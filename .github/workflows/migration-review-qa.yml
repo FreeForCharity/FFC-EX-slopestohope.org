@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   qa:
@@ -101,3 +101,14 @@ jobs:
           test "$INTERACTIONS" = success
           test "$CONSENT" = success
           test "$SYNTAX" = success
+
+      - name: Refresh committed QA evidence
+        if: ${{ success() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add migration/static-validation.json migration/local-browser-audit.json migration/interactions.json migration/consent-validation.json
+          if ! git diff --cached --quiet; then
+            git commit -m "test: refresh migration QA evidence [skip ci]"
+            git push
+          fi
