@@ -70,7 +70,7 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
  if(!d.querySelector('link[href="/assets/consent.css"]')||!d.querySelector('script[src="/assets/consent.js"]'))issues.push({path:route.path,error:'Consent assets missing'});
  if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Policy or cookie-settings footer control missing'});
- if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Analytics loads before consent'});
+ if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Uncontrolled analytics loader present in static HTML'});
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
 }
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
