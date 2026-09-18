@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-18T09:17:40.896Z",
+  "testedAt": "2026-09-18T17:26:47.590Z",
   "results": [
     {
       "name": "Required analytics IDs and independent HubSpot form embeds remain intact",
@@ -38,6 +38,14 @@
       "passed": true
     },
     {
+      "name": "All HubSpot forms load with analytics accepted (1440)",
+      "passed": true
+    },
+    {
+      "name": "All HubSpot forms load with analytics declined (1440)",
+      "passed": true
+    },
+    {
       "name": "First visit enables analytics without a modal (390)",
       "passed": true
     },
@@ -68,8 +76,21 @@
     {
       "name": "Revoked visitor can accept and persist a new choice (390)",
       "passed": true
+    },
+    {
+      "name": "All HubSpot forms load with analytics accepted (390)",
+      "passed": true
+    },
+    {
+      "name": "All HubSpot forms load with analytics declined (390)",
+      "passed": true
     }
   ],
-  "blockedWrites": [],
+  "blockedWrites": [
+    {
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=41204&rt=j",
+      "method": "POST"
+    }
+  ],
   "note": "All non-GET/HEAD requests were blocked. No forms were submitted, and no CRM or email write was attempted."
 }

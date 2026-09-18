@@ -7,9 +7,10 @@ export async function serve(root=resolve('public'),port=0){
   const server=createServer(async(req,res)=>{
     try{
       if(!['GET','HEAD'].includes(req.method)) {res.writeHead(405).end();return;}
-      let path=new URL(req.url,'http://localhost').pathname;
+      const url=new URL(req.url,'http://localhost');
+      let path=url.pathname;
       let file=within(root,path==='/'?'/index.html':path);
-      if((await stat(file)).isDirectory()){if(!path.endsWith('/')){res.writeHead(301,{Location:path+'/'}).end();return;}file=within(root,path+'index.html');}
+      if((await stat(file)).isDirectory()){if(!path.endsWith('/')){res.writeHead(301,{Location:path+'/'+url.search}).end();return;}file=within(root,path+'index.html');}
       const body=await readFile(file); res.writeHead(200,{'Content-Type':MIME[extname(file)]||'application/octet-stream','X-Robots-Tag':'noindex, nofollow'});res.end(req.method==='HEAD'?undefined:body);
     }catch{res.writeHead(404).end('Not found');}
   });

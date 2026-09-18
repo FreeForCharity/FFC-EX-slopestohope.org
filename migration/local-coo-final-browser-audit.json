@@ -1,0 +1,145 @@
+{
+  "testedAt": "2026-09-18T17:28:48.285Z",
+  "base": "http://127.0.0.1:64729",
+  "results": [
+    {
+      "path": "/coosummit26/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCOO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=9f263ef6-7a9e-493a-8ae7-bf58342c9053",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NDcyOQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=35entcws4d23",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "text-editor.default",
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 15
+        }
+      ]
+    },
+    {
+      "path": "/coosummit26/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCOO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=e02f2f50-c882-4897-af55-1b46ac2c97c1",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2NDcyOQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=tw2h4emijaey",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "text-editor.default",
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 15
+        }
+      ]
+    }
+  ],
+  "mirrored": []
+}

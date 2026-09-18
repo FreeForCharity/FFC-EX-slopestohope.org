@@ -87,6 +87,34 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
 }
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
 for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
+const formEmbeds=[
+ {path:'/',file:'index.html',id:'9a181260-20a9-408c-8591-cca3093d7e3f'},
+ {path:'/contact-us/',file:'contact-us/index.html',id:'f35f941a-7978-41cc-aabc-4dc669ac9a0a'},
+ {path:'/coosummit26/',file:'coosummit26/index.html',id:'05a4b6fe-6b23-433e-bf08-e667071c8d3b'},
+];
+const exactLoader='<script src="https://js-na2.hsforms.net/forms/embed/244348981.js" defer></script>';
+for(const form of formEmbeds){
+ const html=await readFile(within(root,'/'+form.file),'utf8');
+ const d=new JSDOM(html,{url:'https://slopestohope.org'+form.path,virtualConsole:new VirtualConsole()}).window.document;
+ const frames=[...d.querySelectorAll('.hs-form-frame')];
+ const loaders=[...d.querySelectorAll('script[src^="https://js-na2.hsforms.net/forms/embed/"]')];
+ if(frames.length!==1)issues.push({path:form.path,error:'Expected exactly one HubSpot form frame'});
+ else if(frames[0].dataset.region!=='na2'||frames[0].dataset.portalId!=='244348981'||frames[0].dataset.formId!==form.id)issues.push({path:form.path,error:'HubSpot form configuration changed'});
+ if(loaders.length!==1||loaders[0].src!=='https://js-na2.hsforms.net/forms/embed/244348981.js'||!loaders[0].defer)issues.push({path:form.path,error:'Exact HubSpot forms loader missing or duplicated'});
+ if(!html.includes(exactLoader)||/hsforms\.net\/forms\/embed\/v2/.test(html))issues.push({path:form.path,error:'HubSpot embed is not the owner-supplied snippet'});
+}
+{
+ const html=await readFile(within(root,'/coosummit26/index.html'),'utf8');
+ const d=new JSDOM(html,{url:'https://slopestohope.org/coosummit26/',virtualConsole:new VirtualConsole()}).window.document;
+ const description="Complete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.";
+ const formWidget=d.querySelector('.hs-form-frame')?.closest('.elementor-widget');
+ if(d.querySelectorAll('h1').length!==1||normalize(d.querySelector('h1')?.textContent||'')!=='COO Summit 2026: Complimentary Concierge Pickup')issues.push({path:'/coosummit26/',error:'COO Summit must have exactly one correct H1'});
+ if(d.querySelector('meta[name="description"]')?.content!==description||d.querySelector('meta[property="og:description"]')?.content!==description)issues.push({path:'/coosummit26/',error:'COO Summit description metadata changed'});
+ if(d.querySelector('meta[property="og:title"]')?.content!=='COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph title changed'});
+ if(d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope'||d.querySelector('meta[property="og:image"]')?.content!=='https://slopestohope.org/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-scaled-600x400.jpg')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph metadata incomplete'});
+ if(/Contact%20Us|"page_permalink":"\/contact-us\/"|postId:"71"/.test(html))issues.push({path:'/coosummit26/',error:'Contact Us runtime metadata remains'});
+ if(!formWidget?.previousElementSibling?.matches('[data-widget_type="image.default"]'))issues.push({path:'/coosummit26/',error:'COO Summit form is not immediately after the picture'});
+}
 const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length+POLICY_ROUTES.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');
 console.log(JSON.stringify(output,null,2));if(issues.length)process.exitCode=1;
