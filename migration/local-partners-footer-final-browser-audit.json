@@ -1,0 +1,105 @@
+{
+  "testedAt": "2026-09-18T08:58:35.800Z",
+  "base": "http://127.0.0.1:56841",
+  "results": [
+    {
+      "path": "/partners/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Partners – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nPartners\n\nRecipient\n\nNonprofits & Organizations\n\n          \n\nAdopt an Angel – Summit County Rotary Club (visit)\n\nDillon Community Church (visit)\n\nReSaddled (visit)\n\nColorado Department of Labor & Employment – Frisco (visit)\n\nColorado Department of Labor & Employment – Leadville (visit)\n\nSummit County Rescue Group (visit)\n\nFamily Intercultural Resource Center – FIRC (visit)\n\nAll the Way Well (visit)\n\nBayaud Works (visit)\n\nChrist’s Body Ministries (visit)\n\nCrutches 4 Africa (visit)\n\nHAAT Force (visit)\n\nEnglewood Police Department (visit)\n\nBridges of Colorado (visit)\n\nMutual Aid Monday (visit)\n\nAssistance League of Denver (visit)\n\nAll Roads (visit)\n\nHaven Ridge (visit)\n\nElks Lodge – Silverthorne (visit)\n\nThe Salvation Army Hope Center – Colorado Springs (visit)\n\nSprings Rescue Mission (visit)\n\nHabitat for Humanity ReStore (visit)\n\nSheridan School District No 2 (visit)\n\nChange the Trend (visit)\n\nCommunity Economic Defense Project (visit)\n\nThe Salvation Army – Denver (visit)\n\nCommunity Ministry (visit)\n\nTrue North Recovery Services (visit)\n\nHazelbrook Community Center (visit)\n\nAdvance Pathways (visit)\n\nParticipating\n\nResorts, Hotels, Organizations\n\n         \n\nSpinnaker Lake Dillon (visit)\n\nReSaddled (visit)\n\nKeystone Resort (visit)\n\nMarriott’s Mountain Valley Lodge at Breckenridge (visit)\n\nThe Residences at Main Street Station (visit)\n\nHyatt Vacation Club at The Ranahan (visit)\n\nHelly Hansen (visit)\n\nBreckenridge Recreation Center (visit)\n\nGrand Lodge on Peak 7 (visit)\n\nGrand Timber Lodge (visit)\n\nArapahoe Basin (visit)\n\nBreckenridge Ski Resort (visit)\n\nBeaver Run Resort (visit)\n\nBreckenridge Nordic Center (visit)\n\nBlueSky Breckenridge – By Vacasa (visit)\n\nHotel Frisco (visit)\n\nGrand Colorado on Peak 8 (visit)\n\nThe Village at Breckenridge (visit)\n\nGreat Western Lodging (visit)\n\nBreckenridge Resort Managers (visit)\n\nOG’s Thrift & Threadz (visit)\n\nTheatre SilCo (visit)\n\nHotel Alpenrock Breckenridge (visit)\n\nSummit Executive Cleaning (visit)\n\nThank You!\n\nDonors and Grantors\n\n         \n\nHigh Country Conservation Center (visit)\n\nTown of Frisco (visit)\n\nRotary Club of Denver Southeast (visit)\n\nRotary Club of Vail Edwards (visit)\n\nRotary Club of Boulder Flatirons (visit)\n\nRotary Club of Denver Cherry Creek (visit)\n\nRotary Club of Highlands Ranch (visit)\n\nRotary Club of Littleton (visit)\n\nRotary Club of Summit County (visit)\n\nRotary Club of Castle Rock (visit)\n\nRotary District 5450 (visit)\n\nKaliber Collision Repair (visit)\n\nLisa Strauss\n\nEric Bahr\n\nJoyce & Allyn Mosher\n\nTom & Debbie Jaskolski\n\nKevin & Jennifer Maher\n\n(Anonymous)\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default"
+        ]
+      },
+      "formFrames": []
+    },
+    {
+      "path": "/partners/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Partners – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nPartners\n\nRecipient\n\nNonprofits & Organizations\n\n          \n\nAdopt an Angel – Summit County Rotary Club (visit)\n\nDillon Community Church (visit)\n\nReSaddled (visit)\n\nColorado Department of Labor & Employment – Frisco (visit)\n\nColorado Department of Labor & Employment – Leadville (visit)\n\nSummit County Rescue Group (visit)\n\nFamily Intercultural Resource Center – FIRC (visit)\n\nAll the Way Well (visit)\n\nBayaud Works (visit)\n\nChrist’s Body Ministries (visit)\n\nCrutches 4 Africa (visit)\n\nHAAT Force (visit)\n\nEnglewood Police Department (visit)\n\nBridges of Colorado (visit)\n\nMutual Aid Monday (visit)\n\nAssistance League of Denver (visit)\n\nAll Roads (visit)\n\nHaven Ridge (visit)\n\nElks Lodge – Silverthorne (visit)\n\nThe Salvation Army Hope Center – Colorado Springs (visit)\n\nSprings Rescue Mission (visit)\n\nHabitat for Humanity ReStore (visit)\n\nSheridan School District No 2 (visit)\n\nChange the Trend (visit)\n\nCommunity Economic Defense Project (visit)\n\nThe Salvation Army – Denver (visit)\n\nCommunity Ministry (visit)\n\nTrue North Recovery Services (visit)\n\nHazelbrook Community Center (visit)\n\nAdvance Pathways (visit)\n\nParticipating\n\nResorts, Hotels, Organizations\n\n         \n\nSpinnaker Lake Dillon (visit)\n\nReSaddled (visit)\n\nKeystone Resort (visit)\n\nMarriott’s Mountain Valley Lodge at Breckenridge (visit)\n\nThe Residences at Main Street Station (visit)\n\nHyatt Vacation Club at The Ranahan (visit)\n\nHelly Hansen (visit)\n\nBreckenridge Recreation Center (visit)\n\nGrand Lodge on Peak 7 (visit)\n\nGrand Timber Lodge (visit)\n\nArapahoe Basin (visit)\n\nBreckenridge Ski Resort (visit)\n\nBeaver Run Resort (visit)\n\nBreckenridge Nordic Center (visit)\n\nBlueSky Breckenridge – By Vacasa (visit)\n\nHotel Frisco (visit)\n\nGrand Colorado on Peak 8 (visit)\n\nThe Village at Breckenridge (visit)\n\nGreat Western Lodging (visit)\n\nBreckenridge Resort Managers (visit)\n\nOG’s Thrift & Threadz (visit)\n\nTheatre SilCo (visit)\n\nHotel Alpenrock Breckenridge (visit)\n\nSummit Executive Cleaning (visit)\n\nThank You!\n\nDonors and Grantors\n\n         \n\nHigh Country Conservation Center (visit)\n\nTown of Frisco (visit)\n\nRotary Club of Denver Southeast (visit)\n\nRotary Club of Vail Edwards (visit)\n\nRotary Club of Boulder Flatirons (visit)\n\nRotary Club of Denver Cherry Creek (visit)\n\nRotary Club of Highlands Ranch (visit)\n\nRotary Club of Littleton (visit)\n\nRotary Club of Summit County (visit)\n\nRotary Club of Castle Rock (visit)\n\nRotary District 5450 (visit)\n\nKaliber Collision Repair (visit)\n\nLisa Strauss\n\nEric Bahr\n\nJoyce & Allyn Mosher\n\nTom & Debbie Jaskolski\n\nKevin & Jennifer Maher\n\n(Anonymous)\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default",
+          "text-editor.default"
+        ]
+      },
+      "formFrames": []
+    }
+  ],
+  "mirrored": []
+}

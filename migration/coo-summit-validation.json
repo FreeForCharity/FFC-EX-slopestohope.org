@@ -1,0 +1,38 @@
+{
+  "testedAt": "2026-09-18T07:53:22.371Z",
+  "baseCommit": "4701147afad81fa02a82d360a3e8609ecf3664f5",
+  "buildCommands": [
+    "node tools/validate.mjs",
+    "node tools/build.mjs"
+  ],
+  "validationIssues": [],
+  "exactFlyerPath": "/coosummit26",
+  "redirectsTo": "/coosummit26/",
+  "routeSmokeChecksPassed": 12,
+  "sitemapRegistered": true,
+  "existingPublicFilesUnchanged": true,
+  "existingInventoryRoutesUnchanged": true,
+  "submitted": false,
+  "visibleCopySource": "Published HubSpot form already contains the owner-supplied heading and introduction; page metadata matches it.",
+  "screenshotNote": "Final screenshots use normal animation handling; the general browser audit animation-disabled screenshots showed a blank iframe despite loaded fields.",
+  "results": [
+    {
+      "width": 1440,
+      "status": 200,
+      "resolvedUrl": "http://127.0.0.1:4175/coosummit26/",
+      "emailFieldVisible": true,
+      "formControls": 15,
+      "overflow": false,
+      "formText": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit"
+    },
+    {
+      "width": 390,
+      "status": 200,
+      "resolvedUrl": "http://127.0.0.1:4175/coosummit26/",
+      "emailFieldVisible": true,
+      "formControls": 15,
+      "overflow": false,
+      "formText": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit"
+    }
+  ]
+}
