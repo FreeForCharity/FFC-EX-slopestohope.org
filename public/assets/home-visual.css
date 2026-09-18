@@ -19,7 +19,7 @@ body.home .site-header .donate-menu>a{display:inline-flex;align-items:center;jus
 body.home .site-header .buddyx-desktop-menu .donate-menu>a,
 body.home .site-header .buddyx-mobile-menu .donate-menu>a{height:40px!important;min-height:40px!important;padding:4px 10px!important}
 /* Keep the header donation action on the same text baseline as neighboring links. */
-body.home .site-header .primary-menu-container .donate-menu>a{height:auto!important;min-height:0!important;padding:0 10px!important;line-height:1.4!important;align-self:center}
+body.home .site-header .buddyx-desktop-menu .donate-menu>a{height:auto!important;min-height:0!important;padding:0 10px!important;line-height:1.4!important;align-self:center}
 body.home .site-header .buddyx-desktop-menu .donate-menu>a{transform:translateY(24px)}
 body.home .elementor-element.elementor-element-93d7298 a:focus-visible,
 body.home .site-header .donate-menu>a:focus-visible,

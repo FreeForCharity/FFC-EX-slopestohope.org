@@ -66,7 +66,7 @@
     function hide(){panel.classList.remove('is-visible');if(settings)settings.focus({preventScroll:true});}
     panel.addEventListener('click',function(event){var value=event.target&&event.target.getAttribute('data-consent');if(!value)return;remember(value);if(value==='granted')enableAnalytics();else disableAnalytics();hide();});
     document.querySelectorAll('[data-open-cookie-settings]').forEach(function(button){button.addEventListener('click',show);});
-    panel.addEventListener('keydown',function(event){if(event.key==='Escape'&&preference())hide();});
+    panel.addEventListener('keydown',function(event){if(event.key==='Escape')hide();});
     // Enable analytics by default unless the visitor previously opted out.
     // The footer control remains available to change the setting at any time.
     var saved=preference();if(saved==='denied')disableAnalytics();else enableAnalytics();
