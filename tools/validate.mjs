@@ -28,7 +28,10 @@ for(const r of publishedRoutes){
    const faq=d.querySelector('[data-elementor-id="3827"]');
    if(!faq)issues.push({path:r.path,error:'FAQ content container missing'});
    else {
-    faq.querySelectorAll('.screen-reader-text').forEach(e=>e.remove());
+    const hiddenText=faq.querySelectorAll('.screen-reader-text');
+    const hiddenHeading=faq.querySelector(':scope > h1.screen-reader-text');
+    if(hiddenText.length!==1||!hiddenHeading||normalize(hiddenHeading.textContent)!=='FAQ')issues.push({path:r.path,error:'FAQ accessibility heading changed'});
+    else hiddenHeading.remove();
     if(normalize(faq.textContent)!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
    }
  } else if(bodyText!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
