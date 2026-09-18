@@ -320,9 +320,9 @@ jobs:
               };
             }).catch(() => null);
 
-            // 2) Cookie-consent UI visible on first load. Multiple selectors because
-            //    different libraries use different markup. We treat a visible banner OR
-            //    a fixed-position element whose text mentions cookies as a hit.
+            // 2) Cookie/analytics control available on first load. Multiple selectors
+            //    support sites that use a first-load banner/dialog. A persistent footer
+            //    Cookie settings control is also valid for sites using an opt-out model.
             const cookieConsent = await page.evaluate(() => {
               const selectors = [
                 '[id*="cookie" i]', '[class*="cookie-consent" i]', '[class*="CookieConsent" i]',
@@ -340,6 +340,14 @@ jobs:
                 }
               }
               return null;
+            }).catch(() => null);
+            const cookieSettingsControl = await page.evaluate(() => {
+              const el = document.querySelector('footer [data-open-cookie-settings]');
+              if (!el) return null;
+              const rect = el.getBoundingClientRect();
+              const style = getComputedStyle(el);
+              if (rect.width < 20 || rect.height < 10 || style.display === 'none' || style.visibility === 'hidden') return null;
+              return { selector: 'footer [data-open-cookie-settings]', text: (el.innerText || '').slice(0, 400) };
             }).catch(() => null);
 
             // Donation surfaces across providers. Zeffy is FFC's PREFERRED
@@ -443,8 +451,8 @@ jobs:
                   complianceFailures.push(`Footer missing required policy links: ${missing.join(', ')}`);
                 }
               }
-              if (requireCookieConsent && !cookieConsent) {
-                complianceFailures.push('No cookie-consent UI visible on first load (required because site likely uses analytics/cookies; set SMOKE_REQUIRE_COOKIE_CONSENT=false to skip)');
+              if (requireCookieConsent && !cookieConsent && !cookieSettingsControl) {
+                complianceFailures.push('No visible cookie/analytics control found (expected either a first-load consent UI or a footer Cookie settings control; set SMOKE_REQUIRE_COOKIE_CONSENT=false only for sites with no analytics/cookies)');
               }
             } else {
               console.log('Placeholder mode (SMOKE_PLACEHOLDER=true) — skipping compliance assertions.');
@@ -494,6 +502,7 @@ jobs:
               placeholder,
               footer: footer ? { tag: footer.tag, hrefCount: footer.hrefs.length, hrefs: footer.hrefs } : null,
               cookieConsent: cookieConsent ? { selector: cookieConsent.selector, textSnippet: cookieConsent.text } : null,
+              cookieSettingsControl: cookieSettingsControl ? { selector: cookieSettingsControl.selector, textSnippet: cookieSettingsControl.text } : null,
               donations: { scope: donationScope || 'undeclared', surfaces: donationChecks },
               complianceFailures,
             };

@@ -6,13 +6,13 @@ Prepared on 2026-09-11 on `website-migration-2026-09`. No merge, deployment, DNS
 
 - Added Slopes to Hope-specific `/privacy-policy/` and `/terms-of-service/` pages based on the integrations and behavior in the static migration. The unrelated Free For Charity policy markdown remains unpublished.
 - Added Privacy Policy, Terms of Service, and Cookie settings controls to every published footer without redesigning the footer.
-- Removed unconditional Google and HubSpot analytics loaders. On first visit, analytics storage defaults to denied and a native consent interface offers Accept analytics and Decline analytics.
-- The choice persists in local storage and can be changed from the footer. Decline leaves normal site features available. Accept loads existing Google tag `GT-MKTP8299`, identifies measurement ID `G-XEWDW3TYVZ`, and enables the existing HubSpot tracking script. HubSpot form embeds remain available independently of the optional analytics choice.
+- Removed legacy unconditional Google and HubSpot analytics loaders. The site now uses the controlled analytics loader in `/assets/consent.js`: on first visit Google Analytics and HubSpot analytics are enabled by default without a modal, while advertising-related consent remains denied.
+- A visitor who uses the footer Cookie settings control can decline analytics; that saved decline is reapplied on later visits and prevents the Google and HubSpot analytics loaders. The same control can re-enable analytics later. Google tag `GT-MKTP8299`, measurement ID `G-XEWDW3TYVZ`, and the existing HubSpot analytics integration are preserved. HubSpot form embeds remain available independently of the analytics setting.
 
 ## Verification
 
 - Static validation and the production-equivalent build pass for ten published routes plus the `/staff/` redirect.
-- Consent tests pass at 1440 px and 390 px for first visit, decline, persistence, settings reopening, accept, intended tag loading, policy navigation, revocation, post-revocation reload, and horizontal overflow.
+- Consent tests cover 1440 px and 390 px behavior for default-on analytics without a modal, decline, persistence, settings reopening, re-enable, intended tag loading, policy navigation, revocation, post-revocation reload, and horizontal overflow.
 - The full browser audit passes 20 route/viewport checks with zero missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. Both HubSpot frames rendered at both widths.
 - The interaction suite passes newsletter validation, contact-form validation, donation and pledge destinations, Gallery behavior, and mobile navigation. It blocks all writes.
 - The unused external Elementor Ally widget, its action hook, and its exclusive CSS were removed. A static regression check prevents it from returning.
