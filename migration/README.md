@@ -21,7 +21,7 @@ The machine-readable source inventory is in `inventory.json`. It includes source
 - BuddyX mobile-menu open-state CSS omitted by LiteSpeed's used-CSS snapshot is restored from the original theme. The drawer is raised above Elementor's page-wide links, and its ARIA state follows its visible state.
 - The deployment workflow validates the capture, creates `out/`, and publishes only `out/` when changes eventually reach `main`. A manual run on this migration branch cannot execute the deployment job.
 
-## Verification completed
+> Homepage recapture safeguard: the migration capture command refuses to overwrite the current owner-approved homepage hero/Candid visual adaptations unless `--allow-homepage-recapture` is supplied after those adaptations have been explicitly reconciled. This prevents a future source capture from silently removing the reviewed homepage behavior.\n\n## Verification completed
 
 - Static validation: all ten published routes pass; retained source wording is preserved except for the explicitly approved homepage display adaptations, all mapped internal links and local assets resolve, intentional external destinations match the capture, and no `.com` asset/page runtime URLs remain.
 - Full browser audit: the current ten published routes pass at 1440 px and 390 px with no missing assets, legacy requests, external failures, JavaScript errors, overflow, or broken images. The Newsletter and Contact HubSpot form frames render at both widths.
