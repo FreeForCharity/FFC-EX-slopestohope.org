@@ -10,7 +10,8 @@ export const ROOT = resolve('public');
 const CACHE = resolve('.migration-cache/source');
 const offline = process.argv.includes('--offline');
 const allowHomepageRecapture = process.argv.includes('--allow-homepage-recapture');
-const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor and theme runtimes; discover their dynamic assets in browser tests.', 'Remove the unused external Elementor Ally accessibility widget.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.', 'Exclude the owner-approved title-only privacy-policy-2 and terms-of-service-2 shells.', 'Exclude unlinked empty WordPress archive and internal-template routes.', 'Normalize canonical and Open Graph URLs for the .org host and remove WordPress shortlinks.', 'Remove the deterministic 404 Instagram preview image while retaining the reel link and embed.'] };
+const LOCAL_ROUTE_PATHS = ['/coosummit26/'];
+const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor and theme runtimes; discover their dynamic assets in browser tests.', 'Remove the unused external Elementor Ally accessibility widget.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.', 'Exclude the owner-approved title-only privacy-policy-2 and terms-of-service-2 shells.', 'Exclude unlinked empty WordPress archive and internal-template routes.', 'Normalize canonical and Open Graph URLs for the .org host and remove WordPress shortlinks.', 'Remove the deterministic 404 Instagram preview image while retaining the reel link and embed.', 'Preserve owner-authored local routes and merge them into the generated inventory after source recapture.'] };
 const queue = new Set(), visited = new Set();
 const sha = b => createHash('sha256').update(b).digest('hex');
 export function within(root, path) {
@@ -136,8 +137,15 @@ export async function mirrorAsset(path) {
   await save(within(ROOT,path),body);
   return {path,bytes:bytes.length,sourceSha256:sha(bytes)};
 }
+function localRouteEntry(path,html){
+  const url='https://slopestohope.org'+path,doc=dom(html,url).window.document;
+  const textDoc=dom(html,url).window.document;
+  textDoc.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,footer [data-open-cookie-settings]').forEach(e=>e.remove());
+  return {path,title:doc.title,source:'Locally authored promo page using the current Contact Us layout and owner-supplied copy.',sourceSha256:sha(html),navigation:[...doc.querySelectorAll('nav a[href]')].map(a=>({text:a.textContent.trim(),url:a.href})),links:[...doc.querySelectorAll('a[href]')].map(a=>({text:a.textContent.trim(),url:a.href})),forms:[...doc.querySelectorAll('form')].map(f=>({action:f.action,method:f.method,html:f.outerHTML})),embeds:[...doc.querySelectorAll('iframe,[data-form-id],.hbspt-form')].map(e=>e.outerHTML),scripts:[...doc.scripts].map(s=>({src:s.src||s.getAttribute('data-src')||'',id:s.id})),widgets:[...new Set([...doc.querySelectorAll('[data-widget_type]')].map(e=>e.getAttribute('data-widget_type')))],bodyText:textDoc.body.textContent.replace(/\s+/g,' ').trim()};
+}
 async function main(){
   await mkdir('migration',{recursive:true});
+  const localRoutes=await Promise.all(LOCAL_ROUTE_PATHS.map(async path=>({path,html:await readFile(within(ROOT,path+'index.html'),'utf8')})));
   const sitemap=await capture(SOURCE+'/wp-sitemap.xml','wp-sitemap.xml');
   report.capturedAt=(await stat(within(CACHE,'wp-sitemap.xml'))).mtime.toISOString();
   const children=[...sitemap.toString().matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
@@ -153,6 +161,7 @@ async function main(){
     await Promise.all(batch.map(async p=>{try{report.assets.push(await mirrorAsset(p));}catch(e){report.failures.push({url:SOURCE+p,error:e.message});}}));
     if(visited.size%40===0)console.log('Assets',visited.size);
   }
+  for(const local of localRoutes){await save(within(ROOT,local.path+'index.html'),local.html);report.routes=report.routes.filter(route=>route.path!==local.path);report.routes.push(localRouteEntry(local.path,local.html));}
   await save(resolve('migration/inventory.json'),JSON.stringify(report,null,2)+'\n');
   await save(resolve('public/.nojekyll'),'');
   for (const route of EXCLUDED_ROUTES) await rm(within(ROOT,route),{recursive:true,force:true});

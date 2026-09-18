@@ -1,0 +1,706 @@
+{
+  "testedAt": "2026-09-18T18:04:52.153Z",
+  "base": "http://127.0.0.1:63395",
+  "results": [
+    {
+      "path": "/contact-us/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Contact Us – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nContact Us\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=708e4d3f-5aca-4f15-9769-3c43137faa1f",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzM5NQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=5ptoetnrk8qo",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "Get Involved!\n\nWe'd love to hear from you! Please fill out the form and we'll get back to you as soon as possible.\n\nFirst Name*\nLast Name*\nEmail*\nPhone Number\n🇺🇸\nMessage\nReason for contact:\n(Select all that apply)*\nClothing donation\nClothing request\nParticipation (Hotel/Resort/other)\nVolunteer\nSponsorship/Partnership\nOther\nHow did you hear about us?*\n\n_____\n\n \n\nMailing address:\n\nSlopes to Hope\n\n400 N. Park Ave #12B\n\nBreckenridge, CO 80424\n\n(970) 316-4046‬\n\nsupport@slopestohope.com\n\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 17
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [
+        {
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43464&rt=j",
+          "method": "POST"
+        },
+        {
+          "url": "https://graph.instagram.com/logging_client_events",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=143464&rt=j",
+          "method": "POST"
+        },
+        {
+          "url": "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetViewportInfo",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Slopes to Hope – Reducing Waste and Fostering Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nSlopes to Hope – Reducing Waste and Fostering Hope\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n26,007 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishments, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nMake a \n\ntangible and measurable impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\n$8,068 raised\n$25,000 goal\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n5,152/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nPrivacy Policy\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63395&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A63395%2F&aoriginsup=1&vf=1",
+            "title": "Lost ski town items find new life in Denver homeless shelters"
+          },
+          {
+            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63395&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A63395%2F&aoriginsup=1&vf=6",
+            "title": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area"
+          },
+          {
+            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=378&rd=http%3A%2F%2F127.0.0.1%3A63395&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A428.39999999990687%2C%22ls%22%3A6%2C%22le%22%3A342.79999999981374%7D",
+            "title": ""
+          },
+          {
+            "src": "https://www.google.com/maps/d/u/3/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1",
+            "title": ""
+          },
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=2280452f-5027-4d4e-825e-7f1cda803084",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzM5NQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=9i8kwnmx1rcd",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [
+          {
+            "text": "Goal:\n5,152/20,000",
+            "count": "23.7"
+          },
+          {
+            "text": "Goal:\n17,803/10,000",
+            "count": "110"
+          }
+        ],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "video.default",
+          "video.default",
+          "text-editor.default",
+          "text-editor.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "eael-feature-list.default",
+          "text-editor.default",
+          "html.default",
+          "text-editor.default",
+          "text-editor.default",
+          "divider.default",
+          "text-editor.default",
+          "elementskit-progressbar.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "divider.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "elementskit-progressbar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "html.default",
+          "hubspot-form.default",
+          "heading.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "text-editor.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "Sign Up for Our Newsletter\n\nStay updated with the latest news, updates, and events!\n\nEmail\nWe'll only contact you about the good stuff, and you can opt out at any time! For the fine print on your data and privacy, see our Privacy Policy here.\nSubmit",
+          "fields": 4
+        }
+      ]
+    },
+    {
+      "path": "/coosummit26/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [
+        {
+          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCOO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=db165e0d-135d-40e8-bf76-52e6cd94c340",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzM5NQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=w40138eq08qt",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "text-editor.default",
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 15
+        }
+      ]
+    },
+    {
+      "path": "/contact-us/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Contact Us – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nContact Us\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=a992b77c-c105-4622-aeaa-238ba7721efc",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzM5NQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=nxev2j1jew7g",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "Get Involved!\n\nWe'd love to hear from you! Please fill out the form and we'll get back to you as soon as possible.\n\nFirst Name*\nLast Name*\nEmail*\nPhone Number\n🇺🇸\nMessage\nReason for contact:\n(Select all that apply)*\nClothing donation\nClothing request\nParticipation (Hotel/Resort/other)\nVolunteer\nSponsorship/Partnership\nOther\nHow did you hear about us?*\n\n_____\n\n \n\nMailing address:\n\nSlopes to Hope\n\n400 N. Park Ave #12B\n\nBreckenridge, CO 80424\n\n(970) 316-4046‬\n\nsupport@slopestohope.com\n\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 17
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [
+        {
+          "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43481&rt=j",
+          "method": "POST"
+        },
+        {
+          "url": "https://graph.instagram.com/logging_client_events",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=143481&rt=j",
+          "method": "POST"
+        },
+        {
+          "url": "https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetViewportInfo",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        },
+        {
+          "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+          "method": "POST"
+        }
+      ],
+      "dom": {
+        "title": "Slopes to Hope – Reducing Waste and Fostering Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nSlopes to Hope – Reducing Waste and Fostering Hope\n\nRecovering More Than Clothing — Restoring Hope\n\nSlopes to Hope is a 501(c)(3) nonprofit organization based in Breckenridge, Colorado. We partner with local hotels and ski resorts to recover clothing items lost or left behind by guests and visitors, diverting thousands of pounds of waste from Colorado landfills.\n\nThese high-quality clothing items are then distributed to homeless shelters, churches, schools, and nonprofits across Summit County, the Denver Metro Area, and Colorado Springs—getting essential gear into the hands of Coloradans facing economic and housing hardships.\n\n \n\nDONATE!\nNewsletter Signup\n\nSince December 2023…\n\n26,007 Pounds - Collected And Redistributed\n\nWinter coats, gloves, boots, snow pants, hats, blankets, bed pillows, dishes, books...\n\n23 - Resort And Hotel Collection Partners\n\nSummit County lodging establishments, public donation drop-off locations, thrift stores with surplus donations...\n\n28 - Nonprofit And Community Partners\n\nHomeless shelters, nonprofits, churches, and schools throughout Colorado communities.\n\nMedia\n\n9NEWS Follow-up – story by Matt Renoux\n\n9NEWS – story by Matt Renoux\n\nSummit Daily – article by Kit Geary\n\nBreckenridge Magazine – article by Lisa Blake\n\nUnofficial Networks – article by Francis Xavier\n\nKeystone Resort – video by Jake Marquardt\n\nMake a measurable\n\nand tangible impact!\n\nWe are raising $25,000 during our second year to help us reach our goal of collecting and distributing 20,000 pounds of winter clothing.\n\nHelp us divert thousands of pounds of usable clothing from landfills and provide winter clothing to Coloradans experiencing homelessness and hardship!\n\n$8,068 raised\n$25,000 goal\nGIVE NOW!\nPledge-per-Pound\nVolunteer\nPartner\n\nImpact\n\nGoals & History\n\nCurrent Goal\n\nCollect and distribute 20,000 pounds during the 2026-2027 ski season!\n\nGoal:\n5,152/20,000\n\nPounds collected and distributed during the 2025-2026 ski season.\n\nGoal:\n17,803/10,000\n\nClothing Donation Drop-off Locations\n\n          \n\nU.S. Bank – Breckenridge (map)\n\nInside the main door of the building to the left – before entering the U.S. Bank suite\n\n \n\nLincoln West Mall – Breckenridge (map)\n\nMain floor against the column near Main St. entrance\n\n \n\nConnect Breck Building – Breckenridge (map)\n\nInside south entrance door\n\n \n\nMain Library – Frisco (map)\n\nAcross from main desk\n\n \n\nNorth Branch Library – Silverthorne (map)\n\nInside main entrance to the left of the doors\n\n \n\nSouth Branch Library – Breckenridge (map)\n\nRight of the stairs by the main desk\n\nPrivacy Policy\nMission\n\nOur mission is to reduce environmental waste and support Coloradans experiencing homelessness and hardship by collecting and repurposing clothing items lost or left behind at hotels and ski resorts.\n\nWe distribute these clothes to our nonprofit partners, homeless shelters, schools, and community organizations in Summit County, the Denver Metro Area, and Colorado Springs—diverting thousands of pounds of clothing from Colorado landfills and fostering a more sustainable and compassionate Colorado community.\n\nWhy?\n\nTens of thousands of pounds of winter clothes are left behind or lost by guests at Colorado ski resorts and hotels every year. Most of these clothes end up in our landfills.\n\nThere are also tens of thousands of people in Colorado who are experiencing homelessness, or cannot afford proper winter clothing.\n\nWe address these two problems with one solution.\n\nHow?\n\nWe go to the hotels and resorts in Summit County and collect these winter clothes, and then distribute them to homeless shelters, churches, and community organizations. This keeps thousands of pounds of clothes out of the landfill and gets them to the people who need them the most.\n\nHow Is It Funded?\n\nWe are seeking funding from grants, sponsorships, and individual donors.\n\nWe are also exploring different fundraising events, such as an auction for new ski equipment and apparel, or nights at participating resorts. Individuals and businesses may also pledge a penny per pound of clothing we collect and distribute.\n\nHow Can You Help?\n\nBeyond donations, we seek help with community outreach and connecting with hotel and resort managers!\n\nWe are also seeking volunteers to help us collect clothes from hotels and resorts and deliver them to shelters and nonprofit organizations throughout Colorado.\n\nContact us!\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "https://www.youtube.com/embed/pN3eXjmSd8A?controls=1&rel=0&playsinline=0&cc_load_policy=0&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63395&widgetid=1&forigin=http%3A%2F%2F127.0.0.1%3A63395%2F&aoriginsup=1&vf=6",
+            "title": "Lost ski town items find new life in Denver homeless shelters"
+          },
+          {
+            "src": "https://www.youtube.com/embed/Nrqv7AKULXI?controls=1&rel=0&playsinline=0&cc_load_policy=1&autoplay=0&enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A63395&widgetid=3&forigin=http%3A%2F%2F127.0.0.1%3A63395%2F&aoriginsup=1&vf=2",
+            "title": "'Slopes to Hope': How items left at Colorado ski towns get a second life in Denver area"
+          },
+          {
+            "src": "https://www.instagram.com/reel/DXXtI72EU5f/embed/?cr=1&v=14&wp=368&rd=http%3A%2F%2F127.0.0.1%3A63395&rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A396.89999999990687%2C%22ls%22%3A6.699999999720603%2C%22le%22%3A316.10000000009313%7D",
+            "title": ""
+          },
+          {
+            "src": "https://www.google.com/maps/d/u/3/embed?mid=1GYNYg6CamJVBsNLkZd0F8_AuzL513Ds&ehbc=2E312F&noprof=1",
+            "title": ""
+          },
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=ad269527-a629-4e40-8246-648c7f90a1d1",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzM5NQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=3ykc6frzy4wh",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [
+          {
+            "text": "Goal:\n5,152/20,000",
+            "count": "23.7"
+          },
+          {
+            "text": "Goal:\n17,803/10,000",
+            "count": "110"
+          }
+        ],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "video.default",
+          "video.default",
+          "text-editor.default",
+          "text-editor.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "eael-feature-list.default",
+          "text-editor.default",
+          "html.default",
+          "text-editor.default",
+          "text-editor.default",
+          "divider.default",
+          "text-editor.default",
+          "elementskit-progressbar.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "divider.default",
+          "elementskit-button.default",
+          "elementskit-button.default",
+          "text-editor.default",
+          "divider.default",
+          "elementskit-progressbar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "eael-progress-bar.default",
+          "text-editor.default",
+          "text-editor.default",
+          "html.default",
+          "hubspot-form.default",
+          "heading.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "image.default",
+          "heading.default",
+          "divider.default",
+          "heading.default",
+          "text-editor.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "Sign Up for Our Newsletter\n\nStay updated with the latest news, updates, and events!\n\nEmail\nWe'll only contact you about the good stuff, and you can opt out at any time! For the fine print on your data and privacy, see our Privacy Policy here.\nSubmit",
+          "fields": 4
+        }
+      ]
+    },
+    {
+      "path": "/coosummit26/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCOO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=0ef51c42-1c2e-40ea-8276-79a7a222d1d4",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo2MzM5NQ..&hl=en&v=zqB-6Xpbd3lCIvi7Tr2D0pob&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=7wwr381ztjyv",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "text-editor.default",
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 15
+        }
+      ]
+    }
+  ],
+  "mirrored": []
+}

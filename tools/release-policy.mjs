@@ -9,6 +9,12 @@ export const POLICY_ROUTES=[
 ];
 
 const footerLinks='<span class="sth-footer-links"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><button type="button" data-open-cookie-settings>Cookie settings</button></span>';
+const hubSpotFormsLoader='https://js-na2.hsforms.net/forms/embed/244348981.js';
+const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b']);
+
+function serializeDocument(document){
+  return ('<!DOCTYPE html>\n'+document.documentElement.outerHTML+'\n').replaceAll(`<script src="${hubSpotFormsLoader}" defer=""></script>`,`<script src="${hubSpotFormsLoader}" defer></script>`);
+}
 
 export function applyConsentAndPolicyLinks(document){
   document.querySelectorAll('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js,#leadin-script-loader-js-js-extra').forEach(node=>node.remove());
@@ -18,6 +24,11 @@ export function applyConsentAndPolicyLinks(document){
   });
   document.querySelectorAll('link[href="//cdn.elementor.com"]').forEach(node=>node.remove());
   document.querySelectorAll('link[href]').forEach(link=>{if(/google-analytics\.com|googletagmanager\.com/.test(link.href))link.remove();});
+  const formFrame=[...document.querySelectorAll('.hs-form-frame')].find(frame=>frame.dataset.portalId==='244348981'&&frame.dataset.region==='na2'&&hubSpotFormIds.has(frame.dataset.formId));
+  if(formFrame){
+    document.querySelectorAll('script[src^="https://js-na2.hsforms.net/forms/embed/"]').forEach(node=>node.remove());
+    const loader=document.createElement('script');loader.src=hubSpotFormsLoader;loader.defer=true;formFrame.before(loader);
+  }
   if(!document.querySelector('link[href="/assets/consent.css"]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/consent.css';document.head.appendChild(link);}
   const footer=document.querySelector('.site-info .container');
   if(footer&&!footer.querySelector('.sth-footer-links'))footer.insertAdjacentHTML('beforeend',footerLinks);
@@ -38,7 +49,7 @@ export async function applyReleasePolicy(root='public'){
     const file=resolve(root,'.'+route.path,'index.html');
     const document=new JSDOM(await readFile(file,'utf8'),{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
     applyConsentAndPolicyLinks(document);
-    await writeFile(file,'<!DOCTYPE html>\n'+document.documentElement.outerHTML+'\n');
+    await writeFile(file,serializeDocument(document));
   }
   for(const [route,body] of [[POLICY_ROUTES[0],privacyBody],[POLICY_ROUTES[1],termsBody]]){
     const dir=resolve(root,'.'+route.path);await mkdir(dir,{recursive:true});await writeFile(resolve(dir,'index.html'),policyHtml(route,body));

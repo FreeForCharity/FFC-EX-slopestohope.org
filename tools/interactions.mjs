@@ -9,13 +9,25 @@ const server=await serve(resolve(process.env.SITE_ROOT||'public'));
 const base=`http://127.0.0.1:${server.address().port}`;
 const browserChannel=process.env.BROWSER_CHANNEL;
 const browser=await chromium.launch(browserChannel?{channel:browserChannel}:{});
-const results=[],issues=[],writes=[];
+const results=[],issues=[],writes=[],formEvidence=[];
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL',name,e.message);}}
 function assert(ok,msg){if(!ok)throw new Error(msg);}
 async function declineAnalytics(tab){const panel=tab.locator('#sth-cookie-consent');if(await panel.isVisible().catch(()=>false))await tab.getByRole('button',{name:'Decline analytics'}).click();}
 async function waitForFrame(tab,fragment,timeout=15000){
  const deadline=Date.now()+timeout;
  while(Date.now()<deadline){const frame=tab.frames().find(f=>f.url().includes(fragment));if(frame)return frame;await tab.waitForTimeout(250);}
+}
+async function inspectForm(frame,name,width){
+ const controls=frame.locator('input:not([type="hidden"]),textarea,select');
+ const visibleControls=[];
+ for(let i=0;i<await controls.count();i++){const control=controls.nth(i);if(await control.isVisible())visibleControls.push(await control.evaluate(element=>({tag:element.tagName.toLowerCase(),type:element.getAttribute('type')||'',name:element.getAttribute('name')||'',required:element.required,ariaLabel:element.getAttribute('aria-label')||'',label:element.labels?.[0]?.textContent?.replace(/\s+/g,' ').trim()||''})));}
+ const submit=frame.locator('button[type="submit"],input[type="submit"]').first();
+ assert(visibleControls.length>0,`${name} has no visible controls`);
+ assert(await submit.isVisible(),`${name} submit button missing`);
+ assert(visibleControls.every(control=>control.label||control.ariaLabel),`${name} has an unlabeled visible field`);
+ await controls.first().focus();assert(await controls.first().evaluate(element=>element===document.activeElement),`${name} first field cannot receive keyboard focus`);
+ formEvidence.push({name,width,fields:visibleControls,submitLabel:(await submit.getAttribute('value'))||(await submit.innerText()).trim()});
+ return visibleControls;
 }
 try{for(const width of requestedWidth?[requestedWidth]:[1440,390]){
 const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});
@@ -75,6 +87,7 @@ await check(`Newsletter anchor and HubSpot email-format validation (${width})`,a
  await tab.getByRole('link',{name:'Newsletter Signup',exact:true}).click();
  assert(new URL(tab.url()).hash==='#newsletter','Newsletter anchor changed');
  const f=await waitForFrame(tab,'_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f');assert(f,'Newsletter form frame missing');
+ const fields=await inspectForm(f,'Homepage Newsletter',width);assert(fields.some(field=>field.type==='email'),'Newsletter email field missing');
  await f.locator('input[type="email"]').fill('invalid-email');await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(600);
  const txt=await f.locator('body').innerText();const invalid=await f.locator('input[type="email"]').evaluate(e=>!e.validity.valid||e.getAttribute('aria-invalid')==='true');assert(invalid||/valid email/i.test(txt),'Invalid email validation not visible');
 });
@@ -99,11 +112,20 @@ await tab.goto(base+'/contact-us/',{waitUntil:'domcontentloaded'});await tab.wai
 await check(`Contact form fields and required-field validation (${width})`,async()=>{
  const f=await waitForFrame(tab,'_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a');assert(f,'Contact form frame missing');
  assert(await f.locator('input,textarea,select').count()>=10,'Contact fields missing');
+ await inspectForm(f,'Contact Us',width);
  await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(500);
  assert(/required/i.test(await f.locator('body').innerText()),'Required-field validation not visible');
+});
+await check(`COO Summit route, form fields, and keyboard access (${width})`,async()=>{
+ for(const target of ['/coosummit26','/coosummit26/','/coosummit26?utm_source=coosummit26&utm_medium=qr']){const response=await tab.goto(base+target,{waitUntil:'domcontentloaded'});assert(response?.ok(),`COO Summit route failed: ${target}`);assert((await tab.locator('h1').innerText()).trim()==='COO Summit 2026: Complimentary Concierge Pickup',`COO Summit content missing: ${target}`);}
+ await tab.waitForTimeout(2500);
+ assert(new URL(tab.url()).searchParams.get('utm_source')==='coosummit26'&&new URL(tab.url()).searchParams.get('utm_medium')==='qr','COO Summit QR parameters changed');
+ const f=await waitForFrame(tab,'_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b');assert(f,'COO Summit form frame missing');
+ const fields=await inspectForm(f,'COO Summit Promo',width);assert(fields.some(field=>field.required),'COO Summit required fields missing');
+ assert(await f.locator('form').evaluate(form=>!form.checkValidity()),'COO Summit empty-form validation is not active');
 });
 await ctx.close();
 }}finally{await browser.close();server.close();}
 const reportName=requestedWidth?`migration/interactions-${requestedWidth}.json`:'migration/interactions.json';
-await writeFile(reportName,JSON.stringify({testedAt:new Date().toISOString(),results,issues,blockedWrites:writes,deliveryVerified:false,note:'No real submissions, donations, CRM writes, or email messages were sent. Validation behavior is not end-to-end delivery verification.'},null,2)+'\n');
+await writeFile(reportName,JSON.stringify({testedAt:new Date().toISOString(),results,issues,formEvidence,blockedWrites:writes,deliveryVerified:false,note:'No real submissions, donations, CRM writes, or email messages were sent. Validation behavior is not end-to-end delivery verification.'},null,2)+'\n');
 if(results.some(r=>!r.passed)||issues.length)process.exitCode=1;
