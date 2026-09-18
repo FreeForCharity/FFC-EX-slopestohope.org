@@ -1,0 +1,103 @@
+name: Migration Review QA
+
+on:
+  push:
+    branches:
+      - codex/org-visual-edits-2026-09-17
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    name: Full migration browser QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout review branch
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Static validation
+        id: validate
+        continue-on-error: true
+        run: node tools/validate.mjs
+
+      - name: Build production-equivalent static output
+        id: build
+        continue-on-error: true
+        run: node tools/build.mjs
+
+      - name: Full browser audit
+        id: browser
+        continue-on-error: true
+        env:
+          SITE_ROOT: out
+        run: pnpm run test:browser
+
+      - name: Interaction audit
+        id: interactions
+        continue-on-error: true
+        env:
+          SITE_ROOT: out
+        run: pnpm run test:interactions
+
+      - name: Consent and analytics audit
+        id: consent
+        continue-on-error: true
+        env:
+          SITE_ROOT: out
+        run: pnpm run test:consent
+
+      - name: Consent JavaScript syntax check
+        id: syntax
+        continue-on-error: true
+        run: node --check public/assets/consent.js
+
+      - name: Upload QA reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-review-qa
+          if-no-files-found: ignore
+          path: |
+            migration/static-validation.json
+            migration/local-browser-audit.json
+            migration/interactions.json
+            migration/consent-validation.json
+
+      - name: Fail if any QA gate failed
+        if: always()
+        env:
+          VALIDATE: ${{ steps.validate.outcome }}
+          BUILD: ${{ steps.build.outcome }}
+          BROWSER: ${{ steps.browser.outcome }}
+          INTERACTIONS: ${{ steps.interactions.outcome }}
+          CONSENT: ${{ steps.consent.outcome }}
+          SYNTAX: ${{ steps.syntax.outcome }}
+        run: |
+          printf 'validate=%s\nbuild=%s\nbrowser=%s\ninteractions=%s\nconsent=%s\nsyntax=%s\n' "$VALIDATE" "$BUILD" "$BROWSER" "$INTERACTIONS" "$CONSENT" "$SYNTAX"
+          test "$VALIDATE" = success
+          test "$BUILD" = success
+          test "$BROWSER" = success
+          test "$INTERACTIONS" = success
+          test "$CONSENT" = success
+          test "$SYNTAX" = success
