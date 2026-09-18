@@ -10366,7 +10366,7 @@
       "path": "/coosummit26/",
       "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
       "source": "Locally authored promo page using the current Contact Us layout and owner-supplied copy.",
-      "sourceSha256": "e29c98fd6ca9a0bbbaf3ccbb84415c96e173291da316a7a41443f5246b3c12bd",
+      "sourceSha256": "7719dbd8e4fa1975078ce5ad10b4a0a168a5e6c50b156e15926a65ca8e8d67d0",
       "navigation": [
         {
           "text": "Close",
@@ -13285,6 +13285,7 @@
   "adaptations": [
     "Hydrate LiteSpeed-delayed resources for static hosting.",
     "Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.",
-    "Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests."
+    "Preserve original Elementor, theme, and accessibility runtimes; discover their dynamic assets in browser tests.",
+    "Preserve owner-authored local routes and merge them into the generated inventory after source recapture."
   ]
 }
