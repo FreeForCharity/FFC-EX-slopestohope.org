@@ -41,7 +41,21 @@
     document.documentElement.dataset.analyticsMeasurementId=MEASUREMENT_ID;
   }
   function disableAnalytics(){window.gtag('consent','update',{analytics_storage:'denied'});disableHubSpotTracking();document.documentElement.removeAttribute('data-analytics-measurement-id');}
+  function ensureSettingsControl(){
+    var links=document.querySelector('footer .sth-footer-links');
+    if(!links)return;
+    var button=links.querySelector('[data-open-cookie-settings]')||document.querySelector('footer [data-open-cookie-settings]');
+    if(!button){
+      button=document.createElement('button');
+      button.type='button';
+      button.setAttribute('data-open-cookie-settings','');
+      button.textContent='Cookie settings';
+    }
+    button.hidden=false;
+    links.appendChild(button);
+  }
   function render(){
+    ensureSettingsControl();
     var panel=document.createElement('section');
     panel.className='sth-consent';panel.id='sth-cookie-consent';panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','false');panel.setAttribute('aria-labelledby','sth-consent-title');
     panel.innerHTML='<p id="sth-consent-title"><strong>Analytics and privacy</strong></p><p>We use optional analytics to understand how visitors use this site. You can accept or decline analytics. See our <a href="/privacy-policy/">Privacy Policy</a>.</p><div class="sth-consent__actions"><button type="button" data-consent="granted">Accept analytics</button><button type="button" data-consent="denied">Decline analytics</button></div>';
@@ -52,7 +66,9 @@
     panel.addEventListener('click',function(event){var value=event.target&&event.target.getAttribute('data-consent');if(!value)return;remember(value);if(value==='granted')enableAnalytics();else disableAnalytics();hide();});
     document.querySelectorAll('[data-open-cookie-settings]').forEach(function(button){button.addEventListener('click',show);});
     panel.addEventListener('keydown',function(event){if(event.key==='Escape'&&preference())hide();});
-    var saved=preference();if(saved==='granted')enableAnalytics();else if(saved==='denied')disableAnalytics();else show();
+    // Keep analytics denied by default without covering the page with a modal.
+    // Existing saved choices still apply, and the footer control can reopen it.
+    var saved=preference();if(saved==='granted')enableAnalytics();else disableAnalytics();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
 })();

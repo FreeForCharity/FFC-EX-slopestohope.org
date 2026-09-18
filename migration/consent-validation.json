@@ -1,12 +1,12 @@
 {
-  "testedAt": "2026-09-17T20:47:20.936Z",
+  "testedAt": "2026-09-18T00:14:31.854Z",
   "results": [
     {
       "name": "Required analytics IDs and independent HubSpot form embeds remain intact",
       "passed": true
     },
     {
-      "name": "First visit shows consent (1440)",
+      "name": "First visit keeps analytics off without a modal (1440)",
       "passed": true
     },
     {
@@ -34,7 +34,7 @@
       "passed": true
     },
     {
-      "name": "First visit shows consent (390)",
+      "name": "First visit keeps analytics off without a modal (390)",
       "passed": true
     },
     {
