@@ -1,0 +1,279 @@
+{
+  "testedAt": "2026-09-18T06:59:15.806Z",
+  "base": "http://127.0.0.1:58018",
+  "results": [
+    {
+      "path": "/contact-us/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Contact Us – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=5ba1429c-a6fb-4ae1-a5d5-22423a6fa9cb",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1ODAxOA..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=33lli9mowon0",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "Get Involved!\n\nWe'd love to hear from you! Please fill out the form and we'll get back to you as soon as possible.\n\nFirst Name*\nLast Name*\nEmail*\nPhone Number\n🇺🇸\nMessage\nReason for contact:\n(Select all that apply)*\nClothing donation\nClothing request\nParticipation (Hotel/Resort/other)\nVolunteer\nSponsorship/Partnership\nOther\nHow did you hear about us?*\n\n_____\n\n \n\nMailing address:\n\nSlopes to Hope\n\n400 N. Park Ave #12B\n\nBreckenridge, CO 80424\n\n(970) 316-4046‬\n\nsupport@slopestohope.com\n\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 17
+        }
+      ]
+    },
+    {
+      "path": "/coosummit26/",
+      "width": 1440,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nHome\nGallery\nTeam\nOur Story\nPartners\nContact\nDONATE\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=48e621f8-f8b1-4cde-b93c-13706f71195b",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1ODAxOA..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=qhz84b1pc8z3",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "\n\n",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 15
+        }
+      ]
+    },
+    {
+      "path": "/contact-us/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "Contact Us – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=ddbde972-db02-4ea4-b670-d89ea35bddc1",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1ODAxOA..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=gdzq53671e91",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "Get Involved!\n\nWe'd love to hear from you! Please fill out the form and we'll get back to you as soon as possible.\n\nFirst Name*\nLast Name*\nEmail*\nPhone Number\n🇺🇸\nMessage\nReason for contact:\n(Select all that apply)*\nClothing donation\nClothing request\nParticipation (Hotel/Resort/other)\nVolunteer\nSponsorship/Partnership\nOther\nHow did you hear about us?*\n\n_____\n\n \n\nMailing address:\n\nSlopes to Hope\n\n400 N. Park Ave #12B\n\nBreckenridge, CO 80424\n\n(970) 316-4046‬\n\nsupport@slopestohope.com\n\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 17
+        }
+      ]
+    },
+    {
+      "path": "/coosummit26/",
+      "width": 390,
+      "missing": [],
+      "legacy": [],
+      "externalFailures": [],
+      "errors": [],
+      "blockedWrites": [],
+      "dom": {
+        "title": "COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope",
+        "text": "Skip to content\n\nSlopes to Hope\n\nReducing Waste and Fostering Hope\n\nCopyright © 2026 Slopes to Hope\nPrivacy Policy\nTerms of Service\nCookie settings",
+        "overflow": false,
+        "images": [],
+        "frames": [
+          {
+            "src": "http://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true&_hsInstanceId=dbdbb538-d80f-41c4-bf2c-80eab7d74cbb",
+            "title": "Form"
+          },
+          {
+            "src": "",
+            "title": "archetype"
+          },
+          {
+            "src": "https://google.com/recaptcha/enterprise/anchor?ar=1&k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX&co=aHR0cDovLzEyNy4wLjAuMTo1ODAxOA..&hl=en&v=BnqMGSY_YP4cCmbNINHpJPkd&size=invisible&badge=inline&anchor-ms=20000&execute-ms=30000&cb=52yvwkpr63k1",
+            "title": "reCAPTCHA"
+          },
+          {
+            "src": "",
+            "title": ""
+          }
+        ],
+        "counter": [],
+        "progress": [],
+        "menu": [
+          {
+            "text": "",
+            "label": "Open menu",
+            "class": "menu-toggle"
+          },
+          {
+            "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
+            "label": null,
+            "class": ""
+          }
+        ],
+        "widgets": [
+          "image.default",
+          "shortcode.default"
+        ]
+      },
+      "formFrames": [
+        {
+          "url": "https://js-na2.hsforms.net/ui-forms-embed-components-app/frame.html?_hsPortalId=244348981&_hsFormId=05a4b6fe-6b23-433e-bf08-e667071c8d3b&_hsIsQa=false&_hsHublet=na2&_hsDisableScriptloader=true&_hsDisableRedirect=true",
+          "text": "COO Summit 2026: Complimentary Concierge Pickup\n\nComplete the form below to request a one-time complimentary concierge pickup of your property’s unclaimed lost-and-found clothing. We’ll coordinate a convenient pickup time and provide documentation of your collection afterward.\n\nProperty / Organization*\nFirst Name*\nLast Name*\nEmail*\nPhone Number*\n🇺🇸\nPickup Location*\nBefore today, had you heard of Slopes to Hope?\nYes\nNo\nWe’ll use your info to answer your inquiry and keep you in the loop. You’re always free to unsubscribe. Check out our Privacy Policy to see how we protect your information.\nSubmit",
+          "fields": 15
+        }
+      ]
+    }
+  ],
+  "mirrored": []
+}
