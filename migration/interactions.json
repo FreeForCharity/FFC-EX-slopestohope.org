@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-18T01:53:23.723Z",
+  "testedAt": "2026-09-18T02:08:14.940Z",
   "results": [
     {
       "name": "Hero respects reduced motion (1440)",
@@ -11,6 +11,10 @@
     },
     {
       "name": "Hero pauses and resumes on keyboard focus (1440)",
+      "passed": true
+    },
+    {
+      "name": "Hero remains paused when hover ends while focus remains (1440)",
       "passed": true
     },
     {
@@ -39,6 +43,10 @@
     },
     {
       "name": "Hero pauses and resumes on keyboard focus (390)",
+      "passed": true
+    },
+    {
+      "name": "Hero remains paused when hover ends while focus remains (390)",
       "passed": true
     },
     {
