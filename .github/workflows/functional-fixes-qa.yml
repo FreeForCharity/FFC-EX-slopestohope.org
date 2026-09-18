@@ -1,0 +1,65 @@
+name: Functional Fixes QA
+
+on:
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Validate and build
+        run: pnpm run build
+
+      - name: Browser audit
+        run: pnpm run test:browser
+
+      - name: Interaction audit
+        run: pnpm run test:interactions
+
+      - name: Consent audit
+        run: pnpm run test:consent
+
+      - name: Functional sanity checks
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFile} from 'node:fs/promises';
+          const pages=['','contact-us','our-story','faq','donors','team','gallery','partners'];
+          for (const page of pages) {
+            const path=page ? `public/${page}/index.html` : 'public/index.html';
+            const html=await readFile(path,'utf8');
+            if (html.includes('maximum-scale=1.0') || html.includes('user-scalable=no')) throw new Error(`${path}: restrictive viewport remains`);
+            if ((html.match(/id="primary-menu"/g)||[]).length !== 1) throw new Error(`${path}: desktop primary-menu id count is not 1`);
+            if ((html.match(/id="primary-menu-mobile"/g)||[]).length !== 1) throw new Error(`${path}: mobile primary-menu id count is not 1`);
+            if ((html.match(/aria-controls="primary-menu-mobile"/g)||[]).length !== 1) throw new Error(`${path}: mobile aria-controls mismatch`);
+          }
+          const home=await readFile('public/index.html','utf8');
+          if (home.includes('establishements') || !home.includes('establishments')) throw new Error('Homepage typo correction missing');
+          const staff=await readFile('out/staff/index.html','utf8');
+          if (!/url=\/team\//i.test(staff) || !/href="\/team\/"/i.test(staff)) throw new Error('/staff/ compatibility redirect changed');
+          console.log('Functional sanity checks passed');
+          NODE
