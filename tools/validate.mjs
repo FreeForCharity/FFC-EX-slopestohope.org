@@ -23,7 +23,7 @@ for(const r of publishedRoutes){
  // The homepage also has one owner-approved fundraising display adaptation.
  text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,footer [data-open-cookie-settings]').forEach(e=>e.remove());
  let bodyText=normalize(text.body.textContent);
- if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised $25,000 goal','$8,068.03');
+ if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised$25,000 goal','$8,068.03');
  if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
    if(normalize(faq?.textContent||'')!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
