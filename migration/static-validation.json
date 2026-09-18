@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-18T00:14:12.819Z",
+  "testedAt": "2026-09-18T01:23:41.940Z",
   "routes": 10,
   "excludedRoutes": [
     "/tag/community-across-america/",
@@ -32,12 +32,7 @@
     "/tag/toastmasters/",
     "/volunteer/"
   ],
-  "issues": [
-    {
-      "path": "/",
-      "error": "Source wording changed"
-    }
-  ],
+  "issues": [],
   "knownSourceBrokenLinks": [
     "/open-positions/",
     "/donations/slopes-to-hope"
