@@ -46,7 +46,9 @@ await check(`Hero advances and pauses when engaged (${width})`,async()=>{
  const activeIndex=async()=>slides.evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
  const start=await activeIndex();await motionTab.waitForTimeout(3200);const advanced=await activeIndex();assert(advanced!==start,'Hero did not auto-advance with normal motion');
  await motionTab.locator('.sth-hero').hover();const hovered=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===hovered,'Hero advanced while hovered');
+ await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);const afterHover=await activeIndex();assert(afterHover!==hovered,'Hero did not resume after hover ended');
  await motionTab.locator('.sth-hero__link').focus();const focused=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===focused,'Hero advanced while focused');
+ await motionTab.locator('#menu-toggle').focus();await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
 });
 await motionCtx.close();
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
