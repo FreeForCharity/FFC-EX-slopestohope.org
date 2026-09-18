@@ -118,8 +118,8 @@ async function page(url) {
   if(u.pathname==='/'&&!allowHomepageRecapture){
     try{
       const existing=await readFile(within(ROOT,path),'utf8');
-      const hasApprovedHomepageAdaptations=/class=["'][^"']*sth-hero|class=["'][^"']*sth-candid|\/assets\/home-visual\.css|\/assets\/hero\.js/.test(existing);
-      const capturePreservesThem=final.querySelector('.sth-hero')&&final.querySelector('.sth-candid')&&final.querySelector('link[href="/assets/home-visual.css"]')&&final.querySelector('script[src="/assets/hero.js"]');
+      const hasApprovedHomepageAdaptations=/class=["'][^"']*sth-hero|class=["'][^"']*sth-candid|\/assets\/home-visual\.css|\/assets\/hero\.css|\/assets\/hero\.js/.test(existing);
+      const capturePreservesThem=final.querySelector('.sth-hero')&&final.querySelector('.sth-candid')&&final.querySelector('link[href="/assets/home-visual.css"]')&&final.querySelector('link[href="/assets/hero.css"]')&&final.querySelector('script[src="/assets/hero.js"]');
       if(hasApprovedHomepageAdaptations&&!capturePreservesThem)throw new Error('Homepage capture would remove owner-approved migration adaptations. Reconcile the homepage changes explicitly before rerunning with --allow-homepage-recapture.');
     }catch(error){if(error?.code!=='ENOENT')throw error;}
   }
