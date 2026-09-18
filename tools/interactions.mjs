@@ -3,12 +3,12 @@ import {serve} from './serve.mjs';
 import {readFile,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {mirrorAsset} from './migrate.mjs';
-const skipForms=process.argv.includes('--skip-forms');
 const sync=process.argv.includes('--sync');
 const requestedWidth=Number(process.argv.find(a=>a.startsWith('--width='))?.slice(8)||0);
 const server=await serve(resolve(process.env.SITE_ROOT||'public'));
 const base=`http://127.0.0.1:${server.address().port}`;
-const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedge'});
+const browserChannel=process.env.BROWSER_CHANNEL;
+const browser=await chromium.launch(browserChannel?{channel:browserChannel}:{});
 const results=[],issues=[],writes=[];
 async function check(name,fn){try{await fn();results.push({name,passed:true});console.log('PASS',name);}catch(e){results.push({name,passed:false,error:e.message});console.log('FAIL',name,e.message);}}
 function assert(ok,msg){if(!ok)throw new Error(msg);}
@@ -30,6 +30,39 @@ await ctx.route('**/*',async route=>{
 const tab=await ctx.newPage();
 tab.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)issues.push({url:r.url(),status:r.status()});});
 await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);await declineAnalytics(tab);
+await check(`Hero respects reduced motion (${width})`,async()=>{const active=await tab.locator('.sth-hero__slide.is-active').evaluateAll(nodes=>nodes.map(node=>Array.from(node.parentElement.children).indexOf(node)));await tab.waitForTimeout(3200);const after=await tab.locator('.sth-hero__slide.is-active').evaluateAll(nodes=>nodes.map(node=>Array.from(node.parentElement.children).indexOf(node)));assert(JSON.stringify(after)===JSON.stringify(active),'Hero auto-advanced despite reduced-motion preference');});
+const motionCtx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'no-preference'});
+await motionCtx.route('**/*',async route=>{
+ const req=route.request(),u=new URL(req.url());
+ if(!['GET','HEAD'].includes(req.method())){writes.push({url:req.url(),method:req.method()});return route.abort();}
+ if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net/.test(req.url()))return route.abort();
+ if(['slopestohope.com','www.slopestohope.com','communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname)){issues.push({legacy:req.url()});return route.abort();}
+ return route.continue();
+});
+const motionTab=await motionCtx.newPage();
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero advances and pauses on hover (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+ const start=await activeIndex();await motionTab.waitForTimeout(3200);const advanced=await activeIndex();assert(advanced!==start,'Hero did not auto-advance with normal motion');
+ await motionTab.locator('.sth-hero').hover();const hovered=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===hovered,'Hero advanced while hovered');
+ await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);assert(await activeIndex()!==hovered,'Hero did not resume after hover ended');
+});
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero pauses and resumes on keyboard focus (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+ await motionTab.locator('.sth-hero__link').focus();const focused=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===focused,'Hero advanced while focused');
+ await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
+});
+await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
+await check(`Hero remains paused when hover ends while focus remains (${width})`,async()=>{
+ const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
+ await motionTab.locator('.sth-hero').hover();await motionTab.locator('.sth-hero__link').focus();
+ const engaged=await activeIndex();await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);
+ assert(await activeIndex()===engaged,'Hero resumed after hover ended while focus remained');
+ await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);
+ assert(await activeIndex()!==engaged,'Hero did not resume after both hover and focus ended');
+});
+await motionCtx.close();
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
  await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='true','Menu did not expand');
@@ -38,7 +71,7 @@ if(width===390)await check('Mobile menu opens, navigates to Partners, and closes
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='false','Menu did not close');
 });
 await tab.goto(base+'/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2000);await declineAnalytics(tab);
-if(!skipForms)await check(`Newsletter anchor and HubSpot email-format validation (${width})`,async()=>{
+await check(`Newsletter anchor and HubSpot email-format validation (${width})`,async()=>{
  await tab.getByRole('link',{name:'Newsletter Signup',exact:true}).click();
  assert(new URL(tab.url()).hash==='#newsletter','Newsletter anchor changed');
  const f=await waitForFrame(tab,'_hsFormId=9a181260-20a9-408c-8591-cca3093d7e3f');assert(f,'Newsletter form frame missing');
@@ -63,7 +96,7 @@ await check(`Gallery opens, advances, and closes with Escape (${width})`,async()
  await tab.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});
 });
 await tab.goto(base+'/contact-us/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);
-if(!skipForms)await check(`Contact form fields and required-field validation (${width})`,async()=>{
+await check(`Contact form fields and required-field validation (${width})`,async()=>{
  const f=await waitForFrame(tab,'_hsFormId=f35f941a-7978-41cc-aabc-4dc669ac9a0a');assert(f,'Contact form frame missing');
  assert(await f.locator('input,textarea,select').count()>=10,'Contact fields missing');
  await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(500);

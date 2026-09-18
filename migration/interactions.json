@@ -1,6 +1,27 @@
 {
-  "testedAt": "2026-09-12T20:45:55.422Z",
+  "testedAt": "2026-09-18T08:59:52.287Z",
   "results": [
+    {
+      "name": "Hero respects reduced motion (1440)",
+      "passed": true
+    },
+    {
+      "name": "Hero advances and pauses on hover (1440)",
+      "passed": true
+    },
+    {
+      "name": "Hero pauses and resumes on keyboard focus (1440)",
+      "passed": true
+    },
+    {
+      "name": "Hero remains paused when hover ends while focus remains (1440)",
+      "passed": true
+    },
+    {
+      "name": "Newsletter anchor and HubSpot email-format validation (1440)",
+      "passed": false,
+      "error": "Newsletter form frame missing"
+    },
     {
       "name": "Donation and pledge destinations unchanged (1440)",
       "passed": true
@@ -10,8 +31,34 @@
       "passed": true
     },
     {
+      "name": "Contact form fields and required-field validation (1440)",
+      "passed": false,
+      "error": "Contact form frame missing"
+    },
+    {
+      "name": "Hero respects reduced motion (390)",
+      "passed": true
+    },
+    {
+      "name": "Hero advances and pauses on hover (390)",
+      "passed": true
+    },
+    {
+      "name": "Hero pauses and resumes on keyboard focus (390)",
+      "passed": true
+    },
+    {
+      "name": "Hero remains paused when hover ends while focus remains (390)",
+      "passed": true
+    },
+    {
       "name": "Mobile menu opens, navigates to Partners, and closes",
       "passed": true
+    },
+    {
+      "name": "Newsletter anchor and HubSpot email-format validation (390)",
+      "passed": false,
+      "error": "Newsletter form frame missing"
     },
     {
       "name": "Donation and pledge destinations unchanged (390)",
@@ -20,6 +67,11 @@
     {
       "name": "Gallery opens, advances, and closes with Escape (390)",
       "passed": true
+    },
+    {
+      "name": "Contact form fields and required-field validation (390)",
+      "passed": false,
+      "error": "Contact form frame missing"
     }
   ],
   "issues": [],

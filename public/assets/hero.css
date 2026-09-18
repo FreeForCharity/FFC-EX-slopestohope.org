@@ -1,2 +1,63 @@
-.sth-hero{position:relative}.sth-hero .sth-hero__link{position:absolute;inset:0;z-index:1;overflow:hidden}.sth-hero .sth-hero__slide{position:absolute;inset:0;display:block;overflow:hidden;opacity:0;transition:opacity 500ms ease}.sth-hero .sth-hero__slide.is-active{opacity:1}.sth-hero .sth-hero__slide img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}.sth-hero .sth-hero__kit img{top:-5%;height:105%;object-position:center top}.sth-hero__link:focus-visible{outline:3px solid #006400;outline-offset:-3px}.sth-hero .sth-hero__credit{position:absolute;z-index:2;top:12px;right:12px;max-width:calc(100% - 24px);box-sizing:border-box;padding:4px 8px;border-radius:3px;background:rgba(0,0,0,.75);color:#fff;font:13px/1.4 "Open Sans",Arial,sans-serif;text-align:right;white-space:normal;pointer-events:none}
-@media(prefers-reduced-motion:reduce){.sth-hero .sth-hero__slide{transition:none}}
+.sth-hero {
+  position: relative;
+}
+
+.sth-hero .sth-hero__link,
+.sth-hero .sth-hero__slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.sth-hero .sth-hero__link {
+  z-index: 1;
+}
+
+.sth-hero .sth-hero__slide {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.sth-hero .sth-hero__slide.is-active {
+  opacity: 1;
+}
+
+.sth-hero .sth-hero__slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sth-hero .sth-hero__kit img {
+  top: -5%;
+  height: 105%;
+  object-position: center top;
+}
+
+.sth-hero__link:focus-visible {
+  outline: 3px solid #006400;
+  outline-offset: -3px;
+}
+
+/* The photo already contains its credit, so do not duplicate it in an overlay. */
+.sth-hero .sth-hero__credit {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sth-hero .sth-hero__slide {
+    transition: none;
+  }
+}
+
+/* Historical totals should render immediately instead of counting up on load. */
+.elementor-83 .elementor-element.elementor-element-5e86fc4 .eael-progressbar-circle-pie,
+.elementor-83 .elementor-element.elementor-element-5e86fc4 .eael-progressbar-circle-half {
+  transition: none !important;
+  animation: none !important;
+}

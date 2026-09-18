@@ -1,6 +1,6 @@
 {
-  "testedAt": "2026-09-18T08:31:06.318Z",
-  "base": "http://127.0.0.1:53881",
+  "testedAt": "2026-09-18T08:58:35.800Z",
+  "base": "http://127.0.0.1:56841",
   "results": [
     {
       "path": "/partners/",
@@ -26,6 +26,16 @@
           },
           {
             "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
             "label": null,
             "class": ""
           }
@@ -65,6 +75,16 @@
           },
           {
             "text": "Cookie settings",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Accept analytics",
+            "label": null,
+            "class": ""
+          },
+          {
+            "text": "Decline analytics",
             "label": null,
             "class": ""
           }

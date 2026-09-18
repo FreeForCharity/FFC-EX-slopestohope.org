@@ -2,6 +2,7 @@
 .sth-impact-section{display:flex;flex-wrap:wrap;align-content:flex-start;width:100%;margin:0}
 .sth-impact-section>.elementor-element{width:100%}
 .elementor-83 .sth-impact-section .elementor-element.elementor-element-e37aa49{border-radius:50px;overflow:hidden}
+.elementor-83 .sth-impact-section .elementor-element.elementor-element-e37aa49{margin-bottom:0!important}
 .elementor-83 .elementor-element.elementor-element-ddc038d.sth-fundraising,
 .elementor-83 .elementor-element.elementor-element-ddc038d.sth-impact-panel,
 .elementor-83 .elementor-element.elementor-element-ddc038d.sth-dropoff-panel{margin-bottom:32px;margin-top:0}
@@ -17,6 +18,9 @@ body.home .elementor-element.elementor-element-93d7298 .elementskit-btn i{color:
 body.home .site-header .donate-menu>a{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:40px;min-height:40px;padding:4px 10px;border:1px solid var(--sth-gold);border-radius:6px;font-weight:700;line-height:1.2}
 body.home .site-header .buddyx-desktop-menu .donate-menu>a,
 body.home .site-header .buddyx-mobile-menu .donate-menu>a{height:40px!important;min-height:40px!important;padding:4px 10px!important}
+/* Keep the header donation action on the same text baseline as neighboring links. */
+body.home .site-header .buddyx-desktop-menu .donate-menu>a{height:auto!important;min-height:0!important;padding:0 10px!important;line-height:1.4!important;align-self:center}
+body.home .site-header .buddyx-desktop-menu .donate-menu>a{transform:translateY(24px)}
 body.home .elementor-element.elementor-element-93d7298 a:focus-visible,
 body.home .site-header .donate-menu>a:focus-visible,
 .sth-candid a:focus-visible{outline:3px solid #12243a;outline-offset:4px;box-shadow:0 0 0 3px #fff}
@@ -26,7 +30,7 @@ body.home .site-header .donate-menu>a:focus-visible,
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skill-bar-content,
 .elementor-83 .elementor-element.elementor-element-12f235f .skill-bar-content{position:static;display:block}
 /* The embedded form retains its configuration and automatic height. */
-.elementor-83 .elementor-element.elementor-element-5b40ce9{margin:0 0 32px;padding:0;box-shadow:0 0 10px 6px #006000 inset}
+.elementor-83 .elementor-element.elementor-element-5b40ce9{margin:0 0 16px;padding:0;box-shadow:0 0 10px 6px #006000 inset}
 .elementor-83 .elementor-element.elementor-element-a341e2f>.elementor-widget-wrap{padding:0}
 .elementor-83 .elementor-element.elementor-element-67f7104>.elementor-widget-container{margin:0;padding:0}
 .sth-candid{display:flex;justify-content:center;width:100%;padding:16px 16px 20px}
@@ -53,8 +57,20 @@ body.home .site-header .donate-menu>a:focus-visible,
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-title{float:none;position:static;width:100%;display:flex;justify-content:space-between;gap:16px;margin:0 0 12px;font-size:20px;line-height:1.4;font-weight:700;text-align:left;color:#fff}
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-title span:last-child{text-align:right}
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .number-percentage-wraper{visibility:hidden}
-.elementor-83 .elementor-element.elementor-element-5b40ce9{margin-bottom:16px}
 /* Override the theme's navigation link-state color for these two donation actions only. */
 body.home .site-header .donate-menu>a{color:#fff!important}
 body.home .elementor-element.elementor-element-93d7298 .elementskit-btn{color:var(--sth-navy)!important}
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skill-bar-content{transform:none;padding:0;left:auto;top:auto;width:100%}
+
+/* Keep media and the impact list inside narrow phone viewports. */
+@media(max-width:767px){
+  .elementor-83 .elementor-widget-image img,
+  .elementor-83 .elementor-widget-html img,
+  .elementor-83 .elementor-widget-image-carousel img{width:auto;max-width:100%;height:auto}
+  .elementor-83 .elementor-widget-video .elementor-wrapper{width:100%;max-width:100%;aspect-ratio:16/9;height:auto;overflow:hidden}
+  .elementor-83 .elementor-widget-video iframe,
+  .elementor-83 .elementor-widget-video .elementor-video{display:block;width:100%!important;max-width:100%;height:100%!important}
+  .elementor-83 .eael-feature-list-content-box{min-width:0;max-width:100%}
+  .elementor-83 .eael-feature-list-title{font-size:24px!important;line-height:1.2!important;letter-spacing:0!important;overflow-wrap:normal;word-break:normal}
+  .elementor-83 .eael-feature-list-content{font-size:16px!important;line-height:1.4!important}
+}

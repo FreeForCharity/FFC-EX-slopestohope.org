@@ -1,29 +1,75 @@
 {
-  "testedAt": "2026-09-18T08:28:36.279Z",
+  "testedAt": "2026-09-18T09:01:37.627Z",
   "results": [
     {
-      "name": "Production host queues consent defaults before one Google tag configuration",
+      "name": "Required analytics IDs and independent HubSpot form embeds remain intact",
       "passed": true
     },
     {
-      "name": "Development and preview hosts never initialize Google Analytics",
+      "name": "First visit enables analytics without a modal (1440)",
       "passed": true
     },
     {
-      "name": "All intended static routes contain one runtime and no legacy tracker",
+      "name": "Cookie settings close with Escape (1440)",
       "passed": true
     },
     {
-      "name": "Intercepted production host initializes one Google tag without transmitting data",
+      "name": "Decline persists without analytics (1440)",
       "passed": true
     },
     {
-      "name": "Localhost requests no Google Analytics and has no consent popup",
+      "name": "Policy links and settings work (1440)",
       "passed": true
     },
     {
-      "name": "Privacy Policy is aligned and Terms has no obsolete consent reference",
+      "name": "Accept enables intended analytics (1440)",
+      "passed": true
+    },
+    {
+      "name": "Acceptance persists and layout fits (1440)",
+      "passed": true
+    },
+    {
+      "name": "Revoking consent disables Google and HubSpot tracking (1440)",
+      "passed": true
+    },
+    {
+      "name": "Revoked visitor can accept and persist a new choice (1440)",
+      "passed": true
+    },
+    {
+      "name": "First visit enables analytics without a modal (390)",
+      "passed": true
+    },
+    {
+      "name": "Cookie settings close with Escape (390)",
+      "passed": true
+    },
+    {
+      "name": "Decline persists without analytics (390)",
+      "passed": true
+    },
+    {
+      "name": "Policy links and settings work (390)",
+      "passed": true
+    },
+    {
+      "name": "Accept enables intended analytics (390)",
+      "passed": true
+    },
+    {
+      "name": "Acceptance persists and layout fits (390)",
+      "passed": true
+    },
+    {
+      "name": "Revoking consent disables Google and HubSpot tracking (390)",
+      "passed": true
+    },
+    {
+      "name": "Revoked visitor can accept and persist a new choice (390)",
       "passed": true
     }
-  ]
+  ],
+  "blockedWrites": [],
+  "note": "All non-GET/HEAD requests were blocked. No forms were submitted, and no CRM or email write was attempted."
 }
