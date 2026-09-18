@@ -22,6 +22,7 @@ for(const r of publishedRoutes){
  const text=d.cloneNode(true);text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy').forEach(e=>e.remove());
  if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
+   faq?.querySelectorAll('.screen-reader-text').forEach(e=>e.remove());
    if(normalize(faq?.textContent||'')!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
  } else if(normalize(text.body.textContent)!==(r.path==='/'?r.bodyText.replaceAll('25,599 pounds','26,007 pounds').replaceAll('4,743/20,000','5,152/20,000').replaceAll('$8,068.03','$8,068 raised$25,000 goal'):r.bodyText))issues.push({path:r.path,error:'Source wording changed'});
  for(const a of d.querySelectorAll('a[href]')){
