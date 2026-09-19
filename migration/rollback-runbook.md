@@ -25,7 +25,9 @@ This pass archived that exact Git revision into a local scratch directory, valid
 From a clean working branch with locked dependencies installed:
 
 ```sh
+mkdir -p .migration-cache/rollback-baseline
 git archive --format=tar --output=.migration-cache/rollback-baseline.tar 81958410772660513037e0b55b53863a6508af7c
+tar -xf .migration-cache/rollback-baseline.tar -C .migration-cache/rollback-baseline
 ```
 
 The commands above create the required parent and extraction directories before writing or unpacking the archive. Run the archived revision's own tools/validate.mjs and tools/build.mjs with `.migration-cache/rollback-baseline` as the working directory. Then, from the cleanup repository root, run `node tools/verify-rollback.mjs`. The scratch directory can resolve the parent checkout's locked Node dependencies. In a separate checkout, install its frozen lockfile first.
