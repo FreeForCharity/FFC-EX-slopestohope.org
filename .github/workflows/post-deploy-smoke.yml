@@ -352,7 +352,12 @@ jobs:
             const donationSurfaces = await page.evaluate((providers) => {
               const out = [];
               const provOf = (u) => {
-                for (const p of providers) if (p.hosts.some(h => (u || '').includes(h))) return p.name;
+                try {
+                  const host = new URL(String(u || ''), location.href).hostname.toLowerCase();
+                  for (const p of providers) {
+                    if (p.hosts.some(h => host === h || host.endsWith('.' + h))) return p.name;
+                  }
+                } catch { /* invalid URL */ }
                 return null;
               };
               for (const f of document.querySelectorAll('iframe[src]')) {
@@ -386,7 +391,10 @@ jobs:
                   try {
                     const html = await (await fetch(base + path)).text();
                     for (const p of PROVIDERS) {
-                      if (p.hosts.some(h => html.includes(h))) {
+                      if (p.hosts.some(h => {
+                        const escaped = h.replace(/[.*+?^$\{\}()|[\]\\]/g, '\\if (p.hosts.some(h => html.includes(h))) {');
+                        return new RegExp('https?:\\/\\/(?:[^/"\\'\\s>]+\\.)?' + escaped + '(?:[/:?#"\\'\\s>]|$)', 'i').test(html);
+                      })) {
                         sitewideProviders.add(p.name);
                         donationSurfaces.push({ provider: p.name, kind: 'page', url: base + path });
                       }
