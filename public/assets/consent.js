@@ -12,11 +12,12 @@
     return match?match[1]:null;
   }
   function preference(){
-    try{
-      var stored=localStorage.getItem(KEY);
-      if(stored==='granted'||stored==='denied')return stored;
-    }catch(_error){}
-    return cookiePreference();
+    var stored=null;
+    try{stored=localStorage.getItem(KEY);}catch(_error){}
+    var cookie=cookiePreference();
+    if(stored==='denied'||cookie==='denied')return 'denied';
+    if(stored==='granted'||cookie==='granted')return 'granted';
+    return null;
   }
   function writePreferenceCookie(value){
     if(value!=='granted'&&value!=='denied')return;
