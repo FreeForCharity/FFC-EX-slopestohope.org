@@ -20,10 +20,10 @@ Original Elementor/BuddyX runtimes and mirrored media preserve presentation. App
 | Portal | `244348981`, region `na2`, exact adjacent loader/frame snippet |
 | Measurement | Google tag `GT-MKTP8299`, GA4 `G-XEWDW3TYVZ` |
 | Preferences | Google/HubSpot analytics enabled by default; footer settings permit decline/re-enable; advertising consent denied |
-| Giving | Givebutter, RallyUp, and Colorado Gives |
+| Giving | Keep Givebutter and add/retain Zeffy; RallyUp and Colorado Gives also remain valid destinations. Exact Slopes to Hope Zeffy campaign/embed URL is still required before publishing a Zeffy surface. |
 | Other content | Captured maps, social links, Instagram, and other third-party embeds |
 
-Cloudflare performance telemetry was observed independently of the saved preference. Its behavior and matching wording await Drew's decision. This documents implementation, not legal compliance.
+Owner decision September 19, 2026: declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. The site-side consent guard now blocks Cloudflare RUM reporting when the saved preference is denied and stores the same choice in the first-party `sth_analytics` cookie so a Cloudflare Configuration Rule can disable RUM at the network layer for matching requests. This documents implementation, not legal compliance.
 
 ## Maintenance and evidence
 
@@ -32,5 +32,7 @@ Follow [maintenance](maintenance.md), [deployment](../DEPLOYMENT.md), and [rollb
 `tools/release-policy.mjs` reapplies exact embeds, consent/footer markup, accessibility adaptations, and verified link repairs; it also generates the two policies. Gallery descriptions are in `migration/gallery-descriptions.json`. Explicit link exceptions are in `tools/link-policy.mjs`, preserving historical inventory URLs.
 
 `pnpm run capture` is an import/recovery tool, not publishing. Run it only in a disposable branch, reviewing the complete diff. Do not bypass the homepage recapture guard as routine maintenance.
+
+Current homepage collection totals were rechecked September 19 against the authoritative Google Drive `Storage Unit - Inventory`: FY27 total `5,151.7` pounds is displayed as `5,152`, and overall `26,007.1` pounds is displayed as `26,007`. Drew confirmed the current website numbers are correct.
 
 See [current verification](closeout/README.md) and [owner decisions](owner-decisions.md). Older reports describe their own route counts and consent behavior. Render tests do not prove CRM storage, inbox delivery, payment completion, indexing, or private backup restorability.
