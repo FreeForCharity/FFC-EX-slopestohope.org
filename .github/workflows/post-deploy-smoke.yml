@@ -255,20 +255,10 @@ jobs:
           # Override: set to "false" to skip the cookie-consent check even on real sites
           # (e.g., site uses NO cookies / NO analytics).
           SMOKE_REQUIRE_COOKIE_CONSENT: ${{ vars.SMOKE_REQUIRE_COOKIE_CONSENT }}
-          # Donations are a first-class feature of every charity site.
-          # SMOKE_DONATION_SCOPE declares the site's donation posture:
-          #   charity     - charity-specific donation destinations expected (default for live sites);
-          #                 Slopes to Hope separately tracks Zeffy as an additional provider
-          #   ffc-interim - temporarily using a Free For Charity Zeffy campaign; smoke stays
-          #                 green but a standing donation-interim issue is kept open
-          #                 until replaced with the charity's own campaign
-          #   none        - site intentionally has no donations (suppresses the
-          #                 no-donation-capability failure)
+          # Donations are a first-class feature of the Slopes to Hope site.
+          # Current approved website fundraising providers are Givebutter and RallyUp.
+          # SMOKE_DONATION_SCOPE may be set to "none" only if donations are intentionally disabled.
           SMOKE_DONATION_SCOPE: ${{ vars.SMOKE_DONATION_SCOPE }}
-          # Legacy (v3.2): on the ffc-interim posture only, require at least
-          # one Zeffy iframe embed specifically. It must not block a charity site
-          # while its separate Zeffy destination is still unresolved.
-          SMOKE_REQUIRE_DONATION_EMBED: ${{ vars.SMOKE_REQUIRE_DONATION_EMBED }}
           # 'true' on template repos: their sites ARE the template default.
           SMOKE_ALLOW_TEMPLATE_DEFAULT: ${{ (contains(github.repository, 'Template') || steps.url.outputs.mode == 'default') && 'true' || 'false' }}
           # default mode = pre-cutover deployment verification: page loads,
@@ -353,20 +343,10 @@ jobs:
               return { selector: 'footer [data-open-cookie-settings]', text: (el.innerText || '').slice(0, 400) };
             }).catch(() => null);
 
-            // Donation surfaces across providers. Slopes to Hope intentionally
-            // retains Givebutter and Zeffy because they serve different purposes.
-            // Any recognized provider counts as working donation capability.
-            // A missing Zeffy surface is tracked as an addition task only; it must
-            // never imply that Givebutter or another approved provider should be removed.
+            // Slopes to Hope's approved website fundraising providers.
             const PROVIDERS = [
-              { name: 'zeffy', hosts: ['zeffy.com'] },
-              { name: 'paypal', hosts: ['paypal.com', 'paypalobjects.com'] },
-              { name: 'gofundme', hosts: ['gofundme.com'] },
               { name: 'givebutter', hosts: ['givebutter.com'] },
               { name: 'rallyup', hosts: ['rallyup.com'] },
-              { name: 'colorado-gives', hosts: ['coloradogives.org'] },
-              { name: 'donorbox', hosts: ['donorbox.org'] },
-              { name: 'venmo', hosts: ['venmo.com'] },
             ];
             const donationSurfaces = await page.evaluate((providers) => {
               const out = [];
@@ -388,12 +368,10 @@ jobs:
               }
               return out;
             }, PROVIDERS).catch(() => []);
-            // Donation surfaces often live on subpages (/membership, /donate)
-            // rather than the homepage. Sweep the sitemap whenever Zeffy is not
-            // already visible on the homepage so an added Zeffy surface is
-            // detected even while Givebutter remains site-wide.
+            // Donation surfaces may live on subpages rather than the homepage.
+            // If none are visible on the homepage, sweep published routes.
             const sitewideProviders = new Set(donationSurfaces.map(s => s.provider));
-            if (!sitewideProviders.has('zeffy')) {
+            if (donationSurfaces.length === 0) {
               try {
                 const base = url.replace(/\/$/, '');
                 let routes = [];
@@ -413,13 +391,11 @@ jobs:
                       }
                     }
                   } catch { /* route fetch failed; sitemap check covers that */ }
-                  if (sitewideProviders.has('zeffy')) break;
+                  if (sitewideProviders.size > 0) break;
                 }
               } catch (e) { console.log('site-wide donation sweep skipped:', e.message); }
             }
-            const zeffySurfaces = donationSurfaces.filter(s => s.provider === 'zeffy');
-            const otherProviders = [...new Set(donationSurfaces.filter(s => s.provider !== 'zeffy').map(s => s.provider))];
-            const donationEmbeds = zeffySurfaces.filter(s => s.kind === 'embed').map(s => s.url);
+            const approvedProviders = [...new Set(donationSurfaces.map(s => s.provider))];
 
             // Known-bad markers that a 200 HTTP check would miss.
             const allowTemplateDefault = String(process.env.SMOKE_ALLOW_TEMPLATE_DEFAULT || '').toLowerCase() === 'true';
@@ -463,16 +439,10 @@ jobs:
             // Donation assertions — first-class: a charity site must never
             // silently lose its donation capability.
             const donationScope = String(process.env.SMOKE_DONATION_SCOPE || '').toLowerCase();
-            const requireDonation = String(process.env.SMOKE_REQUIRE_DONATION_EMBED || '').toLowerCase() === 'true';
             const donationChecks = [];
-            if (requireDonation && donationScope === 'ffc-interim' && donationEmbeds.length === 0) {
-              complianceFailures.push('SMOKE_REQUIRE_DONATION_EMBED=true with ffc-interim scope but no Zeffy iframe found on the page');
-            }
             // Donation posture:
-            //   no surfaces at all           -> HARD FAILURE (unless scope 'none')
-            //   recognized provider(s) only  -> PASS
-            //   Zeffy absent                 -> PASS + standing add-Zeffy issue
-            //   Zeffy present                -> PASS (without removing other providers)
+            //   no approved surfaces at all -> HARD FAILURE (unless scope 'none')
+            //   Givebutter and/or RallyUp   -> PASS
             const isApex = String(process.env.SMOKE_MODE || '') !== 'default';
             if (isApex && !placeholder && donationSurfaces.length === 0 && donationScope !== 'none') {
               complianceFailures.push('No donation capability detected. Wire an approved donation provider, or set SMOKE_DONATION_SCOPE=none only if this site intentionally takes no donations.');
@@ -491,12 +461,8 @@ jobs:
                 complianceFailures.push(`${s.provider} donation ${s.kind} fetch failed: ${s.url} (${e.message})`);
               }
             }
-            const donationInterim = donationScope === 'ffc-interim' && zeffySurfaces.length > 0;
-            // Slopes to Hope keeps existing approved providers. If no Zeffy
-            // surface is detected yet, track Zeffy as an additional surface.
-            const zeffyMissing = zeffySurfaces.length === 0 && donationSurfaces.length > 0 && donationScope !== 'none';
             require('fs').writeFileSync(process.env.GITHUB_WORKSPACE + '/artifacts/donation-status.json',
-              JSON.stringify({ scope: donationScope || 'undeclared', interim: donationInterim, zeffyMissing, providers: otherProviders, surfaces: donationChecks }, null, 2));
+              JSON.stringify({ scope: donationScope || 'undeclared', providers: approvedProviders, surfaces: donationChecks }, null, 2));
 
             const summary = {
               url, status, title,
@@ -645,86 +611,3 @@ jobs:
             echo "Opened new smoke-failure issue"
           fi
 
-      - name: Maintain standing donation posture issues
-        # Two auto-managed standing issues, distinct states:
-        #   donation-interim   - site uses an FFC Zeffy campaign until the
-        #                        charity gets its own (SMOKE_DONATION_SCOPE=ffc-interim)
-        #   donation-migration - legacy label used here only to track a missing
-        #                        companion Zeffy surface. Existing providers stay.
-        # Both keep the smoke green while staying visible in every scan;
-        # each auto-closes when its condition clears.
-        if: always() && !cancelled() && steps.url.outputs.skip != 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SCOPE: ${{ vars.SMOKE_DONATION_SCOPE }}
-        run: |
-          set -euo pipefail
-          REPO="${GITHUB_REPOSITORY}"
-
-          # --- donation-migration legacy label: add Zeffy, keep existing providers ---
-          zeffy_missing="false"; providers=""
-          if [ -f artifacts/donation-status.json ]; then
-            zeffy_missing=$(python3 -c "import json; d=json.load(open('artifacts/donation-status.json')); print(str(d.get('zeffyMissing', False)).lower())" 2>/dev/null || echo "false")
-            providers=$(python3 -c "import json; d=json.load(open('artifacts/donation-status.json')); print(', '.join(d.get('providers', [])))" 2>/dev/null || echo "")
-          fi
-          mig=$(gh api "repos/${REPO}/issues?state=open&labels=donation-migration&per_page=1" --jq '.[0].number // empty' || echo "")
-          if [ "$zeffy_missing" = "true" ]; then
-            if [ -z "$mig" ]; then
-              gh api "repos/${REPO}/labels" --method POST -f name="donation-migration" \
-                -f color="d4c5f9" -f description="Zeffy companion surface missing; keep existing approved providers" >/dev/null 2>&1 || true
-              body=$(printf '%s\n' \
-                "Slopes to Hope intentionally keeps its existing approved donation providers (${providers:-unknown}) and also wants a Zeffy surface." \
-                "" \
-                "The existing provider(s) are WORKING and must not be removed. This stays visible only until Zeffy is added alongside them:" \
-                "1. Identify or create Slopes to Hope's own Zeffy campaign/form." \
-                "2. Add the Zeffy embed/link while preserving Givebutter and other approved destinations." \
-                "" \
-                "Auto-managed: this issue closes itself on the first run that detects a Zeffy surface.")
-              gh api "repos/${REPO}/issues" --method POST \
-                -f title="Add Zeffy alongside existing donation providers" \
-                -f body="$body" \
-                -f "labels[]=donation-migration" -f "labels[]=priority: high" >/dev/null
-              echo "Opened add-Zeffy issue (existing providers: ${providers})"
-            else
-              echo "add-Zeffy issue #${mig} remains open (existing providers: ${providers:-none})"
-            fi
-          elif [ -n "$mig" ]; then
-            gh api "repos/${REPO}/issues/${mig}/comments" --method POST \
-              -f body="✅ A Zeffy surface is now detected alongside the existing donation provider(s). Auto-closing." >/dev/null
-            gh api -X PATCH "repos/${REPO}/issues/${mig}" -f state=closed >/dev/null
-            echo "Closed donation-migration issue #${mig}"
-          fi
-
-          # --- donation-interim (scope-declared) ---
-          existing=$(gh api "repos/${REPO}/issues?state=open&labels=donation-interim&per_page=1" --jq '.[0].number // empty' || echo "")
-          scope=$(echo "${SCOPE:-}" | tr '[:upper:]' '[:lower:]')
-
-          if [ "$scope" = "ffc-interim" ]; then
-            if [ -z "$existing" ]; then
-              gh api "repos/${REPO}/labels" --method POST -f name="donation-interim" \
-                -f color="fbca04" -f description="Using an FFC Zeffy campaign until a charity-specific one replaces it" >/dev/null 2>&1 || true
-              body=$(printf '%s\n' \
-                "This site currently collects donations through a **Free For Charity** Zeffy campaign rather than a charity-specific one." \
-                "" \
-                "That is the intended interim state — donations keep working — but it must stay visible until replaced:" \
-                "1. Create the charity's own Zeffy campaign/form." \
-                "2. Swap the embed/button URLs in the site." \
-                "3. Set the repo variable SMOKE_DONATION_SCOPE=charity." \
-                "" \
-                "This issue is auto-managed by the smoke engine: it stays open while SMOKE_DONATION_SCOPE=ffc-interim and auto-closes once the scope changes.")
-              gh api "repos/${REPO}/issues" --method POST \
-                -f title="Donations run on an FFC campaign — replace with a charity-specific Zeffy campaign" \
-                -f body="$body" \
-                -f "labels[]=donation-interim" -f "labels[]=priority: high" >/dev/null
-              echo "Opened standing donation-interim issue"
-            else
-              echo "Standing donation-interim issue #${existing} remains open (scope still ffc-interim)"
-            fi
-          else
-            if [ -n "$existing" ]; then
-              gh api "repos/${REPO}/issues/${existing}/comments" --method POST \
-                -f body="✅ SMOKE_DONATION_SCOPE is no longer ffc-interim — charity-specific donations in place. Auto-closing." >/dev/null
-              gh api -X PATCH "repos/${REPO}/issues/${existing}" -f state=closed >/dev/null
-              echo "Closed donation-interim issue #${existing}"
-            fi
-          fi
