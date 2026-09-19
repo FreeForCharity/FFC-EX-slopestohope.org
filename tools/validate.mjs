@@ -92,7 +92,9 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  if(route.path==='/gallery/')for(const link of d.querySelectorAll('a[data-elementor-open-lightbox="yes"]')){
   if(!link.querySelector('img')?.alt.trim()||!link.getAttribute('aria-label')?.trim())issues.push({path:route.path,error:'Gallery photo or lightbox link lacks a description',url:link.getAttribute('href')});
  }
- if(!d.querySelector('link[href="/assets/consent.css"]')||!d.querySelector('script[src="/assets/consent.js"]'))issues.push({path:route.path,error:'Consent assets missing'});
+ const consentScripts=[...d.querySelectorAll('script[src="/assets/consent.js"]')];
+ if(!d.querySelector('link[href="/assets/consent.css"]')||consentScripts.length!==1)issues.push({path:route.path,error:'Consent assets missing or duplicated'});
+ else if(consentScripts[0].parentElement!==d.head||consentScripts[0].hasAttribute('defer')||consentScripts[0].hasAttribute('async')||d.head.querySelector('script')!==consentScripts[0])issues.push({path:route.path,error:'Consent guard must be the first synchronous head script'});
  if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Policy or cookie-settings footer control missing'});
  if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Uncontrolled analytics loader present in static HTML'});
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
