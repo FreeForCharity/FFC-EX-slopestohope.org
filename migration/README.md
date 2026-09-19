@@ -23,7 +23,7 @@ Original Elementor/BuddyX runtimes and mirrored media preserve presentation. App
 | Giving | Keep Givebutter and add/retain Zeffy; RallyUp and Colorado Gives also remain valid destinations. Exact Slopes to Hope Zeffy campaign/embed URL is still required before publishing a Zeffy surface. |
 | Other content | Captured maps, social links, Instagram, and other third-party embeds |
 
-Owner decision September 19, 2026: declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. The site-side consent guard now blocks Cloudflare RUM reporting when the saved preference is denied and stores the same choice in the first-party `sth_analytics` cookie so a Cloudflare Configuration Rule can disable RUM at the network layer for matching requests. This documents implementation, not legal compliance.
+Owner decision September 19, 2026: declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. The site-side consent guard now blocks Cloudflare RUM reporting when the saved preference is denied and stores the same choice in the first-party `sth_analytics` cookie. The remaining Cloudflare account rule is: Configuration Rule expression `http.cookie contains "sth_analytics=denied"`, with **Disable Real User Monitoring (RUM)** enabled (`disable_rum=true`). This prevents Cloudflare from injecting RUM on later requests carrying the declined preference. This documents implementation, not legal compliance.
 
 ## Maintenance and evidence
 
