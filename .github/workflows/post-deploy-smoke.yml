@@ -363,6 +363,8 @@ jobs:
               { name: 'paypal', hosts: ['paypal.com', 'paypalobjects.com'] },
               { name: 'gofundme', hosts: ['gofundme.com'] },
               { name: 'givebutter', hosts: ['givebutter.com'] },
+              { name: 'rallyup', hosts: ['rallyup.com'] },
+              { name: 'colorado-gives', hosts: ['coloradogives.org'] },
               { name: 'donorbox', hosts: ['donorbox.org'] },
               { name: 'venmo', hosts: ['venmo.com'] },
             ];
