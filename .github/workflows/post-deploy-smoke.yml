@@ -390,14 +390,17 @@ jobs:
                 for (const path of routes) {
                   try {
                     const html = await (await fetch(base + path)).text();
+                    const discoveredUrls = [...html.matchAll(/https?:\/\/[^"'\s<>]+/gi)].map(match => match[0]);
                     for (const p of PROVIDERS) {
-                      if (p.hosts.some(h => {
-                        const escaped = h.replace(/[.*+?^${}()|[\]\\]/g, '\\                      if (p.hosts.some(h => {
-                        const escaped = h.replace(/[.*+?^$\{\}()|[\]\\]/g, '\\if (p.hosts.some(h => html.includes(h))) {');
-                        return new RegExp('https?:\\/\\/(?:[^/"\\'\\s>]+\\.)?' + escaped + '(?:[/:?#"\\'\\s>]|$)', 'i').test(html);
-                      })) {');
-                        return new RegExp(`https?:\\/\\/(?:[^/"'\\s>]+\\.)?${escaped}(?:[/:?#"'\\s>]|$)`, 'i').test(html);
-                      })) {
+                      const found = discoveredUrls.some(candidate => {
+                        try {
+                          const host = new URL(candidate).hostname.toLowerCase();
+                          return p.hosts.some(h => host === h || host.endsWith('.' + h));
+                        } catch {
+                          return false;
+                        }
+                      });
+                      if (found) {
                         sitewideProviders.add(p.name);
                         donationSurfaces.push({ provider: p.name, kind: 'page', url: base + path });
                       }
