@@ -348,6 +348,7 @@ jobs:
               { name: 'givebutter', hosts: ['givebutter.com'] },
               { name: 'rallyup', hosts: ['rallyup.com'] },
             ];
+            const REQUIRED_PROVIDERS = ['givebutter', 'rallyup'];
             const donationSurfaces = await page.evaluate((providers) => {
               const out = [];
               const provOf = (u) => {
@@ -369,9 +370,9 @@ jobs:
               return out;
             }, PROVIDERS).catch(() => []);
             // Donation surfaces may live on subpages rather than the homepage.
-            // If none are visible on the homepage, sweep published routes.
+            // Sweep published routes until both approved fundraising providers are found.
             const sitewideProviders = new Set(donationSurfaces.map(s => s.provider));
-            if (donationSurfaces.length === 0) {
+            if (!REQUIRED_PROVIDERS.every(p => sitewideProviders.has(p))) {
               try {
                 const base = url.replace(/\/$/, '');
                 let routes = [];
@@ -391,7 +392,7 @@ jobs:
                       }
                     }
                   } catch { /* route fetch failed; sitemap check covers that */ }
-                  if (sitewideProviders.size > 0) break;
+                  if (REQUIRED_PROVIDERS.every(p => sitewideProviders.has(p))) break;
                 }
               } catch (e) { console.log('site-wide donation sweep skipped:', e.message); }
             }
@@ -444,8 +445,11 @@ jobs:
             //   no approved surfaces at all -> HARD FAILURE (unless scope 'none')
             //   Givebutter and/or RallyUp   -> PASS
             const isApex = String(process.env.SMOKE_MODE || '') !== 'default';
-            if (isApex && !placeholder && donationSurfaces.length === 0 && donationScope !== 'none') {
-              complianceFailures.push('No donation capability detected. Wire an approved donation provider, or set SMOKE_DONATION_SCOPE=none only if this site intentionally takes no donations.');
+            if (isApex && !placeholder && donationScope !== 'none') {
+              const missingProviders = REQUIRED_PROVIDERS.filter(p => !sitewideProviders.has(p));
+              if (missingProviders.length > 0) {
+                complianceFailures.push(`Missing approved fundraising provider(s): ${missingProviders.join(', ')}. Slopes to Hope expects both Givebutter and RallyUp.`);
+              }
             }
             // Every surface must be reachable, whatever the provider.
             for (const s of donationSurfaces) {
