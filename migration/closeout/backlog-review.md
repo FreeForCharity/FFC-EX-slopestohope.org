@@ -32,7 +32,7 @@ Dependency comparisons are not a vulnerability certification. No dependency or d
 
 | Issue | Comparison and proposed disposition |
 |---|---|
-| [#45 Zeffy](https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/45) | Owner decision September 17: retain both Givebutter and Zeffy. Givebutter is working and must remain. No Slopes to Hope Zeffy campaign/embed URL is currently present in the published site or connected records. Keep the issue open only to add Zeffy alongside Givebutter once the exact Zeffy destination exists. |
+| [#45 donation provider](https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/45) | Superseded by the September 19 owner decision: website fundraising uses Givebutter and RallyUp. Close this provider-migration issue; do not add another provider without Drew's explicit approval. |
 | [#43 consent](https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/43) | Root-publication and GTM assumptions are obsolete. Owner decision September 19: declining analytics must also suppress Cloudflare RUM. Site-side suppression and the `sth_analytics` preference cookie are being implemented; Cloudflare `disable_rum` rule verification remains an account-level task. Do not claim broader legal compliance. |
 | [#9 sponsor maintenance](https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/9) | Addressed by current maintenance instructions once reviewed and released. Closure candidate then. |
 | [#7 8,371 pounds](https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/7) | Superseded by later captured totals; no rollback to the older number. Closure candidate. |
