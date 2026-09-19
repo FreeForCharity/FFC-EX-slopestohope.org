@@ -1,3 +1,5 @@
+> Historical record: this document describes an earlier template or migration stage and is not the current operating procedure. See the [current migration runbook](migration/README.md) for production architecture, consent behavior, route counts, and approval requirements.
+
 # Cloudflare Configuration for GitHub Pages
 
 This guide provides step-by-step instructions for configuring Cloudflare for your GitHub Pages site to optimize caching and performance. **All features listed are available on Cloudflare's Free plan.**

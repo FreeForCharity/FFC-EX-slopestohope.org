@@ -5,12 +5,14 @@ import { serve } from './serve.mjs';
 import { mirrorAsset } from './migrate.mjs';
 import {EXCLUDED_ROUTES} from './legacy-policy.mjs';
 import {POLICY_ROUTES} from './release-policy.mjs';
+import {createRequestAudit} from './request-audit.mjs';
 const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const sync=process.argv.includes('--sync');
 const live=process.argv.includes('--live');
 const only=process.argv.find(a=>a.startsWith('--only='))?.slice(7).split(',');
 const label=process.argv.find(a=>a.startsWith('--label='))?.slice(8)||'';
+if(!/^[a-z0-9-]*$/i.test(label))throw new Error('Invalid report label');
 const inv=JSON.parse(await readFile('migration/inventory.json'));
 const routes=[...inv.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path)),...POLICY_ROUTES].filter(r=>!only||only.includes(r.path));
 const server=live?null:await serve(resolve(process.env.SITE_ROOT||'public'));
@@ -24,11 +26,12 @@ for(const width of [1440,390])for(const r of routes){
   const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});
   const tab=await ctx.newPage();
   const record={path:r.path,width,missing:[],legacy:[],externalFailures:[],errors:[],blockedWrites:[]};
+  const requestAudit=createRequestAudit(base);
   await ctx.route('**/*',async route=>{
     const req=route.request(),u=new URL(req.url());
-    if(!['GET','HEAD'].includes(req.method())){record.blockedWrites.push({url:req.url(),method:req.method()});return route.abort();}
+    if(!['GET','HEAD'].includes(req.method())){requestAudit.block(req);record.blockedWrites.push({url:req.url(),method:req.method()});return route.abort();}
     // Do not generate analytics events or submit forms during automated QA.
-    if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq/.test(req.url()))return route.abort();
+    if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq/.test(req.url())){requestAudit.block(req);return route.abort();}
     if(!live&&['slopestohope.com','www.slopestohope.com','communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname)){record.legacy.push(req.url());return route.abort();}
     if(sync&&u.origin===base&&/^\/wp-(content|includes)\//.test(u.pathname)){
       try{await readFile(resolve('public','.'+decodeURIComponent(u.pathname)));}
@@ -38,7 +41,7 @@ for(const width of [1440,390])for(const r of routes){
   });
   tab.on('response',resp=>{if(resp.status()>=400){const value={url:resp.url(),status:resp.status()};(resp.url().startsWith(base)?record.missing:record.externalFailures).push(value);}});
   tab.on('pageerror',e=>record.errors.push(e.stack||e.message));
-  tab.on('requestfailed',req=>{if(req.url().startsWith(base))record.missing.push({url:req.url(),error:req.failure()?.errorText});});
+  tab.on('requestfailed',req=>{if(requestAudit.missing(req))record.missing.push({url:req.url(),error:req.failure()?.errorText});});
   try{
     await tab.goto(base+r.path,{waitUntil:'domcontentloaded',timeout:45000});
     await tab.mouse.move(100,200); // trigger the source site's delayed runtime

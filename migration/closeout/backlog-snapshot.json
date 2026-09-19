@@ -1,0 +1,3029 @@
+{
+  "reviewedAt": "2026-09-19T16:05:01.230Z",
+  "baseline": "81958410772660513037e0b55b53863a6508af7c",
+  "pullRequests": [
+    {
+      "number": 51,
+      "title": "Review: clean up Partners page and current audit findings",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/51",
+      "state": "open",
+      "head": "codex/partners-cleanup-review",
+      "headSha": "dc64cebe331f30981808e5316afad02d0d761fce",
+      "baseSha": "4701147afad81fa02a82d360a3e8609ecf3664f5",
+      "changedFiles": 17,
+      "files": [
+        {
+          "path": "migration/consent-validation.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/coo-summit-validation.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/interactions.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/inventory.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/local-coo-summit-browser-audit.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/local-partners-footer-final-browser-audit.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/static-validation.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/contact-us/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/coosummit26/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/donors/index.html",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/faq/index.html",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/gallery/index.html",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/our-story/index.html",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/partners/index.html",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/team/index.html",
+          "identicalToRelease": true
+        },
+        {
+          "path": "tools/validate.mjs",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "title": "Add COO Summit 2026 promo landing page",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/50",
+      "state": "open",
+      "head": "codex/coo-summit-promo-page",
+      "headSha": "8b29bc9cc3196d3a74b3727e3fdd17feb3a90f5f",
+      "baseSha": "4701147afad81fa02a82d360a3e8609ecf3664f5",
+      "changedFiles": 5,
+      "files": [
+        {
+          "path": "migration/coo-summit-validation.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/inventory.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/local-coo-summit-browser-audit.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/static-validation.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/coosummit26/index.html",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "title": "Fix mobile navigation and zoom behavior",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/49",
+      "state": "open",
+      "head": "functional-fixes-2026-09-18",
+      "headSha": "bbc55424dcb8319b132f93355427f2d25e3ee991",
+      "baseSha": "4701147afad81fa02a82d360a3e8609ecf3664f5",
+      "changedFiles": 10,
+      "files": [
+        {
+          "path": ".github/workflows/functional-fixes-qa.yml",
+          "identicalToRelease": false
+        },
+        {
+          "path": "migration/inventory.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/contact-us/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/donors/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/faq/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/gallery/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/our-story/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/partners/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/team/index.html",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "title": "fix(consent): deny analytics storage by default, before the Google tag",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/44",
+      "state": "open",
+      "head": "claude/legacy-consent-default",
+      "headSha": "fe5e7ce77e85e0f6432fcb9aacac21385712edbc",
+      "baseSha": "1107ed9ad19fec3ff67cb700193a73a661fd051f",
+      "changedFiles": 5,
+      "files": [
+        {
+          "path": "contact-us/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "gallery/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "our-story/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "staff/index.html",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "title": "ci: pin the smoke Playwright version and stop double-downloading browsers",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/42",
+      "state": "open",
+      "head": "claude/pnpm-npm-comparison-4gress",
+      "headSha": "a3444dbf3a7d4023c3846970429c4a45beb52445",
+      "baseSha": "1107ed9ad19fec3ff67cb700193a73a661fd051f",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": ".github/workflows/post-deploy-smoke.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Re-clone from WordPress, drop the Elementor runtime, and prepare for DNS cutover",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/40",
+      "state": "open",
+      "head": "claude/domain-status-pages-config-hs31to",
+      "headSha": "fa25fed731d72adf83d2de410bf56b260272d682",
+      "baseSha": "3f6b0c4fd9b0774256bd71180ef67850ddd92443",
+      "changedFiles": 618,
+      "files": [
+        {
+          "path": ".github/workflows/CICD_FIX_SUMMARY.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".github/workflows/README.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".github/workflows/VISUAL_REGRESSION_GUIDE.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".github/workflows/post-deploy-smoke.yml",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".gitignore",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".nvmrc",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".prettierignore",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".prettierrc.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "ADOPTERS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "BROKEN_LINKS_REPORT.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "CHANGELOG.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "CLOUDFLARE_SETUP.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "CODE_OF_CONDUCT.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "COMMUNITY_HEALTH_FILES.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "CONTRIBUTORS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "COOKIE_COMPARISON.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "COOKIE_IMPLEMENTATION.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "DEPLOYMENT.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "EXTERNAL_DEPENDENCIES.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "FACEBOOK_EVENTS_REQUIREMENTS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "FACEBOOK_EVENTS_SETUP.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "FACEBOOK_EVENTS_SUMMARY.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "GOVERNANCE.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "HTML_CONVERSION_ASSESSMENT.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "HTML_CONVERSION_VERIFICATION.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "JEKYLL_CONVERSION.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "MAINTAINERS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "MICROSOFT_FORM_SETUP.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "MOBILE_RESPONSIVE_ANALYSIS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "README.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "RESPONSIVE_DIFFERENCES_SUMMARY.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SECURITY.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SUPPORT.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "THREAT-MODEL.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "contact-us/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "content/policies/cookie-policy.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "content/policies/privacy-policy.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "content/policies/terms-of-service.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "cookie-policy.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "download_assets.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "download_final_fixes.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "download_missing_laundry.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "download_missing_slider_v2.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "eslint.config.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_assets_and_slider.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_content.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_data_settings.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_donate_link.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_final_issues.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_footer.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_footer_center.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_nav_everywhere.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_our_story.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_paths.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_scripts.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_styles.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "fix_visibility.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "flatten_nav.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "free-for-charity-donation-policy.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "gallery/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "hydrate_scripts.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "manual_download.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "missing_assets.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "next.config.ts",
+          "identicalToRelease": false
+        },
+        {
+          "path": "our-story/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "package-lock.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "package.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "patch_slider.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "privacy-policy.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/.nojekyll",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/assets/js/site.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/contact-us/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/cookie-policy/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/donation-confirmation/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/donation-failed/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/donor-dashboard/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/donors/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/faq/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/gallery/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/our-story/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/our-story/story-image.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/privacy-policy-2/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/privacy-policy/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/staff/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/team/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/terms-of-service-2/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/terms-of-service/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/test-donate/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/volunteer/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/open-sans/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu1aB.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/prata/6xKhdSpbNNCT-sWACm7JLQ.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/prata/6xKhdSpbNNCT-sWCCm7JLQ.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/prata/6xKhdSpbNNCT-sWLCm7JLQ.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/fonts/prata/6xKhdSpbNNCT-sWPCm4.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/conditionals/dialog.min.css",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/widget-counter.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/widget-divider.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/widget-heading.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/css/widget-image.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.eot",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.svg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.ttf",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementor/assets/mask-shapes/circle.svg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticons.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/fonts/elementskit.woff",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/fonts/elementskit_itek3h.woff",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/img/arrow.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/img/cross-out.svg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/img/sort_asc.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/img/sort_asc_disabled.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/elementskit-lite/widgets/init/assets/img/sort_desc.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/scroll-to-top.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/build/elementor.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/images/external_link.svg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/images/hubspot.svg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/fonts/LexendDeca-Bold.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/fonts/LexendDeca-Light.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/fonts/LexendDeca-Medium.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/fonts/LexendDeca-SemiBold.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/fonts/hs-font.svg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/fonts/hs-font.woff",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/leadin/public/assets/style/leadin.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-cyrillic-ext.ef54216e.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-cyrillic.969ea6a3.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-greek-ext.04782fd5.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-greek.9e4a3805.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-latin-ext.6d1ff22c.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-latin.75e6c243.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-symbols.f5851590.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-400-vietnamese.b13ae75f.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-cyrillic-ext.ef54216e.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-cyrillic.969ea6a3.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-greek-ext.04782fd5.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-greek.9e4a3805.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-latin-ext.6d1ff22c.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-latin.75e6c243.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-symbols.f5851590.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-500-vietnamese.b13ae75f.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-cyrillic-ext.ef54216e.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-cyrillic.969ea6a3.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-greek-ext.04782fd5.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-greek.9e4a3805.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-latin-ext.6d1ff22c.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-latin.75e6c243.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-symbols.f5851590.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-600-vietnamese.b13ae75f.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-cyrillic-ext.ef54216e.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-cyrillic.969ea6a3.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-greek-ext.04782fd5.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-greek.9e4a3805.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-latin-ext.6d1ff22c.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-latin.75e6c243.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-symbols.f5851590.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/fonts/Roboto-700-vietnamese.b13ae75f.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/plugins/pojo-accessibility/assets/build/skip-link.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/content.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/dark-mode.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/fontawesome.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/global.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/loaders.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/sidebar.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/slick.min.css",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/css/widgets.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-brands-400.ttf",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-brands-400.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-regular-400.ttf",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-regular-400.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-solid-900.ttf",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-solid-900.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-v4compatibility.ttf",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/fonts/fa-v4compatibility.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/custom.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/fitvids.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/isotope.pkgd.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/jquery-cookie.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/navigation.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/slick.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/sticky-kit.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/themes/buddyx/assets/js/superfish.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/20200831_095516-1-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/20200831_095516-1-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/20200831_095516-1-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/20200831_095516-1-scaled-600x800.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/20200831_095516-1-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-1024x683.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-1536x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-2048x1365.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-300x200.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-768x512.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-scaled-600x400.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/neil-thomas-SIU1Glk6v5k-unsplash-1024x683.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/neil-thomas-SIU1Glk6v5k-unsplash-1536x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/neil-thomas-SIU1Glk6v5k-unsplash-2048x1365.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/neil-thomas-SIU1Glk6v5k-unsplash-300x200.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/neil-thomas-SIU1Glk6v5k-unsplash-768x512.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/neil-thomas-SIU1Glk6v5k-unsplash-scaled-600x400.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/03/priscilla-du-preez-aPa843frIzI-unsplash-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/04/cropped-cropped-kalen-emsley-Bkci_8qcdvQ-unsplash-1-scaled-1-e1748392380931-1024x160.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/04/cropped-cropped-kalen-emsley-Bkci_8qcdvQ-unsplash-1-scaled-1-e1748392380931-150x23.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/04/cropped-cropped-kalen-emsley-Bkci_8qcdvQ-unsplash-1-scaled-1-e1748392380931-1536x240.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/04/cropped-cropped-kalen-emsley-Bkci_8qcdvQ-unsplash-1-scaled-1-e1748392380931-300x47.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/04/cropped-cropped-kalen-emsley-Bkci_8qcdvQ-unsplash-1-scaled-1-e1748392380931-768x120.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/04/cropped-cropped-kalen-emsley-Bkci_8qcdvQ-unsplash-1-scaled-1-e1748392380931.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-100x67.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-1024x683.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-1024x683.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-1536x1025.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-300x200.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-391x260.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-50x33.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-600x400.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521-768x512.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/05/pexels-leah-kelley-325521.jpg.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-100x75.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-50x38.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-624x468.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2023/11/20230916_070603-1-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2024/01/Logo-Light-1-300x175.png",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20231221_111939-scaled-e1748389992911.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113045-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113049-scaled-e1748389976868.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240308_113204-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240321_141249-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095640-scaled-e1748389960220.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_095651-scaled-e1748389950935.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_122351-scaled-e1748389915865.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827-1013x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827-148x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827-1520x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827-297x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827-503x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827-768x776.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_130757-scaled-e1750104382827.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131227-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346-1024x969.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346-150x142.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346-1536x1453.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346-300x284.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346-537x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346-768x726.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240403_131233-1-scaled-e1748392945346.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240501_135008-scaled-e1748389879133.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/20240531_140806-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/CBM-150x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/CBM-300x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/CBM.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-172956-150x83.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-172956-300x165.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-172956.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1-1022x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1-150x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1-1533x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1-300x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1-507x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1-768x770.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1-1.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173110-1.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159-1024x619.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159-150x91.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159-1536x928.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159-300x181.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159-768x464.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159-841x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/05/Screenshot-2025-05-27-173159.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-150x150.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-180x180.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-192x192.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-270x270.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-300x300.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-32x32.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1-508x508.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/06/cropped-Drew-1.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-1024x768.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-150x113.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-1536x1152.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-2048x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-300x225.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-677x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-768x576.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153752-scaled.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-1024x768.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-150x113.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-1536x1152.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-2048x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-300x225.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-677x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-768x576.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/07/20250707_153800-scaled.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/09/headshot-150x150.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/09/headshot-300x300.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/09/headshot-300x300.png.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/09/headshot.png",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/10/Candid-Platinum.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/10/Mobile-Laundry-scaled-e1760334798178.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700-113x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700-1152x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700-1536x2048.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700-225x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700-381x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700-768x1024.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110039-scaled-e1762386877700.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-1024x768.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-150x113.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-1536x1152.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-2048x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-300x225.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-677x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-768x576.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110211-scaled.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103-113x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103-1152x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103-1536x2048.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103-225x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103-381x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103-768x1024.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251104_110327-scaled-e1762386888103.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_124626-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_134958-scaled-e1762386675544.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/11/20251105_135101-scaled-e1762386667525.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251212_102835-scaled-e1765759107998.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777-113x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777-1152x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777-1536x2048.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777-225x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777-381x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777-768x1024.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/20251230_160801-scaled-e1767157431777.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-1024x683.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-150x100.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-1536x1025.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-2048x1366.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-300x200.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-450x300.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-761x508.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1-768x512.webp",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2025/12/222Untitled-1.webp",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260103_143858-scaled-e1767478656440.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-113x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-1152x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-1536x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-225x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-381x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-768x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_145624-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260119_170417-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-113x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-1152x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-1536x2048.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-225x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-381x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-768x1024.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_083717-scaled.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/20260121_130740-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152-113x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152-1152x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152-1536x2048.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152-225x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152-381x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152-768x1024.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-helly-hansen-scaled-e1767478919152.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-1024x768.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-150x113.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-1536x1152.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-2048x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-300x225.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-677x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-768x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/01/box-silverthorne-library-scaled.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-137x150.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-1399x1536.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-1865x2048.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-273x300.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-463x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-768x843.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699-932x1024.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-1024x576.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-150x84.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-1536x864.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-2048x1153.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-300x169.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-768x432.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854-903x508.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/02/Screenshot-2026-02-16-181854.jpg",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288-113x150.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288-1152x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288-1536x2048.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288-225x300.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288-381x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288-768x1024.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260320_075011-e1780341501288.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-1024x768.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-150x113.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-1536x1152.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-2048x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-300x225.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-677x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022-768x576.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260416_082022.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-1024x768.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-150x113.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-1536x1152.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-2048x1536.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-300x225.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-677x508.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109-768x576.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/2026/06/20260530_100109.jpg",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/custom-frontend.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/custom-lightbox.min.css",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/custom-widget-icon-box.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/custom-widget-image-gallery.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-13433.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-13734.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-4228.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-69.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-71.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-75.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/css/post-83.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/css/opensans.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/css/prata.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/css/roboto.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqw106f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwt06f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwte6f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwtk6f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwtu6f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwu06f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwuk6f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwuu6f.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwvu6f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memtyags126mizpba-ufuicvxscekx2cmqvxlwqwxu6f15m.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovts-muw.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovts2mu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtscmu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtsgmu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtskmu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtsomu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtsumu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtsymu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtugmu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/elementor/google-fonts/fonts/opensans-memvyags126mizpba-uvwbx2vvnxbbobj2ovtvomu1ab.woff2",
+          "identicalToRelease": true
+        },
+        {
+          "path": "public/wp-content/uploads/essential-addons-elementor/eael-4228.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-content/uploads/essential-addons-elementor/eael-83.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-includes/css/dist/block-library/style.min.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-includes/js/jquery/jquery-migrate.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-includes/js/jquery/jquery.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-includes/js/jquery/ui/core.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-includes/js/wp-emoji-loader.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "public/wp-includes/js/wp-emoji-release.min.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "security-acknowledgements.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "src/app/layout.tsx",
+          "identicalToRelease": false
+        },
+        {
+          "path": "staff/index.html",
+          "identicalToRelease": false
+        },
+        {
+          "path": "terms-of-service.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "tools/build-policies.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "tools/clone-wordpress.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "tools/lib/resolve-within.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "tools/sync-runtime-assets.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "tools/verify-no-legacy.mjs",
+          "identicalToRelease": false
+        },
+        {
+          "path": "tsconfig.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "vulnerability-disclosure-policy.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "wait.js",
+          "identicalToRelease": false
+        },
+        {
+          "path": "wp-content/litespeed/ucss/8b1f027dc64668341437990e2eb28e91.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css",
+          "identicalToRelease": false
+        },
+        {
+          "path": "wp-content/plugins/track-the-click/public/js/track-the-click-public.js",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "title": "ci(deps): bump actions/upload-artifact from 4 to 7",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/39",
+      "state": "open",
+      "head": "dependabot/github_actions/actions/upload-artifact-7",
+      "headSha": "a4f8f889b03e3e60a5e9c34b5eda5622178c3fbb",
+      "baseSha": "3f6b0c4fd9b0774256bd71180ef67850ddd92443",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": ".github/workflows/post-deploy-smoke.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "title": "npm(deps): bump ws from 8.19.0 to 8.21.1",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/31",
+      "state": "open",
+      "head": "dependabot/npm_and_yarn/ws-8.21.1",
+      "headSha": "f57390571cc11890dc0801fae99e93d193e02a7f",
+      "baseSha": "a5d6370bfd74256d4db8be5b0cee6c4767155c41",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": "package-lock.json",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "title": "ci(deps): bump actions/checkout from 6 to 7",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/28",
+      "state": "open",
+      "head": "dependabot/github_actions/actions/checkout-7",
+      "headSha": "4763a10bc2ed809d48f1cfa5636ee45eae30d509",
+      "baseSha": "3e55db12dafb41b93edcd75a162f6387516336a9",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "title": "npm(deps): bump minimatch from 10.1.2 to 10.2.5",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/26",
+      "state": "open",
+      "head": "dependabot/npm_and_yarn/minimatch-10.2.5",
+      "headSha": "51d39a8e0ad0cae283d646388889fe5488e36f12",
+      "baseSha": "3e55db12dafb41b93edcd75a162f6387516336a9",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": "package-lock.json",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "title": "ci(deps): bump actions/upload-pages-artifact from 4 to 5",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/24",
+      "state": "open",
+      "head": "dependabot/github_actions/actions/upload-pages-artifact-5",
+      "headSha": "139aef9286abc7285588c242609014f2af2e9527",
+      "baseSha": "8fda5b90c9fe40e6d814e75388e337774b527ab8",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "title": "npm(deps): bump jsdom from 27.4.0 to 29.0.1",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/23",
+      "state": "open",
+      "head": "dependabot/npm_and_yarn/jsdom-29.0.1",
+      "headSha": "b44230411999b515ed5fbfc053ac4e5787c807db",
+      "baseSha": "8fda5b90c9fe40e6d814e75388e337774b527ab8",
+      "changedFiles": 2,
+      "files": [
+        {
+          "path": "package-lock.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "package.json",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "title": "npm(deps): bump glob from 13.0.1 to 13.0.6 in the production-dependencies group across 1 directory",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/22",
+      "state": "open",
+      "head": "dependabot/npm_and_yarn/production-dependencies-bf08393c03",
+      "headSha": "944c79b5c0c30e374f2cf85bbbc84437cc95a0c7",
+      "baseSha": "3f6b0c4fd9b0774256bd71180ef67850ddd92443",
+      "changedFiles": 2,
+      "files": [
+        {
+          "path": "package-lock.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": "package.json",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "title": "ci(deps): bump actions/configure-pages from 4 to 6",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/21",
+      "state": "open",
+      "head": "dependabot/github_actions/actions/configure-pages-6",
+      "headSha": "f1a36f6d078b51bd555e0d138f1a6a04bd867c65",
+      "baseSha": "8fda5b90c9fe40e6d814e75388e337774b527ab8",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "title": "ci(deps): bump actions/deploy-pages from 4 to 5",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/20",
+      "state": "open",
+      "head": "dependabot/github_actions/actions/deploy-pages-5",
+      "headSha": "f1d7851567124b4bae9b510a4562a625a10d3e76",
+      "baseSha": "8fda5b90c9fe40e6d814e75388e337774b527ab8",
+      "changedFiles": 1,
+      "files": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "chore: notify on deploy smoke failures",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/19",
+      "state": "open",
+      "head": "chore/incident-notifications",
+      "headSha": "f01fdb0b957bbc0b38fd429c98a76e485ea74f42",
+      "baseSha": "7052710b85f15e1c010afcb741132a172c526d3f",
+      "changedFiles": 2,
+      "files": [
+        {
+          "path": ".github/instructions/copilot-review.instructions.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "title": "chore: sync AI configuration files",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/17",
+      "state": "open",
+      "head": "chore/sync-ai-configs",
+      "headSha": "34c5a34def1d28137d5bbc1dfbad3af05d02b815",
+      "baseSha": "c955a5db155347fcd2dbd6e81e38e0bc699bcf14",
+      "changedFiles": 14,
+      "files": [
+        {
+          "path": ".claude/agents/copilot-review-cycle.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/agents/cross-repo-sync.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/agents/dns-audit.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/agents/onboarding.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/agents/pr-reviewer.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/agents/site-health.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/rules/00-ffc-mission.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/rules/01-security.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".claude/settings.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".copilot/mcp-config.json",
+          "identicalToRelease": false
+        },
+        {
+          "path": ".github/copilot-instructions.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "AGENTS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "CLAUDE.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "GEMINI.md",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Add manual sponsor management documentation",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/10",
+      "state": "open",
+      "head": "copilot/add-new-sponsors-website",
+      "headSha": "2d82310c663ccacd258917357514272786015a6c",
+      "baseSha": "4cea841cd61e2ef9533bd60fece5d33e758cc70f",
+      "changedFiles": 6,
+      "files": [
+        {
+          "path": "README.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SPONSORS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SPONSORS_EXAMPLES.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SPONSORS_INDEX.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SPONSORS_QUICK_REFERENCE.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "SPONSORS_TROUBLESHOOTING.md",
+          "identicalToRelease": false
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Update pounds statistics to 8,371 and add update documentation",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/pull/8",
+      "state": "open",
+      "head": "copilot/update-pounds-value",
+      "headSha": "a65be6b5228a859ec89cdb18e82d38a4f0cb7d73",
+      "baseSha": "4cea841cd61e2ef9533bd60fece5d33e758cc70f",
+      "changedFiles": 3,
+      "files": [
+        {
+          "path": "README.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "UPDATING_POUNDS_STATISTICS.md",
+          "identicalToRelease": false
+        },
+        {
+          "path": "index.html",
+          "identicalToRelease": false
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "number": 45,
+      "title": "Donations via non-preferred provider (givebutter) — migrate to Zeffy",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/45"
+    },
+    {
+      "number": 43,
+      "title": "Analytics runs ungated: GTM loads with no Consent Mode default on 5 pages",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/43"
+    },
+    {
+      "number": 9,
+      "title": "Add new sponsors to the website.",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/9"
+    },
+    {
+      "number": 7,
+      "title": "Update the pounds to \"8,371  - pounds!\"",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/7"
+    },
+    {
+      "number": 3,
+      "title": "UI/UX Audit: Mission Clarity and User Experience Improvements",
+      "url": "https://github.com/FreeForCharity/FFC-EX-slopestohope.org/issues/3"
+    }
+  ]
+}
