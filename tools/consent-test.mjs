@@ -30,8 +30,15 @@ try{
   });
   for(const width of [1440,390]){
     const context=await browser.newContext({viewport:{width,height:900}});
-    const analyticsRequests=[];
-    await context.route('**/*',route=>{const request=route.request();if(!['GET','HEAD'].includes(request.method())){blockedWrites.push({url:request.url(),method:request.method()});return route.abort();}if(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq)/.test(request.url())){analyticsRequests.push(request.url());return route.abort();}return route.continue();});
+    const analyticsRequests=[],rumRequests=[];
+    await context.route('**/*',route=>{
+      const request=route.request();
+      const requestUrl=request.url();
+      if(/(?:static\.cloudflareinsights\.com\/beacon\.min\.js|\/cdn-cgi\/rum(?:$|\?))/.test(requestUrl)){rumRequests.push(requestUrl);return route.abort();}
+      if(!['GET','HEAD'].includes(request.method())){blockedWrites.push({url:requestUrl,method:request.method()});return route.abort();}
+      if(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq)/.test(requestUrl)){analyticsRequests.push(requestUrl);return route.abort();}
+      return route.continue();
+    });
     const page=await context.newPage();
     await page.goto(base+'/',{waitUntil:'domcontentloaded'});
     await check(`First visit enables analytics without a modal (${width})`,async()=>{assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent interface covered the page');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated by default');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested by default');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested by default');const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,true),'HubSpot tracking was not enabled by default');assert(hasHubSpotConsent(state.privacy,true),'HubSpot analytics was not enabled by default');assert(await googleAdvertisingRemainsDenied(page),'Google advertising consent was not kept denied');});
