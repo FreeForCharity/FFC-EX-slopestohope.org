@@ -1,3 +1,5 @@
+> Historical record: this document describes an earlier template or migration stage and is not the current operating procedure. See the [current migration runbook](README.md) for production architecture, consent behavior, route counts, and approval requirements.
+
 # GiveWP cleanup
 
 GiveWP is retired for the Slopes to Hope migration. The current donation destinations are Givebutter, RallyUp, and Colorado Gives.

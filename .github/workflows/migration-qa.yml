@@ -1,0 +1,51 @@
+name: Migration QA
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  migration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SITE_ROOT: out
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm run build
+        id: build
+        env:
+          SITE_ROOT: public
+      - run: node --test tools/request-audit.test.mjs
+      - name: Browser audit at desktop and mobile widths
+        run: pnpm run test:browser
+      - name: Keyboard, Gallery, navigation, and form validation
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: pnpm run test:interactions
+      - name: Analytics preference and independent form rendering
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: pnpm run test:consent
+      - name: Save local QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-qa
+          path: |
+            migration/static-validation.json
+            migration/local-browser-audit.json
+            migration/interactions.json
+            migration/consent-validation.json
+          retention-days: 14

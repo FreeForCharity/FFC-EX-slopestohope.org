@@ -1,0 +1,108 @@
+{
+  "testedAt": "2026-09-19T16:07:53.022Z",
+  "revision": "81958410772660513037e0b55b53863a6508af7c",
+  "method": "Local archived revision rebuild and read-only HTTP checks; no production restore",
+  "checks": [
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/contact-us/",
+      "status": 200
+    },
+    {
+      "route": "/our-story/",
+      "status": 200
+    },
+    {
+      "route": "/faq/",
+      "status": 200
+    },
+    {
+      "route": "/donors/",
+      "status": 200
+    },
+    {
+      "route": "/team/",
+      "status": 200
+    },
+    {
+      "route": "/gallery/",
+      "status": 200
+    },
+    {
+      "route": "/partners/",
+      "status": 200
+    },
+    {
+      "route": "/coosummit26/",
+      "status": 200
+    },
+    {
+      "route": "/privacy-policy/",
+      "status": 200
+    },
+    {
+      "route": "/terms-of-service/",
+      "status": 200
+    }
+  ],
+  "filesVerified": 567,
+  "queryPreservation": true,
+  "staffBrowserRedirect": true,
+  "unknownRoute404": true,
+  "threeFormIdsPresent": true,
+  "hashes": [
+    {
+      "path": "contact-us/index.html",
+      "sha256": "1f73d41c837305afc8e6460802085d0251d7eb884ae2cd4ab52bc54d46c34ca2"
+    },
+    {
+      "path": "coosummit26/index.html",
+      "sha256": "d6cf73050e27e2152d37e12d57880c3566ffc5d206ff5475c5a0824cdcc370fd"
+    },
+    {
+      "path": "donors/index.html",
+      "sha256": "6e48cad5b968d768c6da15aa9ff6548822366db4d9e52e830a5feef7724673c1"
+    },
+    {
+      "path": "faq/index.html",
+      "sha256": "c56323843a58eb0b244e23b00837d413e8f089b9fc4361a0f9199dbc1e9b7c26"
+    },
+    {
+      "path": "gallery/index.html",
+      "sha256": "0bd561bed8299d2384864a75c5a40fe35d252c3e702606de09a19c75aa333f35"
+    },
+    {
+      "path": "index.html",
+      "sha256": "5b71ba686b8e75c5bd2cca95994796cc70fe6fe3948b3dcb8f887df2c0c9693e"
+    },
+    {
+      "path": "our-story/index.html",
+      "sha256": "d2b8711572bd7fa1f811e0c436f20f98968299d251a826160fb00db3b4abf490"
+    },
+    {
+      "path": "partners/index.html",
+      "sha256": "eccbe49586232111fab8fec9cf025854a4cfbb700d24279bf94e5df4dfed8856"
+    },
+    {
+      "path": "privacy-policy/index.html",
+      "sha256": "2c0e6682e01c5d312538a7a3250379b42cdfec26320f248c5bda98cad97dc820"
+    },
+    {
+      "path": "staff/index.html",
+      "sha256": "750e2009d5d4a3a1cff555c95c99615b5533e60cbdb6bee6ecf751c1a7e0522a"
+    },
+    {
+      "path": "team/index.html",
+      "sha256": "d70adb585ef99d7c7ec6ca4432888779a9f66cb136bb2d63afd6560304a4f331"
+    },
+    {
+      "path": "terms-of-service/index.html",
+      "sha256": "5b7c07f8475e232d73975f012f63d2d67ce22ee5e5c60c59ac5dd7b919ae0526"
+    }
+  ],
+  "productionRestoreTested": false,
+  "privateBackupsVerified": false
+}

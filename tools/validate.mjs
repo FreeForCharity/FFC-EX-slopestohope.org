@@ -5,6 +5,7 @@ import {glob} from 'glob';
 import {within} from './migrate.mjs';
 import {EXCLUDED_ROUTES,REMOVED_CANDID_SEAL_LINKS} from './legacy-policy.mjs';
 import {POLICY_ROUTES} from './release-policy.mjs';
+import {LINK_REPLACEMENTS} from './link-policy.mjs';
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Set(['/open-positions/','/donations/slopes-to-hope']);
 const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
@@ -53,7 +54,8 @@ for(const r of publishedRoutes){
  }
  for(const l of r.links.filter(l=>/^https?:/.test(l.url)&&!new URL(l.url).hostname.endsWith('slopestohope.com'))){
   if(REMOVED_CANDID_SEAL_LINKS.has(l.url))continue;
-  if(![...d.querySelectorAll('a[href]')].some(a=>a.href===l.url))issues.push({path:r.path,error:'External destination changed',url:l.url});
+  const expected=LINK_REPLACEMENTS.get(l.url)||l.url;
+  if(![...d.querySelectorAll('a[href]')].some(a=>a.href===expected))issues.push({path:r.path,error:'External destination changed',url:l.url,expected});
  }
 }
 const legacyPattern=/community\s*across\s*america|communityacrossamerica|community[_-]?across[_-]?america|acrossamerica|\bcaa\b|community points|6413b7253c4a550011b7dd9a/i;
@@ -80,6 +82,16 @@ for(const route of POLICY_ROUTES){
 for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const html=await readFile(within(root,route.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
+ const ids=new Set();
+ for(const element of d.querySelectorAll('[id]')){
+  if(ids.has(element.id))issues.push({path:route.path,error:'Duplicate HTML ID',id:element.id});
+  ids.add(element.id);
+ }
+ const mobile=d.querySelector('.buddyx-mobile-menu ul.menu');
+ if(mobile&&(mobile.id!=='primary-menu-mobile'||d.querySelector('#menu-toggle')?.getAttribute('aria-controls')!==mobile.id))issues.push({path:route.path,error:'Mobile menu control does not identify its unique menu'});
+ if(route.path==='/gallery/')for(const link of d.querySelectorAll('a[data-elementor-open-lightbox="yes"]')){
+  if(!link.querySelector('img')?.alt.trim()||!link.getAttribute('aria-label')?.trim())issues.push({path:route.path,error:'Gallery photo or lightbox link lacks a description',url:link.getAttribute('href')});
+ }
  if(!d.querySelector('link[href="/assets/consent.css"]')||!d.querySelector('script[src="/assets/consent.js"]'))issues.push({path:route.path,error:'Consent assets missing'});
  if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Policy or cookie-settings footer control missing'});
  if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Uncontrolled analytics loader present in static HTML'});

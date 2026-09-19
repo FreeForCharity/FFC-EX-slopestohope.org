@@ -2,6 +2,8 @@ import {JSDOM, VirtualConsole} from 'jsdom';
 import {mkdir, readFile, writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {EXCLUDED_ROUTES} from './legacy-policy.mjs';
+import {applyAccessibility} from './accessibility.mjs';
+import {applyLinkRepairs} from './link-policy.mjs';
 
 export const POLICY_ROUTES=[
   {path:'/privacy-policy/',title:'Privacy Policy – Slopes to Hope'},
@@ -13,10 +15,13 @@ const hubSpotFormsLoader='https://js-na2.hsforms.net/forms/embed/244348981.js';
 const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b']);
 
 function serializeDocument(document){
+  while(document.body.lastChild?.nodeType===3&&!document.body.lastChild.textContent.trim())document.body.lastChild.remove();
   return ('<!DOCTYPE html>\n'+document.documentElement.outerHTML+'\n').replaceAll(`<script src="${hubSpotFormsLoader}" defer=""></script>`,`<script src="${hubSpotFormsLoader}" defer></script>`);
 }
 
 export function applyConsentAndPolicyLinks(document){
+  applyAccessibility(document);
+  applyLinkRepairs(document);
   document.querySelectorAll('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js,#leadin-script-loader-js-js-extra').forEach(node=>node.remove());
   document.querySelectorAll('#ea11y-widget-js-extra,#ea11y-widget-js').forEach(node=>node.remove());
   document.querySelectorAll('script:not([src])').forEach(script=>{

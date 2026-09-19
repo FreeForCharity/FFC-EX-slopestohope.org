@@ -1,3 +1,26 @@
+# Slopes to Hope — Current Repository Instructions
+
+> **Current override — September 19, 2026.** This repository no longer uses the Free For Charity template architecture described in the legacy section below. For all work in this repository, this section, the root `README.md`, and the current files under `migration/` take precedence. The legacy template instructions are retained below only as historical reference and must not govern implementation, testing, deployment, or file selection.
+
+## Current architecture and guardrails
+
+- Maintained website source: `public/`.
+- Generated export: `out/`. Never edit `out/` directly.
+- Production: GitHub Pages at `https://slopestohope.org`.
+- Production deployment: `.github/workflows/deploy.yml` validates/builds and publishes only `out/` after a push to `main`.
+- Runtime/tooling: Node 24, pnpm 10.34.5, and the frozen `pnpm-lock.yaml`.
+- Current published set: 11 routes plus the `/staff/` browser redirect described in `migration/README.md`.
+- Validation: run `pnpm run build`, `node --test tools/request-audit.test.mjs`, `pnpm run test:browser`, `pnpm run test:interactions`, and `pnpm run test:consent` as applicable. Use `SITE_ROOT=out` for testing the generated export.
+- Do not treat the old `html-site/`, Next.js, template subpath, or Free For Charity deployment instructions below as current production architecture.
+- Do not blindly recapture the WordPress `.com` site into this repository; approved `.org` adaptations can be overwritten. Follow `migration/maintenance.md` and `migration/README.md`.
+- Preserve the exact HubSpot form embeds, approved analytics/consent behavior, donation destinations, accessibility adaptations, and current validation policy unless a change is explicitly approved.
+- A merge to `main` deploys production and requires Drew's explicit approval. DNS, Cloudflare, CNAME, domain routing, Hostinger/WordPress, Google Workspace, hosting retirement, and similar production settings require separate explicit approval.
+- Current operational references: `README.md`, `migration/README.md`, `migration/maintenance.md`, `DEPLOYMENT.md`, and `migration/rollback-runbook.md`.
+
+---
+
+## Legacy Free For Charity template instructions — historical and non-operative
+
 # Free For Charity Web Application
 
 Free For Charity is deployed as a pure HTML static website to GitHub Pages at a subpath. The repository maintains both an HTML production version and a Next.js development version.
