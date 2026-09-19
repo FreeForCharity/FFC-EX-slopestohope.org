@@ -134,7 +134,7 @@ Manual deployments via `workflow_dispatch` **bypass** the CodeQL check and deplo
 
 ### ⚡ Fast Feedback
 - Tests and CodeQL run in parallel (~3-5 minutes combined)
-- Deploy completes in ~30 seconds  
+- Deploy completes in ~30 seconds
 - Total time: ~4-6 minutes from push to live site
 
 ### 🛠️ Flexibility
@@ -225,7 +225,7 @@ The current sequence ensures:
 - Use manual deployment sparingly
 - Keep workflows up to date with latest action versions
 
-### ❌ DON'T  
+### ❌ DON'T
 - Skip security checks to deploy faster
 - Ignore CodeQL alerts
 - Remove the workflow dependency

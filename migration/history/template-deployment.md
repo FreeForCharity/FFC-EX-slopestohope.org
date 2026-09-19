@@ -140,7 +140,7 @@ While automated deployment is recommended, manual deployment is straightforward.
    git push origin main
    ```
 
-5. **Verify deployment**: 
+5. **Verify deployment**:
    - Check GitHub Actions for workflow status
    - Visit the live site after deployment completes
 
@@ -391,4 +391,3 @@ Before deploying to production:
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [Custom Domain Setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
 - [Troubleshooting GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/troubleshooting-404-errors-for-github-pages-sites)
-

@@ -2,6 +2,8 @@
 
 Prepared September 19, 2026 on `codex/migration-closeout-2026-09-19`, based on released commit `81958410772660513037e0b55b53863a6508af7c` (PR #54). This is a reviewable branch; no production release or domain change was performed.
 
+Publication status: committed locally. Automatic approval review rejected the GitHub push because external publication to this repository needs explicit authorization. No push, draft PR, or remote CI run occurred. After Drew approves pushing this branch to FreeForCharity/FFC-EX-slopestohope.org and opening a draft PR, the package can receive remote CI review without merging or deploying.
+
 ## Completed
 
 - Researched 65 external Partners destinations. Replaced two access-limited Hyatt links with verified official pages for the same resorts. Preserved unresolved Change the Trend and challenged sites; [research and evidence](link-research.md).
