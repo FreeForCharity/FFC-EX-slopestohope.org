@@ -158,7 +158,7 @@
     var settings=document.querySelector('[data-open-cookie-settings]');
     function show(){panel.classList.add('is-visible');panel.querySelector('button').focus();}
     function hide(){panel.classList.remove('is-visible');if(settings)settings.focus({preventScroll:true});}
-    panel.addEventListener('click',function(event){var value=event.target&&event.target.getAttribute('data-consent');if(!value)return;remember(value);if(value==='granted')enableAnalytics();else disableAnalytics();hide();});
+    panel.addEventListener('click',function(event){var value=event.target&&event.target.getAttribute('data-consent');if(!value)return;var previous=preference();remember(value);if(value==='granted')enableAnalytics();else disableAnalytics();hide();if(value!==previous&&(value==='denied'||previous==='denied'))window.location.reload();});
     document.querySelectorAll('[data-open-cookie-settings]').forEach(function(button){button.addEventListener('click',show);});
     panel.addEventListener('keydown',function(event){if(event.key==='Escape')hide();});
     // Enable analytics by default unless the visitor previously opted out.
