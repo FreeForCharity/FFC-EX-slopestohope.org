@@ -8,7 +8,7 @@
   var analyticsLoaded=false;
 
   function cookiePreference(){
-    var match=document.cookie.match(/(?:^|;\\s*)sth_analytics=(granted|denied)(?:;|$)/);
+    var match=document.cookie.match(/(?:^|;\s*)sth_analytics=(granted|denied)(?:;|$)/);
     return match?match[1]:null;
   }
   function preference(){
