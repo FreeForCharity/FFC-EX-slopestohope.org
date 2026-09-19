@@ -98,7 +98,7 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
 }
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
-for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
+for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent','sth_analytics','cdn-cgi/rum'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
 const formEmbeds=[
  {path:'/',file:'index.html',id:'9a181260-20a9-408c-8591-cca3093d7e3f'},
  {path:'/contact-us/',file:'contact-us/index.html',id:'f35f941a-7978-41cc-aabc-4dc669ac9a0a'},
