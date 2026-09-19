@@ -1,3 +1,5 @@
+> Historical record: this document describes an earlier template or migration stage and is not the current operating procedure. See the [current migration runbook](README.md) for production architecture, consent behavior, route counts, and approval requirements.
+
 # Pre-launch audit
 
 Completed on 2026-09-11 for `website-migration-2026-09`. No production system, domain routing, deployment setting, form, donation, email, CRM record, or analytics event was changed.

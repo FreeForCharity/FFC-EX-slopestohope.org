@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-18T18:03:14.070Z",
+  "testedAt": "2026-09-19T16:07:10.580Z",
   "results": [
     {
       "name": "Hero respects reduced motion (1440)",
@@ -461,7 +461,7 @@
   ],
   "blockedWrites": [
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43297&rt=j",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36332&rt=j",
       "method": "POST"
     },
     {
@@ -493,11 +493,7 @@
       "method": "POST"
     },
     {
-      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43303&rt=j",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36338&rt=j",
       "method": "POST"
     },
     {
@@ -553,11 +549,7 @@
       "method": "POST"
     },
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43314&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36349&rt=j",
       "method": "POST"
     },
     {
@@ -565,15 +557,7 @@
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
     {
@@ -581,18 +565,6 @@
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
@@ -609,19 +581,11 @@
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
     {
@@ -629,71 +593,11 @@
       "method": "POST"
     },
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43322&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36357&rt=j",
       "method": "POST"
     },
     {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://graph.instagram.com/logging_client_events",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43330&rt=j",
       "method": "POST"
     },
     {
@@ -702,6 +606,42 @@
     },
     {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36365&rt=j",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://graph.instagram.com/logging_client_events",
       "method": "POST"
     },
     {
@@ -749,7 +689,7 @@
       "method": "POST"
     },
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43345&rt=j",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36381&rt=j",
       "method": "POST"
     },
     {
@@ -805,19 +745,15 @@
       "method": "POST"
     },
     {
-      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43351&rt=j",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36387&rt=j",
       "method": "POST"
     },
     {
       "url": "https://graph.instagram.com/logging_client_events",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -901,15 +837,23 @@
       "method": "POST"
     },
     {
-      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43362&rt=j",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36398&rt=j",
       "method": "POST"
     },
     {
       "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -921,18 +865,6 @@
       "method": "POST"
     },
     {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
       "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
@@ -949,11 +881,11 @@
       "method": "POST"
     },
     {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -998,10 +930,6 @@
     },
     {
       "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -1041,11 +969,19 @@
       "method": "POST"
     },
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43370&rt=j",
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36406&rt=j",
       "method": "POST"
     },
     {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
       "method": "POST"
     },
     {
@@ -1053,14 +989,6 @@
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
       "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
@@ -1133,7 +1061,7 @@
       "method": "POST"
     },
     {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -1157,27 +1085,19 @@
       "method": "POST"
     },
     {
-      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=43380&rt=j",
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://csp.withgoogle.com/csp/proto/06194a8f37177242d55a18e38c5a91c6",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.google.com/maps/d/gen204?cid=mme&_reqid=36416&rt=j",
       "method": "POST"
     },
     {
       "url": "https://graph.instagram.com/logging_client_events",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
-      "method": "POST"
-    },
-    {
-      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {
@@ -1185,27 +1105,39 @@
       "method": "POST"
     },
     {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
+      "url": "https://www.youtube.com/youtubei/v1/log_event?alt=json",
+      "method": "POST"
+    },
+    {
       "url": "https://google.com/recaptcha/enterprise/reload?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
       "method": "POST"
     },
     {
-      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
-      "method": "POST"
-    },
-    {
-      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
-      "method": "POST"
-    },
-    {
-      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
-      "method": "POST"
-    },
-    {
-      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
-      "method": "POST"
-    },
-    {
       "url": "https://exceptions-na2.hubspot.com/v2/api/store?sentry_key=eeb5bcc1447eba257645d7fee6f7a0b7",
+      "method": "POST"
+    },
+    {
+      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
+      "method": "POST"
+    },
+    {
+      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
+      "method": "POST"
+    },
+    {
+      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
+      "method": "POST"
+    },
+    {
+      "url": "https://google.com/recaptcha/enterprise/clr?k=6LdGZJsoAAAAAIwMJHRwqiAHA6A_6ZP6bTYpbgSX",
+      "method": "POST"
+    },
+    {
+      "url": "https://jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT",
       "method": "POST"
     },
     {

@@ -1,3 +1,5 @@
+> Historical record: this document describes an earlier template or migration stage and is not the current operating procedure. See the [current migration runbook](migration/README.md) for production architecture, consent behavior, route counts, and approval requirements.
+
 # Microsoft Form Setup
 
 ## Overview

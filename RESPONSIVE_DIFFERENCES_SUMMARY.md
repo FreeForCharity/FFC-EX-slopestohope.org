@@ -1,3 +1,5 @@
+> Historical record: this document describes an earlier template or migration stage and is not the current operating procedure. See the [current migration runbook](migration/README.md) for production architecture, consent behavior, route counts, and approval requirements.
+
 # Mobile Responsive Differences - Quick Reference Guide
 
 > **⚠️ HISTORICAL DOCUMENT**: This document describes the responsive layout differences that existed **before** the CSS fixes were implemented in this PR. All ❌ grid layout differences listed below have been **resolved**. The breakpoints have been updated from 640px to 768px to align with the React version.

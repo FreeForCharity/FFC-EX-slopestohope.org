@@ -1,0 +1,461 @@
+{
+  "testedAt": "2026-09-19T16:02:44.280Z",
+  "method": "GET only; no forms or payments submitted",
+  "results": [
+    {
+      "url": "http://coloradosprings.salvationarmy.org/",
+      "finalUrl": "https://www.salvationarmyusa.org/co/colorado-springs/yuma-street-corps/",
+      "status": 200,
+      "title": "Colorado Springs Corps Community Center",
+      "classification": "reachable"
+    },
+    {
+      "url": "http://hellyhansen.com/",
+      "finalUrl": "http://hellyhansen.com/",
+      "status": 403,
+      "title": "hellyhansen.com",
+      "classification": "access-limited"
+    },
+    {
+      "url": "http://intermountaineds.salvationarmy.org/",
+      "finalUrl": "https://intermountaineds.salvationarmy.org/",
+      "status": 200,
+      "title": "Emergency Disaster Services",
+      "classification": "reachable"
+    },
+    {
+      "url": "http://summithabitat.org/restore/",
+      "finalUrl": "http://summithabitat.org/",
+      "status": 200,
+      "title": "Summit Habitat for Humanity | ReStore",
+      "classification": "reachable"
+    },
+    {
+      "url": "http://www.blueskybreckenridge.com/",
+      "finalUrl": "https://blueskybreckenridge.com/",
+      "status": 200,
+      "title": "Home - BlueSky Breckenridge",
+      "classification": "reachable"
+    },
+    {
+      "url": "http://www.comministry-denver.org/",
+      "finalUrl": "http://www.comministry-denver.org/",
+      "status": 403,
+      "title": "Just a moment...",
+      "classification": "access-limited"
+    },
+    {
+      "url": "http://www.springsrescuemission.org/",
+      "finalUrl": "https://springsrescuemission.org/",
+      "status": 200,
+      "title": "Home I Transforming Lives",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://advancepathways.org/",
+      "finalUrl": "https://advancepathways.org/",
+      "status": 200,
+      "title": "Home - Advance Pathways",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://allroadsboco.org/",
+      "finalUrl": "https://allroadsboco.org/",
+      "status": 200,
+      "title": "Home - allroadsboco",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://allthewaywell.org/",
+      "finalUrl": "https://allthewaywell.org/",
+      "status": 200,
+      "title": "All The Way Well | Addiction and Mental Health Nonprofit",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://beaverrun.com/",
+      "finalUrl": "https://beaverrun.com/",
+      "status": 403,
+      "title": "Just a moment...",
+      "classification": "access-limited"
+    },
+    {
+      "url": "https://bridges.colorado.gov/",
+      "finalUrl": "https://bridges.colorado.gov/",
+      "status": 200,
+      "title": "Home | Bridges of Colorado",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://cedproject.org/",
+      "finalUrl": "https://cedproject.org/",
+      "status": 200,
+      "title": "Community Economic Defense Project",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://christsbody.org/",
+      "finalUrl": "https://christsbody.org/",
+      "status": 403,
+      "title": "403 - Forbidden",
+      "classification": "access-limited"
+    },
+    {
+      "url": "https://givebutter.com/slopes-to-hope",
+      "finalUrl": "https://givebutter.com/slopes-to-hope",
+      "status": 200,
+      "title": "Slopes to Hope",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://grandcolorado.com/",
+      "finalUrl": "https://grandcolorado.com/",
+      "status": 200,
+      "title": "Breckenridge Resort Lodging &amp; Vacations | Grand Colorado on Peak 8",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://havenridgeboulder.org/",
+      "finalUrl": "https://havenridgeboulder.org/",
+      "status": 200,
+      "title": "Haven Ridge",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://hazelbrookcommunity.org/",
+      "finalUrl": "https://hazelbrookcommunity.org/",
+      "status": 200,
+      "title": "Community Recovery Center at Denver - Hazelbrook Community Center",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://highcountryconservation.org/",
+      "finalUrl": "https://highcountryconservation.org/",
+      "status": 200,
+      "title": "Main Home - High Country Conservation Center",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://kalibercollision.com/",
+      "finalUrl": "https://kalibercollision.com/",
+      "status": 200,
+      "title": "Port Washington Auto Body Shop | Saukville Deer Hit Repair |Kaliber Collision Repair",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://mutualaidmonday.org/",
+      "finalUrl": "https://mutualaidmonday.org/",
+      "status": 200,
+      "title": "Home | Mutual Aid Monday | Denver, CO | Mutual Aid Monday",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://portal.clubrunner.ca/2193",
+      "finalUrl": "https://portal.clubrunner.ca/2193",
+      "status": 200,
+      "title": "\r\n    Home Page | Rotary Club of Denver Southeast\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://portal.clubrunner.ca/3759/",
+      "finalUrl": "https://portal.clubrunner.ca/3759/",
+      "status": 200,
+      "title": "\r\n    Home Page | Rotary Club of Littleton\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://rotaryclubhr.org/",
+      "finalUrl": "https://rotaryclubhr.org/",
+      "status": 200,
+      "title": "\r\n    Home Page | THE ROTARY CLUB OF HIGHLANDS RANCH\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://summitexecutivecleaning.com/",
+      "finalUrl": "https://summitexecutivecleaning.com/",
+      "status": 200,
+      "title": "",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://summitfirc.org/",
+      "finalUrl": "https://summitfirc.org/",
+      "status": 200,
+      "title": "FIRC | Summit County Resource Center - FIRC Summit County Resource Center",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://summitrotary.com/",
+      "finalUrl": "https://summitrotary.com/",
+      "status": 200,
+      "title": "\r\n    Home Page | Rotary Club of Summit County\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://summitvalleyhorsecenter.org/thrift-store",
+      "finalUrl": "https://summitvalleyhorsecenter.org/thrift-store",
+      "status": 200,
+      "title": "ReSaddled Thrift Store - Summit Valley Horse Center",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://thesilco.org/",
+      "finalUrl": "https://www.thesilco.org/",
+      "status": 200,
+      "title": "Professional Live Theatre &amp; Events in CO | Theatre SilCo",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://tnrs.care/",
+      "finalUrl": "https://tnrs.care/",
+      "status": 200,
+      "title": "Addiction &amp; Mental Health Treatment in Denver | True North Recovery Services",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://wcra.colorado.gov/",
+      "finalUrl": "https://wcra.colorado.gov/",
+      "status": 200,
+      "title": "Home | Colorado Rural Workforce Consortium",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.arapahoebasin.com/",
+      "finalUrl": "https://www.arapahoebasin.com/",
+      "status": 200,
+      "title": "Arapahoe Basin | Colorado Ski Resort",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.assistanceleague.org/denver/",
+      "finalUrl": "https://www.assistanceleague.org/chapter/denver/",
+      "status": 200,
+      "title": "Assistance League",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.bayaudworks.com/",
+      "finalUrl": "https://www.bayaudworks.com/",
+      "status": 200,
+      "title": "Bayaud Works - Bayaud Works",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.boulderflatironsrotary.org/",
+      "finalUrl": "https://www.boulderflatironsrotary.org/",
+      "status": 200,
+      "title": "Boulder Flatirons Rotary Club",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.breckenridge.com/",
+      "finalUrl": "https://www.breckenridge.com/",
+      "status": 200,
+      "title": "Skiing, Snowboarding &amp; Mountain Town Energy | Breckenridge Resort",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.breckenridgenordic.com/",
+      "finalUrl": "https://www.breckenridgenordic.com/",
+      "status": 200,
+      "title": "Home | Breckenridge Nordic Center",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.breckenridgerecreation.com/",
+      "finalUrl": "https://www.breckenridgerecreation.com/",
+      "status": 200,
+      "title": "\r\n\t\r\n    Breckenridge Recreation | Home\r\n\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.breckenridgeresortmanagers.com/",
+      "finalUrl": "https://www.breckenridgeresortmanagers.com/",
+      "status": 200,
+      "title": "Breckenridge Vacation Rentals | Cabins, Condos & Ski-In Ski-Out | Breckenridge Resort Managers",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.changethetrend.com/",
+      "finalUrl": "https://www.changethetrend.com/",
+      "status": 400,
+      "title": "Invalid URL",
+      "classification": "needs-review"
+    },
+    {
+      "url": "https://www.cherrycreekrotary.org/",
+      "finalUrl": "https://www.cherrycreekrotary.org/",
+      "status": 200,
+      "title": "\r\n    Home Page | Rotary Club of Denver Cherry Creek\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.crutches4africa.org/",
+      "finalUrl": "https://www.crutches4africa.org/",
+      "status": 200,
+      "title": "CRUTCHES 4 AFRICA - Home",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.dillonchurch.org/",
+      "finalUrl": "https://www.dillonchurch.org/",
+      "status": 200,
+      "title": "Dillon Community Church",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.elks.org/Lodges/home.cfm?LodgeNumber=2561",
+      "finalUrl": "https://www.elks.org/Lodges/home.cfm?LodgeNumber=2561",
+      "status": 200,
+      "title": "Lodge #2561 Welcome",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.englewoodco.gov/government/city-departments/police",
+      "finalUrl": "https://www.englewoodco.gov/government/city-departments/police",
+      "status": 200,
+      "title": "\r\n\t\r\n    Police | City of Englewood, Colorado\r\n\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.facebook.com/p/OGs-Thrift-Threadz-61568718639952/",
+      "finalUrl": "https://www.facebook.com/p/OGs-Thrift-Threadz-61568718639952/",
+      "status": 200,
+      "title": "OG&#039;s Thrift &amp; Threadz | Silverthorne CO",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.grandlodgeonpeak7.com/",
+      "finalUrl": "https://www.grandlodgeonpeak7.com/",
+      "status": 200,
+      "title": "Breckenridge Hotel Lodging | Grand Lodge on Peak 7 | Ski Resort",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.grandtimber.com/",
+      "finalUrl": "https://www.grandtimber.com/",
+      "status": 200,
+      "title": "Breckenridge Hotel Lodging | Grand Timber Lodge | Ski Resort",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.gwlodging.com/",
+      "finalUrl": "https://www.gwlodging.com/",
+      "status": 200,
+      "title": "Breckenridge Vacation Rentals | Rental Management & Lodging Company",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.haatforce.org/",
+      "finalUrl": "https://haatforce.org/",
+      "status": 200,
+      "title": "HAAT Force | Homelessness Awareness and Action Task Force",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.hilton.com/en/hotels/qkbbrqq-alpenrock-breckenridge",
+      "finalUrl": "https://www.hilton.com/en/hotels/qkbbrqq-alpenrock-breckenridge/",
+      "status": 403,
+      "title": "Hilton Page Reference Code",
+      "classification": "access-limited"
+    },
+    {
+      "url": "https://www.hotelfrisco.com/",
+      "finalUrl": "https://www.hotelfrisco.com/",
+      "status": 200,
+      "title": "Hotel Frisco Colorado",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.hyatt.com/hyatt-vacation-club/en-US/bresh-the-residences-at-main-street-station",
+      "finalUrl": "https://www.hyatt.com/hyatt-vacation-club/en-US/bresh-the-residences-at-main-street-station",
+      "status": 429,
+      "title": "",
+      "classification": "access-limited"
+    },
+    {
+      "url": "https://www.hyatt.com/hyatt-vacation-club/en-US/bresr-hyatt-vacation-club-at-the-ranahan",
+      "finalUrl": "https://www.hyatt.com/hyatt-vacation-club/en-US/bresr-hyatt-vacation-club-at-the-ranahan",
+      "status": 429,
+      "title": "",
+      "classification": "access-limited"
+    },
+    {
+      "url": "https://www.keystoneresort.com/",
+      "finalUrl": "https://www.keystoneresort.com/",
+      "status": 200,
+      "title": "Keystone Resort | Keystone Ski Resort",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.marriott.com/en-us/hotels/qkbvi-marriotts-mountain-valley-lodge-at-breckenridge/overview/",
+      "finalUrl": "https://www.marriott.com/en-us/hotels/qkbvi-marriotts-mountain-valley-lodge-at-breckenridge/overview/",
+      "status": 403,
+      "title": "Access Denied",
+      "classification": "access-limited"
+    },
+    {
+      "url": "https://www.rotary5450.org/",
+      "finalUrl": "https://www.rotary5450.org/",
+      "status": 200,
+      "title": "\r\n    Home Page | District 5450\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.rotaryclubofcastlerock.org/",
+      "finalUrl": "https://www.rotaryclubofcastlerock.org/",
+      "status": 200,
+      "title": "\r\n    Home Page | Rotary Club of Castle Rock\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.scrg.org/",
+      "finalUrl": "https://www.scrg.org/",
+      "status": 200,
+      "title": "Summit County Rescue Group - Mountain Rescue for Breckenridge, Frisco, Silverthorne, and Dillon Colorado",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.spinnakerlakedillon.com/",
+      "finalUrl": "https://www.spinnakerlakedillon.com/",
+      "status": 200,
+      "title": "Home | Urban Nomad Adventures",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.ssd2.org/",
+      "finalUrl": "https://www.ssd2.org/",
+      "status": 200,
+      "title": "Sheridan School District 2",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.summitrotary.com/page/adopt-an-angel",
+      "finalUrl": "https://www.summitrotary.com/page/adopt-an-angel",
+      "status": 200,
+      "title": "\r\n    Adopt An Angel  | Rotary Club of Summit County\r\n",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.thevillageatbreckenridge.org/",
+      "finalUrl": "https://www.thevillageatbreckenridge.org/",
+      "status": 200,
+      "title": "Village at Breckenridge",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.townoffrisco.com/",
+      "finalUrl": "https://www.townoffrisco.com/",
+      "status": 200,
+      "title": "Town of Frisco &#8211; Mountain Thrills, Town Charm",
+      "classification": "reachable"
+    },
+    {
+      "url": "https://www.vailedwardsrotary.com/",
+      "finalUrl": "https://www.vailedwardsrotary.com/",
+      "status": 200,
+      "title": "\r\n    Home Page | Vail Edwards Rotary Club \r\n",
+      "classification": "reachable"
+    }
+  ]
+}

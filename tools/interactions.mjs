@@ -1,9 +1,10 @@
 import {chromium} from 'playwright';
 import {serve} from './serve.mjs';
-import {readFile,writeFile} from 'node:fs/promises';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {mirrorAsset} from './migrate.mjs';
 const sync=process.argv.includes('--sync');
+await mkdir('.migration-cache/screenshots',{recursive:true});
 const requestedWidth=Number(process.argv.find(a=>a.startsWith('--width='))?.slice(8)||0);
 const server=await serve(resolve(process.env.SITE_ROOT||'public'));
 const base=`http://127.0.0.1:${server.address().port}`;
@@ -76,8 +77,10 @@ await check(`Hero remains paused when hover ends while focus remains (${width})`
 });
 await motionCtx.close();
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{
- await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);
+ await tab.locator('#menu-toggle').focus();await tab.keyboard.press('Enter');await tab.waitForTimeout(300);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='true','Menu did not expand');
+ assert(await tab.locator('#menu-toggle').getAttribute('aria-controls')==='primary-menu-mobile','Menu button controls the wrong menu');
+ assert(await tab.locator('#primary-menu-mobile').isVisible(),'Controlled mobile menu is not visible');
  const link=tab.locator('.buddyx-mobile-menu a').filter({hasText:/^Partners$/}).first();await link.click();await tab.waitForURL('**/partners/');await tab.waitForTimeout(1000);
  await tab.locator('#menu-toggle').click();await tab.waitForTimeout(300);await tab.locator('.menu-close').click();await tab.waitForTimeout(200);
  assert(await tab.locator('#menu-toggle').getAttribute('aria-expanded')==='false','Menu did not close');
@@ -99,7 +102,10 @@ await check(`Donation and pledge destinations unchanged (${width})`,async()=>{
 });
 await tab.goto(base+'/gallery/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);
 await check(`Gallery opens, advances, and closes with Escape (${width})`,async()=>{
- await tab.locator('a[data-elementor-open-lightbox="yes"]').first().click();
+ const photo=tab.locator('a[data-elementor-open-lightbox="yes"]').first();
+ assert((await photo.getAttribute('aria-label'))?.startsWith('Open photo: '),'Gallery link is unnamed');
+ assert((await photo.locator('img').getAttribute('alt'))?.trim(),'Gallery image description is empty');
+ await photo.focus();await tab.keyboard.press('Enter');
  const dialog=tab.locator('.elementor-lightbox');await dialog.waitFor({state:'visible',timeout:10000});await tab.waitForTimeout(1500);
  const img=dialog.locator('.swiper-slide-active img').first();await img.waitFor({state:'visible'});
  const first=await img.getAttribute('src');assert(await img.evaluate(i=>i.complete&&i.naturalWidth>0),'Lightbox image not loaded');

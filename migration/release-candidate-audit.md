@@ -1,3 +1,5 @@
+> Historical record: this document describes an earlier template or migration stage and is not the current operating procedure. See the [current migration runbook](README.md) for production architecture, consent behavior, route counts, and approval requirements.
+
 # Release-candidate audit
 
 Originally prepared on 2026-09-11 and updated through 2026-09-18 on the migration review branch. No merge, deployment, DNS change, CNAME change, GitHub Pages domain change, or domain cutover was performed.
