@@ -8,7 +8,7 @@ This repository contains the **Free For Charity** website built with Jekyll, a s
 
 - 🌐 **[Live Site](https://freeforcharity.github.io/FFC-IN-Single_Page_Template_Jekell/)** - GitHub Pages deployment
 - 📖 **[Jekyll Documentation](https://jekyllrb.com/docs/)** - Learn about Jekyll
-- 🔄 **[Conversion History](./HTML_CONVERSION_SUMMARY.md)** - Documentation of previous conversions
+- 🔄 **[Conversion History](../../HTML_CONVERSION_SUMMARY.md)** - Documentation of previous conversions
 
 ---
 
@@ -211,13 +211,13 @@ The legacy HTML version is preserved in the `html-site/` directory for reference
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+See [CONTRIBUTING.md](../../CONTRIBUTING.md) for guidelines on how to contribute to this project.
 
 ---
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](../../LICENSE) file for details.
 
 ---
 
@@ -235,19 +235,19 @@ This repository follows **Cloud Native Computing Foundation (CNCF)** standards f
 
 ### Project Governance and Policies
 
-- 📜 **[LICENSE](./LICENSE)** - Apache 2.0 open source license
-- �� **[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)** - Community standards (Contributor Covenant 2.1)
-- ⚖️ **[GOVERNANCE.md](./GOVERNANCE.md)** - Decision-making processes
-- 👥 **[MAINTAINERS.md](./MAINTAINERS.md)** - Repository maintainers and their roles
-- �� **[CONTRIBUTORS.md](./CONTRIBUTORS.md)** - Recognition of all contributors
-- 🔒 **[SECURITY.md](./SECURITY.md)** - Vulnerability reporting and security practices
-- 🛡️ **[THREAT-MODEL.md](./THREAT-MODEL.md)** - Security threat analysis
-- 🌟 **[ADOPTERS.md](./ADOPTERS.md)** - Organizations using this template
-- 🤝 **[CONTRIBUTING.md](./CONTRIBUTING.md)** - How to contribute
-- 💬 **[SUPPORT.md](./SUPPORT.md)** - How to get help
-- 🔗 **[EXTERNAL_DEPENDENCIES.md](./EXTERNAL_DEPENDENCIES.md)** - Third-party services
-- 📖 **[CITATION.cff](./CITATION.cff)** - Citation information for academic use
-- 📝 **[CHANGELOG.md](./CHANGELOG.md)** - Release notes and version history
+- 📜 **[LICENSE](../../LICENSE)** - Apache 2.0 open source license
+- �� **[CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md)** - Community standards (Contributor Covenant 2.1)
+- ⚖️ **[GOVERNANCE.md](../../GOVERNANCE.md)** - Decision-making processes
+- 👥 **[MAINTAINERS.md](../../MAINTAINERS.md)** - Repository maintainers and their roles
+- �� **[CONTRIBUTORS.md](../../CONTRIBUTORS.md)** - Recognition of all contributors
+- 🔒 **[SECURITY.md](../../SECURITY.md)** - Vulnerability reporting and security practices
+- 🛡️ **[THREAT-MODEL.md](../../THREAT-MODEL.md)** - Security threat analysis
+- 🌟 **[ADOPTERS.md](../../ADOPTERS.md)** - Organizations using this template
+- 🤝 **[CONTRIBUTING.md](../../CONTRIBUTING.md)** - How to contribute
+- 💬 **[SUPPORT.md](../../SUPPORT.md)** - How to get help
+- 🔗 **[EXTERNAL_DEPENDENCIES.md](../../EXTERNAL_DEPENDENCIES.md)** - Third-party services
+- 📖 **[CITATION.cff](../../CITATION.cff)** - Citation information for academic use
+- 📝 **[CHANGELOG.md](../../CHANGELOG.md)** - Release notes and version history
 
 **Why CNCF Alignment?** Following CNCF standards strengthens project credibility, simplifies onboarding of contributors, and prepares us for cloud-native ecosystem integrations.
 
@@ -259,6 +259,6 @@ This repository has evolved through several technology stacks:
 1. **React/Next.js Application** → **Pure HTML/CSS/JavaScript** → **Jekyll Static Site**
 
 The Jekyll conversion maintains all functionality while adding benefits of a static site generator. For details on previous conversions:
-- [HTML Conversion Summary](./HTML_CONVERSION_SUMMARY.md)
-- [HTML Conversion Assessment](./HTML_CONVERSION_ASSESSMENT.md)
-- [HTML Conversion Verification](./HTML_CONVERSION_VERIFICATION.md)
+- [HTML Conversion Summary](../../HTML_CONVERSION_SUMMARY.md)
+- [HTML Conversion Assessment](../../HTML_CONVERSION_ASSESSMENT.md)
+- [HTML Conversion Verification](../../HTML_CONVERSION_VERIFICATION.md)
