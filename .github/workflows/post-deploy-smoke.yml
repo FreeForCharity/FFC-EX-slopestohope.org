@@ -257,8 +257,9 @@ jobs:
           SMOKE_REQUIRE_COOKIE_CONSENT: ${{ vars.SMOKE_REQUIRE_COOKIE_CONSENT }}
           # Donations are a first-class feature of every charity site.
           # SMOKE_DONATION_SCOPE declares the site's donation posture:
-          #   charity     - charity-specific Zeffy campaign expected (default for live sites)
-          #   ffc-interim - temporarily using a Free For Charity campaign; smoke stays
+          #   charity     - charity-specific donation destinations expected (default for live sites);
+          #                 Slopes to Hope separately tracks Zeffy as an additional provider
+          #   ffc-interim - temporarily using a Free For Charity Zeffy campaign; smoke stays
           #                 green but a standing donation-interim issue is kept open
           #                 until replaced with the charity's own campaign
           #   none        - site intentionally has no donations (suppresses the
@@ -384,12 +385,11 @@ jobs:
               return out;
             }, PROVIDERS).catch(() => []);
             // Donation surfaces often live on subpages (/membership, /donate)
-            // rather than the homepage (first case: MCHS's PayPal membership
-            // page). When the homepage shows nothing, sweep the sitemap routes'
-            // served HTML (bounded) for provider hosts — presence anywhere on
-            // the site counts.
+            // rather than the homepage. Sweep the sitemap whenever Zeffy is not
+            // already visible on the homepage so an added Zeffy surface is
+            // detected even while Givebutter remains site-wide.
             const sitewideProviders = new Set(donationSurfaces.map(s => s.provider));
-            if (donationSurfaces.length === 0) {
+            if (!sitewideProviders.has('zeffy')) {
               try {
                 const base = url.replace(/\/$/, '');
                 let routes = [];
@@ -409,7 +409,7 @@ jobs:
                       }
                     }
                   } catch { /* route fetch failed; sitemap check covers that */ }
-                  if (sitewideProviders.size > 0) break;
+                  if (sitewideProviders.has('zeffy')) break;
                 }
               } catch (e) { console.log('site-wide donation sweep skipped:', e.message); }
             }
