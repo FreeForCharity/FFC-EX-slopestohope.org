@@ -265,7 +265,9 @@ jobs:
           #   none        - site intentionally has no donations (suppresses the
           #                 no-donation-capability failure)
           SMOKE_DONATION_SCOPE: ${{ vars.SMOKE_DONATION_SCOPE }}
-          # Legacy (v3.2): require at least one Zeffy iframe embed specifically.
+          # Legacy (v3.2): on the ffc-interim posture only, require at least
+          # one Zeffy iframe embed specifically. It must not block a charity site
+          # while its separate Zeffy destination is still unresolved.
           SMOKE_REQUIRE_DONATION_EMBED: ${{ vars.SMOKE_REQUIRE_DONATION_EMBED }}
           # 'true' on template repos: their sites ARE the template default.
           SMOKE_ALLOW_TEMPLATE_DEFAULT: ${{ (contains(github.repository, 'Template') || steps.url.outputs.mode == 'default') && 'true' || 'false' }}
@@ -461,8 +463,8 @@ jobs:
             const donationScope = String(process.env.SMOKE_DONATION_SCOPE || '').toLowerCase();
             const requireDonation = String(process.env.SMOKE_REQUIRE_DONATION_EMBED || '').toLowerCase() === 'true';
             const donationChecks = [];
-            if (requireDonation && donationEmbeds.length === 0) {
-              complianceFailures.push('SMOKE_REQUIRE_DONATION_EMBED=true but no Zeffy iframe found on the page');
+            if (requireDonation && donationScope === 'ffc-interim' && donationEmbeds.length === 0) {
+              complianceFailures.push('SMOKE_REQUIRE_DONATION_EMBED=true with ffc-interim scope but no Zeffy iframe found on the page');
             }
             // Donation posture:
             //   no surfaces at all           -> HARD FAILURE (unless scope 'none')
