@@ -34,6 +34,7 @@ export function applyConsentAndPolicyLinks(document){
     document.querySelectorAll('script[src^="https://js-na2.hsforms.net/forms/embed/"]').forEach(node=>node.remove());
     const loader=document.createElement('script');loader.src=hubSpotFormsLoader;loader.defer=true;formFrame.before(loader);
   }
+  if(!document.querySelector('meta[property="og:image"]')){const meta=document.createElement('meta');meta.setAttribute('property','og:image');meta.setAttribute('content','https://slopestohope.org/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png');document.head.appendChild(meta);}
   if(!document.querySelector('link[href="/assets/consent.css"]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/assets/consent.css';document.head.appendChild(link);}
   const footer=document.querySelector('.site-info .container');
   if(footer&&!footer.querySelector('.sth-footer-links'))footer.insertAdjacentHTML('beforeend',footerLinks);
@@ -51,7 +52,7 @@ const termsBody=`<h1>Terms of Service</h1><p><strong>Effective September 19, 202
 
 function policyHtml(route,body){
   const description=route.path==='/privacy-policy/'?'Read how Slopes to Hope handles website analytics, cookies, forms, and third-party services.':'Review the terms that apply when using the Slopes to Hope website and linked third-party services.';
-  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><script src="/assets/consent.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>${route.title}</title><meta name="description" content="${description}"><meta name="robots" content="max-image-preview:large"><link rel="canonical" href="https://slopestohope.org${route.path}"><meta property="og:url" content="https://slopestohope.org${route.path}"><meta property="og:description" content="${description}"><link rel="stylesheet" href="/assets/policy.css"><link rel="stylesheet" href="/assets/consent.css"></head><body class="sth-policy-page">${header}<main class="sth-policy-main">${body}</main>${footer}</body></html>\n`;
+  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><script src="/assets/consent.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>${route.title}</title><meta name="description" content="${description}"><meta name="robots" content="max-image-preview:large"><link rel="canonical" href="https://slopestohope.org${route.path}"><meta property="og:url" content="https://slopestohope.org${route.path}"><meta property="og:description" content="${description}"><meta property="og:image" content="https://slopestohope.org/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png"><link rel="stylesheet" href="/assets/policy.css"><link rel="stylesheet" href="/assets/consent.css"></head><body class="sth-policy-page">${header}<main class="sth-policy-main">${body}</main>${footer}</body></html>\n`;
 }
 
 export async function applyReleasePolicy(root='public'){
