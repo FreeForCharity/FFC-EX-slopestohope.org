@@ -29,8 +29,10 @@ jobs:
           node-version: '24'
           cache: pnpm
 
-      - name: Regenerate lockfile
-        run: pnpm install --lockfile-only --no-frozen-lockfile
+      - name: Regenerate lockfile from scratch
+        run: |
+          rm -f pnpm-lock.yaml
+          pnpm install --lockfile-only --no-frozen-lockfile
 
       - name: Commit exact generated lockfile
         env:
