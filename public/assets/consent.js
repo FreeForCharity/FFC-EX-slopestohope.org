@@ -43,8 +43,12 @@
     var saved=preference();
     return saved==='denied'||(saved===null&&regionDecision!=='allowed');
   }
+  function rumScriptMustBeRemoved(){
+    var saved=preference();
+    return saved==='denied'||regionDecision==='blocked';
+  }
   function removeCloudflareRumScripts(root){
-    if(!analyticsDenied())return;
+    if(!rumScriptMustBeRemoved())return;
     (root||document).querySelectorAll?.('script[src*="static.cloudflareinsights.com/beacon.min.js"]').forEach(function(script){script.remove();});
   }
   function installCloudflareRumGuard(){
@@ -86,7 +90,7 @@
     removeCloudflareRumScripts(document);
     if(window.MutationObserver&&document.documentElement){
       new MutationObserver(function(records){
-        if(!analyticsDenied())return;
+        if(!rumScriptMustBeRemoved())return;
         records.forEach(function(record){
           record.addedNodes.forEach(function(node){
             if(node.nodeType!==1)return;
@@ -221,7 +225,7 @@
       return;
     }
 
-    disableAnalytics();
+    regionDecision='pending';
     detectCountry().then(function(country){
       var current=preference();
       if(current==='denied'){disableAnalytics();markReady('saved-denied');return;}
