@@ -25,7 +25,13 @@ for(const r of publishedRoutes){
  text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,footer [data-open-cookie-settings]').forEach(e=>e.remove());
  let bodyText=normalize(text.body.textContent);
  if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised$25,000 goal','$8,068.03');
- if(r.path==='/faq/') {
+ if(r.path==='/coosummit26/'){
+   const approvedHeading='COO Summit 2026: Complimentary Concierge Pickup';
+   const approvedParagraph="Complete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.";
+   const expectedBodyText=normalize(r.bodyText.replace(approvedHeading+approvedParagraph,''));
+   bodyText=normalize(bodyText.replace(approvedHeading,''));
+   if(bodyText!==expectedBodyText)issues.push({path:r.path,error:'Approved COO Summit visible-content adaptation changed'});
+ } else if(r.path==='/faq/') {
    const faq=d.querySelector('[data-elementor-id="3827"]');
    if(!faq)issues.push({path:r.path,error:'FAQ content container missing'});
    else {
@@ -126,7 +132,7 @@ for(const form of formEmbeds){
  if(d.querySelectorAll('h1').length!==1||normalize(d.querySelector('h1')?.textContent||'')!=='COO Summit 2026: Complimentary Concierge Pickup')issues.push({path:'/coosummit26/',error:'COO Summit must have exactly one correct H1'});
  if(d.querySelector('meta[name="description"]')?.content!==description||d.querySelector('meta[property="og:description"]')?.content!==description)issues.push({path:'/coosummit26/',error:'COO Summit description metadata changed'});
  if(d.querySelector('meta[property="og:title"]')?.content!=='COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph title changed'});
- if(d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope'||d.querySelector('meta[property="og:image"]')?.content!=='https://slopestohope.org/wp-content/uploads/2023/03/hannah-busing-Zyx1bK9mqmA-unsplash-scaled-600x400.jpg')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph metadata incomplete'});
+ if(d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope'||d.querySelector('meta[property="og:image"]')?.content!=='https://slopestohope.org/assets/coosummit26-marriott-2026.webp')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph metadata incomplete'});
  if(/Contact%20Us|"page_permalink":"\/contact-us\/"|postId:"71"|context:\{"id":71,"type":"post"\}|data-elementor-id="71"|elementor-71/.test(html))issues.push({path:'/coosummit26/',error:'Contact Us runtime metadata remains'});
  if(/user-scalable\s*=\s*no|maximum-scale\s*=\s*1(?:\.0)?/.test(d.querySelector('meta[name="viewport"]')?.content||''))issues.push({path:'/coosummit26/',error:'COO Summit viewport prevents browser zoom'});
  if(!formWidget?.previousElementSibling?.matches('[data-widget_type="image.default"]'))issues.push({path:'/coosummit26/',error:'COO Summit form is not immediately after the picture'});
