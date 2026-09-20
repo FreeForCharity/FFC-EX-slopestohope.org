@@ -1,6 +1,6 @@
 # Current migration runbook
 
-Updated September 19, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete. Verify current routing before future production work.
+Updated September 20, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete. Verify current routing before future production work.
 
 ## Architecture
 
@@ -19,11 +19,11 @@ Original Elementor/BuddyX runtimes and mirrored media preserve presentation. App
 | COO Summit | HubSpot `05a4b6fe-6b23-433e-bf08-e667071c8d3b` |
 | Portal | `244348981`, region `na2`, exact adjacent loader/frame snippet |
 | Measurement | Google tag `GT-MKTP8299`, GA4 `G-XEWDW3TYVZ` |
-| Preferences | Google/HubSpot analytics enabled by default; footer settings permit decline/re-enable; advertising consent denied |
+| Preferences | Google/HubSpot analytics are enabled by default where prior consent is not required. EEA/UK and covered EU outermost-region visitors receive a prior-consent prompt and analytics remains off until accepted. A failed region lookup also fails closed to the prompt. Footer settings permit decline/re-enable everywhere; advertising consent remains denied. |
 | Giving | Givebutter and RallyUp are the approved website fundraising providers. Do not add another provider without Drew's explicit approval. |
 | Other content | Captured maps, social links, Instagram, and other third-party embeds |
 
-Owner decision September 19, 2026: declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. The site-side consent guard now blocks Cloudflare RUM reporting when the saved preference is denied and stores the same choice in the first-party `sth_analytics` cookie. The remaining Cloudflare account rule is: Configuration Rule expression `http.cookie contains "sth_analytics=denied"`, with **Disable Real User Monitoring (RUM)** enabled (`disable_rum=true`). This prevents Cloudflare from injecting RUM on later requests carrying the declined preference. This documents implementation, not legal compliance.
+Owner decision September 20, 2026: analytics should run by default where prior consent is not required, while visitors in regions requiring prior consent must see the prompt before optional analytics starts. Declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. The site uses Cloudflare's same-origin `/cdn-cgi/trace` country code for the regional gate, fails closed to the consent prompt if region lookup fails, blocks Cloudflare RUM while consent is absent/denied in a prior-consent region, and stores explicit choices in the first-party `sth_analytics` cookie. The remaining Cloudflare account rule is: Configuration Rule expression `http.cookie contains "sth_analytics=denied"`, with **Disable Real User Monitoring (RUM)** enabled (`disable_rum=true`). This prevents Cloudflare from injecting RUM on later requests carrying the declined preference. This documents implementation, not legal compliance.
 
 ## Maintenance and evidence
 
