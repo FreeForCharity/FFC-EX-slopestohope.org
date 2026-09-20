@@ -175,7 +175,8 @@
       if(!response.ok)return null;
       var text=await response.text();
       var match=text.match(/(?:^|\n)loc=([A-Z]{2})(?:\n|$)/);
-      return match?match[1]:null;
+      var country=match?match[1]:null;
+      return country&&country!=='XX'&&country!=='ZZ'?country:null;
     }catch(_error){return null;}
     finally{if(timeout)clearTimeout(timeout);}
   }
