@@ -42,11 +42,8 @@
         ((url.hostname===location.hostname||url.hostname==='cloudflareinsights.com')&&url.pathname==='/cdn-cgi/rum');
     }catch(_error){return false;}
   }
-  function analyticsDenied(){return !analyticsAllowed||preference()==='denied';}
-  function rumScriptMustBeRemoved(){
-    var mode=document.documentElement.dataset.analyticsRegionMode||'';
-    return preference()==='denied'||mode==='prior-consent'||mode==='prior-consent-fallback';
-  }
+  function analyticsDenied(){return !analyticsAllowed;}
+  function rumScriptMustBeRemoved(){return !analyticsAllowed;}
   function removeCloudflareRumScripts(root){
     if(!rumScriptMustBeRemoved())return;
     (root||document).querySelectorAll?.('script[src*="static.cloudflareinsights.com/beacon.min.js"]').forEach(function(script){script.remove();});
