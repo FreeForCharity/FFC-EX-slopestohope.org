@@ -104,7 +104,7 @@
   window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
   var savedPreference=preference();
   if(savedPreference)writePreferenceCookie(savedPreference);
-  window.gtag('consent','default',{analytics_storage:savedPreference==='granted'?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+  window.gtag('consent','default',{analytics_storage:savedPreference==='granted'?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',personalization_storage:'denied'});
 
   function loadScript(id,src){if(document.getElementById(id))return;var script=document.createElement('script');script.id=id;script.async=true;script.src=src;document.head.appendChild(script);}
   function hubSpotQueues(){
