@@ -29,6 +29,7 @@ for(const width of [1440,390])for(const r of routes){
   const requestAudit=createRequestAudit(base);
   await ctx.route('**/*',async route=>{
     const req=route.request(),u=new URL(req.url());
+    if(!live&&u.origin===base&&u.pathname==='/cdn-cgi/trace')return route.fulfill({status:200,contentType:'text/plain',body:'fl=test\nloc=US\n'});
     if(!['GET','HEAD'].includes(req.method())){requestAudit.block(req);record.blockedWrites.push({url:req.url(),method:req.method()});return route.abort();}
     // Do not generate analytics events or submit forms during automated QA.
     if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq/.test(req.url())){requestAudit.block(req);return route.abort();}

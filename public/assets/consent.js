@@ -5,7 +5,9 @@
   var TAG_ID='GT-MKTP8299';
   var MEASUREMENT_ID='G-XEWDW3TYVZ';
   var HUBSPOT_PORTAL_ID='244348981';
+  var PRIOR_CONSENT_COUNTRIES=new Set(['AT','BE','BG','HR','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK','IS','LI','NO','GB','GG','JE','IM']);
   var analyticsLoaded=false;
+  var regionDecision='pending';
 
   function cookiePreference(){
     var match=document.cookie.match(/(?:^|;\s*)sth_analytics=(granted|denied)(?:;|$)/);
@@ -37,7 +39,10 @@
         ((url.hostname===location.hostname||url.hostname==='cloudflareinsights.com')&&url.pathname==='/cdn-cgi/rum');
     }catch(_error){return false;}
   }
-  function analyticsDenied(){return preference()==='denied';}
+  function analyticsDenied(){
+    var saved=preference();
+    return saved==='denied'||(saved===null&&regionDecision!=='allowed');
+  }
   function removeCloudflareRumScripts(root){
     if(!analyticsDenied())return;
     (root||document).querySelectorAll?.('script[src*="static.cloudflareinsights.com/beacon.min.js"]').forEach(function(script){script.remove();});
@@ -99,7 +104,7 @@
   window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
   var savedPreference=preference();
   if(savedPreference)writePreferenceCookie(savedPreference);
-  window.gtag('consent','default',{analytics_storage:savedPreference==='denied'?'denied':'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+  window.gtag('consent','default',{analytics_storage:savedPreference==='granted'?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',personalization_storage:'denied'});
 
   function loadScript(id,src){if(document.getElementById(id))return;var script=document.createElement('script');script.id=id;script.async=true;script.src=src;document.head.appendChild(script);}
   function hubSpotQueues(){
@@ -119,7 +124,17 @@
     queues.privacy.push(['setHubSpotConsent',{analytics:false,advertisement:false,functionality:true}]);
     queues.privacy.push(['revokeCookieConsent']);
   }
+  function deleteGoogleAnalyticsCookies(){
+    document.cookie.split(';').forEach(function(cookie){
+      var name=cookie.split('=')[0].trim();
+      if(name==='_ga'||name.indexOf('_ga_')===0){
+        document.cookie=name+'=; Path=/; Max-Age=0; SameSite=Lax';
+      }
+    });
+  }
   function enableAnalytics(){
+    regionDecision='allowed';
+    window['ga-disable-'+MEASUREMENT_ID]=false;
     window.gtag('consent','update',{analytics_storage:'granted'});
     enableHubSpotTracking();
     if(analyticsLoaded)return;
@@ -131,11 +146,36 @@
     document.documentElement.dataset.analyticsMeasurementId=MEASUREMENT_ID;
   }
   function disableAnalytics(){
+    regionDecision='blocked';
+    window['ga-disable-'+MEASUREMENT_ID]=true;
     window.gtag('consent','update',{analytics_storage:'denied'});
     disableHubSpotTracking();
     removeCloudflareRumScripts(document);
+    document.getElementById('sth-google-tag')?.remove();
+    document.getElementById('sth-hubspot-tracking')?.remove();
+    deleteGoogleAnalyticsCookies();
+    analyticsLoaded=false;
     document.documentElement.removeAttribute('data-analytics-measurement-id');
   }
+  function markReady(mode){
+    document.documentElement.dataset.analyticsConsentMode=mode;
+    window.__sthAnalyticsReady=true;
+  }
+  async function detectCountry(){
+    var controller=typeof AbortController==='function'?new AbortController():null;
+    var timeout=controller?setTimeout(function(){controller.abort();},3000):null;
+    try{
+      var options={cache:'no-store',credentials:'omit'};
+      if(controller)options.signal=controller.signal;
+      var response=await fetch('/cdn-cgi/trace',options);
+      if(!response.ok)return null;
+      var text=await response.text();
+      var match=text.match(/(?:^|\n)loc=([A-Z]{2})(?:\n|$)/);
+      return match?match[1]:null;
+    }catch(_error){return null;}
+    finally{if(timeout)clearTimeout(timeout);}
+  }
+  function requiresPriorConsent(country){return !!country&&PRIOR_CONSENT_COUNTRIES.has(country);}
   function ensureSettingsControl(){
     var links=document.querySelector('footer .sth-footer-links');
     if(!links)return;
@@ -153,17 +193,48 @@
     ensureSettingsControl();
     var panel=document.createElement('section');
     panel.className='sth-consent';panel.id='sth-cookie-consent';panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','false');panel.setAttribute('aria-labelledby','sth-consent-title');
-    panel.innerHTML='<p id="sth-consent-title"><strong>Analytics and privacy</strong></p><p>We use analytics and performance measurement to understand how visitors use this site. Analytics is enabled by default. If you decline analytics, optional Google, HubSpot, and Cloudflare RUM reporting is suppressed. You can change this choice at any time. See our <a href="/privacy-policy/">Privacy Policy</a>.</p><div class="sth-consent__actions"><button type="button" data-consent="granted">Accept analytics</button><button type="button" data-consent="denied">Decline analytics</button></div>';
+    panel.innerHTML='<p id="sth-consent-title"><strong>Analytics and privacy</strong></p><p>We use analytics and performance measurement to understand how visitors use this site. Where prior consent is required, analytics stays off until you accept. Elsewhere, analytics is enabled by default and you can opt out at any time. See our <a href="/privacy-policy/">Privacy Policy</a>.</p><div class="sth-consent__actions"><button type="button" data-consent="granted">Accept analytics</button><button type="button" data-consent="denied">Decline analytics</button></div>';
     document.body.appendChild(panel);
     var settings=document.querySelector('[data-open-cookie-settings]');
     function show(){panel.classList.add('is-visible');panel.querySelector('button').focus();}
     function hide(){panel.classList.remove('is-visible');if(settings)settings.focus({preventScroll:true});}
-    panel.addEventListener('click',function(event){var value=event.target&&event.target.getAttribute('data-consent');if(!value)return;var previous=preference();remember(value);if(value==='granted')enableAnalytics();else disableAnalytics();hide();if(value!==previous&&(value==='denied'||previous==='denied'))window.location.reload();});
+    panel.addEventListener('click',function(event){
+      var value=event.target&&event.target.getAttribute('data-consent');
+      if(!value)return;
+      remember(value);
+      if(value==='granted')enableAnalytics();else disableAnalytics();
+      hide();
+      markReady(value==='granted'?'user-granted':'user-denied');
+    });
     document.querySelectorAll('[data-open-cookie-settings]').forEach(function(button){button.addEventListener('click',show);});
     panel.addEventListener('keydown',function(event){if(event.key==='Escape')hide();});
-    // Enable analytics by default unless the visitor previously opted out.
-    // The footer control remains available to change the setting at any time.
-    var saved=preference();if(saved==='denied')disableAnalytics();else enableAnalytics();
+
+    var saved=preference();
+    if(saved==='denied'){
+      disableAnalytics();
+      markReady('saved-denied');
+      return;
+    }
+    if(saved==='granted'){
+      enableAnalytics();
+      markReady('saved-granted');
+      return;
+    }
+
+    disableAnalytics();
+    detectCountry().then(function(country){
+      var current=preference();
+      if(current==='denied'){disableAnalytics();markReady('saved-denied');return;}
+      if(current==='granted'){enableAnalytics();markReady('saved-granted');return;}
+      if(requiresPriorConsent(country)||!country){
+        disableAnalytics();
+        show();
+        markReady(country?'prior-consent':'prior-consent-fallback');
+      }else{
+        enableAnalytics();
+        markReady('default-on');
+      }
+    });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
 })();

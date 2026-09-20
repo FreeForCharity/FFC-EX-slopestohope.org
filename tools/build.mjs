@@ -9,5 +9,5 @@ await cp(resolve('public'),out,{recursive:true});
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const routes=[...inventory.routes.filter(route=>!EXCLUDED_ROUTES.has(route.path)),...POLICY_ROUTES];
 await writeFile(resolve(out,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.map(r=>`<url><loc>https://slopestohope.org${r.path}</loc></url>`).join('')+'</urlset>\n');
-await writeFile(resolve(out,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://slopestohope.org/sitemap.xml\n');
+await writeFile(resolve(out,'robots.txt'),'User-agent: *\nAllow: /\nDisallow: /cdn-cgi/\nSitemap: https://slopestohope.org/sitemap.xml\n');
 console.log(`Static export: ${routes.length} published routes, plus /staff/ compatibility redirect, in out/`);

@@ -14,7 +14,24 @@ async function hubSpotState(page){return page.evaluate(()=>({tracking:Array.from
 function hasHubSpotConsent(entries,value){return entries.some(entry=>entry[0]==='setHubSpotConsent'&&entry[1]?.analytics===value&&entry[1]?.advertisement===false&&entry[1]?.functionality===true);}
 function hasDoNotTrack(entries,enabled){return entries.some(entry=>entry[0]==='doNotTrack'&&(enabled?entry[1]?.track===true:!entry[1]));}
 async function waitForForm(page,id){const deadline=Date.now()+20000;while(Date.now()<deadline){const frame=page.frames().find(candidate=>candidate.url().includes(`_hsFormId=${id}`));if(frame)return frame;await page.waitForTimeout(250);}throw new Error(`HubSpot form frame ${id} did not load`);}
-async function googleAdvertisingRemainsDenied(page){return page.evaluate(()=>{const calls=Array.from(window.dataLayer||[]).filter(entry=>entry[0]==='consent'&&(entry[1]==='default'||entry[1]==='update'));const defaults=calls.filter(entry=>entry[1]==='default');const denied=defaults.some(entry=>entry[2]?.ad_storage==='denied'&&entry[2]?.ad_user_data==='denied'&&entry[2]?.ad_personalization==='denied');const granted=calls.some(entry=>entry[2]?.ad_storage==='granted'||entry[2]?.ad_user_data==='granted'||entry[2]?.ad_personalization==='granted');return denied&&!granted;});}
+async function googleAdvertisingRemainsDenied(page){return page.evaluate(()=>{const calls=Array.from(window.dataLayer||[]).filter(entry=>entry[0]==='consent'&&(entry[1]==='default'||entry[1]==='update'));const defaults=calls.filter(entry=>entry[1]==='default');const denied=defaults.some(entry=>entry[2]?.ad_storage==='denied'&&entry[2]?.ad_user_data==='denied'&&entry[2]?.ad_personalization==='denied'&&entry[2]?.personalization_storage==='denied');const granted=calls.some(entry=>entry[2]?.ad_storage==='granted'||entry[2]?.ad_user_data==='granted'||entry[2]?.ad_personalization==='granted'||entry[2]?.personalization_storage==='granted');return denied&&!granted;});}
+
+async function wireRequests(context,country,analyticsRequests,rumRequests){
+  await context.route('**/*',route=>{
+    const request=route.request();
+    const requestUrl=request.url();
+    const url=new URL(requestUrl);
+    if(url.pathname==='/cdn-cgi/trace')return route.fulfill({status:200,contentType:'text/plain',body:`fl=test
+loc=${country}
+`});
+    if(/(?:static\.cloudflareinsights\.com\/beacon\.min\.js|\/cdn-cgi\/rum(?:$|\?))/.test(requestUrl)){rumRequests.push(requestUrl);return route.abort();}
+    if(!['GET','HEAD'].includes(request.method())){blockedWrites.push({url:requestUrl,method:request.method()});return route.abort();}
+    if(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq)/.test(requestUrl)){analyticsRequests.push(requestUrl);return route.abort();}
+    return route.continue();
+  });
+}
+async function waitForAnalyticsReady(page){await page.waitForFunction(()=>window.__sthAnalyticsReady===true);}
+
 
 try{
   const consentSource=await readFile('public/assets/consent.js','utf8');
@@ -31,17 +48,11 @@ try{
   for(const width of [1440,390]){
     const context=await browser.newContext({viewport:{width,height:900}});
     const analyticsRequests=[],rumRequests=[];
-    await context.route('**/*',route=>{
-      const request=route.request();
-      const requestUrl=request.url();
-      if(/(?:static\.cloudflareinsights\.com\/beacon\.min\.js|\/cdn-cgi\/rum(?:$|\?))/.test(requestUrl)){rumRequests.push(requestUrl);return route.abort();}
-      if(!['GET','HEAD'].includes(request.method())){blockedWrites.push({url:requestUrl,method:request.method()});return route.abort();}
-      if(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq)/.test(requestUrl)){analyticsRequests.push(requestUrl);return route.abort();}
-      return route.continue();
-    });
+    await wireRequests(context,'US',analyticsRequests,rumRequests);
     const page=await context.newPage();
     await page.goto(base+'/',{waitUntil:'domcontentloaded'});
-    await check(`First visit enables analytics without a modal (${width})`,async()=>{assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent interface covered the page');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated by default');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested by default');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested by default');const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,true),'HubSpot tracking was not enabled by default');assert(hasHubSpotConsent(state.privacy,true),'HubSpot analytics was not enabled by default');assert(await googleAdvertisingRemainsDenied(page),'Google advertising consent was not kept denied');});
+    await waitForAnalyticsReady(page);
+    await check(`First visit enables analytics without a modal outside prior-consent regions (${width})`,async()=>{assert((await page.locator('html').getAttribute('data-analytics-consent-mode'))==='default-on','Default-on regional mode was not selected');assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent interface covered the page');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated by default');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested by default');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested by default');const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,true),'HubSpot tracking was not enabled by default');assert(hasHubSpotConsent(state.privacy,true),'HubSpot analytics was not enabled by default');assert(await googleAdvertisingRemainsDenied(page),'Google advertising consent was not kept denied');});
     await page.locator('footer [data-open-cookie-settings]').click();
     await page.keyboard.press('Escape');
     await check(`Cookie settings close with Escape (${width})`,async()=>{assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Cookie settings did not close with Escape');});
@@ -58,6 +69,36 @@ try{
     await page.locator('footer [data-open-cookie-settings]').click();await page.getByRole('button',{name:'Decline analytics'}).click();
     await check(`All HubSpot forms load with analytics declined (${width})`,async()=>{for(const [path,id] of [['/','9a181260-20a9-408c-8591-cca3093d7e3f'],['/contact-us/','f35f941a-7978-41cc-aabc-4dc669ac9a0a'],['/coosummit26/','05a4b6fe-6b23-433e-bf08-e667071c8d3b']]){const requestCount=analyticsRequests.length;await page.goto(base+path,{waitUntil:'domcontentloaded'});await waitForForm(page,id);assert(analyticsRequests.length===requestCount,`Analytics requested while declined on ${path}`);const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,false)&&hasHubSpotConsent(state.privacy,false),`Declined HubSpot consent missing on ${path}`);assert(await page.locator('#sth-google-tag,#sth-hubspot-tracking').count()===0,`Tracking loader present while declined on ${path}`);assert(await googleAdvertisingRemainsDenied(page),`Advertising consent changed on ${path}`);}});
     await context.close();
+
+    const priorContext=await browser.newContext({viewport:{width,height:900}});
+    const priorAnalyticsRequests=[],priorRumRequests=[];
+    await wireRequests(priorContext,'GB',priorAnalyticsRequests,priorRumRequests);
+    const priorPage=await priorContext.newPage();
+    await priorPage.goto(base+'/',{waitUntil:'domcontentloaded'});
+    await waitForAnalyticsReady(priorPage);
+    await check(`Prior-consent region blocks analytics and shows the prompt (${width})`,async()=>{
+      assert((await priorPage.locator('html').getAttribute('data-analytics-consent-mode'))==='prior-consent','Prior-consent regional mode was not selected');
+      assert(await priorPage.locator('#sth-cookie-consent').isVisible(),'Consent prompt was not shown in a prior-consent region');
+      assert((await priorPage.locator('html').getAttribute('data-analytics-measurement-id'))===null,'Google Analytics activated before consent');
+      assert(priorAnalyticsRequests.length===0,'Analytics requested before consent');
+      const rumCount=priorRumRequests.length;
+      await priorPage.evaluate(()=>navigator.sendBeacon('/cdn-cgi/rum','regional-consent-test'));
+      await priorPage.waitForTimeout(50);
+      assert(priorRumRequests.length===rumCount,'Cloudflare RUM was not suppressed before consent');
+      const state=await hubSpotState(priorPage);
+      assert(hasDoNotTrack(state.tracking,false)&&hasHubSpotConsent(state.privacy,false),'HubSpot was not denied before consent');
+      assert(await googleAdvertisingRemainsDenied(priorPage),'Google advertising consent was not denied');
+    });
+    await priorPage.getByRole('button',{name:'Accept analytics'}).click();
+    await priorPage.waitForTimeout(100);
+    await check(`Prior-consent region enables analytics after acceptance (${width})`,async()=>{
+      assert(await priorPage.evaluate(()=>localStorage.getItem('slopesToHopeAnalyticsConsent'))==='granted','Regional acceptance was not stored');
+      assert(priorAnalyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested after regional acceptance');
+      assert(priorAnalyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested after regional acceptance');
+      const state=await hubSpotState(priorPage);
+      assert(hasDoNotTrack(state.tracking,true)&&hasHubSpotConsent(state.privacy,true),'HubSpot was not enabled after regional acceptance');
+    });
+    await priorContext.close();
   }
 }finally{await browser.close();server.close();}
 

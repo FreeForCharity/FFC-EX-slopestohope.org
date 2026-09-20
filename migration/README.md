@@ -1,6 +1,6 @@
 # Current migration runbook
 
-Updated September 19, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete. Verify current routing before future production work.
+Updated September 20, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete. Verify current routing before future production work.
 
 ## Architecture
 
@@ -19,11 +19,11 @@ Original Elementor/BuddyX runtimes and mirrored media preserve presentation. App
 | COO Summit | HubSpot `05a4b6fe-6b23-433e-bf08-e667071c8d3b` |
 | Portal | `244348981`, region `na2`, exact adjacent loader/frame snippet |
 | Measurement | Google tag `GT-MKTP8299`, GA4 `G-XEWDW3TYVZ` |
-| Preferences | Google/HubSpot analytics enabled by default; footer settings permit decline/re-enable; advertising consent denied |
+| Preferences | Region-aware: analytics is enabled by default where prior consent is not required; EEA/UK-region visitors are prompted before optional analytics loads; footer settings permit decline/re-enable everywhere; advertising consent remains denied |
 | Giving | Givebutter and RallyUp are the approved website fundraising providers. Do not add another provider without Drew's explicit approval. |
 | Other content | Captured maps, social links, Instagram, and other third-party embeds |
 
-Owner decision September 19, 2026: declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. The site-side consent guard now blocks Cloudflare RUM reporting when the saved preference is denied and stores the same choice in the first-party `sth_analytics` cookie. The remaining Cloudflare account rule is: Configuration Rule expression `http.cookie contains "sth_analytics=denied"`, with **Disable Real User Monitoring (RUM)** enabled (`disable_rum=true`). This prevents Cloudflare from injecting RUM on later requests carrying the declined preference. This documents implementation, not legal compliance.
+Owner decisions September 19-20, 2026: declining analytics must suppress optional client-side analytics and performance telemetry, including Cloudflare RUM. Analytics should otherwise be enabled wherever prior consent is not required, with a consent prompt shown before optional analytics in the EEA/UK-region set. The site resolves country from Cloudflare's same-origin `/cdn-cgi/trace` endpoint before enabling analytics for a visitor without a saved preference; if location cannot be resolved, it fails closed and shows the consent prompt. Saved choices take precedence. The site-side guard blocks Cloudflare RUM while analytics is denied or regional consent is pending and stores explicit choices in the first-party `sth_analytics` cookie. The remaining Cloudflare account configuration must disable RUM (`disable_rum=true`) both when `sth_analytics=denied` and for first-time visitors in the prior-consent region set until `sth_analytics=granted`; the exact combined dashboard expression still requires authenticated Cloudflare configuration and verification. This documents implementation behavior, not a legal-compliance determination.
 
 ## Maintenance and evidence
 
@@ -35,4 +35,4 @@ Follow [maintenance](maintenance.md), [deployment](../DEPLOYMENT.md), and [rollb
 
 Current homepage collection totals were rechecked September 19 against the authoritative Google Drive `Storage Unit - Inventory`: FY27 total `5,151.7` pounds is displayed as `5,152`, and overall `26,007.1` pounds is displayed as `26,007`. Drew confirmed the current website numbers are correct.
 
-See [current verification](closeout/README.md) and [owner decisions](owner-decisions.md). Older reports describe their own route counts and consent behavior. Render tests do not prove CRM storage, inbox delivery, payment completion, indexing, or private backup restorability.
+See [current verification](closeout/README.md) and [owner decisions](owner-decisions.md). Older reports describe their own route counts and consent behavior. Generic Free For Charity template/conversion documents elsewhere in the repository are historical reference only; references there to Zeffy, Microsoft Forms, Clarity, Meta Pixel, or other template integrations do not describe the Slopes to Hope production site. Render tests do not prove CRM storage, inbox delivery, payment completion, indexing, or private backup restorability.
