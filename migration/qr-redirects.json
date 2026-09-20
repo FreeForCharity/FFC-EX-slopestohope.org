@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-09-20",
-  "status": "Cloudflare account rules still require authenticated deployment/verification; GitHub fallback routes are present on this branch.",
+  "status": "Cloudflare account rules still require authenticated deployment/verification; six GitHub fallback routes are present on this branch. COO Summit uses the direct /coosummit26 route and no separate QR redirect.",
   "redirects": [
     {
       "source": "/card",
@@ -25,10 +25,6 @@
     {
       "source": "/poster",
       "target": "/?utm_source=qr&utm_medium=print&utm_campaign=fy27&utm_content=poster"
-    },
-    {
-      "source": "/coosummit26qr",
-      "target": "/coosummit26/?utm_source=coosummit26&utm_medium=qr"
     }
   ]
 }
