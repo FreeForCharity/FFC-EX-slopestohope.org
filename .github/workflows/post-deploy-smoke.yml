@@ -28,7 +28,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Determine smoke target from Pages config (ground truth)
         id: url
@@ -220,24 +220,20 @@ jobs:
         if: steps.url.outputs.skip != 'true'
         uses: pnpm/action-setup@v6
 
-      - name: Setup Node for visual check
+      - name: Setup Node for smoke checks
         if: steps.url.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
+          cache: pnpm
 
-      - name: Install Playwright (chromium only)
+      - name: Install locked dependencies
         if: steps.url.outputs.skip != 'true'
-        run: |
-          # Install the npm package in an isolated dir so we don'\''t touch
-          # the repo'\''s own package.json (the FFC-EX repos use Next.js,
-          # not Playwright as a runtime dep).
-          mkdir -p /tmp/pw
-          cd /tmp/pw
-          npm init -y >/dev/null
-          npm install playwright@latest >/dev/null
-          # Install the browser binaries + OS deps for chromium.
-          npx --no-install playwright install --with-deps chromium
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        if: steps.url.outputs.skip != 'true'
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: Visual check + screenshot + compliance assertions
         id: visual
@@ -264,10 +260,9 @@ jobs:
           # default mode = pre-cutover deployment verification: page loads,
           # not a GH 404, non-trivial body. Compliance is an apex concern.
           SMOKE_MODE: ${{ steps.url.outputs.mode }}
-        working-directory: /tmp/pw
         run: |
           mkdir -p $GITHUB_WORKSPACE/artifacts
-          cat > /tmp/pw/visual.js <<'JS'
+          cat > "$GITHUB_WORKSPACE/artifacts/visual.cjs" <<'JS'
           const { chromium } = require('playwright');
           (async () => {
             const url = process.env.URL;
@@ -516,11 +511,9 @@ jobs:
             console.log('Visual + compliance checks passed.');
           })();
           JS
-          # Run from /tmp/pw so `require('playwright')` resolves to the
-          # isolated install we just did. Pass GITHUB_WORKSPACE so the
-          # script writes screenshots back to the repo workspace where
-          # upload-artifact looks for them.
-          GITHUB_WORKSPACE="$GITHUB_WORKSPACE" node /tmp/pw/visual.js
+          # The script lives under the repository so Node resolves the
+          # lockfile-pinned Playwright dependency from repo node_modules.
+          GITHUB_WORKSPACE="$GITHUB_WORKSPACE" node "$GITHUB_WORKSPACE/artifacts/visual.cjs"
 
       - name: Run repo-local smoke specs (if present)
         # Depth hook: a repo can ship its own Playwright smoke suite in
@@ -539,8 +532,6 @@ jobs:
             echo "::notice::No tests/smoke/*.spec.* in repo — skipping repo-local smoke specs"
             exit 0
           fi
-          pnpm install --frozen-lockfile
-          pnpm exec playwright install --with-deps chromium
           if [ -f playwright.smoke.config.ts ]; then
             pnpm exec playwright test --config playwright.smoke.config.ts --reporter=list
           else
@@ -549,7 +540,7 @@ jobs:
 
       - name: Upload screenshot + summary artifact
         if: always() && steps.url.outputs.skip != 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: smoke-visual-${{ github.run_number }}
           path: artifacts/
