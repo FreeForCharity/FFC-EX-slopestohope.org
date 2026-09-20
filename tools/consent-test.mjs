@@ -34,6 +34,8 @@ try{
     await context.route('**/*',route=>{
       const request=route.request();
       const requestUrl=request.url();
+      const parsedUrl=new URL(requestUrl);
+      if(parsedUrl.origin===base&&parsedUrl.pathname==='/cdn-cgi/trace')return route.fulfill({status:200,contentType:'text/plain',body:'loc=US\n'});
       if(/(?:static\.cloudflareinsights\.com\/beacon\.min\.js|\/cdn-cgi\/rum(?:$|\?))/.test(requestUrl)){rumRequests.push(requestUrl);return route.abort();}
       if(!['GET','HEAD'].includes(request.method())){blockedWrites.push({url:requestUrl,method:request.method()});return route.abort();}
       if(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq)/.test(requestUrl)){analyticsRequests.push(requestUrl);return route.abort();}
@@ -41,6 +43,7 @@ try{
     });
     const page=await context.newPage();
     await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.documentElement.dataset.analyticsRegionMode==='default-on');
     await check(`First visit enables analytics without a modal (${width})`,async()=>{assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent interface covered the page');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated by default');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested by default');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested by default');const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,true),'HubSpot tracking was not enabled by default');assert(hasHubSpotConsent(state.privacy,true),'HubSpot analytics was not enabled by default');assert(await googleAdvertisingRemainsDenied(page),'Google advertising consent was not kept denied');});
     await page.locator('footer [data-open-cookie-settings]').click();
     await page.keyboard.press('Escape');
@@ -59,6 +62,32 @@ try{
     await check(`All HubSpot forms load with analytics declined (${width})`,async()=>{for(const [path,id] of [['/','9a181260-20a9-408c-8591-cca3093d7e3f'],['/contact-us/','f35f941a-7978-41cc-aabc-4dc669ac9a0a'],['/coosummit26/','05a4b6fe-6b23-433e-bf08-e667071c8d3b']]){const requestCount=analyticsRequests.length;await page.goto(base+path,{waitUntil:'domcontentloaded'});await waitForForm(page,id);assert(analyticsRequests.length===requestCount,`Analytics requested while declined on ${path}`);const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,false)&&hasHubSpotConsent(state.privacy,false),`Declined HubSpot consent missing on ${path}`);assert(await page.locator('#sth-google-tag,#sth-hubspot-tracking').count()===0,`Tracking loader present while declined on ${path}`);assert(await googleAdvertisingRemainsDenied(page),`Advertising consent changed on ${path}`);}});
     await context.close();
   }
+
+  await check('Prior-consent region blocks analytics until the visitor chooses',async()=>{
+    const context=await browser.newContext({viewport:{width:390,height:900}});
+    const analyticsRequests=[];
+    await context.route('**/*',route=>{
+      const request=route.request();
+      const requestUrl=request.url();
+      const parsedUrl=new URL(requestUrl);
+      if(parsedUrl.origin===base&&parsedUrl.pathname==='/cdn-cgi/trace')return route.fulfill({status:200,contentType:'text/plain',body:'loc=GB\n'});
+      if(/(?:static\.cloudflareinsights\.com\/beacon\.min\.js|\/cdn-cgi\/rum(?:$|\?))/.test(requestUrl))return route.abort();
+      if(!['GET','HEAD'].includes(request.method()))return route.abort();
+      if(/(?:googletagmanager\.com|google-analytics\.com|js-na2\.hs-scripts\.com\/244348981\.js|hs-analytics\.net|track\.hubspot|hubspot\.com\/.*track|hubspot\.com\/__ptq)/.test(requestUrl)){analyticsRequests.push(requestUrl);return route.abort();}
+      return route.continue();
+    });
+    const page=await context.newPage();
+    await page.goto(base+'/',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.documentElement.dataset.analyticsRegionMode==='prior-consent');
+    assert(await page.locator('#sth-cookie-consent').isVisible(),'Consent prompt was not shown in a prior-consent region');
+    assert(analyticsRequests.length===0,'Analytics was requested before consent in a prior-consent region');
+    assert(await page.locator('html').getAttribute('data-analytics-measurement-id')===null,'Measurement ID activated before consent in a prior-consent region');
+    await page.getByRole('button',{name:'Accept analytics'}).click();
+    await page.waitForTimeout(100);
+    assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google analytics did not start after consent in a prior-consent region');
+    assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot analytics did not start after consent in a prior-consent region');
+    await context.close();
+  });
 }finally{await browser.close();server.close();}
 
 await writeFile('migration/consent-validation.json',JSON.stringify({testedAt:new Date().toISOString(),results,blockedWrites,note:'All non-GET/HEAD requests were blocked. No forms were submitted, and no CRM or email write was attempted.'},null,2)+'\n');
