@@ -162,13 +162,18 @@
     window.__sthAnalyticsReady=true;
   }
   async function detectCountry(){
+    var controller=typeof AbortController==='function'?new AbortController():null;
+    var timeout=controller?setTimeout(function(){controller.abort();},3000):null;
     try{
-      var response=await fetch('/cdn-cgi/trace',{cache:'no-store',credentials:'omit'});
+      var options={cache:'no-store',credentials:'omit'};
+      if(controller)options.signal=controller.signal;
+      var response=await fetch('/cdn-cgi/trace',options);
       if(!response.ok)return null;
       var text=await response.text();
       var match=text.match(/(?:^|\n)loc=([A-Z]{2})(?:\n|$)/);
       return match?match[1]:null;
     }catch(_error){return null;}
+    finally{if(timeout)clearTimeout(timeout);}
   }
   function requiresPriorConsent(country){return !!country&&PRIOR_CONSENT_COUNTRIES.has(country);}
   function ensureSettingsControl(){
