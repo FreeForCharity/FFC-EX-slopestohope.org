@@ -34,6 +34,7 @@ try{for(const width of requestedWidth?[requestedWidth]:[1440,390]){
 const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});
 await ctx.route('**/*',async route=>{
  const req=route.request(),u=new URL(req.url());
+ if(u.origin===base&&u.pathname==='/cdn-cgi/trace')return route.fulfill({status:200,contentType:'text/plain',body:'loc=US\n'});
  if(!['GET','HEAD'].includes(req.method())){writes.push({url:req.url(),method:req.method()});return route.abort();}
  if(/google-analytics\.com|googletagmanager\.com|hs-analytics\.net/.test(req.url()))return route.abort();
  if(['slopestohope.com','www.slopestohope.com','communityacrossamerica.com','www.communityacrossamerica.com'].includes(u.hostname)){issues.push({legacy:req.url()});return route.abort();}
