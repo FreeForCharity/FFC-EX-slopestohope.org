@@ -52,7 +52,7 @@ try{
     const page=await context.newPage();
     await page.goto(base+'/',{waitUntil:'domcontentloaded'});
     await waitForAnalyticsReady(page);
-    await check(`First visit enables analytics without a modal outside prior-consent regions (${width})`,async()=>{assert((await page.locator('html').getAttribute('data-analytics-consent-mode'))==='default-on','Default-on regional mode was not selected');assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent interface covered the page');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated by default');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested by default');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested by default');const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,true),'HubSpot tracking was not enabled by default');assert(hasHubSpotConsent(state.privacy,true),'HubSpot analytics was not enabled by default');assert(await googleAdvertisingRemainsDenied(page),'Google advertising consent was not kept denied');});
+    await check(`First visit enables analytics without a modal outside prior-consent regions (${width})`,async()=>{assert((await page.locator('html').getAttribute('data-analytics-consent-mode'))==='default-on','Default-on regional mode was not selected');assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Consent interface covered the page');assert(await page.locator('html').getAttribute('data-analytics-measurement-id')==='G-XEWDW3TYVZ','Measurement ID was not activated by default');assert(analyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested by default');assert(analyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested by default');const rumCount=rumRequests.length;await page.evaluate(()=>navigator.sendBeacon('/cdn-cgi/rum','default-on-test'));await page.waitForTimeout(50);assert(rumRequests.length>rumCount,'Cloudflare RUM remained blocked in a default-on region');const state=await hubSpotState(page);assert(hasDoNotTrack(state.tracking,true),'HubSpot tracking was not enabled by default');assert(hasHubSpotConsent(state.privacy,true),'HubSpot analytics was not enabled by default');assert(await googleAdvertisingRemainsDenied(page),'Google advertising consent was not kept denied');});
     await page.locator('footer [data-open-cookie-settings]').click();
     await page.keyboard.press('Escape');
     await check(`Cookie settings close with Escape (${width})`,async()=>{assert(!(await page.locator('#sth-cookie-consent').isVisible()),'Cookie settings did not close with Escape');});
@@ -95,10 +95,31 @@ try{
       assert(await priorPage.evaluate(()=>localStorage.getItem('slopesToHopeAnalyticsConsent'))==='granted','Regional acceptance was not stored');
       assert(priorAnalyticsRequests.some(url=>url.includes('gtag/js?id=GT-MKTP8299')),'Google tag was not requested after regional acceptance');
       assert(priorAnalyticsRequests.some(url=>url.includes('/244348981.js')),'HubSpot tracking was not requested after regional acceptance');
+      const rumCount=priorRumRequests.length;
+      await priorPage.evaluate(()=>navigator.sendBeacon('/cdn-cgi/rum','regional-accepted-test'));
+      await priorPage.waitForTimeout(50);
+      assert(priorRumRequests.length>rumCount,'Cloudflare RUM remained blocked after regional acceptance');
       const state=await hubSpotState(priorPage);
       assert(hasDoNotTrack(state.tracking,true)&&hasHubSpotConsent(state.privacy,true),'HubSpot was not enabled after regional acceptance');
     });
     await priorContext.close();
+
+    const unknownContext=await browser.newContext({viewport:{width,height:900}});
+    const unknownAnalyticsRequests=[],unknownRumRequests=[];
+    await wireRequests(unknownContext,'XX',unknownAnalyticsRequests,unknownRumRequests);
+    const unknownPage=await unknownContext.newPage();
+    await unknownPage.goto(base+'/',{waitUntil:'domcontentloaded'});
+    await waitForAnalyticsReady(unknownPage);
+    await check(`Unknown country signal fails closed to consent (${width})`,async()=>{
+      assert((await unknownPage.locator('html').getAttribute('data-analytics-consent-mode'))==='prior-consent-fallback','Unknown country did not use fail-closed consent mode');
+      assert(await unknownPage.locator('#sth-cookie-consent').isVisible(),'Consent prompt was not shown for an unknown country');
+      assert(unknownAnalyticsRequests.length===0,'Analytics requested for an unknown country before consent');
+      const rumCount=unknownRumRequests.length;
+      await unknownPage.evaluate(()=>navigator.sendBeacon('/cdn-cgi/rum','unknown-country-test'));
+      await unknownPage.waitForTimeout(50);
+      assert(unknownRumRequests.length===rumCount,'Cloudflare RUM was not suppressed for an unknown country');
+    });
+    await unknownContext.close();
   }
 }finally{await browser.close();server.close();}
 

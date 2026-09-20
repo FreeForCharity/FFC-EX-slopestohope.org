@@ -43,8 +43,12 @@
     var saved=preference();
     return saved==='denied'||(saved===null&&regionDecision!=='allowed');
   }
+  function rumScriptMustBeRemoved(){
+    var saved=preference();
+    return saved==='denied'||regionDecision==='blocked';
+  }
   function removeCloudflareRumScripts(root){
-    if(!analyticsDenied())return;
+    if(!rumScriptMustBeRemoved())return;
     (root||document).querySelectorAll?.('script[src*="static.cloudflareinsights.com/beacon.min.js"]').forEach(function(script){script.remove();});
   }
   function installCloudflareRumGuard(){
@@ -86,7 +90,7 @@
     removeCloudflareRumScripts(document);
     if(window.MutationObserver&&document.documentElement){
       new MutationObserver(function(records){
-        if(!analyticsDenied())return;
+        if(!rumScriptMustBeRemoved())return;
         records.forEach(function(record){
           record.addedNodes.forEach(function(node){
             if(node.nodeType!==1)return;
@@ -171,7 +175,8 @@
       if(!response.ok)return null;
       var text=await response.text();
       var match=text.match(/(?:^|\n)loc=([A-Z]{2})(?:\n|$)/);
-      return match?match[1]:null;
+      var country=match?match[1]:null;
+      return country&&country!=='XX'&&country!=='ZZ'?country:null;
     }catch(_error){return null;}
     finally{if(timeout)clearTimeout(timeout);}
   }
@@ -221,7 +226,7 @@
       return;
     }
 
-    disableAnalytics();
+    regionDecision='pending';
     detectCountry().then(function(country){
       var current=preference();
       if(current==='denied'){disableAnalytics();markReady('saved-denied');return;}
