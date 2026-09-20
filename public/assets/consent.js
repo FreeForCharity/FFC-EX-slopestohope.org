@@ -43,8 +43,12 @@
     }catch(_error){return false;}
   }
   function analyticsDenied(){return !analyticsAllowed||preference()==='denied';}
+  function rumScriptMustBeRemoved(){
+    var mode=document.documentElement.dataset.analyticsRegionMode||'';
+    return preference()==='denied'||mode==='prior-consent'||mode==='prior-consent-fallback';
+  }
   function removeCloudflareRumScripts(root){
-    if(!analyticsDenied())return;
+    if(!rumScriptMustBeRemoved())return;
     (root||document).querySelectorAll?.('script[src*="static.cloudflareinsights.com/beacon.min.js"]').forEach(function(script){script.remove();});
   }
   function installCloudflareRumGuard(){
@@ -96,7 +100,7 @@
     removeCloudflareRumScripts(document);
     if(window.MutationObserver&&document.documentElement){
       new MutationObserver(function(records){
-        if(!analyticsDenied())return;
+        if(!rumScriptMustBeRemoved())return;
         records.forEach(function(record){
           record.addedNodes.forEach(function(node){
             if(node.nodeType!==1)return;
@@ -186,9 +190,13 @@
     panel.addEventListener('click',function(event){
       var value=event.target&&event.target.getAttribute('data-consent');
       if(!value)return;
+      var previous=preference();
       remember(value);
       if(value==='granted')enableAnalytics();else disableAnalytics();
       hide();
+      // A page reload is only needed when re-enabling after an explicit
+      // denial so Cloudflare can inject RUM again on the new request.
+      if(previous==='denied'&&value==='granted')window.location.reload();
     });
     document.querySelectorAll('[data-open-cookie-settings]').forEach(function(button){button.addEventListener('click',show);});
     panel.addEventListener('keydown',function(event){if(event.key==='Escape')hide();});
