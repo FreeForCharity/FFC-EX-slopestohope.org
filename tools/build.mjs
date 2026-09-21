@@ -11,9 +11,9 @@ const routes=[...inventory.routes.filter(route=>!EXCLUDED_ROUTES.has(route.path)
 if(routes.length!==11)throw new Error(`SEO route inventory changed unexpectedly: expected 11 published routes, found ${routes.length}`);
 const locs=routes.map(r=>`https://slopestohope.org${r.path}`);
 if(new Set(locs).size!==locs.length||locs.some(loc=>!loc.startsWith('https://slopestohope.org/')||loc.includes('slopestohope.com')))throw new Error('Invalid or duplicate sitemap URL');
-const sitemap='<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+locs.map(loc=>`<url><loc>${loc}</loc></url>`).join('')+'</urlset>\\n';
-const robots='User-agent: *\\nAllow: /\\nDisallow: /cdn-cgi/\\nSitemap: https://slopestohope.org/sitemap.xml\\n';
-if((sitemap.match(/<loc>/g)||[]).length!==11||!/Sitemap: https:\\/\\/slopestohope\\.org\\/sitemap\\.xml/.test(robots)||/^Disallow:\s*\\/$/m.test(robots))throw new Error('Generated sitemap or robots policy failed SEO sanity checks');
+const sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+locs.map(loc=>`<url><loc>${loc}</loc></url>`).join('')+'</urlset>\n';
+const robots='User-agent: *\nAllow: /\nDisallow: /cdn-cgi/\nSitemap: https://slopestohope.org/sitemap.xml\n';
+if((sitemap.match(/<loc>/g)||[]).length!==11||!robots.includes('Sitemap: https://slopestohope.org/sitemap.xml')||robots.split('\n').some(line=>line.trim()==='Disallow: /'))throw new Error('Generated sitemap or robots policy failed SEO sanity checks');
 await writeFile(resolve(out,'sitemap.xml'),sitemap);
 await writeFile(resolve(out,'robots.txt'),robots);
 console.log(`Static export: ${routes.length} published routes, plus /staff/ compatibility redirect, in out/`);
