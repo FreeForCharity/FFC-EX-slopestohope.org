@@ -17,6 +17,13 @@ const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7
 const SITE_ORIGIN='https://slopestohope.org';
 const ORGANIZATION_ID=SITE_ORIGIN+'/#organization';
 const WEBSITE_ID=SITE_ORIGIN+'/#website';
+const ORGANIZATION_LOGO=SITE_ORIGIN+'/wp-content/uploads/2025/06/cropped-Drew-1.png';
+const DEFAULT_SHARE_IMAGE=SITE_ORIGIN+'/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png';
+const PRIMARY_IMAGES=new Map([
+  ['/',{url:SITE_ORIGIN+'/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699.jpg',alt:'A group posing beside a moving truck.'}],
+  ['/gallery/',{url:SITE_ORIGIN+'/wp-content/uploads/2026/08/Marriotts-Mountain-Valley-Lodge-PillowCollection.jpg',alt:'People standing beside a moving truck outside a lodge.'}],
+  ['/coosummit26/',{url:SITE_ORIGIN+'/assets/coosummit26-marriott-2026.webp',alt:'Slopes to Hope collection at Marriott Vacation Club Mountain Valley Lodge'}],
+]);
 
 function upsertMeta(document,attribute,key,content){
   let meta=document.head.querySelector(`meta[${attribute}="${key}"]`);
@@ -32,9 +39,16 @@ function applyTechnicalSeo(document,routePath){
   upsertMeta(document,'property','og:description',description);
   upsertMeta(document,'property','og:type','website');
   upsertMeta(document,'property','og:site_name','Slopes to Hope');
-  upsertMeta(document,'name','twitter:card','summary');
+  const primaryImage=PRIMARY_IMAGES.get(routePath);
+  const shareImage=primaryImage?.url||document.head.querySelector('meta[property="og:image"]')?.content?.trim()||DEFAULT_SHARE_IMAGE;
+  const shareImageAlt=primaryImage?.alt||'Slopes to Hope';
+  upsertMeta(document,'property','og:image',shareImage);
+  upsertMeta(document,'property','og:image:alt',shareImageAlt);
+  upsertMeta(document,'name','twitter:card','summary_large_image');
   upsertMeta(document,'name','twitter:title',title);
   upsertMeta(document,'name','twitter:description',description);
+  upsertMeta(document,'name','twitter:image',shareImage);
+  upsertMeta(document,'name','twitter:image:alt',shareImageAlt);
   document.head.querySelectorAll('script[type="application/ld+json"][data-sth-seo]').forEach(node=>node.remove());
   const graph=[];
   if(routePath==='/'){
@@ -44,6 +58,7 @@ function applyTechnicalSeo(document,routePath){
       name:'Slopes to Hope',
       url:SITE_ORIGIN+'/',
       nonprofitStatus:'https://schema.org/Nonprofit501c3',
+      logo:{'@type':'ImageObject','@id':SITE_ORIGIN+'/#logo',url:ORGANIZATION_LOGO,contentUrl:ORGANIZATION_LOGO,width:512,height:512},
       location:{'@type':'Place',name:'Breckenridge, Colorado'},
       areaServed:{'@type':'AdministrativeArea',name:'Colorado'},
     });
@@ -56,7 +71,7 @@ function applyTechnicalSeo(document,routePath){
       inLanguage:'en-US',
     });
   }
-  graph.push({
+  const page={
     '@type':'WebPage',
     '@id':canonical+'#webpage',
     url:canonical,
@@ -65,7 +80,16 @@ function applyTechnicalSeo(document,routePath){
     isPartOf:{'@id':WEBSITE_ID},
     about:{'@id':ORGANIZATION_ID},
     inLanguage:'en-US',
-  });
+  };
+  if(primaryImage)page.primaryImageOfPage={
+    '@type':'ImageObject',
+    '@id':canonical+'#primaryimage',
+    url:primaryImage.url,
+    contentUrl:primaryImage.url,
+    caption:primaryImage.alt,
+    representativeOfPage:true,
+  };
+  graph.push(page);
   const script=document.createElement('script');
   script.type='application/ld+json';
   script.dataset.sthSeo='';
