@@ -115,7 +115,7 @@ async function page(url) {
     if(link&&link.querySelectorAll('img').length===1&&link.textContent.trim()==='')link.remove();
     else image.remove();
   }
-  applyConsentAndPolicyLinks(final);
+  applyConsentAndPolicyLinks(final,u.pathname);
   if(u.pathname==='/'&&!allowHomepageRecapture){
     try{
       const existing=await readFile(within(ROOT,path),'utf8');
