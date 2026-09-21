@@ -14,14 +14,74 @@ const footerLinks='<span class="sth-footer-links"><a href="/privacy-policy/">Pri
 const hubSpotFormsLoader='https://js-na2.hsforms.net/forms/embed/244348981.js';
 const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b']);
 
+const SITE_ORIGIN='https://slopestohope.org';
+const ORGANIZATION_ID=SITE_ORIGIN+'/#organization';
+const WEBSITE_ID=SITE_ORIGIN+'/#website';
+
+function upsertMeta(document,attribute,key,content){
+  let meta=document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if(!meta){meta=document.createElement('meta');meta.setAttribute(attribute,key);document.head.appendChild(meta);}
+  meta.setAttribute('content',content);
+}
+function applyTechnicalSeo(document,routePath){
+  const canonical=SITE_ORIGIN+routePath;
+  const title=document.title.trim();
+  const description=document.head.querySelector('meta[name="description"]')?.content?.trim()||'';
+  if(!title||!description)return;
+  upsertMeta(document,'property','og:title',title);
+  upsertMeta(document,'property','og:description',description);
+  upsertMeta(document,'property','og:type','website');
+  upsertMeta(document,'property','og:site_name','Slopes to Hope');
+  upsertMeta(document,'name','twitter:card','summary');
+  upsertMeta(document,'name','twitter:title',title);
+  upsertMeta(document,'name','twitter:description',description);
+  document.head.querySelectorAll('script[type="application/ld+json"][data-sth-seo]').forEach(node=>node.remove());
+  const graph=[];
+  if(routePath==='/'){
+    graph.push({
+      '@type':'Organization',
+      '@id':ORGANIZATION_ID,
+      name:'Slopes to Hope',
+      url:SITE_ORIGIN+'/',
+      nonprofitStatus:'https://schema.org/Nonprofit501c3',
+      location:{'@type':'Place',name:'Breckenridge, Colorado'},
+      areaServed:{'@type':'AdministrativeArea',name:'Colorado'},
+    });
+    graph.push({
+      '@type':'WebSite',
+      '@id':WEBSITE_ID,
+      url:SITE_ORIGIN+'/',
+      name:'Slopes to Hope',
+      publisher:{'@id':ORGANIZATION_ID},
+      inLanguage:'en-US',
+    });
+  }
+  graph.push({
+    '@type':'WebPage',
+    '@id':canonical+'#webpage',
+    url:canonical,
+    name:title,
+    description,
+    isPartOf:{'@id':WEBSITE_ID},
+    about:{'@id':ORGANIZATION_ID},
+    inLanguage:'en-US',
+  });
+  const script=document.createElement('script');
+  script.type='application/ld+json';
+  script.dataset.sthSeo='';
+  script.textContent=JSON.stringify({'@context':'https://schema.org','@graph':graph});
+  document.head.appendChild(script);
+}
+
 function serializeDocument(document){
   while(document.body.lastChild?.nodeType===3&&!document.body.lastChild.textContent.trim())document.body.lastChild.remove();
   return ('<!DOCTYPE html>\n'+document.documentElement.outerHTML+'\n').replaceAll(`<script src="${hubSpotFormsLoader}" defer=""></script>`,`<script src="${hubSpotFormsLoader}" defer></script>`);
 }
 
-export function applyConsentAndPolicyLinks(document){
+export function applyConsentAndPolicyLinks(document,routePath='/'){
   applyAccessibility(document);
   applyLinkRepairs(document);
+  applyTechnicalSeo(document,routePath);
   document.querySelectorAll('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js,#leadin-script-loader-js-js-extra').forEach(node=>node.remove());
   document.querySelectorAll('#ea11y-widget-js-extra,#ea11y-widget-js').forEach(node=>node.remove());
   document.querySelectorAll('script:not([src])').forEach(script=>{
@@ -52,7 +112,10 @@ const termsBody=`<h1>Terms of Service</h1><p><strong>Effective September 19, 202
 
 function policyHtml(route,body){
   const description=route.path==='/privacy-policy/'?'Read how Slopes to Hope handles website analytics, cookies, forms, and third-party services.':'Review the terms that apply when using the Slopes to Hope website and linked third-party services.';
-  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><script src="/assets/consent.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>${route.title}</title><meta name="description" content="${description}"><meta name="robots" content="max-image-preview:large"><link rel="canonical" href="https://slopestohope.org${route.path}"><meta property="og:url" content="https://slopestohope.org${route.path}"><meta property="og:description" content="${description}"><meta property="og:image" content="https://slopestohope.org/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png"><link rel="stylesheet" href="/assets/policy.css"><link rel="stylesheet" href="/assets/consent.css"></head><body class="sth-policy-page">${header}<main class="sth-policy-main">${body}</main>${footer}</body></html>\n`;
+  const raw=`<!doctype html><html lang="en-US"><head><meta charset="utf-8"><script src="/assets/consent.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>${route.title}</title><meta name="description" content="${description}"><meta name="robots" content="max-image-preview:large"><link rel="canonical" href="https://slopestohope.org${route.path}"><meta property="og:url" content="https://slopestohope.org${route.path}"><meta property="og:description" content="${description}"><meta property="og:image" content="https://slopestohope.org/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png"><link rel="stylesheet" href="/assets/policy.css"><link rel="stylesheet" href="/assets/consent.css"></head><body class="sth-policy-page">${header}<main class="sth-policy-main">${body}</main>${footer}</body></html>`;
+  const document=new JSDOM(raw,{url:SITE_ORIGIN+route.path,virtualConsole:new VirtualConsole()}).window.document;
+  applyTechnicalSeo(document,route.path);
+  return serializeDocument(document);
 }
 
 export async function applyReleasePolicy(root='public'){
@@ -60,7 +123,7 @@ export async function applyReleasePolicy(root='public'){
   for(const route of inventory.routes.filter(route=>!EXCLUDED_ROUTES.has(route.path))){
     const file=resolve(root,'.'+route.path,'index.html');
     const document=new JSDOM(await readFile(file,'utf8'),{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
-    applyConsentAndPolicyLinks(document);
+    applyConsentAndPolicyLinks(document,route.path);
     await writeFile(file,serializeDocument(document));
   }
   for(const [route,body] of [[POLICY_ROUTES[0],privacyBody],[POLICY_ROUTES[1],termsBody]]){
