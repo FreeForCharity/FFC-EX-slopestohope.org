@@ -13,7 +13,7 @@ export const POLICY_ROUTES=[
 const footerLinks='<span class="sth-footer-links"><a href="/faq/">FAQ</a><a href="/donors/">Donors</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><button type="button" data-open-cookie-settings>Cookie settings</button></span>';
 const hubSpotFormsLoader='https://js-na2.hsforms.net/forms/embed/244348981.js';
 const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b']);
-const siteStructuredData="{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://slopestohope.org/#organization\",\"name\":\"Slopes to Hope\",\"url\":\"https://slopestohope.org/\",\"description\":\"Slopes to Hope recovers clothing lost or left behind at Colorado hotels and ski resorts and distributes it to community partners.\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Breckenridge\",\"addressRegion\":\"CO\",\"addressCountry\":\"US\"},\"areaServed\":{\"@type\":\"State\",\"name\":\"Colorado\"}},{\"@type\":\"WebSite\",\"@id\":\"https://slopestohope.org/#website\",\"url\":\"https://slopestohope.org/\",\"name\":\"Slopes to Hope\",\"publisher\":{\"@id\":\"https://slopestohope.org/#organization\"},\"inLanguage\":\"en-US\"}]}";
+const siteStructuredData="{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://slopestohope.org/#organization\",\"name\":\"Slopes to Hope\",\"url\":\"https://slopestohope.org/\",\"description\":\"Slopes to Hope recovers clothing lost or left behind at Colorado hotels and ski resorts and distributes it to community partners.\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Breckenridge\",\"addressRegion\":\"CO\",\"addressCountry\":\"US\"},\"areaServed\":{\"@type\":\"State\",\"name\":\"Colorado\"},\"sameAs\":[\"https:\/\/app.candid.org\/profile\/16353783\/slopes-to-hope-33-4379051\/?pkId=6af5d7d1-d210-4cfe-a995-a15e189188c5\"]},{\"@type\":\"WebSite\",\"@id\":\"https://slopestohope.org/#website\",\"url\":\"https://slopestohope.org/\",\"name\":\"Slopes to Hope\",\"publisher\":{\"@id\":\"https://slopestohope.org/#organization\"},\"inLanguage\":\"en-US\"}]}";
 
 function serializeDocument(document){
   while(document.body.lastChild?.nodeType===3&&!document.body.lastChild.textContent.trim())document.body.lastChild.remove();
@@ -21,6 +21,14 @@ function serializeDocument(document){
 }
 
 function applySeoPolicy(document,pathname){
+  const ensureOg=(property,content)=>{
+    let meta=document.querySelector(`meta[property="${property}"]`);
+    if(!meta){meta=document.createElement('meta');meta.setAttribute('property',property);document.head.appendChild(meta);}
+    meta.setAttribute('content',content);
+  };
+  ensureOg('og:title',document.title);
+  ensureOg('og:type','website');
+  ensureOg('og:site_name','Slopes to Hope');
   document.querySelectorAll('#sth-site-structured-data').forEach(node=>node.remove());
   if(pathname!=='/')return;
   const script=document.createElement('script');
@@ -63,7 +71,7 @@ const termsBody=`<h1>Terms of Service</h1><p><strong>Effective September 19, 202
 
 function policyHtml(route,body){
   const description=route.path==='/privacy-policy/'?'Read how Slopes to Hope handles website analytics, cookies, forms, and third-party services.':'Review the terms that apply when using the Slopes to Hope website and linked third-party services.';
-  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><script src="/assets/consent.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>${route.title}</title><meta name="description" content="${description}"><meta name="robots" content="max-image-preview:large"><link rel="canonical" href="https://slopestohope.org${route.path}"><meta property="og:url" content="https://slopestohope.org${route.path}"><meta property="og:description" content="${description}"><meta property="og:image" content="https://slopestohope.org/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png"><link rel="stylesheet" href="/assets/policy.css"><link rel="stylesheet" href="/assets/consent.css"></head><body class="sth-policy-page">${header}<main class="sth-policy-main">${body}</main>${footer}</body></html>\n`;
+  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><script src="/assets/consent.js"></script><meta name="viewport" content="width=device-width,initial-scale=1"><title>${route.title}</title><meta name="description" content="${description}"><meta name="robots" content="max-image-preview:large"><link rel="canonical" href="https://slopestohope.org${route.path}"><meta property="og:url" content="https://slopestohope.org${route.path}"><meta property="og:title" content="${route.title}"><meta property="og:type" content="website"><meta property="og:site_name" content="Slopes to Hope"><meta property="og:description" content="${description}"><meta property="og:image" content="https://slopestohope.org/wp-content/uploads/2025/06/Logo-Final-scaled-e1765391207409-1024x580.png"><link rel="stylesheet" href="/assets/policy.css"><link rel="stylesheet" href="/assets/consent.css"></head><body class="sth-policy-page">${header}<main class="sth-policy-main">${body}</main>${footer}</body></html>\n`;
 }
 
 export async function applyReleasePolicy(root='public'){
