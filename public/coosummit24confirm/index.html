@@ -34,13 +34,29 @@
       <div class="message">
         <h1 id="confirmation-title">Pickup Request Received</h1>
         <p>Thank you, we'll be in touch soon!</p>
+        <p>Visit our homepage at <a href="https://slopestohope.org/">www.slopestohope.org</a></p>
       </div>
     </section>
   </main>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    var redirectScheduled = false;
+    var playbackMonitor = null;
+
+    function scheduleHomepageRedirect() {
+      if (redirectScheduled) return;
+      redirectScheduled = true;
+      if (playbackMonitor) {
+        window.clearInterval(playbackMonitor);
+        playbackMonitor = null;
+      }
+      window.setTimeout(function() {
+        window.location.href = 'https://slopestohope.org/';
+      }, 3000);
+    }
+
     function onYouTubeIframeAPIReady() {
-      new YT.Player('promo-video', {
+      var player = new YT.Player('promo-video', {
         width: '100%',
         height: '100%',
         videoId: 'pN3eXjmSd8A',
@@ -54,12 +70,21 @@
           onReady: function(event) {
             event.target.mute();
             event.target.playVideo();
+
+            playbackMonitor = window.setInterval(function() {
+              var duration = player.getDuration();
+              var currentTime = player.getCurrentTime();
+              var state = player.getPlayerState();
+
+              if (state === YT.PlayerState.ENDED ||
+                  (state === YT.PlayerState.PLAYING && duration > 0 && currentTime >= duration - 0.25)) {
+                scheduleHomepageRedirect();
+              }
+            }, 500);
           },
           onStateChange: function(event) {
             if (event.data === YT.PlayerState.ENDED) {
-              window.setTimeout(function() {
-                window.location.href = 'https://slopestohope.org/';
-              }, 3000);
+              scheduleHomepageRedirect();
             }
           }
         }
