@@ -14,6 +14,12 @@ const sitemapRoutes=[...publishedRoutes,...POLICY_ROUTES];
 if(sitemapRoutes.length!==11||new Set(sitemapRoutes.map(r=>r.path)).size!==11)issues.push({path:'/sitemap.xml',error:'Published sitemap route inventory must contain exactly 11 unique pages'});
 if(sitemapRoutes.some(r=>!r.path.startsWith('/')||r.path.includes('?')||r.path.includes('#')))issues.push({path:'/sitemap.xml',error:'Published sitemap route contains an invalid path'});
 const normalize=s=>s.replace(/\s+/g,' ').trim();
+const PRIMARY_IMAGES=new Map([
+ ['/',{url:'https://slopestohope.org/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699.jpg',alt:'A group posing beside a moving truck.'}],
+ ['/gallery/',{url:'https://slopestohope.org/wp-content/uploads/2026/08/Marriotts-Mountain-Valley-Lodge-PillowCollection.jpg',alt:'People standing beside a moving truck outside a lodge.'}],
+ ['/coosummit26/',{url:'https://slopestohope.org/assets/coosummit26-marriott-2026.webp',alt:'Slopes to Hope collection at Marriott Vacation Club Mountain Valley Lodge'}],
+]);
+const ORGANIZATION_LOGO='https://slopestohope.org/wp-content/uploads/2025/06/cropped-Drew-1.png';
 for(const r of publishedRoutes){
  const html=await readFile(within(root,r.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+r.path,virtualConsole:new VirtualConsole()}).window.document;
@@ -97,7 +103,10 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  if(d.querySelector('meta[property="og:title"]')?.content!==d.title)issues.push({path:route.path,error:'Open Graph title missing or inconsistent'});
  if(d.querySelector('meta[property="og:description"]')?.content!==description)issues.push({path:route.path,error:'Open Graph description missing or inconsistent'});
  if(d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope')issues.push({path:route.path,error:'Open Graph site metadata missing or inconsistent'});
- if(d.querySelector('meta[name="twitter:card"]')?.content!=='summary'||d.querySelector('meta[name="twitter:title"]')?.content!==d.title||d.querySelector('meta[name="twitter:description"]')?.content!==description)issues.push({path:route.path,error:'Social summary metadata missing or inconsistent'});
+ const ogImage=d.querySelector('meta[property="og:image"]')?.content||'';
+ const ogImageAlt=d.querySelector('meta[property="og:image:alt"]')?.content||'';
+ if(!ogImage.startsWith('https://slopestohope.org/')||!ogImageAlt)issues.push({path:route.path,error:'Search/social image metadata missing or not first-party'});
+ if(d.querySelector('meta[name="twitter:card"]')?.content!=='summary_large_image'||d.querySelector('meta[name="twitter:title"]')?.content!==d.title||d.querySelector('meta[name="twitter:description"]')?.content!==description||d.querySelector('meta[name="twitter:image"]')?.content!==ogImage||d.querySelector('meta[name="twitter:image:alt"]')?.content!==ogImageAlt)issues.push({path:route.path,error:'Social image metadata missing or inconsistent'});
  if(/(?:^|,|\s)noindex(?:,|\s|$)/i.test(d.querySelector('meta[name="robots"]')?.content||''))issues.push({path:route.path,error:'Published route unexpectedly marked noindex'});
  const seoScripts=[...d.querySelectorAll('script[type="application/ld+json"][data-sth-seo]')];
  if(seoScripts.length!==1)issues.push({path:route.path,error:'Expected exactly one Slopes to Hope SEO structured-data block'});
@@ -106,10 +115,16 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
    const graph=Array.isArray(data?.['@graph'])?data['@graph']:[];
    const page=graph.find(node=>node?.['@type']==='WebPage');
    if(data?.['@context']!=='https://schema.org'||page?.url!==expectedUrl||page?.['@id']!==expectedUrl+'#webpage'||page?.isPartOf?.['@id']!=='https://slopestohope.org/#website'||page?.about?.['@id']!=='https://slopestohope.org/#organization')issues.push({path:route.path,error:'WebPage structured data missing or inconsistent'});
+   const expectedPrimary=PRIMARY_IMAGES.get(route.path);
+   if(expectedPrimary){
+     const primary=page?.primaryImageOfPage;
+     if(primary?.['@type']!=='ImageObject'||primary?.url!==expectedPrimary.url||primary?.contentUrl!==expectedPrimary.url||primary?.caption!==expectedPrimary.alt||primary?.representativeOfPage!==true)issues.push({path:route.path,error:'Primary image structured data missing or inconsistent'});
+   }else if(page?.primaryImageOfPage)issues.push({path:route.path,error:'Unexpected primary image structured data'});
    if(route.path==='/'){
      const org=graph.find(node=>node?.['@id']==='https://slopestohope.org/#organization');
      const site=graph.find(node=>node?.['@id']==='https://slopestohope.org/#website');
      if(org?.name!=='Slopes to Hope'||org?.url!=='https://slopestohope.org/'||org?.nonprofitStatus!=='https://schema.org/Nonprofit501c3'||org?.location?.name!=='Breckenridge, Colorado'||org?.areaServed?.name!=='Colorado')issues.push({path:route.path,error:'Organization structured data missing or inconsistent'});
+     if(org?.logo?.['@type']!=='ImageObject'||org?.logo?.url!==ORGANIZATION_LOGO||org?.logo?.contentUrl!==ORGANIZATION_LOGO||org?.logo?.width!==512||org?.logo?.height!==512)issues.push({path:route.path,error:'Organization logo structured data missing or inconsistent'});
      if(site?.name!=='Slopes to Hope'||site?.url!=='https://slopestohope.org/'||site?.publisher?.['@id']!=='https://slopestohope.org/#organization')issues.push({path:route.path,error:'WebSite structured data missing or inconsistent'});
    }
  }catch{issues.push({path:route.path,error:'Malformed Slopes to Hope SEO structured data'});}
