@@ -31,6 +31,8 @@ Follow [maintenance](maintenance.md), [deployment](../DEPLOYMENT.md), and [rollb
 
 `tools/release-policy.mjs` reapplies exact embeds, consent/footer markup, accessibility adaptations, and verified link repairs; it also generates the two policies. Gallery descriptions are in `migration/gallery-descriptions.json`. Explicit link exceptions are in `tools/link-policy.mjs`, preserving historical inventory URLs.
 
+Technical SEO policy: the homepage carries Organization and WebSite structured data identifying Slopes to Hope at `https://slopestohope.org/`, based in Breckenridge, Colorado, with Colorado as its service area and no street address published. The 11 intended indexable routes must retain non-empty titles and descriptions, one H1, `.org` canonicals/Open Graph URLs, and indexable robots directives. FAQ and Donors are included in the persistent footer to avoid orphaning core informational pages; the COO Summit route remains campaign-specific and may be reached directly or through the sitemap. Build-time checks enforce the 11-route sitemap, `.org` URLs, and robots.txt policy. Image-specific SEO changes are intentionally deferred.
+
 `pnpm run capture` is an import/recovery tool, not publishing. Run it only in a disposable branch, reviewing the complete diff. Do not bypass the homepage recapture guard as routine maintenance.
 
 Current homepage collection totals were rechecked September 19 against the authoritative Google Drive `Storage Unit - Inventory`: FY27 total `5,151.7` pounds is displayed as `5,152`, and overall `26,007.1` pounds is displayed as `26,007`. Drew confirmed the current website numbers are correct.
