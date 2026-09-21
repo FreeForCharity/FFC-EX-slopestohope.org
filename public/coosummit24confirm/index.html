@@ -6,17 +6,16 @@
   <title>Pickup Request Received – Slopes to Hope</title>
   <meta name="robots" content="noindex,nofollow">
   <link rel="canonical" href="https://slopestohope.org/coosummit24confirm/">
-  <meta http-equiv="refresh" content="3;url=https://slopestohope.org/">
   <style>
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:#fff;color:#34495e;font-family:Arial,Helvetica,sans-serif}
     main{width:100%;min-height:100vh;padding:6px 20px 80px}
     .confirmation{width:100%;max-width:900px;margin:0 auto}
-    .photo{display:block;width:100%;max-width:640px;height:360px;object-fit:cover;object-position:center;margin:0 auto}
+    .video-wrap{width:100%;max-width:640px;aspect-ratio:16/9;margin:0 auto;background:#000;overflow:hidden}
+    .video-wrap iframe{display:block;width:100%;height:100%;border:0}
     .message{max-width:640px;margin:92px auto 0}
     h1{margin:0 0 36px;color:#006400;font-size:32px;line-height:1.2;font-weight:700}
     p{margin:0 0 48px;font-size:16px;line-height:1.5}
-    .redirect{font-size:14px}
     a{color:#0000ee;text-decoration:underline}
     @media (max-width:700px){
       main{padding:0 16px 48px}
@@ -25,22 +24,47 @@
       p{margin-bottom:36px}
     }
   </style>
-  <script>
-    window.setTimeout(function(){
-      window.location.href = 'https://slopestohope.org/';
-    },3000);
-  </script>
 </head>
 <body>
   <main>
     <section class="confirmation" aria-labelledby="confirmation-title">
-      <img class="photo" src="/assets/coosummit26-marriott-2026.webp" alt="Slopes to Hope collection at Marriott Vacation Club Mountain Valley Lodge">
+      <div class="video-wrap">
+        <div id="promo-video"></div>
+      </div>
       <div class="message">
         <h1 id="confirmation-title">Pickup Request Received</h1>
         <p>Thank you, we'll be in touch soon!</p>
-        <p class="redirect">You will be redirected to our <a href="https://slopestohope.org/">homepage</a> shortly...</p>
       </div>
     </section>
   </main>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    function onYouTubeIframeAPIReady() {
+      new YT.Player('promo-video', {
+        width: '100%',
+        height: '100%',
+        videoId: 'pN3eXjmSd8A',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          playsinline: 1,
+          rel: 0
+        },
+        events: {
+          onReady: function(event) {
+            event.target.mute();
+            event.target.playVideo();
+          },
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+              window.setTimeout(function() {
+                window.location.href = 'https://slopestohope.org/';
+              }, 3000);
+            }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
