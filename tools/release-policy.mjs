@@ -10,13 +10,24 @@ export const POLICY_ROUTES=[
   {path:'/terms-of-service/',title:'Terms of Service – Slopes to Hope'},
 ];
 
-const footerLinks='<span class="sth-footer-links"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><button type="button" data-open-cookie-settings>Cookie settings</button></span>';
+const footerLinks='<span class="sth-footer-links"><a href="/faq/">FAQ</a><a href="/donors/">Donors</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><button type="button" data-open-cookie-settings>Cookie settings</button></span>';
 const hubSpotFormsLoader='https://js-na2.hsforms.net/forms/embed/244348981.js';
 const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b']);
+const siteStructuredData="{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"https://slopestohope.org/#organization\",\"name\":\"Slopes to Hope\",\"url\":\"https://slopestohope.org/\",\"description\":\"Slopes to Hope recovers clothing lost or left behind at Colorado hotels and ski resorts and distributes it to community partners.\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Breckenridge\",\"addressRegion\":\"CO\",\"addressCountry\":\"US\"},\"areaServed\":{\"@type\":\"State\",\"name\":\"Colorado\"}},{\"@type\":\"WebSite\",\"@id\":\"https://slopestohope.org/#website\",\"url\":\"https://slopestohope.org/\",\"name\":\"Slopes to Hope\",\"publisher\":{\"@id\":\"https://slopestohope.org/#organization\"},\"inLanguage\":\"en-US\"}]}";
 
 function serializeDocument(document){
   while(document.body.lastChild?.nodeType===3&&!document.body.lastChild.textContent.trim())document.body.lastChild.remove();
   return ('<!DOCTYPE html>\n'+document.documentElement.outerHTML+'\n').replaceAll(`<script src="${hubSpotFormsLoader}" defer=""></script>`,`<script src="${hubSpotFormsLoader}" defer></script>`);
+}
+
+function applySeoPolicy(document,pathname){
+  document.querySelectorAll('#sth-site-structured-data').forEach(node=>node.remove());
+  if(pathname!=='/')return;
+  const script=document.createElement('script');
+  script.id='sth-site-structured-data';
+  script.type='application/ld+json';
+  script.textContent=siteStructuredData;
+  document.head.appendChild(script);
 }
 
 export function applyConsentAndPolicyLinks(document){
@@ -61,6 +72,7 @@ export async function applyReleasePolicy(root='public'){
     const file=resolve(root,'.'+route.path,'index.html');
     const document=new JSDOM(await readFile(file,'utf8'),{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
     applyConsentAndPolicyLinks(document);
+    applySeoPolicy(document,route.path);
     await writeFile(file,serializeDocument(document));
   }
   for(const [route,body] of [[POLICY_ROUTES[0],privacyBody],[POLICY_ROUTES[1],termsBody]]){
