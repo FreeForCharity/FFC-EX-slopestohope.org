@@ -11,6 +11,9 @@ const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Se
 const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
 const routes=new Set([...publishedRoutes,...POLICY_ROUTES].map(r=>r.path));routes.add('/staff/');
 const normalize=s=>s.replace(/\s+/g,' ').trim();
+const seoRoutePaths=new Set([...publishedRoutes,...POLICY_ROUTES].map(r=>r.path));
+const seoInbound=new Map([...seoRoutePaths].map(path=>[path,new Set()]));
+const seoInboundExempt=new Set(['/','/coosummit26/']);
 for(const r of publishedRoutes){
  const html=await readFile(within(root,r.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+r.path,virtualConsole:new VirtualConsole()}).window.document;
@@ -88,6 +91,31 @@ for(const route of POLICY_ROUTES){
 for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const html=await readFile(within(root,route.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
+ const expectedSeoUrl='https://slopestohope.org'+route.path;
+ const description=d.querySelector('meta[name="description"]')?.content.trim();
+ if(!d.title.trim())issues.push({path:route.path,error:'SEO title missing'});
+ if(!description)issues.push({path:route.path,error:'Meta description missing'});
+ if(d.querySelector('link[rel="canonical"]')?.href!==expectedSeoUrl)issues.push({path:route.path,error:'SEO canonical URL missing or incorrect'});
+ if(d.querySelector('meta[property="og:url"]')?.content!==expectedSeoUrl)issues.push({path:route.path,error:'SEO Open Graph URL missing or incorrect'});
+ if(d.querySelector('link[rel="canonical"][href*="slopestohope.com"],meta[property="og:url"][content*="slopestohope.com"]'))issues.push({path:route.path,error:'Legacy .com SEO URL remains'});
+ const robots=d.querySelector('meta[name="robots"]')?.content||'';
+ if(/(?:^|[,\\s])(?:noindex|nofollow)(?:$|[,\\s])/i.test(robots))issues.push({path:route.path,error:'Published SEO route is blocked from indexing or following'});
+ const h1s=d.querySelectorAll('h1');
+ if(h1s.length!==1||!normalize(h1s[0]?.textContent||''))issues.push({path:route.path,error:'Published SEO route must have exactly one non-empty H1'});
+ for(const a of d.querySelectorAll('a[href]')){
+  const href=a.getAttribute('href');if(!href||href.startsWith('#'))continue;
+  try{const u=new URL(href,expectedSeoUrl);if(u.origin==='https://slopestohope.org'&&seoInbound.has(u.pathname)&&u.pathname!==route.path)seoInbound.get(u.pathname).add(route.path);}catch{}
+ }
+ if(route.path==='/'){
+  const scripts=[...d.querySelectorAll('#sth-site-structured-data[type="application/ld+json"]')];
+  if(scripts.length!==1)issues.push({path:'/',error:'Homepage Organization/WebSite structured data missing or duplicated'});
+  else try{
+   const data=JSON.parse(scripts[0].textContent),graph=Array.isArray(data['@graph'])?data['@graph']:[];
+   const org=graph.find(node=>node['@type']==='Organization'),site=graph.find(node=>node['@type']==='WebSite');
+   if(data['@context']!=='https://schema.org'||!org||org['@id']!=='https://slopestohope.org/#organization'||org.name!=='Slopes to Hope'||org.url!=='https://slopestohope.org/'||org.address?.addressLocality!=='Breckenridge'||org.address?.addressRegion!=='CO'||org.address?.addressCountry!=='US'||org.areaServed?.name!=='Colorado')issues.push({path:'/',error:'Organization structured data changed or incomplete'});
+   if(!site||site['@id']!=='https://slopestohope.org/#website'||site.name!=='Slopes to Hope'||site.url!=='https://slopestohope.org/'||site.publisher?.['@id']!=='https://slopestohope.org/#organization'||site.inLanguage!=='en-US')issues.push({path:'/',error:'WebSite structured data changed or incomplete'});
+  }catch{issues.push({path:'/',error:'Homepage Organization/WebSite structured data is malformed'});}
+ } else if(d.querySelector('#sth-site-structured-data'))issues.push({path:route.path,error:'Site-level structured data should only be on the homepage'});
  const ids=new Set();
  for(const element of d.querySelectorAll('[id]')){
   if(ids.has(element.id))issues.push({path:route.path,error:'Duplicate HTML ID',id:element.id});
@@ -101,10 +129,11 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const consentScripts=[...d.querySelectorAll('script[src="/assets/consent.js"]')];
  if(!d.querySelector('link[href="/assets/consent.css"]')||consentScripts.length!==1)issues.push({path:route.path,error:'Consent assets missing or duplicated'});
  else if(consentScripts[0].parentElement!==d.head||consentScripts[0].hasAttribute('defer')||consentScripts[0].hasAttribute('async')||d.head.querySelector('script')!==consentScripts[0])issues.push({path:route.path,error:'Consent guard must be the first synchronous head script'});
- if(!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Policy or cookie-settings footer control missing'});
+ if(!d.querySelector('footer a[href="/faq/"]')||!d.querySelector('footer a[href="/donors/"]')||!d.querySelector('footer a[href="/privacy-policy/"]')||!d.querySelector('footer a[href="/terms-of-service/"]')||!d.querySelector('footer [data-open-cookie-settings]'))issues.push({path:route.path,error:'Core internal links, policy links, or cookie-settings footer control missing'});
  if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Uncontrolled analytics loader present in static HTML'});
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
 }
+for(const [path,sources] of seoInbound)if(!seoInboundExempt.has(path)&&sources.size===0)issues.push({path,error:'Published SEO route has no internal inbound link'});
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
 for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent','sth_analytics','cdn-cgi/rum'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
 const formEmbeds=[
