@@ -97,6 +97,7 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  if(!description)issues.push({path:route.path,error:'Meta description missing'});
  if(d.querySelector('link[rel="canonical"]')?.href!==expectedSeoUrl)issues.push({path:route.path,error:'SEO canonical URL missing or incorrect'});
  if(d.querySelector('meta[property="og:url"]')?.content!==expectedSeoUrl)issues.push({path:route.path,error:'SEO Open Graph URL missing or incorrect'});
+ if(d.querySelector('meta[property="og:title"]')?.content!==d.title||d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope')issues.push({path:route.path,error:'Non-image Open Graph metadata missing or incorrect'});
  if(d.querySelector('link[rel="canonical"][href*="slopestohope.com"],meta[property="og:url"][content*="slopestohope.com"]'))issues.push({path:route.path,error:'Legacy .com SEO URL remains'});
  const robots=d.querySelector('meta[name="robots"]')?.content||'';
  if(/(?:^|[,\\s])(?:noindex|nofollow)(?:$|[,\\s])/i.test(robots))issues.push({path:route.path,error:'Published SEO route is blocked from indexing or following'});
@@ -112,7 +113,7 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
   else try{
    const data=JSON.parse(scripts[0].textContent),graph=Array.isArray(data['@graph'])?data['@graph']:[];
    const org=graph.find(node=>node['@type']==='Organization'),site=graph.find(node=>node['@type']==='WebSite');
-   if(data['@context']!=='https://schema.org'||!org||org['@id']!=='https://slopestohope.org/#organization'||org.name!=='Slopes to Hope'||org.url!=='https://slopestohope.org/'||org.address?.addressLocality!=='Breckenridge'||org.address?.addressRegion!=='CO'||org.address?.addressCountry!=='US'||org.areaServed?.name!=='Colorado')issues.push({path:'/',error:'Organization structured data changed or incomplete'});
+   if(data['@context']!=='https://schema.org'||!org||org['@id']!=='https://slopestohope.org/#organization'||org.name!=='Slopes to Hope'||org.url!=='https://slopestohope.org/'||org.address?.addressLocality!=='Breckenridge'||org.address?.addressRegion!=='CO'||org.address?.addressCountry!=='US'||org.areaServed?.name!=='Colorado'||!Array.isArray(org.sameAs)||!org.sameAs.includes('https://app.candid.org/profile/16353783/slopes-to-hope-33-4379051/?pkId=6af5d7d1-d210-4cfe-a995-a15e189188c5'))issues.push({path:'/',error:'Organization structured data changed or incomplete'});
    if(!site||site['@id']!=='https://slopestohope.org/#website'||site.name!=='Slopes to Hope'||site.url!=='https://slopestohope.org/'||site.publisher?.['@id']!=='https://slopestohope.org/#organization'||site.inLanguage!=='en-US')issues.push({path:'/',error:'WebSite structured data changed or incomplete'});
   }catch{issues.push({path:'/',error:'Homepage Organization/WebSite structured data is malformed'});}
  } else if(d.querySelector('#sth-site-structured-data'))issues.push({path:route.path,error:'Site-level structured data should only be on the homepage'});
