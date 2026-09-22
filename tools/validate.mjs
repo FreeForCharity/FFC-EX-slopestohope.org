@@ -102,6 +102,15 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const html=await readFile(within(root,route.path+'index.html'),'utf8');
  const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
  const expectedUrl='https://slopestohope.org'+route.path;
+ const viewportContent=d.querySelector('meta[name="viewport"]')?.content||'';
+ if(/user-scalable\\s*=\\s*no|maximum-scale\\s*=\\s*1(?:\\.0)?/i.test(viewportContent))issues.push({path:route.path,error:'Viewport prevents browser zoom'});
+ if(route.path==='/'){
+   const ctas=[...d.querySelectorAll('a.elementskit-btn')];
+   const volunteer=ctas.filter(link=>normalize(link.textContent)==='Volunteer');
+   const partner=ctas.filter(link=>normalize(link.textContent)==='Partner');
+   if(volunteer.length!==1||volunteer[0].getAttribute('href')!=='/contact-us/?initial_inquiry=FDzWWvIE8BnvAFjK-rnd3')issues.push({path:route.path,error:'Volunteer CTA must preselect the Volunteer inquiry reason'});
+   if(partner.length!==1||partner[0].getAttribute('href')!=='/contact-us/?initial_inquiry=pLvTcP1Yx2esDFetkizjy')issues.push({path:route.path,error:'Partner CTA must preselect the Sponsorship/Partnership inquiry reason'});
+ }
  const description=d.querySelector('meta[name="description"]')?.content?.trim()||'';
  if(!d.title.trim()||!description)issues.push({path:route.path,error:'SEO title or meta description missing'});
  if(d.querySelector('meta[property="og:title"]')?.content!==d.title)issues.push({path:route.path,error:'Open Graph title missing or inconsistent'});
