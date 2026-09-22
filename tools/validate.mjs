@@ -145,35 +145,56 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Uncontrolled analytics loader present in static HTML'});
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
 }
-// Special standalone pages must reuse the homepage chrome exactly and must not override it with global CSS.
+// Every real content page must use the same site header/footer structure as the homepage.
+// Current-page navigation state is the only permitted header markup difference.
 {
  const homeHtml=await readFile(within(root,'/index.html'),'utf8');
  const homeDoc=new JSDOM(homeHtml,{url:'https://slopestohope.org/',virtualConsole:new VirtualConsole()}).window.document;
- const expectedHeader=homeDoc.querySelector('.site-header-wrapper')?.outerHTML;
- const expectedFooter=homeDoc.querySelector('#colophon.site-footer')?.outerHTML;
- for(const special of ['/coosummit26confirm/']){
-  const html=await readFile(within(root,special+'index.html'),'utf8');
-  const d=new JSDOM(html,{url:'https://slopestohope.org'+special,virtualConsole:new VirtualConsole()}).window.document;
-  if(!expectedHeader||d.querySelector('.site-header-wrapper')?.outerHTML!==expectedHeader)issues.push({path:special,error:'Special-page header must exactly match homepage header'});
-  if(!expectedFooter||d.querySelector('#colophon.site-footer')?.outerHTML!==expectedFooter)issues.push({path:special,error:'Special-page footer must exactly match homepage footer'});
-  if(!d.querySelector('#page.site')||!d.querySelector('.mobile-menu-close'))issues.push({path:special,error:'Special page is missing shared site chrome wrappers'});
-  if(!d.querySelector('script[src="/assets/consent.js"]')||!d.querySelector('link[href="/assets/consent.css"]'))issues.push({path:special,error:'Special page is missing shared consent assets'});
+ const normalizeHeader=node=>{
+  if(!node)return '';
+  const clone=node.cloneNode(true);
+  for(const element of clone.querySelectorAll('[class]')){
+   const classes=[...element.classList].filter(name=>!['current-menu-item','current_page_item','page_item'].includes(name)&&!/^page-item-\d+$/.test(name));
+   element.setAttribute('class',classes.join(' '));
+  }
+  clone.querySelectorAll('[aria-current]').forEach(element=>element.removeAttribute('aria-current'));
+  return clone.outerHTML;
+ };
+ const expectedHeader=normalizeHeader(homeDoc.querySelector('.site-header-wrapper'));
+ const expectedFooter=homeDoc.querySelector('#colophon.site-footer')?.outerHTML||'';
+ const chromeRoutes=[...new Set([...publishedRoutes.map(route=>route.path),...POLICY_ROUTES.map(route=>route.path),'/coosummit26confirm/'])];
+ for(const path of chromeRoutes){
+  const html=await readFile(within(root,path+'index.html'),'utf8');
+  const d=new JSDOM(html,{url:'https://slopestohope.org'+path,virtualConsole:new VirtualConsole()}).window.document;
+  if(!expectedHeader||normalizeHeader(d.querySelector('.site-header-wrapper'))!==expectedHeader)issues.push({path,error:'Site header structure drifted from homepage'});
+  if(!expectedFooter||d.querySelector('#colophon.site-footer')?.outerHTML!==expectedFooter)issues.push({path,error:'Site footer drifted from homepage'});
+  if(!d.querySelector('#page.site')||!d.querySelector('.mobile-menu-close'))issues.push({path,error:'Shared site chrome wrappers missing'});
+  if(!d.querySelector('link[href="/assets/static-compat.css"]'))issues.push({path,error:'Shared site chrome stylesheet missing'});
+ }
+ const standalonePaths=new Set(['/coosummit26confirm/',...POLICY_ROUTES.map(route=>route.path)]);
+ for(const path of standalonePaths){
+  const html=await readFile(within(root,path+'index.html'),'utf8');
+  const d=new JSDOM(html,{url:'https://slopestohope.org'+path,virtualConsole:new VirtualConsole()}).window.document;
+  if(!d.querySelector('script[src="/assets/consent.js"]')||!d.querySelector('link[href="/assets/consent.css"]'))issues.push({path,error:'Shared consent assets missing'});
   const homeTypography=homeDoc.querySelector('#kirki-inline-styles')?.textContent;
   const specialTypography=d.querySelector('#kirki-inline-styles')?.textContent;
-  if(!homeTypography||specialTypography!==homeTypography)issues.push({path:special,error:'Special-page typography must exactly match homepage typography'});
+  if(!homeTypography||specialTypography!==homeTypography)issues.push({path,error:'Shared typography must exactly match homepage'});
   const homeCritical=homeDoc.querySelector('#litespeed-ccss')?.textContent;
   const specialCritical=d.querySelector('#litespeed-ccss')?.textContent;
-  if(!homeCritical||specialCritical!==homeCritical)issues.push({path:special,error:'Special-page critical styling must exactly match homepage critical styling'});
+  if(!homeCritical||specialCritical!==homeCritical)issues.push({path,error:'Shared critical styling must exactly match homepage'});
   const homeCustomCss=homeDoc.querySelector('#wp-custom-css')?.textContent;
   const specialCustomCss=d.querySelector('#wp-custom-css')?.textContent;
-  if(!homeCustomCss||specialCustomCss!==homeCustomCss)issues.push({path:special,error:'Special-page custom header styling must exactly match homepage custom styling'});
+  if(!homeCustomCss||specialCustomCss!==homeCustomCss)issues.push({path,error:'Shared custom header styling must exactly match homepage'});
   const homeUcss=homeDoc.querySelector('link[href*="/wp-content/litespeed/ucss/"]')?.getAttribute('href');
   const specialUcss=d.querySelector('link[href*="/wp-content/litespeed/ucss/"]')?.getAttribute('href');
-  if(!homeUcss||specialUcss!==homeUcss)issues.push({path:special,error:'Special-page shared stylesheet must exactly match homepage stylesheet'});
+  if(!homeUcss||specialUcss!==homeUcss)issues.push({path,error:'Shared stylesheet must exactly match homepage'});
   const localCss=[...d.querySelectorAll('style')].filter(node=>!['kirki-inline-styles','litespeed-ccss','wp-custom-css'].includes(node.id)).map(node=>node.textContent).join('\n');
   const unsafeChromeCss=/(^|})\s*(?:\*|html|body|a|p|h[1-6])\s*(?:,|\{)|\.(?:site-header|site-branding|main-navigation|site-footer|site-info)\b/m;
-  if(unsafeChromeCss.test(localCss))issues.push({path:special,error:'Special-page CSS must be scoped and must not override shared homepage chrome'});
+  if(unsafeChromeCss.test(localCss))issues.push({path,error:'Page-local CSS must not override shared site chrome'});
  }
+ const sharedChromeCss=await readFile(within(root,'/assets/static-compat.css'),'utf8');
+ if(!/\.site-header\s+\.donate-menu\s*>\s*a\s*\{[^}]*background:\s*#203a58/i.test(sharedChromeCss))issues.push({path:'/assets/static-compat.css',error:'Shared Donate button background must use the approved lighter navy'});
+ if(!/\.site-header\s+\.donate-menu\s*>\s*a\s*\{[^}]*color:\s*#fff\s*!important/i.test(sharedChromeCss))issues.push({path:'/assets/static-compat.css',error:'Shared Donate button text must remain white'});
 }
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
 for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent','sth_analytics','cdn-cgi/rum'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
