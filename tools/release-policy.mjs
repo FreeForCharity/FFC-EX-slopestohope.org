@@ -97,6 +97,24 @@ function applyTechnicalSeo(document,routePath){
   document.head.appendChild(script);
 }
 
+function applyViewportAndHomepageInquiryPolicy(document,routePath){
+  const viewport=document.head.querySelector('meta[name="viewport"]');
+  if(viewport){
+    const content=(viewport.getAttribute('content')||'').split(',').map(value=>value.trim()).filter(Boolean).filter(value=>!/^maximum-scale\\s*=/i.test(value)&&!/^user-scalable\\s*=/i.test(value));
+    viewport.setAttribute('content',content.join(', '));
+  }
+  if(routePath==='/'){
+    const destinations=new Map([
+      ['Volunteer','/contact-us/?initial_inquiry=FDzWWvIE8BnvAFjK-rnd3'],
+      ['Partner','/contact-us/?initial_inquiry=pLvTcP1Yx2esDFetkizjy'],
+    ]);
+    for(const link of document.querySelectorAll('a.elementskit-btn[href^="/contact-us/"]')){
+      const destination=destinations.get(link.textContent.trim());
+      if(destination)link.setAttribute('href',destination);
+    }
+  }
+}
+
 function serializeDocument(document){
   while(document.body.lastChild?.nodeType===3&&!document.body.lastChild.textContent.trim())document.body.lastChild.remove();
   return ('<!DOCTYPE html>\n'+document.documentElement.outerHTML+'\n').replaceAll(`<script src="${hubSpotFormsLoader}" defer=""></script>`,`<script src="${hubSpotFormsLoader}" defer></script>`);
@@ -105,6 +123,7 @@ function serializeDocument(document){
 export function applyConsentAndPolicyLinks(document,routePath='/'){
   applyAccessibility(document);
   applyLinkRepairs(document);
+  applyViewportAndHomepageInquiryPolicy(document,routePath);
   applyTechnicalSeo(document,routePath);
   document.querySelectorAll('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js,#leadin-script-loader-js-js-extra').forEach(node=>node.remove());
   document.querySelectorAll('#ea11y-widget-js-extra,#ea11y-widget-js').forEach(node=>node.remove());
