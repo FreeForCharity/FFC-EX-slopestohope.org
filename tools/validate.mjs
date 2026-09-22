@@ -31,7 +31,7 @@ for(const r of publishedRoutes){
  const text=d.cloneNode(true);
  // Exclude migration-added UI copy from the captured WordPress wording check.
  // The homepage also has one owner-approved fundraising display adaptation.
- text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,footer [data-open-cookie-settings]').forEach(e=>e.remove());
+ text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,.coosummit26-news-credit,.news-credit,footer [data-open-cookie-settings]').forEach(e=>e.remove());
  let bodyText=normalize(text.body.textContent);
  if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised$25,000 goal','$8,068.03');
  if(r.path==='/coosummit26/'){
@@ -164,10 +164,13 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
   const homeCritical=homeDoc.querySelector('#litespeed-ccss')?.textContent;
   const specialCritical=d.querySelector('#litespeed-ccss')?.textContent;
   if(!homeCritical||specialCritical!==homeCritical)issues.push({path:special,error:'Special-page critical styling must exactly match homepage critical styling'});
+  const homeCustomCss=homeDoc.querySelector('#wp-custom-css')?.textContent;
+  const specialCustomCss=d.querySelector('#wp-custom-css')?.textContent;
+  if(!homeCustomCss||specialCustomCss!==homeCustomCss)issues.push({path:special,error:'Special-page custom header styling must exactly match homepage custom styling'});
   const homeUcss=homeDoc.querySelector('link[href*="/wp-content/litespeed/ucss/"]')?.getAttribute('href');
   const specialUcss=d.querySelector('link[href*="/wp-content/litespeed/ucss/"]')?.getAttribute('href');
   if(!homeUcss||specialUcss!==homeUcss)issues.push({path:special,error:'Special-page shared stylesheet must exactly match homepage stylesheet'});
-  const localCss=[...d.querySelectorAll('style')].filter(node=>!['kirki-inline-styles','litespeed-ccss'].includes(node.id)).map(node=>node.textContent).join('\n');
+  const localCss=[...d.querySelectorAll('style')].filter(node=>!['kirki-inline-styles','litespeed-ccss','wp-custom-css'].includes(node.id)).map(node=>node.textContent).join('\n');
   const unsafeChromeCss=/(^|})\s*(?:\*|html|body|a|p|h[1-6])\s*(?:,|\{)|\.(?:site-header|site-branding|main-navigation|site-footer|site-info)\b/m;
   if(unsafeChromeCss.test(localCss))issues.push({path:special,error:'Special-page CSS must be scoped and must not override shared homepage chrome'});
  }
