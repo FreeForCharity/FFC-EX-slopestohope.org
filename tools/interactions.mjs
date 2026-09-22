@@ -63,19 +63,10 @@ await check(`Hero advances and pauses on hover (${width})`,async()=>{
  await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);assert(await activeIndex()!==hovered,'Hero did not resume after hover ended');
 });
 await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
-await check(`Hero pauses and resumes on keyboard focus (${width})`,async()=>{
- const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
- await motionTab.locator('.sth-hero__link').focus();const focused=await activeIndex();await motionTab.waitForTimeout(3200);assert(await activeIndex()===focused,'Hero advanced while focused');
- await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);assert(await activeIndex()!==focused,'Hero did not resume after focus left');
-});
-await motionTab.goto(base+'/',{waitUntil:'domcontentloaded'});await motionTab.waitForTimeout(1200);
-await check(`Hero remains paused when hover ends while focus remains (${width})`,async()=>{
- const activeIndex=async()=>motionTab.locator('.sth-hero__slide').evaluateAll(nodes=>nodes.findIndex(node=>node.classList.contains('is-active')));
- await motionTab.locator('.sth-hero').hover();await motionTab.locator('.sth-hero__link').focus();
- const engaged=await activeIndex();await motionTab.mouse.move(0,0);await motionTab.waitForTimeout(3200);
- assert(await activeIndex()===engaged,'Hero resumed after hover ended while focus remained');
- await motionTab.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());await motionTab.waitForTimeout(3200);
- assert(await activeIndex()!==engaged,'Hero did not resume after both hover and focus ended');
+await check(`Hero is non-interactive and cannot navigate to Gallery (${width})`,async()=>{
+ assert(await motionTab.locator('.sth-hero a[href="/gallery/"]').count()===0,'Hero still contains a Gallery link');
+ assert(await motionTab.locator('.eael-wrapper-link-5a53669d').count()===0,'Legacy Elementor hero wrapper link remains');
+ assert(await motionTab.locator('.sth-hero__media').count()===1,'Hero media wrapper missing');
 });
 await motionCtx.close();
 if(width===390)await check('Mobile menu opens, navigates to Partners, and closes',async()=>{

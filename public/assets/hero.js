@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   document.querySelectorAll('.sth-hero').forEach(function(hero){
-    var slides=hero.querySelectorAll('.sth-hero__slide'),current=0,timer=null,hovered=false,focused=false;
+    var slides=hero.querySelectorAll('.sth-hero__slide'),current=0,timer=null,hovered=false;
     if(slides.length<2)return;
     var motion=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
     function advance(){
@@ -14,13 +14,11 @@
     }
     function stop(){if(timer){clearInterval(timer);timer=null;}}
     function sync(){
-      if((motion&&motion.matches)||hovered||focused||document.hidden){stop();return;}
+      if((motion&&motion.matches)||hovered||document.hidden){stop();return;}
       if(!timer)timer=setInterval(advance,3000);
     }
     hero.addEventListener('mouseenter',function(){hovered=true;sync();});
     hero.addEventListener('mouseleave',function(){hovered=false;sync();});
-    hero.addEventListener('focusin',function(){focused=true;sync();});
-    hero.addEventListener('focusout',function(event){if(!hero.contains(event.relatedTarget)){focused=false;sync();}});
     document.addEventListener('visibilitychange',sync);
     if(motion){
       if(motion.addEventListener)motion.addEventListener('change',sync);

@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.sth-hero .sth-hero__link,
+.sth-hero .sth-hero__media,
 .sth-hero .sth-hero__slide {
   position: absolute;
   inset: 0;
@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.sth-hero .sth-hero__link {
+.sth-hero .sth-hero__media {
   z-index: 1;
 }
 
@@ -37,11 +37,6 @@
   top: -5%;
   height: 105%;
   object-position: center top;
-}
-
-.sth-hero__link:focus-visible {
-  outline: 3px solid #006400;
-  outline-offset: -3px;
 }
 
 /* The photo already contains its credit, so do not duplicate it in an overlay. */
