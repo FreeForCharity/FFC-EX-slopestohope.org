@@ -33,7 +33,11 @@ for(const r of publishedRoutes){
  // The homepage also has one owner-approved fundraising display adaptation.
  text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,.coosummit26-news-credit,.news-credit,footer [data-open-cookie-settings]').forEach(e=>e.remove());
  let bodyText=normalize(text.body.textContent);
- if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised$25,000 goal','$8,068.03');
+ if(r.path==='/'){
+  bodyText=bodyText.replaceAll('$8,068 raised$25,000 goal','$8,068.03');
+  if(d.querySelector('.sth-hero a[href="/gallery/"],.eael-wrapper-link-5a53669d[href="/gallery/"]'))issues.push({path:r.path,error:'Homepage hero must not be a Gallery navigation target'});
+  if(!d.querySelector('.sth-hero .sth-hero__media'))issues.push({path:r.path,error:'Homepage hero media wrapper missing'});
+ }
  if(r.path==='/coosummit26/'){
    const approvedHeading='COO Summit 2026: Complimentary Concierge Pickup';
    const approvedParagraph="Complete the form below to request a one-time complimentary concierge pickup of your property's unclaimed lost-and-found clothing. We'll coordinate a convenient pickup time and provide documentation of your collection afterward.";
