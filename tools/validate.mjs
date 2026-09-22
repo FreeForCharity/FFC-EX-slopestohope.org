@@ -31,7 +31,7 @@ for(const r of publishedRoutes){
  const text=d.cloneNode(true);
  // Exclude migration-added UI copy from the captured WordPress wording check.
  // The homepage also has one owner-approved fundraising display adaptation.
- text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,footer [data-open-cookie-settings]').forEach(e=>e.remove());
+ text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,.coosummit26-news-credit,.news-credit,footer [data-open-cookie-settings]').forEach(e=>e.remove());
  let bodyText=normalize(text.body.textContent);
  if(r.path==='/')bodyText=bodyText.replaceAll('$8,068 raised$25,000 goal','$8,068.03');
  if(r.path==='/coosummit26/'){
@@ -161,7 +161,16 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
   const homeTypography=homeDoc.querySelector('#kirki-inline-styles')?.textContent;
   const specialTypography=d.querySelector('#kirki-inline-styles')?.textContent;
   if(!homeTypography||specialTypography!==homeTypography)issues.push({path:special,error:'Special-page typography must exactly match homepage typography'});
-  const localCss=[...d.querySelectorAll('style')].filter(node=>node.id!=='kirki-inline-styles').map(node=>node.textContent).join('\n');
+  const homeCritical=homeDoc.querySelector('#litespeed-ccss')?.textContent;
+  const specialCritical=d.querySelector('#litespeed-ccss')?.textContent;
+  if(!homeCritical||specialCritical!==homeCritical)issues.push({path:special,error:'Special-page critical styling must exactly match homepage critical styling'});
+  const homeCustomCss=homeDoc.querySelector('#wp-custom-css')?.textContent;
+  const specialCustomCss=d.querySelector('#wp-custom-css')?.textContent;
+  if(!homeCustomCss||specialCustomCss!==homeCustomCss)issues.push({path:special,error:'Special-page custom header styling must exactly match homepage custom styling'});
+  const homeUcss=homeDoc.querySelector('link[href*="/wp-content/litespeed/ucss/"]')?.getAttribute('href');
+  const specialUcss=d.querySelector('link[href*="/wp-content/litespeed/ucss/"]')?.getAttribute('href');
+  if(!homeUcss||specialUcss!==homeUcss)issues.push({path:special,error:'Special-page shared stylesheet must exactly match homepage stylesheet'});
+  const localCss=[...d.querySelectorAll('style')].filter(node=>!['kirki-inline-styles','litespeed-ccss','wp-custom-css'].includes(node.id)).map(node=>node.textContent).join('\n');
   const unsafeChromeCss=/(^|})\s*(?:\*|html|body|a|p|h[1-6])\s*(?:,|\{)|\.(?:site-header|site-branding|main-navigation|site-footer|site-info)\b/m;
   if(unsafeChromeCss.test(localCss))issues.push({path:special,error:'Special-page CSS must be scoped and must not override shared homepage chrome'});
  }
@@ -173,6 +182,14 @@ const formEmbeds=[
  {path:'/contact-us/',file:'contact-us/index.html',id:'f35f941a-7978-41cc-aabc-4dc669ac9a0a'},
  {path:'/coosummit26/',file:'coosummit26/index.html',id:'05a4b6fe-6b23-433e-bf08-e667071c8d3b'},
 ];
+{
+ const formHtml=await readFile(within(root,'/coosummit26/index.html'),'utf8');
+ const confirmHtml=await readFile(within(root,'/coosummit26confirm/index.html'),'utf8');
+ const formDoc=new JSDOM(formHtml,{url:'https://slopestohope.org/coosummit26/',virtualConsole:new VirtualConsole()}).window.document;
+ const confirmDoc=new JSDOM(confirmHtml,{url:'https://slopestohope.org/coosummit26confirm/',virtualConsole:new VirtualConsole()}).window.document;
+ if(normalize(formDoc.querySelector('.coosummit26-news-credit')?.textContent||'')!=='Featured on 9NEWS')issues.push({path:'/coosummit26/',error:'9NEWS video credit missing or changed'});
+ if(normalize(confirmDoc.querySelector('.news-credit')?.textContent||'')!=='Featured on 9NEWS')issues.push({path:'/coosummit26confirm/',error:'9NEWS video credit missing or changed'});
+}
 const exactLoader='<script src="https://js-na2.hsforms.net/forms/embed/244348981.js" defer></script>';
 for(const form of formEmbeds){
  const html=await readFile(within(root,'/'+form.file),'utf8');
