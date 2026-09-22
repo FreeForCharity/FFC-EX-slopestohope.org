@@ -145,6 +145,24 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  if(d.querySelector('#google_gtagjs-js,#google_gtagjs-js-after,#leadin-script-loader-js-js'))issues.push({path:route.path,error:'Uncontrolled analytics loader present in static HTML'});
  for(const script of d.querySelectorAll('script[type="application/ld+json"]'))try{JSON.parse(script.textContent);}catch{issues.push({path:route.path,error:'Malformed structured data'});}
 }
+// Special standalone pages must reuse the homepage chrome exactly and must not override it with global CSS.
+{
+ const homeHtml=await readFile(within(root,'/index.html'),'utf8');
+ const homeDoc=new JSDOM(homeHtml,{url:'https://slopestohope.org/',virtualConsole:new VirtualConsole()}).window.document;
+ const expectedHeader=homeDoc.querySelector('.site-header-wrapper')?.outerHTML;
+ const expectedFooter=homeDoc.querySelector('#colophon.site-footer')?.outerHTML;
+ for(const special of ['/coosummit26confirm/']){
+  const html=await readFile(within(root,special+'index.html'),'utf8');
+  const d=new JSDOM(html,{url:'https://slopestohope.org'+special,virtualConsole:new VirtualConsole()}).window.document;
+  if(!expectedHeader||d.querySelector('.site-header-wrapper')?.outerHTML!==expectedHeader)issues.push({path:special,error:'Special-page header must exactly match homepage header'});
+  if(!expectedFooter||d.querySelector('#colophon.site-footer')?.outerHTML!==expectedFooter)issues.push({path:special,error:'Special-page footer must exactly match homepage footer'});
+  if(!d.querySelector('#page.site')||!d.querySelector('.mobile-menu-close'))issues.push({path:special,error:'Special page is missing shared site chrome wrappers'});
+  if(!d.querySelector('script[src="/assets/consent.js"]')||!d.querySelector('link[href="/assets/consent.css"]'))issues.push({path:special,error:'Special page is missing shared consent assets'});
+  const localCss=[...d.querySelectorAll('style')].map(node=>node.textContent).join('\n');
+  const unsafeChromeCss=/(^|})\s*(?:\*|html|body|a|p|h[1-6])\s*(?:,|\{)|\.(?:site-header|site-branding|main-navigation|site-footer|site-info)\b/m;
+  if(unsafeChromeCss.test(localCss))issues.push({path:special,error:'Special-page CSS must be scoped and must not override shared homepage chrome'});
+ }
+}
 const consent=await readFile(within(root,'/assets/consent.js'),'utf8');
 for(const expected of ['GT-MKTP8299','G-XEWDW3TYVZ','granted','denied','slopesToHopeAnalyticsConsent','sth_analytics','cdn-cgi/rum'])if(!consent.includes(expected))issues.push({path:'/assets/consent.js',error:`Consent implementation missing ${expected}`});
 const formEmbeds=[
