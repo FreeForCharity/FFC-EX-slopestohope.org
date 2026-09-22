@@ -10,19 +10,10 @@
 .elementor-83 .sth-fundraising{padding-bottom:20px}
 /* Navy primary donation actions; other action buttons retain their blue rules. */
 body.home{--sth-gold:#f4ce46;--sth-navy:#12243a}
-body.home .site-header .donate-menu>a{background:var(--sth-navy);color:#fff;border-color:var(--sth-gold)}
 body.home .elementor-element.elementor-element-93d7298 .elementskit-btn{background:var(--sth-gold);color:var(--sth-navy);border-color:var(--sth-navy)}
-body.home .site-header .donate-menu>a:hover{background:#203a58;color:#fff}
 body.home .elementor-element.elementor-element-93d7298 .elementskit-btn:hover{background:#ffe078;color:var(--sth-navy)}
 body.home .elementor-element.elementor-element-93d7298 .elementskit-btn i{color:inherit}
-body.home .site-header .donate-menu>a{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;height:40px;min-height:40px;padding:4px 10px;border:1px solid var(--sth-gold);border-radius:6px;font-weight:700;line-height:1.2}
-body.home .site-header .buddyx-desktop-menu .donate-menu>a,
-body.home .site-header .buddyx-mobile-menu .donate-menu>a{height:40px!important;min-height:40px!important;padding:4px 10px!important}
-/* Keep the header donation action on the same text baseline as neighboring links. */
-body.home .site-header .buddyx-desktop-menu .donate-menu>a{height:auto!important;min-height:0!important;padding:0 10px!important;line-height:1.4!important;align-self:center}
-body.home .site-header .buddyx-desktop-menu .donate-menu>a{transform:translateY(24px)}
 body.home .elementor-element.elementor-element-93d7298 a:focus-visible,
-body.home .site-header .donate-menu>a:focus-visible,
 .sth-candid a:focus-visible{outline:3px solid #12243a;outline-offset:4px;box-shadow:0 0 0 3px #fff}
 /* Put the fundraising total above the existing percentage/progress track. */
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skill-title,
@@ -58,7 +49,6 @@ body.home .site-header .donate-menu>a:focus-visible,
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .skill-title span:last-child{text-align:right}
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skillbar-group .number-percentage-wraper{visibility:hidden}
 /* Override the theme's navigation link-state color for these two donation actions only. */
-body.home .site-header .donate-menu>a{color:#fff!important}
 body.home .elementor-element.elementor-element-93d7298 .elementskit-btn{color:var(--sth-navy)!important}
 .elementor-83 .elementor-element.elementor-element-9a60dfa .skill-bar-content{transform:none;padding:0;left:auto;top:auto;width:100%}
 
