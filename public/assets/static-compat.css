@@ -39,3 +39,44 @@
   width: 100% !important;
   max-width: 100% !important;
 }
+
+/* Shared site-header donation action. Keep this global so every page uses the
+   same header treatment as the homepage. */
+.site-header .donate-menu > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 40px;
+  min-height: 40px;
+  padding: 4px 10px;
+  border: 1px solid #f4ce46;
+  border-radius: 6px;
+  background: #203a58;
+  color: #fff !important;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.site-header .donate-menu > a:hover {
+  background: #2b4f74;
+  color: #fff !important;
+}
+.site-header .buddyx-desktop-menu .donate-menu > a,
+.site-header .buddyx-mobile-menu .donate-menu > a {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 4px 10px !important;
+}
+.site-header .buddyx-desktop-menu .donate-menu > a {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 10px !important;
+  line-height: 1.4 !important;
+  align-self: center;
+  transform: translateY(24px);
+}
+.site-header .donate-menu > a:focus-visible {
+  outline: 3px solid #203a58;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 3px #fff;
+}
