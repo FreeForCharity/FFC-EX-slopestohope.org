@@ -161,7 +161,7 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
   const homeTypography=homeDoc.querySelector('#kirki-inline-styles')?.textContent;
   const specialTypography=d.querySelector('#kirki-inline-styles')?.textContent;
   if(!homeTypography||specialTypography!==homeTypography)issues.push({path:special,error:'Special-page typography must exactly match homepage typography'});
-  const localCss=[...d.querySelectorAll('style')].map(node=>node.textContent).join('\n');
+  const localCss=[...d.querySelectorAll('style')].filter(node=>node.id!=='kirki-inline-styles').map(node=>node.textContent).join('\n');
   const unsafeChromeCss=/(^|})\s*(?:\*|html|body|a|p|h[1-6])\s*(?:,|\{)|\.(?:site-header|site-branding|main-navigation|site-footer|site-info)\b/m;
   if(unsafeChromeCss.test(localCss))issues.push({path:special,error:'Special-page CSS must be scoped and must not override shared homepage chrome'});
  }
