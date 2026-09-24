@@ -111,6 +111,9 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
    const partner=ctas.filter(link=>normalize(link.textContent)==='Partner');
    if(volunteer.length!==1||volunteer[0].getAttribute('href')!=='/contact-us/?initial_inquiry=FDzWWvIE8BnvAFjK-rnd3')issues.push({path:route.path,error:'Volunteer CTA must preselect the Volunteer inquiry reason'});
    if(partner.length!==1||partner[0].getAttribute('href')!=='/contact-us/?initial_inquiry=pLvTcP1Yx2esDFetkizjy')issues.push({path:route.path,error:'Partner CTA must preselect the Sponsorship/Partnership inquiry reason'});
+   const supportingHeadings=['Mission','Why?','How?','How is it funded?','How can you help?'];
+   const actualHeadings=[...d.querySelectorAll('h3.elementor-heading-title')].map(heading=>normalize(heading.textContent));
+   if(supportingHeadings.some(heading=>!actualHeadings.includes(heading))||d.querySelector('h5.elementor-heading-title'))issues.push({path:route.path,error:'Homepage supporting sections must use level-three headings'});
  }
  const description=d.querySelector('meta[name="description"]')?.content?.trim()||'';
  if(!d.title.trim()||!description)issues.push({path:route.path,error:'SEO title or meta description missing'});
