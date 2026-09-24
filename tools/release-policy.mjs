@@ -4,6 +4,7 @@ import {resolve} from 'node:path';
 import {EXCLUDED_ROUTES} from './legacy-policy.mjs';
 import {applyAccessibility} from './accessibility.mjs';
 import {applyLinkRepairs} from './link-policy.mjs';
+import {isRestrictiveViewportDirective} from './viewport-policy.mjs';
 
 export const POLICY_ROUTES=[
   {path:'/privacy-policy/',title:'Privacy Policy – Slopes to Hope'},
@@ -97,10 +98,10 @@ function applyTechnicalSeo(document,routePath){
   document.head.appendChild(script);
 }
 
-function applyViewportAndHomepageInquiryPolicy(document,routePath){
+export function applyViewportAndHomepageInquiryPolicy(document,routePath){
   const viewport=document.head.querySelector('meta[name="viewport"]');
   if(viewport){
-    const content=(viewport.getAttribute('content')||'').split(',').map(value=>value.trim()).filter(Boolean).filter(value=>!/^maximum-scale\\s*=/i.test(value)&&!/^user-scalable\\s*=/i.test(value));
+    const content=(viewport.getAttribute('content')||'').split(',').map(value=>value.trim()).filter(Boolean).filter(value=>!isRestrictiveViewportDirective(value));
     viewport.setAttribute('content',content.join(', '));
   }
   if(routePath==='/'){

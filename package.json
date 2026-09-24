@@ -3,6 +3,7 @@
     "capture": "node tools/migrate.mjs",
     "validate": "node tools/validate.mjs",
     "build": "node tools/validate.mjs && node tools/build.mjs",
+    "test": "node --test tools/*.test.mjs",
     "preview": "node tools/serve.mjs out 4173",
     "test:browser": "node tools/browser-audit.mjs",
     "test:interactions": "node tools/interactions.mjs",

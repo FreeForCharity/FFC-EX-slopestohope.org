@@ -6,6 +6,7 @@ import {within} from './migrate.mjs';
 import {EXCLUDED_ROUTES,REMOVED_CANDID_SEAL_LINKS} from './legacy-policy.mjs';
 import {POLICY_ROUTES} from './release-policy.mjs';
 import {LINK_REPLACEMENTS} from './link-policy.mjs';
+import {hasRestrictiveViewportDirective} from './viewport-policy.mjs';
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Set(['/open-positions/','/donations/slopes-to-hope']);
 const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
@@ -103,7 +104,7 @@ for(const route of [...publishedRoutes,...POLICY_ROUTES]){
  const d=new JSDOM(html,{url:'https://slopestohope.org'+route.path,virtualConsole:new VirtualConsole()}).window.document;
  const expectedUrl='https://slopestohope.org'+route.path;
  const viewportContent=d.querySelector('meta[name="viewport"]')?.content||'';
- if(/user-scalable\\s*=\\s*no|maximum-scale\\s*=\\s*1(?:\\.0)?/i.test(viewportContent))issues.push({path:route.path,error:'Viewport prevents browser zoom'});
+ if(hasRestrictiveViewportDirective(viewportContent))issues.push({path:route.path,error:'Viewport restricts browser zoom'});
  if(route.path==='/'){
    const ctas=[...d.querySelectorAll('a.elementskit-btn')];
    const volunteer=ctas.filter(link=>normalize(link.textContent)==='Volunteer');
@@ -246,7 +247,7 @@ for(const form of formEmbeds){
  if(d.querySelector('meta[property="og:title"]')?.content!=='COO Summit 2026: Complimentary Concierge Pickup – Slopes to Hope')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph title changed'});
  if(d.querySelector('meta[property="og:type"]')?.content!=='website'||d.querySelector('meta[property="og:site_name"]')?.content!=='Slopes to Hope'||d.querySelector('meta[property="og:image"]')?.content!=='https://slopestohope.org/assets/coosummit26-marriott-2026.webp')issues.push({path:'/coosummit26/',error:'COO Summit Open Graph metadata incomplete'});
  if(/Contact%20Us|"page_permalink":"\/contact-us\/"|postId:"71"|context:\{"id":71,"type":"post"\}|data-elementor-id="71"|elementor-71/.test(html))issues.push({path:'/coosummit26/',error:'Contact Us runtime metadata remains'});
- if(/user-scalable\s*=\s*no|maximum-scale\s*=\s*1(?:\.0)?/.test(d.querySelector('meta[name="viewport"]')?.content||''))issues.push({path:'/coosummit26/',error:'COO Summit viewport prevents browser zoom'});
+ if(hasRestrictiveViewportDirective(d.querySelector('meta[name="viewport"]')?.content||''))issues.push({path:'/coosummit26/',error:'COO Summit viewport restricts browser zoom'});
  if(!formWidget?.previousElementSibling?.matches('[data-widget_type="image.default"]'))issues.push({path:'/coosummit26/',error:'COO Summit form is not immediately after the picture'});
 }
 const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length+POLICY_ROUTES.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
