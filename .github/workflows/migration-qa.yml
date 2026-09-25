@@ -30,6 +30,7 @@ jobs:
         env:
           SITE_ROOT: public
       - run: node --test tools/request-audit.test.mjs
+      - run: pnpm test
       - name: Browser audit at desktop and mobile widths
         run: pnpm run test:browser
       - name: Keyboard, Gallery, navigation, and form validation

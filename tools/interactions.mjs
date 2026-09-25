@@ -20,6 +20,7 @@ async function waitForFrame(tab,fragment,timeout=15000){
 }
 async function inspectForm(frame,name,width){
  const controls=frame.locator('input:not([type="hidden"]),textarea,select');
+ await frame.locator('input:not([type="hidden"]):visible,textarea:visible,select:visible').first().waitFor({state:'visible',timeout:10000});
  const visibleControls=[];
  for(let i=0;i<await controls.count();i++){const control=controls.nth(i);if(await control.isVisible())visibleControls.push(await control.evaluate(element=>({tag:element.tagName.toLowerCase(),type:element.getAttribute('type')||'',name:element.getAttribute('name')||'',required:element.required,ariaLabel:element.getAttribute('aria-label')||'',label:element.labels?.[0]?.textContent?.replace(/\s+/g,' ').trim()||''})));}
  const submit=frame.locator('button[type="submit"],input[type="submit"]').first();
