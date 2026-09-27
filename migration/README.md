@@ -33,6 +33,6 @@ Follow [maintenance](maintenance.md), [deployment](../DEPLOYMENT.md), and [rollb
 
 `pnpm run capture` is an import/recovery tool, not publishing. Run it only in a disposable branch, reviewing the complete diff. Do not bypass the homepage recapture guard as routine maintenance.
 
-Current homepage collection totals were updated September 27 with Drew's explicit approval: the FY27/current-goal display changed from `5,152` to `5,223`, the cumulative display changed from `26,007` to `26,079`, and the 20,000-pound progress ring was recalculated from `25.76%` to `26.12%`.
+Beginning September 27, 2026, homepage collection totals are maintained from the authoritative Google Drive `Storage Unit - Inventory` FY27 sheet. The sync is limited to the displayed FY27/current-goal pounds, the cumulative pounds since December 2023, the 20,000-pound progress percentage, and the matching maintained inventory baseline. The source sheet is read-only to the sync; unrelated website content and functionality must remain unchanged.
 
 See [current verification](closeout/README.md) and [owner decisions](owner-decisions.md). Older reports describe their own route counts and consent behavior. Generic Free For Charity template/conversion documents elsewhere in the repository are historical reference only; references there to Zeffy, Microsoft Forms, Clarity, Meta Pixel, or other template integrations do not describe the Slopes to Hope production site. Render tests do not prove CRM storage, inbox delivery, payment completion, indexing, or private backup restorability.
