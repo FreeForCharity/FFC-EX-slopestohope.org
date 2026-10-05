@@ -34,6 +34,11 @@ for(const r of publishedRoutes){
  // The homepage also has one owner-approved fundraising display adaptation.
  text.querySelectorAll('script,style,.sth-footer-links,.sth-hero__credit,.sth-newsletter-policy,.coosummit26-news-credit,.news-credit,footer [data-open-cookie-settings]').forEach(e=>e.remove());
  let bodyText=normalize(text.body.textContent);
+ if(r.path==='/team/'){
+  const teamEmail=[...d.querySelectorAll('a[href]')].filter(a=>normalize(a.textContent)==='drew@slopestohope.org');
+  if(teamEmail.length!==1||teamEmail[0].getAttribute('href')!=='mailto:drew@slopestohope.org')issues.push({path:r.path,error:'Team contact email must display and link to drew@slopestohope.org'});
+  bodyText=bodyText.replaceAll('drew@slopestohope.org','drew@slopestohope.com');
+ }
  if(r.path==='/'){
   bodyText=bodyText.replaceAll('$9,123 raised$25,000 goal','$8,068.03');
   if(d.querySelector('.sth-hero a[href="/gallery/"],.eael-wrapper-link-5a53669d[href="/gallery/"]'))issues.push({path:r.path,error:'Homepage hero must not be a Gallery navigation target'});
@@ -90,6 +95,7 @@ for(const file of await glob('**/*.{html,css,js,json}',{cwd:root,nodir:true})){
  if(deletedPolicyShellPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Deleted title-only policy route in published output'});
  if(brokenInstagramPreviewPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Broken Instagram preview image remains in published output'});
  if(elementorAllyPattern.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Elementor Ally accessibility widget remains in published output'});
+ if(/drew@slopestohope\.com/i.test(contents))issues.push({path:file.replaceAll('\\','/'),error:'Legacy .com contact email remains in published output'});
 }
 for(const route of POLICY_ROUTES){
  const html=await readFile(within(root,route.path+'index.html'),'utf8');
