@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "audit:high": "pnpm audit --prod --audit-level high",
     "capture": "node tools/migrate.mjs",
     "validate": "node tools/validate.mjs",
     "build": "node tools/validate.mjs && node tools/build.mjs",
