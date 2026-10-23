@@ -37,7 +37,7 @@ export function prepareEdits(html, inventory, fy27, lifetime, funds) {
       (_m, a, b) => a + lifeLabel + b, 'homepage lifetime'],
     [/(Goal:<br>)[\d,]+(\/20,000)/g,
       (_m, a, b) => a + fyLabel + b, 'homepage FY27 goal'],
-    [/(class="eael-progressbar eael-progressbar-circle"[^>]*data-count=")[\d.]+(")/g,
+    [/(class="eael-progressbar eael-progressbar-circle"[^>]*data-count=")[\d.]+("(?:(?!class="eael-progressbar).){0,2000}?Goal:<br>[\d,]+\/20,000)/gs,
       (_m, a, b) => a + percent + b, 'homepage FY27 percentage'],
   ].reduce((text, [pattern, cb, label]) =>
     replaceExactlyOnce(text, pattern, cb, label), html);
