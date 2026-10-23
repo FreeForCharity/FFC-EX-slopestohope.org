@@ -1,0 +1,95 @@
+name: Homepage Sheet Sync (manual pilot)
+
+# Deliberately NOT scheduled or enabled for automatic writes during pilot.
+# Add a schedule only after credentials, QA, governance, and production
+# authorization are explicitly approved. Never auto-merge.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sth-homepage-sheet-sync
+  cancel-in-progress: false
+
+jobs:
+  prepare-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Get narrowly scoped app token
+        id: app
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.STH_SYNC_GH_APP_ID }}
+          private-key: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
+          owner: FreeForCharity
+          repositories: FFC-EX-slopestohope.org
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app.outputs.token }}
+          persist-credentials: false
+
+      - name: Check no existing pending sync PR
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        run: |
+          set -euo pipefail
+          if gh pr list --state open --json headRefName --jq             '.[].headRefName | select(startswith("automation/source-sync-"))'             | grep -q .; then
+            echo "::error::An inventory sync PR is pending; review it instead of creating a duplicate."
+            exit 1
+          fi
+
+      - name: Configure Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Validate source and prepare exact website fields
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.STH_SYNC_GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: node tools/sync-homepage-from-sheets.mjs
+
+      - name: Validate generated website
+        run: |
+          set -euo pipefail
+          corepack enable
+          pnpm install --frozen-lockfile
+          pnpm run build
+          pnpm test
+
+      - name: Open DRAFT pull request, never deploy
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/index.html migration/inventory.json; then
+            echo "Sheets and site already synchronized; no PR necessary."
+            exit 0
+          fi
+          git diff --check
+          changed=$(git diff --name-only)
+          expected=$(printf '%s\n' migration/inventory.json public/index.html)
+          if [ "$changed" != "$expected" ]; then
+            echo "::error::Unapproved file changes detected: $changed"
+            exit 1
+          fi
+          branch="automation/source-sync-$(date -u +%Y%m%d-%H%M%S)"
+          git checkout -b "$branch"
+          git config user.name "slopestohope-sheet-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- public/index.html migration/inventory.json
+          git commit -m "chore: propose verified homepage totals from Sheets"
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"             push origin "$branch"
+          gh pr create --draft --base main --head "$branch"             --title "Inventory sync: verified homepage totals (review only)"             --body "Google Sheets source-validated update of collection totals, goal progress, and maintained migration baseline only. Migration QA and review are required. DO NOT MERGE OR DEPLOY WITHOUT DREW'S EXPLICIT APPROVAL. No unrelated changes; no source spreadsheet writes."
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Inventory Sync pilot" >> "$GITHUB_STEP_SUMMARY"
+          echo "PR only. No schedule, merge, auto-merge, or deployment." >> "$GITHUB_STEP_SUMMARY"
