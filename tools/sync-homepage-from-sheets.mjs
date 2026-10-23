@@ -25,9 +25,11 @@ export function prepareEdits(html, inventory, fy27, lifetime, funds) {
   // Fundraising is separately maintained. Fail closed on divergence; never
   // silently publish an impact change alongside stale fundraising figures.
   const fundraiser = [...html.matchAll(/\$([\d,]+) raised/g)];
-  check(fundraiser.length === 1, 'Expected one visible fundraising label');
-  check(Number(fundraiser[0][1].replaceAll(',', '')) === Math.round(funds),
-    'Website fundraising label diverges from the authoritative sheet');
+  check(fundraiser.length === 2, 'Expected desktop and mobile fundraising labels');
+  for (const label of fundraiser) {
+    check(Number(label[1].replaceAll(',', '')) === Math.round(funds),
+      'Website fundraising label diverges from the authoritative sheet');
+  }
 
   const lifeLabel = roundPounds(lifetime);
   const fyLabel = roundPounds(fy27);
@@ -37,7 +39,7 @@ export function prepareEdits(html, inventory, fy27, lifetime, funds) {
       (_m, a, b) => a + lifeLabel + b, 'homepage lifetime'],
     [/(Goal:<br>)[\d,]+(\/20,000)/g,
       (_m, a, b) => a + fyLabel + b, 'homepage FY27 goal'],
-    [/(class="eael-progressbar eael-progressbar-circle"[^>]*data-count=")[\d.]+("(?:(?!class="eael-progressbar).){0,2000}?Goal:<br>[\d,]+\/20,000)/gs,
+    [/(class="eael-progressbar eael-progressbar-circle"[^>]*data-count=")[\d.]+("(?:(?!class="eael-progressbar eael-progressbar-circle").){0,2500}?Goal:<br>[\d,]+\/20,000)/gs,
       (_m, a, b) => a + percent + b, 'homepage FY27 percentage'],
   ].reduce((text, [pattern, cb, label]) =>
     replaceExactlyOnce(text, pattern, cb, label), html);
