@@ -41,8 +41,15 @@ jobs:
           GH_TOKEN: ${{ steps.app.outputs.token }}
         run: |
           set -euo pipefail
-          existing=$(gh pr list --state open --json headRefName --jq \
-            '.[].headRefName | select(startswith("automation/source-sync-"))')
+          # Enumerate every page; gh pr list defaults to only 30.
+          # Include earlier automation branch naming conventions.
+          existing=$(gh api --paginate \
+            "repos/${GITHUB_REPOSITORY}/pulls?state=open&per_page=100" \
+            --jq '.[] | select(
+              (.head.ref | startswith("automation/source-sync-")) or
+              (.head.ref | startswith("automation/website-sync-")) or
+              (.head.ref | startswith("impact-sync-"))
+            ) | .head.ref')
           if [ -n "$existing" ]; then
             echo "::error::An inventory sync PR is pending; review it instead of creating a duplicate."
             exit 1
