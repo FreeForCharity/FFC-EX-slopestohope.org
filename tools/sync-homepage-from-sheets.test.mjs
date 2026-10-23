@@ -3,8 +3,10 @@ import assert from 'node:assert/strict';
 import { prepareEdits, verifyInventory } from './sync-homepage-from-sheets.mjs';
 
 const html = '<b>26,620 pounds</b> - Collected and Redistributed' +
-  ' <span>$9,123 raised</span>' +
+  ' <span>$9,123 raised</span><span>$9,123 raised</span>' +
   '<div class="eael-progressbar eael-progressbar-circle" data-count="28.82">' +
+  '<div class="eael-progressbar-circle-pie"></div>' +
+  '<div class="eael-progressbar-title">' +
   'Goal:<br>5,765/20,000</div>';
 const inventory = JSON.stringify({ pages: [{ bodyText:
   'Since December 2023… 26,620 pounds - Collected and Redistributed ' +
@@ -28,6 +30,8 @@ test('stops on unexpected or duplicate fields', () => {
     inventory, 5839.3, 26694.7, 9123.03));
   assert.throws(() => prepareEdits(html, inventory, 5839.3,
     26694.7, 10000));
+  assert.throws(() => prepareEdits(html.replace('<span>$9,123 raised</span>',
+    '<span>$9,000 raised</span>'), inventory, 5839.3, 26694.7, 9123.03));
 });
 test('validates independent sum, historical baseline, and source layout', () => {
   const summary = [[],[],['FY27 Total', 5839.3],[],['Overall',26694.7]];
