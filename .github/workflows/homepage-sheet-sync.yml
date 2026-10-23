@@ -34,13 +34,16 @@ jobs:
         with:
           token: ${{ steps.app.outputs.token }}
           persist-credentials: false
+          ref: main
 
       - name: Check no existing pending sync PR
         env:
           GH_TOKEN: ${{ steps.app.outputs.token }}
         run: |
           set -euo pipefail
-          if gh pr list --state open --json headRefName --jq             '.[].headRefName | select(startswith("automation/source-sync-"))'             | grep -q .; then
+          existing=$(gh pr list --state open --json headRefName --jq \
+            '.[].headRefName | select(startswith("automation/source-sync-"))')
+          if [ -n "$existing" ]; then
             echo "::error::An inventory sync PR is pending; review it instead of creating a duplicate."
             exit 1
           fi
@@ -62,6 +65,7 @@ jobs:
           pnpm install --frozen-lockfile
           pnpm run build
           pnpm test
+          git restore -- migration/static-validation.json
 
       - name: Open DRAFT pull request, never deploy
         env:
@@ -74,9 +78,9 @@ jobs:
           fi
           git diff --check
           changed=$(git diff --name-only)
-          expected=$(printf '%s\n' migration/inventory.json public/index.html)
-          if [ "$changed" != "$expected" ]; then
-            echo "::error::Unapproved file changes detected: $changed"
+          unexpected=$(printf '%s\n' "$changed" | grep -vE '^(migration/inventory\.json|public/index\.html)$' || true)
+          if [ -n "$unexpected" ]; then
+            echo "::error::Unapproved file changes detected: $unexpected"
             exit 1
           fi
           branch="automation/source-sync-$(date -u +%Y%m%d-%H%M%S)"
