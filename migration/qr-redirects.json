@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23",
+  "updatedAt": "2026-10-25",
   "status": "Cloudflare account rules still require authenticated deployment/verification; seven GitHub fallback routes (incl. /tablerunner) are present on this branch. COO Summit uses the direct /coosummit26 route and no separate QR redirect.",
   "redirects": [
     {
@@ -28,6 +28,10 @@
     },
     {
       "source": "/tablerunner",
+      "target": "/?utm_source=qr&utm_medium=print&utm_campaign=fy27&utm_content=table-runner"
+    },
+    {
+      "source": "/tr",
       "target": "/?utm_source=qr&utm_medium=print&utm_campaign=fy27&utm_content=table-runner"
     }
   ]
