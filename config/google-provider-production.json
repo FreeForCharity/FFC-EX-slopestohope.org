@@ -1,0 +1,19 @@
+{
+  "displayName": "STH main nightly Sheets sync",
+  "attributeMapping": {
+    "google.subject": "assertion.sub",
+    "attribute.repository_id": "assertion.repository_id",
+    "attribute.repository_owner_id": "assertion.repository_owner_id",
+    "attribute.repository": "assertion.repository",
+    "attribute.event_name": "assertion.event_name",
+    "attribute.ref": "assertion.ref",
+    "attribute.workflow_ref": "assertion.workflow_ref"
+  },
+  "attributeCondition": "assertion.repository_id == '1128665669' && assertion.repository_owner_id == '8795820' && assertion.repository == 'FreeForCharity/FFC-EX-slopestohope.org' && assertion.ref == 'refs/heads/main' && assertion.workflow_ref == 'FreeForCharity/FFC-EX-slopestohope.org/.github/workflows/nightly-pounds.yml@refs/heads/main' && assertion.event_name in ['schedule', 'workflow_dispatch']",
+  "oidc": {
+    "issuerUri": "https://token.actions.githubusercontent.com",
+    "allowedAudiences": [
+      "https://iam.googleapis.com/projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-main-sync"
+    ]
+  }
+}

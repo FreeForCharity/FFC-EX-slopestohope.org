@@ -12,10 +12,7 @@ on:
     - cron: '34 6 * * *' # daily, 06:34 UTC
   pull_request:
     branches: ['main']
-    paths:
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'pnpm-workspace.yaml'
+  merge_group:
   workflow_dispatch:
 
 permissions:

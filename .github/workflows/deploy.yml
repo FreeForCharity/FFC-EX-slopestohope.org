@@ -69,6 +69,20 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
+      - name: Checkout the exact deployed revision for numerical verification
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+      - name: Verify actual published collection figures
+        env:
+          DEPLOY_URL: https://slopestohope.org/
+        timeout-minutes: 5
+        run: node tools/verify-live-impact.mjs
+
       - name: Post-deploy smoke check
         env:
           DEPLOY_URL: ${{ steps.deployment.outputs.page_url }}
