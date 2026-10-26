@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {serve} from './serve.mjs';
 const root=resolve('.migration-cache/rollback-baseline');
 const out=resolve(root,'out'),source=resolve(root,'public');
-const routes=['/','/contact-us/','/our-story/','/faq/','/donors/','/team/','/gallery/','/partners/','/coosummit26/','/privacy-policy/','/terms-of-service/'];
+const routes=['/','/contact-us/','/our-story/','/faq/','/donors/','/team/','/gallery/','/partners/','/coosummit26/','/pickup/','/privacy-policy/','/terms-of-service/'];
 const server=await serve(out);
 const base='http://127.0.0.1:'+server.address().port;
 const checks=[];
@@ -17,7 +17,7 @@ try{
   const staff=await(await fetch(base+'/staff/')).text();
   assert.match(staff,/url=\/team\//i);
   assert.equal((await fetch(base+'/not-a-real-page/')).status,404);
-  for(const [file,id] of [['index.html','9a181260-20a9-408c-8591-cca3093d7e3f'],['contact-us/index.html','f35f941a-7978-41cc-aabc-4dc669ac9a0a'],['coosummit26/index.html','05a4b6fe-6b23-433e-bf08-e667071c8d3b']]){
+  for(const [file,id] of [['index.html','9a181260-20a9-408c-8591-cca3093d7e3f'],['contact-us/index.html','f35f941a-7978-41cc-aabc-4dc669ac9a0a'],['coosummit26/index.html','05a4b6fe-6b23-433e-bf08-e667071c8d3b'],['pickup/index.html','1aad6e9d-ff7b-48fc-b8be-966707d24483']]){
     assert.ok((await readFile(resolve(out,file),'utf8')).includes(id));
   }
   assert.equal((await readFile(resolve(out,'CNAME'),'utf8')).trim(),'slopestohope.org');

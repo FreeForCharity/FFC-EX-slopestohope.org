@@ -13,7 +13,7 @@ export const POLICY_ROUTES=[
 
 const footerLinks='<span class="sth-footer-links"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a><button type="button" data-open-cookie-settings>Cookie settings</button></span>';
 const hubSpotFormsLoader='https://js-na2.hsforms.net/forms/embed/244348981.js';
-const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b']);
+const hubSpotFormIds=new Set(['9a181260-20a9-408c-8591-cca3093d7e3f','f35f941a-7978-41cc-aabc-4dc669ac9a0a','05a4b6fe-6b23-433e-bf08-e667071c8d3b','1aad6e9d-ff7b-48fc-b8be-966707d24483']);
 
 const SITE_ORIGIN='https://slopestohope.org';
 const ORGANIZATION_ID=SITE_ORIGIN+'/#organization';
