@@ -10,7 +10,7 @@ export const ROOT = resolve('public');
 const CACHE = resolve('.migration-cache/source');
 const offline = process.argv.includes('--offline');
 const allowHomepageRecapture = process.argv.includes('--allow-homepage-recapture');
-const LOCAL_ROUTE_PATHS = ['/coosummit26/'];
+const LOCAL_ROUTE_PATHS = ['/coosummit26/','/pickup/'];
 const report = { capturedAt: new Date().toISOString(), source: SOURCE, routes: [], assets: [], failures: [], adaptations: ['Hydrate LiteSpeed-delayed resources for static hosting.', 'Remove the LiteSpeed PHP guest probe and WordPress click-tracking POSTs.', 'Preserve original Elementor and theme runtimes; discover their dynamic assets in browser tests.', 'Remove the unused external Elementor Ally accessibility widget.', 'Remove obsolete Community Across America FAQ content and exclude its empty tag archive.', 'Serve locally captured fonts without the legacy Community Across America host dependency.', 'Exclude retired GiveWP workflow pages and route the orphaned Donors call to action to Givebutter.', 'Exclude the owner-approved title-only privacy-policy-2 and terms-of-service-2 shells.', 'Exclude unlinked empty WordPress archive and internal-template routes.', 'Normalize canonical and Open Graph URLs for the .org host and remove WordPress shortlinks.', 'Remove the deterministic 404 Instagram preview image while retaining the reel link and embed.', 'Preserve owner-authored local routes and merge them into the generated inventory after source recapture.'] };
 const queue = new Set(), visited = new Set();
 const sha = b => createHash('sha256').update(b).digest('hex');
