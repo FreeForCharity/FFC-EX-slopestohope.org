@@ -10,7 +10,7 @@ await cp(resolve('public'),out,{recursive:true});
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
 const routes=[...inventory.routes.filter(route=>!EXCLUDED_ROUTES.has(route.path)),...POLICY_ROUTES];
 const routePaths=routes.map(route=>route.path);
-if(routePaths.length!==11||new Set(routePaths).size!==11)throw new Error('Sitemap must contain exactly 11 unique published routes');
+if(routePaths.length!==12||new Set(routePaths).size!==12)throw new Error('Sitemap must contain exactly 12 unique published routes');
 if(routePaths.some(path=>!path.startsWith('/')||path.includes('?')||path.includes('#')))throw new Error('Sitemap route contains an invalid path');
 const SITE_ORIGIN='https://slopestohope.org';
 const imageExt=/\.(?:avif|gif|jpe?g|png|svg|webp)$/i;
@@ -52,7 +52,7 @@ for(const route of routes){
   sitemapEntries.push(`<url><loc>${SITE_ORIGIN}${route.path}</loc>${imageXml}</url>`);
 }
 const sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+sitemapEntries.join('')+'</urlset>\n';
-if((sitemap.match(/<loc>/g)||[]).length!==11||/slopestohope\.com/i.test(sitemap))throw new Error('Generated sitemap failed host or route-count validation');
+if((sitemap.match(/<loc>/g)||[]).length!==12||/slopestohope\.com/i.test(sitemap))throw new Error('Generated sitemap failed host or route-count validation');
 if(/<image:(?:caption|geo_location|title|license)>/i.test(sitemap))throw new Error('Generated image sitemap contains deprecated image tags');
 await writeFile(resolve(out,'sitemap.xml'),sitemap);
 const robots='User-agent: *\nAllow: /\nDisallow: /cdn-cgi/\nSitemap: https://slopestohope.org/sitemap.xml\n';

@@ -12,7 +12,7 @@ const root=resolve(process.env.SITE_ROOT||'public'),issues=[],knownBroken=new Se
 const publishedRoutes=inventory.routes.filter(r=>!EXCLUDED_ROUTES.has(r.path));
 const routes=new Set([...publishedRoutes,...POLICY_ROUTES].map(r=>r.path));routes.add('/staff/');
 const sitemapRoutes=[...publishedRoutes,...POLICY_ROUTES];
-if(sitemapRoutes.length!==11||new Set(sitemapRoutes.map(r=>r.path)).size!==11)issues.push({path:'/sitemap.xml',error:'Published sitemap route inventory must contain exactly 11 unique pages'});
+if(sitemapRoutes.length!==12||new Set(sitemapRoutes.map(r=>r.path)).size!==12)issues.push({path:'/sitemap.xml',error:'Published sitemap route inventory must contain exactly 12 unique pages'});
 if(sitemapRoutes.some(r=>!r.path.startsWith('/')||r.path.includes('?')||r.path.includes('#')))issues.push({path:'/sitemap.xml',error:'Published sitemap route contains an invalid path'});
 const normalize=s=>s.replace(/\s+/g,' ').trim();
 const PRIMARY_IMAGES=new Map([
@@ -225,6 +225,7 @@ const formEmbeds=[
  {path:'/',file:'index.html',id:'9a181260-20a9-408c-8591-cca3093d7e3f'},
  {path:'/contact-us/',file:'contact-us/index.html',id:'f35f941a-7978-41cc-aabc-4dc669ac9a0a'},
  {path:'/coosummit26/',file:'coosummit26/index.html',id:'05a4b6fe-6b23-433e-bf08-e667071c8d3b'},
+ {path:'/pickup/',file:'pickup/index.html',id:'1aad6e9d-ff7b-48fc-b8be-966707d24483'},
 ];
 {
  const formHtml=await readFile(within(root,'/coosummit26/index.html'),'utf8');
@@ -258,6 +259,19 @@ for(const form of formEmbeds){
  if(/Contact%20Us|"page_permalink":"\/contact-us\/"|postId:"71"|context:\{"id":71,"type":"post"\}|data-elementor-id="71"|elementor-71/.test(html))issues.push({path:'/coosummit26/',error:'Contact Us runtime metadata remains'});
  if(hasRestrictiveViewportDirective(d.querySelector('meta[name="viewport"]')?.content||''))issues.push({path:'/coosummit26/',error:'COO Summit viewport restricts browser zoom'});
  if(!formWidget?.previousElementSibling?.matches('[data-widget_type="image.default"]'))issues.push({path:'/coosummit26/',error:'COO Summit form is not immediately after the picture'});
+}
+{
+ const html=await readFile(within(root,'/pickup/index.html'),'utf8');
+ const d=new JSDOM(html,{url:'https://slopestohope.org/pickup/',virtualConsole:new VirtualConsole()}).window.document;
+ if(d.querySelectorAll('h1').length!==1||normalize(d.querySelector('h1')?.textContent||'')!=='Collection Partners: Request a Pickup')issues.push({path:'/pickup/',error:'Pickup page must have exactly one correct H1'});
+ if(/"page_permalink":"\/partners\/"|postId:"16472"|context:\{"id":16472,"type":"post"\}|data-elementor-id="16472"/.test(html))issues.push({path:'/pickup/',error:'Partners runtime metadata remains'});
+ if(d.querySelector('[aria-current]'))issues.push({path:'/pickup/',error:'Pickup page must not mark a menu item as current'});
+}
+{
+ const html=await readFile(within(root,'/partners/index.html'),'utf8');
+ const d=new JSDOM(html,{url:'https://slopestohope.org/partners/',virtualConsole:new VirtualConsole()}).window.document;
+ const button=[...d.querySelectorAll('.sth-pickup-request a[href]')];
+ if(button.length!==1||button[0].getAttribute('href')!=='/pickup/'||normalize(button[0].textContent)!=='Request a Pickup')issues.push({path:'/partners/',error:'Partners Request a Pickup button must link to /pickup/'});
 }
 const output={testedAt:new Date().toISOString(),routes:publishedRoutes.length+POLICY_ROUTES.length,excludedRoutes:[...EXCLUDED_ROUTES],issues,knownSourceBrokenLinks:[...knownBroken]};
 await writeFile('migration/static-validation.json',JSON.stringify(output,null,2)+'\n');
