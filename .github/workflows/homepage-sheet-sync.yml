@@ -1,106 +1,66 @@
-name: Homepage Sheet Sync (manual pilot)
-
-# Deliberately NOT scheduled or enabled for automatic writes during pilot.
-# Add a schedule only after credentials, QA, governance, and production
-# authorization are explicitly approved. Never auto-merge.
+name: Homepage Sheet Sync (keyless read-only pilot)
+# Local proposal for PR #111; no publishing operations.
 on:
-  workflow_dispatch:
-
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - ".github/workflows/homepage-sheet-sync.yml"
+      - "tools/sync-homepage-from-sheets.mjs"
+      - "config/google-keyless-pilot.json"
 permissions:
   contents: read
-
 concurrency:
-  group: sth-homepage-sheet-sync
+  group: sth-google-auth-pilot
   cancel-in-progress: false
-
 jobs:
-  prepare-pr:
+  authenticate-and-validate:
+    if: >-
+      github.event.pull_request.number == 111 &&
+      github.event.pull_request.head.repo.full_name == 'FreeForCharity/FFC-EX-slopestohope.org' &&
+      github.head_ref == 'automation/github-actions-sheet-sync-setup-20261023'
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
     steps:
-      - name: Get narrowly scoped app token
-        id: app
-        uses: actions/create-github-app-token@v2
+      - name: Checkout the PR merge revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          app-id: ${{ secrets.STH_SYNC_GH_APP_ID }}
-          private-key: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
-          owner: FreeForCharity
-          repositories: FFC-EX-slopestohope.org
-          permission-contents: write
-          permission-pull-requests: write
-
-      - name: Checkout main
-        uses: actions/checkout@v7
-        with:
-          token: ${{ steps.app.outputs.token }}
           persist-credentials: false
-          ref: main
-
-      - name: Check no existing pending sync PR
-        env:
-          GH_TOKEN: ${{ steps.app.outputs.token }}
-        run: |
-          set -euo pipefail
-          # Enumerate every page; gh pr list defaults to only 30.
-          # Include earlier automation branch naming conventions.
-          existing=$(gh api --paginate \
-            "repos/${GITHUB_REPOSITORY}/pulls?state=open&per_page=100" \
-            --jq '.[] | select(
-              (.head.ref | startswith("automation/source-sync-")) or
-              (.head.ref | startswith("automation/website-sync-")) or
-              (.head.ref | startswith("impact-sync-"))
-            ) | .head.ref')
-          if [ -n "$existing" ]; then
-            echo "::error::An inventory sync PR is pending; review it instead of creating a duplicate."
-            exit 1
-          fi
-
       - name: Configure Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
-          node-version: '24'
-
-      - name: Validate source and prepare exact website fields
+          node-version: "24"
+      - name: Obtain short-lived Sheets read-only access
+        id: google
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: formal-rookery-511517-d7
+          workload_identity_provider: projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-pr111-pilot
+          audience: https://iam.googleapis.com/projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-pr111-pilot
+          service_account: sth-sheet-sync-reader@formal-rookery-511517-d7.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 900s
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+          create_credentials_file: false
+          export_environment_variables: false
+      - name: Read authoritative cells and validate without writing
         env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.STH_SYNC_GOOGLE_SERVICE_ACCOUNT_JSON }}
-        run: node tools/sync-homepage-from-sheets.mjs
-
-      - name: Validate generated website
+          GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
+        run: node tools/sync-homepage-from-sheets.mjs --dry-run
+      - name: Confirm no tracked or untracked files were changed
+        shell: bash
         run: |
           set -euo pipefail
-          corepack enable
-          pnpm install --frozen-lockfile
-          pnpm run build
-          pnpm test
-          git restore -- migration/static-validation.json
-
-      - name: Open DRAFT pull request, never deploy
-        env:
-          GH_TOKEN: ${{ steps.app.outputs.token }}
-        run: |
-          set -euo pipefail
-          if git diff --quiet -- public/index.html migration/inventory.json; then
-            echo "Sheets and site already synchronized; no PR necessary."
-            exit 0
-          fi
-          git diff --check
-          changed=$(git diff --name-only)
-          unexpected=$(printf '%s\n' "$changed" | grep -vE '^(migration/inventory\.json|public/index\.html)$' || true)
-          if [ -n "$unexpected" ]; then
-            echo "::error::Unapproved file changes detected: $unexpected"
-            exit 1
-          fi
-          branch="automation/source-sync-$(date -u +%Y%m%d-%H%M%S)"
-          git checkout -b "$branch"
-          git config user.name "slopestohope-sheet-sync[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- public/index.html migration/inventory.json
-          git commit -m "chore: propose verified homepage totals from Sheets"
-          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"             push origin "$branch"
-          gh pr create --draft --base main --head "$branch"             --title "Inventory sync: verified homepage totals (review only)"             --body "Google Sheets source-validated update of collection totals, goal progress, and maintained migration baseline only. Migration QA and review are required. DO NOT MERGE OR DEPLOY WITHOUT DREW'S EXPLICIT APPROVAL. No unrelated changes; no source spreadsheet writes."
-
-      - name: Summary
+          test -z "$(git status --porcelain)"
+      - name: Report pilot result
         if: always()
+        env:
+          PILOT_STATUS: ${{ job.status }}
+        shell: bash
         run: |
-          echo "## Inventory Sync pilot" >> "$GITHUB_STEP_SUMMARY"
-          echo "PR only. No schedule, merge, auto-merge, or deployment." >> "$GITHUB_STEP_SUMMARY"
+          printf 'Google keyless read-only pilot: %s\n' "$PILOT_STATUS" >> "$GITHUB_STEP_SUMMARY"
+          printf 'No repository writes or deployment were requested.\n' >> "$GITHUB_STEP_SUMMARY"
+

@@ -28,10 +28,16 @@ test('stops on unexpected or duplicate fields', () => {
     26694.7, 9123.03));
   assert.throws(() => prepareEdits(html.replace('Goal:<br>', 'BAD'),
     inventory, 5839.3, 26694.7, 9123.03));
-  assert.throws(() => prepareEdits(html, inventory, 5839.3,
-    26694.7, 10000));
-  assert.throws(() => prepareEdits(html.replace('<span>$9,123 raised</span>',
-    '<span>$9,000 raised</span>'), inventory, 5839.3, 26694.7, 9123.03));
+  assert.throws(() => prepareEdits(html, inventory, 5839.3, 26694.7, NaN));
+  assert.throws(() => prepareEdits(html.replace('<span>$9,123 raised</span>', ''),
+    inventory, 5839.3, 26694.7, 9123.03));
+});
+test('fundraising divergence is reported without changing fundraising or blocking collection', () => {
+  const result = prepareEdits(html, inventory, 5839.3, 26694.7, 10000);
+  assert.equal(result.fundraisingDiverged, true);
+  assert.equal((result.html.match(/\$9,123 raised/g) || []).length, 2);
+  assert.match(result.html, /26,695 pounds/);
+  assert.equal(prepareEdits(html, inventory, 5839.3, 26694.7, 9123).fundraisingDiverged, false);
 });
 test('validates independent sum, historical baseline, and source layout', () => {
   const summary = [[],[],['FY27 Total', 5839.3],[],['Overall',26694.7]];
@@ -45,3 +51,4 @@ test('validates independent sum, historical baseline, and source layout', () => 
   assert.throws(() => verifyInventory([[],[],['FY27 Total', 5839.3],
     [],['Overall',26694.8]], rows));
 });
+

@@ -1,5 +1,4 @@
 import { readFileSync, writeFileSync } from 'node:fs';
-import { createSign } from 'node:crypto';
 
 const INVENTORY_ID = '15Gs3Qabfm1NTWxZu_J2aD3LtJaQ5vNkZkc41QCxRQWI';
 const FUNDRAISING_ID = '1_Ac8DmVy7x0dkhhOdDJVVsziyqvDqm-jC9Ua82uRqfw';
@@ -22,14 +21,12 @@ export function prepareEdits(html, inventory, fy27, lifetime, funds) {
   check(Number.isFinite(lifetime) && lifetime >= fy27, 'Lifetime pounds invalid');
   check(Number.isFinite(funds) && funds >= 0, 'Fundraising total invalid');
 
-  // Fundraising is separately maintained. Fail closed on divergence; never
-  // silently publish an impact change alongside stale fundraising figures.
+  // Fundraising is separately maintained. Validate its structure, but report
+  // divergence instead of blocking independent collection updates.
   const fundraiser = [...html.matchAll(/\$([\d,]+) raised/g)];
   check(fundraiser.length === 2, 'Expected desktop and mobile fundraising labels');
-  for (const label of fundraiser) {
-    check(Number(label[1].replaceAll(',', '')) === Math.round(funds),
-      'Website fundraising label diverges from the authoritative sheet');
-  }
+  const fundraisingDiverged = fundraiser.some(label =>
+    Number(label[1].replaceAll(',', '')) !== Math.round(funds));
 
   const lifeLabel = roundPounds(lifetime);
   const fyLabel = roundPounds(fy27);
@@ -53,41 +50,21 @@ export function prepareEdits(html, inventory, fy27, lifetime, funds) {
     /(Goal:)[\d,]+(\/20,000)/g,
     (_m, a, b) => a + fyLabel + b, 'baseline FY27 goal');
   JSON.parse(updatedInventory);
-  return { html: updatedHtml, inventory: updatedInventory, fyLabel, lifeLabel, percent };
+  return { html: updatedHtml, inventory: updatedInventory, fyLabel, lifeLabel, percent, fundraisingDiverged };
 }
 
-function base64url(input) {
-  return Buffer.from(input).toString('base64url');
-}
-async function googleToken(creds) {
-  check(creds.type === 'service_account' && creds.client_email &&
-    creds.private_key && creds.token_uri, 'Invalid service-account JSON');
-  check(creds.token_uri === 'https://oauth2.googleapis.com/token',
-    'Unexpected Google OAuth token endpoint');
-  const now = Math.floor(Date.now() / 1000);
-  const hdr = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const body = base64url(JSON.stringify({
-    iss: creds.client_email,
-    scope: 'https://www.googleapis.com/auth/spreadsheets.readonly',
-    aud: creds.token_uri, iat: now, exp: now + 3000
-  }));
-  const signer = createSign('RSA-SHA256');
-  signer.update(hdr + '.' + body);
-  const jwt = hdr + '.' + body + '.' +
-    signer.sign(creds.private_key).toString('base64url');
-  const r = await fetch(creds.token_uri, {
-    method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: jwt })
-  });
-  const json = await r.json();
-  check(r.ok && json.access_token, 'Google OAuth failed (' + r.status + ')');
-  return json.access_token;
-}
-async function readSheet(token, id, range) {
+export async function readSheet(token, id, range, fetchImpl = fetch, render = 'UNFORMATTED_VALUE') {
+  const allowed = new Map([
+    [INVENTORY_ID, ['FY27!A1:B5', 'FY27!G7:H1000']],
+    [FUNDRAISING_ID, ['FY27!A1:B1']],
+  ]);
+  check(allowed.get(id)?.includes(range), 'Unapproved source or range');
   const url = 'https://sheets.googleapis.com/v4/spreadsheets/' +
     encodeURIComponent(id) + '/values/' + encodeURIComponent(range) +
-    '?valueRenderOption=UNFORMATTED_VALUE';
-  const r = await fetch(url, { headers: { authorization: 'Bearer ' + token } });
+    '?valueRenderOption=' + render;
+  let r;
+  try { r = await fetchImpl(url, { headers: { authorization: 'Bearer ' + token }, redirect: 'error' }); }
+  catch { throw new Error('Google Sheets request failed; details withheld to protect credentials'); }
   check(r.ok, 'Google Sheets read failed for ' + id + ' (' + r.status + ')');
   return (await r.json()).values || [];
 }
@@ -95,7 +72,7 @@ export function verifyInventory(summary, rows) {
   check(summary[2]?.[0] === 'FY27 Total' && summary[4]?.[0] === 'Overall',
     'FY27 summary labels moved or changed');
   const fy27 = summary[2][1], lifetime = summary[4][1];
-  check(typeof fy27 === 'number' && typeof lifetime === 'number',
+  check(Number.isFinite(fy27) && fy27 >= 0 && Number.isFinite(lifetime) && lifetime >= fy27,
     'Totals must be numeric');
   check(Math.abs(lifetime - fy27 - HISTORY_BASELINE) < 0.011,
     'Historical baseline changed; manual reconciliation required');
@@ -115,33 +92,55 @@ export function verifyInventory(summary, rows) {
     'Independent FY27 sum differs from B3');
   return { fy27, lifetime, count };
 }
-async function main() {
-  check(process.env.GOOGLE_SERVICE_ACCOUNT_JSON,
-    'GOOGLE_SERVICE_ACCOUNT_JSON missing');
-  const creds = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
-  const token = await googleToken(creds);
-  const [summary, rows, fundRows] = await Promise.all([
-    readSheet(token, INVENTORY_ID, 'FY27!A1:B5'),
-    readSheet(token, INVENTORY_ID, 'FY27!A7:H1000'),
-    readSheet(token, FUNDRAISING_ID, 'FY27!A1:B1')
+export function verifyBaselineFormulas(formulas, values, fy27) {
+  const overall = formulas.findIndex(row => row?.[0] === 'Overall');
+  check(overall >= 0, 'Historical source structure missing');
+  const match = /^=SUM\(H(\d+),\s*20855\.4\)$/i.exec(formulas[overall]?.[1]);
+  check(match, 'Historical baseline formula changed; reconciliation required');
+  const index = Number(match[1]) - 7;
+  check(formulas[index]?.[0] === 'FY27 Total' &&
+    /^=SUM\(H6:H\d+\)$/i.test(formulas[index]?.[1]) &&
+    Number.isFinite(values[index]?.[1]) && Math.abs(values[index][1] - fy27) < 0.011,
+    'Historical formula must reference the verified FY27 summary');
+}
+export async function synchronize({ token, dryRun = true, fetchImpl = fetch,
+  htmlPath = 'public/index.html', invPath = 'migration/inventory.json' } = {}) {
+  check(typeof token === 'string' && token.length > 0, 'Keyless Google Sheets access token missing');
+  const [summary, weights, fundRows, formulas] = await Promise.all([
+    readSheet(token, INVENTORY_ID, 'FY27!A1:B5', fetchImpl),
+    readSheet(token, INVENTORY_ID, 'FY27!G7:H1000', fetchImpl),
+    readSheet(token, FUNDRAISING_ID, 'FY27!A1:B1', fetchImpl),
+    readSheet(token, INVENTORY_ID, 'FY27!G7:H1000', fetchImpl, 'FORMULA')
   ]);
+  const rows = weights.map(row => [null, null, null, null, null, null, ...row]);
   const { fy27, lifetime, count } = verifyInventory(summary, rows);
+  verifyBaselineFormulas(formulas, weights, fy27);
   check(fundRows[0]?.[0] === 'Total for Website' &&
     typeof fundRows[0]?.[1] === 'number',
     'Fundraising label or numeric total invalid');
-  const htmlPath = 'public/index.html', invPath = 'migration/inventory.json';
   const originalHtml = readFileSync(htmlPath, 'utf8');
   const originalInventory = readFileSync(invPath, 'utf8');
   const edited = prepareEdits(originalHtml, originalInventory, fy27, lifetime, fundRows[0][1]);
+  if (edited.fundraisingDiverged) {
+    console.warn('::warning::Fundraising total differs from the website; collection update continues.');
+  }
   const changed = edited.html !== originalHtml || edited.inventory !== originalInventory;
-  if (changed) {
+  if (changed && !dryRun) {
     writeFileSync(htmlPath, edited.html);
     writeFileSync(invPath, edited.inventory);
   }
-  console.log(JSON.stringify({ changed, fy27, lifetime, count,
+  return { changed, dryRun, fy27, lifetime, count,
     fundraising: fundRows[0][1], publishedFY27: edited.fyLabel,
-    publishedLifetime: edited.lifeLabel, percent: edited.percent }));
+    publishedLifetime: edited.lifeLabel, percent: edited.percent, fundraisingDiverged: edited.fundraisingDiverged };
 }
 if (process.argv[1]?.endsWith('sync-homepage-from-sheets.mjs')) {
-  main().catch(e => { console.error(e.message); process.exitCode = 1; });
+  const args = process.argv.slice(2);
+  if (args.some(arg => !['--dry-run', '--write'].includes(arg)) || (args.includes('--dry-run') && args.includes('--write'))) {
+    console.error('Use --dry-run or --write'); process.exitCode = 1;
+  } else {
+    synchronize({token: process.env.GOOGLE_SHEETS_ACCESS_TOKEN, dryRun: !args.includes('--write')})
+      .then(result => console.log(JSON.stringify(result)))
+      .catch(() => { console.error('Source authentication, validation, or preparation failed; no credential details logged'); process.exitCode = 1; });
+  }
 }
+

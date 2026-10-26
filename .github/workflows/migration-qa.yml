@@ -3,6 +3,7 @@ name: Migration QA
 on:
   pull_request:
     branches: ["main"]
+  merge_group:
   workflow_dispatch:
 
 permissions:
@@ -50,3 +51,4 @@ jobs:
             migration/interactions.json
             migration/consent-validation.json
           retention-days: 14
+
