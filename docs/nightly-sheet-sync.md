@@ -41,6 +41,9 @@ accessible public repositories, so it is less narrowly scoped and requires
 rotation before expiration. Use an explicit finite lifetime; do not reuse the
 temporary pilot token or create a non-expiring token. This alternative requires
 interactive secure input and is not configured by this PR.
+Runtime checks reject unexpected scopes, missing/expired/excessive lifetimes,
+and the known temporary pilot expiration. A separate incident warns when the
+production credential has fewer than 14 days remaining.
 
 GITHUB_TOKEN remains restricted to reads in the producer and Issues write in
 the incident job. PRs generated with GITHUB_TOKEN need manual workflow approval,

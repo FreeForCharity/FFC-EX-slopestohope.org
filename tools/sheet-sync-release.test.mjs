@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {pendingSyncPRs,reviewGate,unchangedSource,assertAllowedDiff} from './sheet-sync-release.mjs';
+import {pendingSyncPRs,reviewGate,unchangedSource,assertAllowedDiff,verifyPatHeaders} from './sheet-sync-release.mjs';
 import {comparePublished,expectedFigures,verifyLive} from './verify-live-impact.mjs';
 import {verifyBaselineFormulas,verifyInventory} from './sync-homepage-from-sheets.mjs';
 const html='<b>26,799 pounds</b> - Collected and Redistributed $9,123 raised $9,123 raised <div class="eael-progressbar eael-progressbar-circle" data-count="29.72">Goal:<br>5,943/20,000';
@@ -55,4 +55,17 @@ test('invalid weights and moved summary labels fail closed',()=>{
 test('Denver 23:59 remains once daily across DST transitions',()=>{
   const fmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
   for(const iso of ['2026-03-08T06:59:00Z','2026-03-09T05:59:00Z','2026-11-01T05:59:00Z','2026-11-02T06:59:00Z'])assert.equal(fmt.format(new Date(iso)),'23:59');
+});
+test('production PAT metadata rejects broader scope, expiry, and the temporary pilot',()=>{
+  const now=Date.parse('2026-10-26T00:00:00Z');
+  const good={'x-oauth-scopes':'public_repo','github-authentication-token-expiration':'2026-11-25T00:00:00Z'};
+  assert.equal(verifyPatHeaders(good,now).expiring,false);
+  assert.equal(verifyPatHeaders({...good,'github-authentication-token-expiration':'2026-11-05T00:00:00Z'},now).expiring,true);
+  for(const changes of [
+    {'x-oauth-scopes':'repo,workflow'},
+    {'github-authentication-token-expiration':''},
+    {'github-authentication-token-expiration':'2026-01-01T00:00:00Z'},
+    {'github-authentication-token-expiration':'2027-10-26T00:00:00Z'},
+    {'github-authentication-token-expiration':'2026-11-03T00:00:33Z'},
+  ]) assert.throws(()=>verifyPatHeaders({...good,...changes},now));
 });

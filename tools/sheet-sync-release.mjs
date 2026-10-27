@@ -5,14 +5,15 @@ import {verifyLive, expectedFigures} from './verify-live-impact.mjs';
 
 const REPO = 'FreeForCharity/FFC-EX-slopestohope.org';
 const PREFIX = 'automation/sheet-pounds-';
-function check(ok, message) { if (!ok) throw new Error(message); }
+class ReleaseError extends Error {}
+function check(ok, message) { if (!ok) throw new ReleaseError(message); }
 function gh(args) {
   try { return execFileSync('gh', args, {encoding:'utf8', stdio:['ignore','pipe','pipe'], maxBuffer:20_000_000}); }
-  catch { throw new Error('GitHub operation failed; inspect permissions and the workflow stage (credential details withheld)'); }
+  catch { throw new ReleaseError('GitHub operation failed; inspect permissions and the workflow stage (credential details withheld)'); }
 }
 function api(path) { return JSON.parse(gh(['api', path])); }
 function pages(path) { return JSON.parse(gh(['api', '--paginate', '--slurp', path])).flat(); }
-function git(...args) { return execFileSync('git', args, {encoding:'utf8', stdio:['ignore','pipe','pipe']}).trim(); }
+function git(...args) { try { return execFileSync('git', args, {encoding:'utf8', stdio:['ignore','pipe','pipe']}).trim(); } catch { throw new ReleaseError('Git operation failed; inspect the workflow stage (credential details withheld)'); } }
 export function pendingSyncPRs(prs) {
   return prs.filter(pr => pr.state === 'open' && /^(automation\/(sheet-pounds-|source-sync|website-sync|impact-sync)|impact-sync)/.test(pr.head?.ref || ''));
 }
@@ -33,6 +34,14 @@ export function reviewGate({head, reviews, threads, checks, statuses}, expectedH
 export function unchangedSource(before, now) {
   return ['fy27','lifetime','fundraising','count','percent'].every(key => before[key] === now[key]);
 }
+export function verifyPatHeaders(headers, now=Date.now()) {
+  const scope=(headers['x-oauth-scopes']||'').split(',').map(s=>s.trim()).filter(Boolean);
+  check(scope.length===1 && scope[0]==='public_repo','Production PAT must have exactly public_repo scope');
+  const expires=Date.parse(headers['github-authentication-token-expiration']||'');
+  check(Number.isFinite(expires) && expires>now && expires<=now+90*86400000,'Production PAT needs a valid finite expiration within 90 days');
+  check(expires!==Date.parse('2026-11-03T00:00:33Z'),'Temporary pilot PAT is forbidden for production');
+  return {expires:new Date(expires).toISOString(),expiring:expires-now<14*86400000};
+}
 export function assertAllowedDiff(html, inventory, editedHtml, editedInventory, source) {
   const expected = prepareEdits(html, inventory, source.fy27, source.lifetime, source.fundraising);
   check(expected.html === editedHtml && expected.inventory === editedInventory, 'Diff contains an unauthorized field change');
@@ -47,7 +56,13 @@ async function prepare() {
     check(installed.total_count===1 && installed.repositories[0]?.id===1128665669,'Installation token must be restricted to the intended repository');
     user=api(`users/${process.env.STH_GH_APP_SLUG}[bot]`);
   } else {
-    user=api('user');
+    const response=gh(['api','--include','user']);
+    const boundary=/\r?\n\r?\n/.exec(response);
+    check(boundary,'GitHub authentication metadata missing');
+    const headers=Object.fromEntries(response.slice(0,boundary.index).split(/\r?\n/).filter(l=>l.includes(':')).map(line=>{const i=line.indexOf(':');return [line.slice(0,i).toLowerCase(),line.slice(i+1).trim()];}));
+    const validity=verifyPatHeaders(headers);
+    output('credential_expiring',validity.expiring);
+    user=JSON.parse(response.slice(boundary.index+boundary[0].length));
     check(user.login === 'drewrobertssth', 'Unexpected production GitHub identity');
   }
   const repo = api(`repos/${REPO}`);
@@ -104,8 +119,8 @@ async function enqueue() {
   const source = await synchronize({token:process.env.GOOGLE_SHEETS_ACCESS_TOKEN});
   check(unchangedSource(state.source,source), 'Sources changed during review; this release is stale');
   reviewGate(snapshot(state.number),state.head);
-  gh(['pr','merge',String(state.number),'--repo',REPO,'--auto','--match-head-commit',state.head]);
   try {
+  gh(['pr','merge',String(state.number),'--repo',REPO,'--auto','--match-head-commit',state.head]);
   const deadline=Date.now()+40*60*1000;
   while (Date.now()<deadline) {
     const pr=api(`repos/${REPO}/pulls/${state.number}`);
@@ -146,5 +161,5 @@ async function published() {
 if (process.argv[1]?.endsWith('sheet-sync-release.mjs')) {
   const tasks={prepare,review:waitReviews,enqueue,published};
   Promise.resolve().then(()=>{check(tasks[process.argv[2]],'Unknown release stage');return tasks[process.argv[2]]();})
-    .catch(error=>{console.error(error.message.startsWith('GitHub operation') ? error.message : `Release stopped: ${error.message}`);process.exitCode=1;});
+    .catch(error=>{console.error(error instanceof ReleaseError ? error.message : 'Release stopped at this stage; raw details withheld to protect credentials');process.exitCode=1;});
 }

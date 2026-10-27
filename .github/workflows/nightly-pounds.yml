@@ -127,11 +127,12 @@ jobs:
         run: node tools/sheet-sync-release.mjs published
     outputs:
       fundraising_warning: ${{ steps.prepare.outputs.fundraising_warning }}
+      credential_expiring: ${{ steps.prepare.outputs.credential_expiring }}
   report:
     needs: sync
     if: >-
       always() && (needs.sync.result == 'failure' || needs.sync.result == 'cancelled' ||
-      needs.sync.outputs.fundraising_warning == 'true')
+      needs.sync.outputs.fundraising_warning == 'true' || needs.sync.outputs.credential_expiring == 'true')
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -141,13 +142,18 @@ jobs:
         env:
           SYNC_RESULT: ${{ needs.sync.result }}
           FUNDRAISING_WARNING: ${{ needs.sync.outputs.fundraising_warning }}
+          CREDENTIAL_EXPIRING: ${{ needs.sync.outputs.credential_expiring }}
         with:
           script: |
-            const failure = process.env.SYNC_RESULT !== 'success';
-            const marker = failure ? '<!-- sth-nightly-pounds-failure -->' : '<!-- sth-fundraising-warning -->';
-            const title = failure ? 'Nightly collection sync needs attention' : 'Fundraising differs from the website';
-            const body = `${failure ? 'Authentication, validation, review, QA, merge, deployment, or live-value verification failed. Inspect the failed step; no protection was bypassed.' : 'The authoritative fundraising value differs from the website. Poundage updates remain independent; fundraising was not changed.'}\n\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n${marker}`;
             const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo,state:'open',per_page:100});
-            const existing = issues.find(x => !x.pull_request && (x.body || '').includes(marker));
-            if (existing) await github.rest.issues.createComment({...context.repo,issue_number:existing.number,body});
-            else await github.rest.issues.create({...context.repo,title,body});
+            const incidents = [];
+            if (process.env.SYNC_RESULT !== 'success') incidents.push(['sth-nightly-pounds-failure','Nightly collection sync needs attention','Authentication, validation, review, QA, merge, deployment, or live-value verification failed. Inspect the failed step; no protection was bypassed.']);
+            if (process.env.FUNDRAISING_WARNING === 'true') incidents.push(['sth-fundraising-warning','Fundraising differs from the website','The authoritative fundraising value differs from the website. Poundage updates remain independent; fundraising was not changed.']);
+            if (process.env.CREDENTIAL_EXPIRING === 'true') incidents.push(['sth-sync-credential-expiry','Collection sync credential expires within 14 days','Rotate the finite production GitHub credential through secure input before expiration. Never use the temporary pilot token.']);
+            for (const [id,title,message] of incidents) {
+              const marker = `<!-- ${id} -->`;
+              const body = `@drewrobertssth ${message}\n\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n${marker}`;
+              const existing = issues.find(x => !x.pull_request && (x.body || '').includes(marker));
+              if (existing) await github.rest.issues.createComment({...context.repo,issue_number:existing.number,body});
+              else await github.rest.issues.create({...context.repo,title,body,assignees:['drewrobertssth']});
+            }
