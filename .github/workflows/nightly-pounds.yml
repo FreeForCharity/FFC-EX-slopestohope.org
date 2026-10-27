@@ -1,0 +1,203 @@
+name: Nightly verified collection sync
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '59 23 * * *'
+      timezone: America/Denver
+permissions:
+  contents: read
+concurrency:
+  group: sth-nightly-collection
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' || vars.STH_SYNC_ACTIVE == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 115
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+      - name: Select the separate production credential
+        id: credential
+        env:
+          GH_TOKEN: ${{ secrets.STH_SYNC_GH_TOKEN }}
+          APP_ID: ${{ secrets.STH_SYNC_GH_APP_ID }}
+          APP_KEY: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
+        run: |
+          if [ -n "$APP_ID" ] && [ -n "$APP_KEY" ]; then
+            echo 'mode=app' >> "$GITHUB_OUTPUT"
+          elif [ -n "$GH_TOKEN" ]; then
+            echo 'mode=pat' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Production GitHub authentication is not configured.' >&2
+            exit 1
+          fi
+      - name: Mint a repository-scoped installation token
+        if: steps.credential.outputs.mode == 'app'
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3
+        with:
+          app-id: ${{ secrets.STH_SYNC_GH_APP_ID }}
+          private-key: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
+          owner: FreeForCharity
+          repositories: FFC-EX-slopestohope.org
+          permission-contents: write
+          permission-pull-requests: write
+          permission-actions: read
+          permission-checks: read
+          permission-statuses: read
+          skip-token-revoke: false
+      - name: Obtain read-only Sheets access
+        id: google
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: formal-rookery-511517-d7
+          workload_identity_provider: projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-main-sync
+          audience: https://iam.googleapis.com/projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-main-sync
+          service_account: sth-sheet-sync-reader@formal-rookery-511517-d7.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 900s
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+          create_credentials_file: false
+          export_environment_variables: false
+      - name: Reconcile sources and create only an authorized numerical PR
+        id: prepare
+        env:
+          GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
+          GH_TOKEN: ${{ steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
+          STH_GH_APP_SLUG: ${{ steps.app.outputs.app-slug }}
+        run: node tools/sheet-sync-release.mjs prepare
+      - name: Verify the live homepage on an unchanged run
+        if: steps.prepare.outputs.changed == 'false'
+        run: node tools/verify-live-impact.mjs
+      - name: Wait for current-head Copilot, resolved findings, and successful GitHub QA
+        if: steps.prepare.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
+        run: node tools/sheet-sync-release.mjs review
+      - name: Refresh read-only Google access before checking source freshness
+        if: steps.prepare.outputs.changed == 'true'
+        id: fresh
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: formal-rookery-511517-d7
+          workload_identity_provider: projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-main-sync
+          audience: https://iam.googleapis.com/projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-main-sync
+          service_account: sth-sheet-sync-reader@formal-rookery-511517-d7.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 900s
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+          create_credentials_file: false
+          export_environment_variables: false
+      - name: Refresh installation token before waiting for merge and deployment
+        if: steps.prepare.outputs.changed == 'true' && steps.credential.outputs.mode == 'app'
+        id: fresh-app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3
+        with:
+          app-id: ${{ secrets.STH_SYNC_GH_APP_ID }}
+          private-key: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
+          owner: FreeForCharity
+          repositories: FFC-EX-slopestohope.org
+          permission-contents: write
+          permission-pull-requests: write
+          permission-actions: read
+          permission-checks: read
+          permission-statuses: read
+          skip-token-revoke: false
+      - name: Revalidate sources and enter the protected merge queue
+        if: steps.prepare.outputs.changed == 'true'
+        id: merge
+        env:
+          GH_TOKEN: ${{ steps.fresh-app.outputs.token || steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
+          GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.fresh.outputs.access_token }}
+        run: node tools/sheet-sync-release.mjs enqueue
+      - name: Confirm the merged revision and actual published values
+        if: steps.prepare.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.fresh-app.outputs.token || steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
+          EXPECTED_SHA: ${{ steps.merge.outputs.merged_sha }}
+        run: node tools/sheet-sync-release.mjs published
+    outputs:
+      pr_number: ${{ steps.prepare.outputs.pr }}
+      fundraising_warning: ${{ steps.prepare.outputs.fundraising_warning == 'true' || steps.merge.outputs.fundraising_warning == 'true' }}
+      credential_expiring: ${{ steps.prepare.outputs.credential_expiring }}
+  cleanup:
+    needs: sync
+    if: ${{ always() && github.ref == 'refs/heads/main' && (needs.sync.result == 'failure' || needs.sync.result == 'cancelled') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+      - name: Select cleanup authentication
+        id: credential
+        env:
+          APP_ID: ${{ secrets.STH_SYNC_GH_APP_ID }}
+          APP_KEY: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
+        run: |
+          if [ -n "$APP_ID" ] && [ -n "$APP_KEY" ]; then
+            echo 'mode=app' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Refresh App authentication for independent cleanup
+        if: steps.credential.outputs.mode == 'app'
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3
+        with:
+          app-id: ${{ secrets.STH_SYNC_GH_APP_ID }}
+          private-key: ${{ secrets.STH_SYNC_GH_APP_PRIVATE_KEY }}
+          owner: FreeForCharity
+          repositories: FFC-EX-slopestohope.org
+          permission-contents: write
+          permission-pull-requests: write
+          skip-token-revoke: false
+      - name: Remove auto-merge and queue membership for this run only
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
+          STH_PR_NUMBER: ${{ needs.sync.outputs.pr_number }}
+        run: node tools/sheet-sync-release.mjs cleanup
+  report:
+    needs: [sync, cleanup]
+    if: >-
+      always() && (needs.sync.result == 'failure' || needs.sync.result == 'cancelled' ||
+      needs.cleanup.result == 'failure' || needs.sync.outputs.fundraising_warning == 'true' || needs.sync.outputs.credential_expiring == 'true')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Report failure or a separate fundraising warning
+        uses: actions/github-script@v9
+        env:
+          SYNC_RESULT: ${{ needs.sync.result }}
+          FUNDRAISING_WARNING: ${{ needs.sync.outputs.fundraising_warning }}
+          CREDENTIAL_EXPIRING: ${{ needs.sync.outputs.credential_expiring }}
+        with:
+          script: |
+            const issues = await github.paginate(github.rest.issues.listForRepo, {...context.repo,state:'open',per_page:100});
+            const incidents = [];
+            if (process.env.SYNC_RESULT !== 'success') incidents.push(['sth-nightly-pounds-failure','Nightly collection sync needs attention','Authentication, validation, review, QA, merge, deployment, or live-value verification failed. Inspect the failed step; no protection was bypassed.']);
+            if (process.env.FUNDRAISING_WARNING === 'true') incidents.push(['sth-fundraising-warning','Fundraising differs from the website','The authoritative fundraising value differs from the website. Poundage updates remain independent; fundraising was not changed.']);
+            if (process.env.CREDENTIAL_EXPIRING === 'true') incidents.push(['sth-sync-credential-expiry','Collection sync credential expires within 14 days','Rotate the finite production GitHub credential through secure input before expiration. Never use the temporary pilot token.']);
+            for (const [id,title,message] of incidents) {
+              const marker = `<!-- ${id} -->`;
+              const body = `@drewrobertssth ${message}\n\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n${marker}`;
+              const existing = issues.find(x => !x.pull_request && (x.body || '').includes(marker));
+              if (existing) await github.rest.issues.createComment({...context.repo,issue_number:existing.number,body});
+              else await github.rest.issues.create({...context.repo,title,body,assignees:['drewrobertssth']});
+            }

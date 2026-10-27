@@ -1,0 +1,67 @@
+name: Homepage Sheet Sync (keyless read-only pilot)
+# Drew authorized automatic read-only PR111 tests in
+# STH-WEBSITE-SYNC-COMPLETE-20261026-08; no publishing operations in this pilot.
+on:
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - ".github/workflows/homepage-sheet-sync.yml"
+      - "tools/sync-homepage-from-sheets.mjs"
+      - "config/google-keyless-pilot.json"
+permissions:
+  contents: read
+concurrency:
+  group: sth-google-auth-pilot
+  cancel-in-progress: false
+jobs:
+  authenticate-and-validate:
+    if: >-
+      github.event.pull_request.number == 111 &&
+      github.event.pull_request.head.repo.full_name == 'FreeForCharity/FFC-EX-slopestohope.org' &&
+      github.head_ref == 'automation/github-actions-sheet-sync-setup-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout the PR merge revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Configure Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: "24"
+      - name: Obtain short-lived Sheets read-only access
+        id: google
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: formal-rookery-511517-d7
+          workload_identity_provider: projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-pr111-pilot
+          audience: https://iam.googleapis.com/projects/1005944353209/locations/global/workloadIdentityPools/sth-sheet-sync/providers/github-pr111-pilot
+          service_account: sth-sheet-sync-reader@formal-rookery-511517-d7.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_lifetime: 900s
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+          create_credentials_file: false
+          export_environment_variables: false
+      - name: Read authoritative cells and validate without writing
+        env:
+          GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
+        run: node tools/sync-homepage-from-sheets.mjs --dry-run
+      - name: Confirm no tracked or untracked files were changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)"
+      - name: Report pilot result
+        if: always()
+        env:
+          PILOT_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          printf 'Google keyless read-only pilot: %s\n' "$PILOT_STATUS" >> "$GITHUB_STEP_SUMMARY"
+          printf 'No repository writes or deployment were requested.\n' >> "$GITHUB_STEP_SUMMARY"
+
