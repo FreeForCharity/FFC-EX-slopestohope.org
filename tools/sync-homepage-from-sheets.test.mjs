@@ -54,6 +54,17 @@ test('validates independent sum, historical baseline, and source layout', () => 
   assert.throws(() => verifyInventory([[],[],['FY27 Total', 5839.3],
     [],['Overall',26694.8]], rows));
 });
+test('reconciliation permits floating-point accumulation but rejects rounding-boundary discrepancies', () => {
+  const summary = fy => [[], [], ['FY27 Total', fy], [], ['Overall', fy + 20855.4]];
+  const rows = value => [[,,,,,,,value], [,,,,,,'----']];
+  assert.throws(() => verifyInventory(summary(5839.495), rows(5839.505)), /Independent/);
+  assert.throws(() => verifyInventory(summary(5839.3), rows(5839.3001)), /Independent/);
+  assert.throws(() => verifyInventory(summary(5838.99999999999), rows(5839.00000000001)), /Independent/);
+  assert.throws(() => verifyInventory(summary(5839.49999999999), rows(5839.50000000001)), /Independent/);
+  assert.equal(verifyInventory(summary(5943.2), rows(5943.200000000001)).fy27, 5943.2);
+  const badLifetime = summary(5839.3); badLifetime[4][1] += .001;
+  assert.throws(() => verifyInventory(badLifetime, rows(5839.3)), /Historical/);
+});
 test('a changed write followed by an identical run is a no-change operation; denied auth writes nothing',async()=>{
   const dir=mkdtempSync(join(tmpdir(),'sth-sync-test-'));
   const htmlPath=join(dir,'index.html'),invPath=join(dir,'inventory.json');

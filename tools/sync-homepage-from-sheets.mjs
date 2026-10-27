@@ -11,6 +11,13 @@ function check(ok, message) {
 function roundPounds(n) {
   return Math.round(n).toLocaleString('en-US');
 }
+function reconciles(a, b) {
+  // At most 1,000 fetched rows: allow floating-point accumulation only.
+  // Even that allowance must never straddle either published rounding boundary.
+  return Math.abs(a - b) <= Number.EPSILON * 2048 * Math.max(1, Math.abs(a), Math.abs(b)) &&
+    Math.round(a) === Math.round(b) &&
+    (100 * a / GOAL).toFixed(2) === (100 * b / GOAL).toFixed(2);
+}
 function replaceExactlyOnce(source, pattern, makeReplacement, label) {
   const matches = [...source.matchAll(pattern)];
   check(matches.length === 1, label + ': expected exactly one matching field, found ' + matches.length);
@@ -75,7 +82,7 @@ export function verifyInventory(summary, rows) {
   const fy27 = summary[2][1], lifetime = summary[4][1];
   check(Number.isFinite(fy27) && fy27 >= 0 && Number.isFinite(lifetime) && lifetime >= fy27,
     'Totals must be numeric');
-  check(Math.abs(lifetime - fy27 - HISTORY_BASELINE) < 0.011,
+  check(reconciles(lifetime, fy27 + HISTORY_BASELINE),
     'Historical baseline changed; manual reconciliation required');
   let total = 0, count = 0, separator = -1;
   for (let i = 0; i < rows.length; i++) {
@@ -93,7 +100,7 @@ export function verifyInventory(summary, rows) {
   }
   check(separator >= 0 && count > 0,
     'No collection rows or separator found; source layout changed');
-  check(Math.abs(total - fy27) < 0.011,
+  check(reconciles(total, fy27),
     'Independent FY27 sum differs from B3');
   return { fy27, lifetime, count };
 }
@@ -107,7 +114,7 @@ export function verifyBaselineFormulas(formulas, values, fy27) {
   const sum = /^=SUM\(H6:H(\d+)\)$/i.exec(formulas[index]?.[1]);
   check(index > separator && overall > index && formulas[index]?.[0] === 'FY27 Total' &&
     sum && Number(sum[1]) === separator + 6 &&
-    Number.isFinite(values[index]?.[1]) && Math.abs(values[index][1] - fy27) < 0.011,
+    Number.isFinite(values[index]?.[1]) && reconciles(values[index][1], fy27),
     'Historical formula must reference the verified FY27 summary');
 }
 export async function synchronize({ token, dryRun = true, fetchImpl = fetch,
