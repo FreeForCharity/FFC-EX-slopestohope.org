@@ -81,6 +81,8 @@ export function verifyInventory(summary, rows) {
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i] || [];
     if (String(row[6] || '').includes('----')) { separator = i; break; }
+    check(!/^(?:FY27 Total|Overall)$/i.test(String(row[6] ?? '').trim()),
+      'Summary label found before collection separator');
     check(!String(row[6] ?? '').trim() || (row[7] !== undefined && row[7] !== ''),
       'Missing collection weight at row ' + (i + 7));
     if (row[7] !== undefined && row[7] !== '') {
@@ -96,13 +98,15 @@ export function verifyInventory(summary, rows) {
   return { fy27, lifetime, count };
 }
 export function verifyBaselineFormulas(formulas, values, fy27) {
+  const separator = formulas.findIndex(row => String(row?.[0] || '').includes('----'));
   const overall = formulas.findIndex(row => row?.[0] === 'Overall');
-  check(overall >= 0, 'Historical source structure missing');
+  check(separator >= 0 && overall > separator, 'Historical source structure missing');
   const match = /^=SUM\(H(\d+),\s*20855\.4\)$/i.exec(formulas[overall]?.[1]);
   check(match, 'Historical baseline formula changed; reconciliation required');
   const index = Number(match[1]) - 7;
-  check(formulas[index]?.[0] === 'FY27 Total' &&
-    /^=SUM\(H6:H\d+\)$/i.test(formulas[index]?.[1]) &&
+  const sum = /^=SUM\(H6:H(\d+)\)$/i.exec(formulas[index]?.[1]);
+  check(index > separator && overall > index && formulas[index]?.[0] === 'FY27 Total' &&
+    sum && Number(sum[1]) === separator + 6 &&
     Number.isFinite(values[index]?.[1]) && Math.abs(values[index][1] - fy27) < 0.011,
     'Historical formula must reference the verified FY27 summary');
 }

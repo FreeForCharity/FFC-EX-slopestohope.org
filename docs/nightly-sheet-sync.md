@@ -81,8 +81,9 @@ and never modify fundraising or prevent valid poundage updates.
    Enter the existing merge queue with a matching expected head. On failure or
    timeout, attempt to disable auto-merge/dequeue and report failure. Pending
    proposals remain for review and block duplicate nightly proposals.
-   An always-run workflow cleanup step also removes queued releases after normal
-   Actions cancellation; it discovers only this run's exact automation branch,
+   An independent always-run cleanup job with fresh authentication also removes
+   queued releases after normal Actions cancellation; it uses the saved PR number
+   or discovers only this run's exact automation branch,
    rereads queue state before each mutation, and verifies removal. Force-cancelling
    the entire workflow can defeat cleanup, and merging cannot be undone by it.
 6. Migration QA and Security Audit run on merge_group. GitHub enforces all

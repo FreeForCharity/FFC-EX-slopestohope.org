@@ -45,10 +45,10 @@ test('live verification rejects HTTP, deployment, layout, and numerical failures
   assert.deepEqual(await verifyLive({expected,attempts:2,delay:0,fetchImpl:async()=>({ok:true,text:async()=>++count===1?'old':html})}),expected);
 });
 test('historical baseline must remain in the source formula structure',()=>{
-  const values=[['FY27 Total',5943.2],[],['Overall',26798.6]];
-  const formulas=[['FY27 Total','=SUM(H6:H62)'],[],['Overall','=SUM(H7, 20855.4)']];
+  const values=[['Collection',5943.2],['----'],['FY27 Total',5943.2],[],['Overall',26798.6]];
+  const formulas=[['Collection',5943.2],['----'],['FY27 Total','=SUM(H6:H7)'],[],['Overall','=SUM(H9, 20855.4)']];
   verifyBaselineFormulas(formulas,values,5943.2);
-  assert.throws(()=>verifyBaselineFormulas([formulas[0],[],['Overall','=SUM(H7, 20856.4)']],values,5943.2));
+  assert.throws(()=>verifyBaselineFormulas([...formulas.slice(0,4),['Overall','=SUM(H9, 20856.4)']],values,5943.2));
   assert.throws(()=>verifyBaselineFormulas(formulas,values,1));
 });
 test('invalid weights and moved summary labels fail closed',()=>{
@@ -56,6 +56,8 @@ test('invalid weights and moved summary labels fail closed',()=>{
   for(const weight of [-1,'1',NaN,Infinity])assert.throws(()=>verifyInventory(summary,[[,,,,,,,weight],[,,,,,,'----']]));
   assert.throws(()=>verifyInventory([[],[],['Moved',1]],[]));
   assert.throws(()=>verifyInventory(summary,[[,,,,,,'Collection missing pounds'],[,,,,,,,1],[,,,,,,'----']]),/Missing collection weight/);
+  assert.throws(()=>verifyInventory([[],[],['FY27 Total',2000],[],['Overall',22855.4]],[[,,,,,,'FY27 Total',2000],[,,,,,,'----'],[,,,,,,'Overall',22855.4]]),/Summary label/);
+  assert.throws(()=>verifyBaselineFormulas([['FY27 Total','=SUM(H6:H6)'],['----'],['Overall','=SUM(H7, 20855.4)']],[['FY27 Total',2000],['----'],['Overall',22855.4]],2000));
 });
 test('failure/cancellation cleanup removes auto-merge and queue membership, but leaves merged PRs alone',()=>{
   const calls=[];

@@ -152,7 +152,9 @@ export function cleanupQueuedPR(state, mutate) {
 function cleanup() {
   check(process.env.GH_TOKEN,'Cleanup credential unavailable');
   const branch=PREFIX+process.env.GITHUB_RUN_ID;
-  const found=api(`repos/${REPO}/pulls?state=all&head=FreeForCharity:${encodeURIComponent(branch)}&per_page=100`);
+  const number=process.env.STH_PR_NUMBER;
+  check(!number || /^[1-9]\d*$/.test(number),'Invalid saved cleanup PR number');
+  const found=number ? [api(`repos/${REPO}/pulls/${number}`)] : api(`repos/${REPO}/pulls?state=all&head=FreeForCharity:${encodeURIComponent(branch)}&per_page=100`);
   check(found.length<=1,'Ambiguous cleanup target');
   if(!found.length)return;
   const pr=found[0];
