@@ -22,7 +22,8 @@ export function prepareEdits(html, inventory, fy27, lifetime, funds) {
   check(Number.isFinite(funds) && funds >= 0, 'Fundraising total invalid');
 
   // Fundraising is separately maintained. Validate its structure, but report
-  // divergence instead of blocking independent collection updates.
+  // divergence instead of blocking independent collection updates, as Drew
+  // explicitly authorized in STH-WEBSITE-SYNC-COMPLETE-20261026-08.
   const fundraiser = [...html.matchAll(/\$([\d,]+) raised/g)];
   check(fundraiser.length === 2, 'Expected desktop and mobile fundraising labels');
   const fundraisingDiverged = fundraiser.some(label =>
@@ -80,6 +81,8 @@ export function verifyInventory(summary, rows) {
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i] || [];
     if (String(row[6] || '').includes('----')) { separator = i; break; }
+    check(!String(row[6] ?? '').trim() || (row[7] !== undefined && row[7] !== ''),
+      'Missing collection weight at row ' + (i + 7));
     if (row[7] !== undefined && row[7] !== '') {
       check(typeof row[7] === 'number' && Number.isFinite(row[7]) &&
         row[7] >= 0, 'Invalid numeric collection weight at row ' + (i + 7));

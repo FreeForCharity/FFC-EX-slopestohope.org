@@ -127,6 +127,12 @@ jobs:
           GH_TOKEN: ${{ steps.fresh-app.outputs.token || steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
           EXPECTED_SHA: ${{ steps.merge.outputs.merged_sha }}
         run: node tools/sheet-sync-release.mjs published
+      - name: Remove any queued release after failure or cancellation
+        if: ${{ always() && (failure() || cancelled()) }}
+        timeout-minutes: 3
+        env:
+          GH_TOKEN: ${{ steps.fresh-app.outputs.token || steps.app.outputs.token || secrets.STH_SYNC_GH_TOKEN }}
+        run: node tools/sheet-sync-release.mjs cleanup
     outputs:
       fundraising_warning: ${{ steps.prepare.outputs.fundraising_warning == 'true' || steps.merge.outputs.fundraising_warning == 'true' }}
       credential_expiring: ${{ steps.prepare.outputs.credential_expiring }}

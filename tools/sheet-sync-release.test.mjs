@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {pendingSyncPRs,reviewGate,unchangedSource,assertAllowedDiff,verifyPatHeaders} from './sheet-sync-release.mjs';
+import {pendingSyncPRs,reviewGate,unchangedSource,assertAllowedDiff,verifyPatHeaders,cleanupQueuedPR} from './sheet-sync-release.mjs';
 import {comparePublished,expectedFigures,verifyLive} from './verify-live-impact.mjs';
 import {verifyBaselineFormulas,verifyInventory} from './sync-homepage-from-sheets.mjs';
 const html='<b>26,799 pounds</b> - Collected and Redistributed $9,123 raised $9,123 raised <div class="eael-progressbar eael-progressbar-circle" data-count="29.72">Goal:<br>5,943/20,000';
@@ -55,6 +55,15 @@ test('invalid weights and moved summary labels fail closed',()=>{
   const summary=[[],[],['FY27 Total',1],[],['Overall',20856.4]];
   for(const weight of [-1,'1',NaN,Infinity])assert.throws(()=>verifyInventory(summary,[[,,,,,,,weight],[,,,,,,'----']]));
   assert.throws(()=>verifyInventory([[],[],['Moved',1]],[]));
+  assert.throws(()=>verifyInventory(summary,[[,,,,,,'Collection missing pounds'],[,,,,,,,1],[,,,,,,'----']]),/Missing collection weight/);
+});
+test('failure/cancellation cleanup removes auto-merge and queue membership, but leaves merged PRs alone',()=>{
+  const calls=[];
+  cleanupQueuedPR({id:'id',merged:false,autoMergeRequest:{},mergeQueueEntry:{}},(...args)=>calls.push(args));
+  assert.deepEqual(calls,[['disable','id'],['dequeue','id']]);
+  calls.length=0;
+  cleanupQueuedPR({id:'id',merged:true,autoMergeRequest:{},mergeQueueEntry:{}},(...args)=>calls.push(args));
+  assert.deepEqual(calls,[]);
 });
 test('Denver 23:59 remains once daily across DST transitions',()=>{
   const fmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});

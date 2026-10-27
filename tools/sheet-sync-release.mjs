@@ -99,6 +99,7 @@ async function prepare() {
   writeFileSync('/tmp/sth-release.json', JSON.stringify(state)); output('pr',number);
 }
 function snapshot(number) {
+  // Both token-minting steps request Commit statuses read for the statuses API.
   const pr = api(`repos/${REPO}/pulls/${number}`);
   const all = JSON.parse(gh(['api','graphql','--paginate','--slurp','-f',`query=query($endCursor:String){repository(owner:"FreeForCharity",name:"FFC-EX-slopestohope.org"){pullRequest(number:${number}){reviewThreads(first:100,after:$endCursor){nodes{isResolved}pageInfo{hasNextPage endCursor}}}}}`]));
   return {head:pr.head.sha,reviews:pages(`repos/${REPO}/pulls/${number}/reviews?per_page=100`),
@@ -139,13 +140,32 @@ async function enqueue() {
   throw new Error('Merge queue did not complete within 40 minutes; inspect the PR and queue');
   } catch(error) {
     // Stop a delayed release when this run cannot establish its safety.
-    try { gh(['pr','merge',String(state.number),'--repo',REPO,'--disable-auto']); } catch {}
-    try {
-      const id=api(`repos/${REPO}/pulls/${state.number}`).node_id;
-      gh(['api','graphql','-f',`query=mutation{dequeuePullRequest(input:{pullRequestId:"${id}"}){clientMutationId}}`]);
-    } catch { console.warn('::warning::Could not confirm queue removal; inspect the PR immediately.'); }
+    try { cleanup(); } catch { console.warn('::warning::Could not confirm queue removal; inspect the PR immediately.'); }
     throw error;
   }
+}
+export function cleanupQueuedPR(state, mutate) {
+  if(state.merged)return;
+  if(state.autoMergeRequest)mutate('disable',state.id);
+  if(state.mergeQueueEntry)mutate('dequeue',state.id);
+}
+function cleanup() {
+  check(process.env.GH_TOKEN,'Cleanup credential unavailable');
+  const branch=PREFIX+process.env.GITHUB_RUN_ID;
+  const found=api(`repos/${REPO}/pulls?state=all&head=FreeForCharity:${encodeURIComponent(branch)}&per_page=100`);
+  check(found.length<=1,'Ambiguous cleanup target');
+  if(!found.length)return;
+  const pr=found[0];
+  check(pr.head.ref===branch && (pr.body||'').includes('<!-- sth-verified-pounds -->'),'Unexpected cleanup target');
+  const query=`query{repository(owner:"FreeForCharity",name:"FFC-EX-slopestohope.org"){pullRequest(number:${pr.number}){id merged autoMergeRequest{enabledAt} mergeQueueEntry{id}}}}`;
+  const state=JSON.parse(gh(['api','graphql','-f',`query=${query}`])).data.repository.pullRequest;
+  cleanupQueuedPR(state,(action,id)=>{
+    const current=JSON.parse(gh(['api','graphql','-f',`query=${query}`])).data.repository.pullRequest;
+    if(current.merged || (action==='dequeue' && !current.mergeQueueEntry) || (action==='disable' && !current.autoMergeRequest))return;
+    gh(['api','graphql','-f',`query=mutation{${action==='disable'?'disablePullRequestAutoMerge':'dequeuePullRequest'}(input:{pullRequestId:"${id}"}){clientMutationId}}`]);
+  });
+  const after=JSON.parse(gh(['api','graphql','-f',`query=${query}`])).data.repository.pullRequest;
+  check(after.merged || (!after.autoMergeRequest && !after.mergeQueueEntry),'Queued release cleanup not confirmed');
 }
 async function published() {
   const sha=process.env.EXPECTED_SHA;
@@ -164,7 +184,7 @@ async function published() {
   throw new Error('GitHub Pages deployment did not complete in time');
 }
 if (process.argv[1]?.endsWith('sheet-sync-release.mjs')) {
-  const tasks={prepare,review:waitReviews,enqueue,published,credential:()=>{const user=authenticate();console.log(JSON.stringify({authentication:'PASS',identity:user.login,repository:REPO}));}};
+  const tasks={prepare,review:waitReviews,enqueue,published,cleanup,credential:()=>{const user=authenticate();console.log(JSON.stringify({authentication:'PASS',identity:user.login,repository:REPO}));}};
   Promise.resolve().then(()=>{check(tasks[process.argv[2]],'Unknown release stage');return tasks[process.argv[2]]();})
     .catch(error=>{console.error(error instanceof ReleaseError ? error.message : 'Release stopped at this stage; raw details withheld to protect credentials');process.exitCode=1;});
 }

@@ -9,6 +9,9 @@ test('workflow authentication, scheduling, and trust remain narrowly scoped',()=
   assert.doesNotMatch(workflow,/STH_SYNC_GH_PILOT_TOKEN|SERVICE_ACCOUNT_JSON|--admin|pull_request_target/);
   assert.match(workflow,/access_token_scopes: https:\/\/www\.googleapis\.com\/auth\/spreadsheets\.readonly/);
   assert.match(workflow,/persist-credentials: false/);
+  assert.equal((workflow.match(/permission-statuses: read/g)||[]).length,2);
+  assert.match(workflow,/always\(\) && \(failure\(\) \|\| cancelled\(\)\)/);
+  assert.match(workflow,/run: node tools\/sheet-sync-release.mjs cleanup/);
   assert.match(read('.github/workflows/migration-qa.yml'),/merge_group:/);
   assert.match(read('.github/workflows/security-audit.yml'),/merge_group:/);
   const provider=JSON.parse(read('config/google-provider-production.json'));
