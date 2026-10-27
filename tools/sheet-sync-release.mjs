@@ -21,9 +21,9 @@ export function reviewGate({head, reviews, threads, checks, statuses}, expectedH
   check(head === expectedHead, 'PR changed after validation');
   check(!threads.some(thread => !thread.isResolved), 'Unresolved review findings block release');
   const latest = new Map();
-  for (const review of reviews) if (review.state !== 'PENDING') latest.set(review.user.login, review);
+  for (const review of reviews) if (['APPROVED','CHANGES_REQUESTED'].includes(review.state)) latest.set(review.user.login, review);
   check(![...latest.values()].some(r => r.state === 'CHANGES_REQUESTED'), 'Changes requested; release blocked');
-  const copilot = reviews.filter(r => /copilot/i.test(r.user?.login || '') && r.commit_id === expectedHead).at(-1);
+  const copilot = reviews.filter(r => r.user?.login === 'copilot-pull-request-reviewer[bot]' && r.commit_id === expectedHead).at(-1);
   check(copilot && !/changes recommended|needs a closer look|previously missed issue/i.test(copilot.body || '') && (copilot.state === 'APPROVED' || (copilot.state === 'COMMENTED' && /no (?:open )?issues|found no issues|did not (?:find|identify) any issues/i.test(copilot.body || ''))), 'Current-head Copilot completion without findings not verified');
   check(checks.some(c => c.name === 'migration' && c.conclusion === 'success'), 'Migration QA has not passed');
   check(checks.some(c => c.name === 'pnpm audit (production)' && c.conclusion === 'success'), 'Security audit has not passed');
@@ -32,7 +32,7 @@ export function reviewGate({head, reviews, threads, checks, statuses}, expectedH
   return true;
 }
 export function unchangedSource(before, now) {
-  return ['fy27','lifetime','fundraising','count','percent'].every(key => before[key] === now[key]);
+  return ['fy27','lifetime','count','percent'].every(key => before[key] === now[key]);
 }
 export function verifyPatHeaders(headers, now=Date.now()) {
   const scope=(headers['x-oauth-scopes']||'').split(',').map(s=>s.trim()).filter(Boolean);
@@ -47,7 +47,7 @@ export function assertAllowedDiff(html, inventory, editedHtml, editedInventory, 
   check(expected.html === editedHtml && expected.inventory === editedInventory, 'Diff contains an unauthorized field change');
 }
 function output(name, value) { if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${value}\n`); }
-async function prepare() {
+function authenticate() {
   check(process.env.GH_TOKEN, 'Production GitHub credential missing');
   let user;
   if (process.env.STH_GH_APP_SLUG) {
@@ -67,6 +67,10 @@ async function prepare() {
   }
   const repo = api(`repos/${REPO}`);
   check(repo.id===1128665669 && (process.env.STH_GH_APP_SLUG || repo.permissions?.push===true), 'Production repository identity or permission invalid');
+  return user;
+}
+async function prepare() {
+  const user=authenticate();
   const pending = pendingSyncPRs(pages(`repos/${REPO}/pulls?state=open&per_page=100`));
   check(pending.length === 0, 'An earlier numerical update PR is still pending; no duplicate will be created');
   const beforeHtml = readFileSync('public/index.html','utf8');
@@ -117,6 +121,7 @@ async function waitReviews() {
 async function enqueue() {
   const state=JSON.parse(readFileSync('/tmp/sth-release.json','utf8'));
   const source = await synchronize({token:process.env.GOOGLE_SHEETS_ACCESS_TOKEN});
+  output('fundraising_warning',source.fundraisingDiverged);
   check(unchangedSource(state.source,source), 'Sources changed during review; this release is stale');
   reviewGate(snapshot(state.number),state.head);
   try {
@@ -159,7 +164,7 @@ async function published() {
   throw new Error('GitHub Pages deployment did not complete in time');
 }
 if (process.argv[1]?.endsWith('sheet-sync-release.mjs')) {
-  const tasks={prepare,review:waitReviews,enqueue,published};
+  const tasks={prepare,review:waitReviews,enqueue,published,credential:()=>{const user=authenticate();console.log(JSON.stringify({authentication:'PASS',identity:user.login,repository:REPO}));}};
   Promise.resolve().then(()=>{check(tasks[process.argv[2]],'Unknown release stage');return tasks[process.argv[2]]();})
     .catch(error=>{console.error(error instanceof ReleaseError ? error.message : 'Release stopped at this stage; raw details withheld to protect credentials');process.exitCode=1;});
 }

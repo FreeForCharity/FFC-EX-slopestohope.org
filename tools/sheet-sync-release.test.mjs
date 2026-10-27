@@ -14,16 +14,20 @@ test('release requires current-head Copilot, resolved findings, QA, statuses, an
     {...pass,head:'changed'}, {...pass,reviews:[]},
     {...pass,reviews:[{...pass.reviews[0],commit_id:'old'}]},
     {...pass,reviews:[{...pass.reviews[0],body:'Found 1 issue'}]},
+    {...pass,reviews:[{...pass.reviews[0],user:{login:'ordinary-copilot-user'}}]},
     {...pass,threads:[{isResolved:false}]},
     {...pass,checks:[{name:'migration',status:'completed',conclusion:'failure'}]},
     {...pass,checks:[]}, {...pass,statuses:[{state:'pending'}]},
-    {...pass,reviews:[...pass.reviews,{user:{login:'human'},state:'CHANGES_REQUESTED'}]}
+    {...pass,reviews:[...pass.reviews,{user:{login:'human'},state:'CHANGES_REQUESTED'}]},
+    {...pass,reviews:[...pass.reviews,{user:{login:'human'},state:'CHANGES_REQUESTED'},{user:{login:'human'},state:'COMMENTED'}]}
   ]) assert.throws(()=>reviewGate(bad,'abc'));
+  assert.equal(reviewGate({...pass,reviews:[...pass.reviews,{user:{login:'human'},state:'CHANGES_REQUESTED'},{user:{login:'human'},state:'APPROVED'}]},'abc'),true);
 });
 test('source freshness prevents a stale proposal being queued',()=>{
   const a={fy27:5943.2,lifetime:26798.6,fundraising:9123.03,count:48,percent:'29.72'};
   assert.equal(unchangedSource(a,{...a}),true);
-  for(const key of Object.keys(a))assert.equal(unchangedSource(a,{...a,[key]:'changed'}),false);
+  for(const key of ['fy27','lifetime','count','percent'])assert.equal(unchangedSource(a,{...a,[key]:'changed'}),false);
+  assert.equal(unchangedSource(a,{...a,fundraising:10000}),true);
 });
 test('allowed diff rejects a hidden unrelated change',()=>{
   const inv=JSON.stringify({bodyText:'Since December 2023… 26,799 pounds - Collected and Redistributed Goal:5,943/20,000'});

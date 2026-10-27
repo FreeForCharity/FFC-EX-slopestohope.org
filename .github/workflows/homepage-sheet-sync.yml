@@ -50,6 +50,10 @@ jobs:
         env:
           GOOGLE_SHEETS_ACCESS_TOKEN: ${{ steps.google.outputs.access_token }}
         run: node tools/sync-homepage-from-sheets.mjs --dry-run
+      - name: Verify the separate production GitHub credential without writes
+        env:
+          GH_TOKEN: ${{ secrets.STH_SYNC_GH_TOKEN }}
+        run: node tools/sheet-sync-release.mjs credential
       - name: Confirm no tracked or untracked files were changed
         shell: bash
         run: |

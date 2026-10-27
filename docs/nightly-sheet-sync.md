@@ -26,7 +26,7 @@ referenced by the production workflow and must never be copied into its secret.
 ## Authentication
 
 Prefer a dedicated GitHub App installed only on this repository. Repository
-permissions: Contents write, Pull requests write, Actions read, and Checks read;
+permissions: Contents write, Pull requests write, Actions read, Checks read, and Commit statuses read;
 Metadata read is implicit. No organization or Administration permission and no
 bypass actor. Configure STH_SYNC_GH_APP_ID and STH_SYNC_GH_APP_PRIVATE_KEY as
 repository secrets. Installation tokens are repository-restricted, refreshed
@@ -76,7 +76,8 @@ and never modify fundraising or prevent valid poundage updates.
    no outstanding changes requested, successful Migration QA/security audit,
    and successful remaining check runs/statuses. Ambiguous reviews block safely.
    Never resolve threads, dismiss reviews, approve as a bot, or use --admin.
-5. Refresh Google access, reread/reconcile sources, and reject a stale proposal.
+5. Refresh Google access, reread/reconcile sources, and reject stale collection
+   figures. A valid fundraising-only change remains a separate warning.
    Enter the existing merge queue with a matching expected head. On failure or
    timeout, attempt to disable auto-merge/dequeue and report failure. Pending
    proposals remain for review and block duplicate nightly proposals.
