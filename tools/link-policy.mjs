@@ -1,6 +1,8 @@
 // Official equivalent destinations verified through 2026-10-05.
 // Keep captured inventory URLs unchanged so the original evidence is preserved.
 export const LINK_REPLACEMENTS=new Map([
+  // Drew approved Colorado Gives for Donate/Give Now on 2026-11-01.
+  ['https://givebutter.com/slopes-to-hope','https://www.coloradogives.org/organization/Slopes-To-Hope'],
   ['https://www.hyatt.com/hyatt-vacation-club/en-US/bresh-the-residences-at-main-street-station','https://www.hyattvacationclub.com/resorts/main-street-station'],
   ['https://www.hyatt.com/hyatt-vacation-club/en-US/bresr-hyatt-vacation-club-at-the-ranahan','https://www.hyattvacationclub.com/resorts/the-ranahan'],
   ['https://www.changethetrend.com/','https://www.facebook.com/CTTtricities/'],
