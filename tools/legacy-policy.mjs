@@ -50,7 +50,7 @@ export function sanitizeGiveWpContent(document, pathname) {
   for (const link of document.querySelectorAll('a[href]')) {
     const href = link.getAttribute('href');
     if (href && new URL(href, 'https://slopestohope.com').pathname === '/donations/slopes-to-hope') {
-      link.setAttribute('href', 'https://givebutter.com/slopes-to-hope');
+      link.setAttribute('href', 'https://www.coloradogives.org/organization/Slopes-To-Hope');
     }
   }
 }

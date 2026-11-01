@@ -252,7 +252,7 @@ jobs:
           # (e.g., site uses NO cookies / NO analytics).
           SMOKE_REQUIRE_COOKIE_CONSENT: ${{ vars.SMOKE_REQUIRE_COOKIE_CONSENT }}
           # Donations are a first-class feature of the Slopes to Hope site.
-          # Approved providers are Givebutter and RallyUp. Givebutter is required;
+          # Colorado Gives is required for the Donate and Give Now buttons;
           # RallyUp may be absent after the retired pledge button was removed.
           # SMOKE_DONATION_SCOPE may be set to "none" only if donations are intentionally disabled.
           SMOKE_DONATION_SCOPE: ${{ vars.SMOKE_DONATION_SCOPE }}
@@ -341,11 +341,11 @@ jobs:
 
             // Slopes to Hope's approved website fundraising providers.
             const PROVIDERS = [
-              { name: 'givebutter', hosts: ['givebutter.com'] },
+              { name: 'coloradogives', hosts: ['coloradogives.org'] },
               { name: 'rallyup', hosts: ['rallyup.com'] },
             ];
-            // Givebutter must remain available; RallyUp is approved but optional.
-            const REQUIRED_PROVIDERS = ['givebutter'];
+            // Colorado Gives is the owner-approved Donate/Give Now destination.
+            const REQUIRED_PROVIDERS = ['coloradogives'];
             const donationSurfaces = await page.evaluate((providers) => {
               const out = [];
               const provOf = (u) => {
