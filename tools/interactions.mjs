@@ -88,11 +88,10 @@ await check(`Newsletter anchor and HubSpot email-format validation (${width})`,a
  await f.locator('input[type="email"]').fill('invalid-email');await f.getByRole('button',{name:'Submit',exact:true}).click();await tab.waitForTimeout(600);
  const txt=await f.locator('body').innerText();const invalid=await f.locator('input[type="email"]').evaluate(e=>!e.validity.valid||e.getAttribute('aria-invalid')==='true');assert(invalid||/valid email/i.test(txt),'Invalid email validation not visible');
 });
-await check(`Donation and pledge destinations unchanged (${width})`,async()=>{
+await check(`Give Now destination retained and retired pledge button absent (${width})`,async()=>{
  const hrefs=await tab.locator('a[href]').evaluateAll(links=>links.map(a=>a.href));
  assert(hrefs.includes('https://givebutter.com/slopes-to-hope'),'Givebutter missing');
- const source=JSON.parse(await readFile('migration/inventory.json')).routes.find(r=>r.path==='/');
- for(const l of source.links.filter(l=>/givebutter\.com|rallyup\.com/.test(l.url)))assert(hrefs.includes(l.url),'Donation URL changed: '+l.url);
+ assert(!hrefs.includes('https://slopestohope.rallyup.com/slopestohope/Campaign/Details'),'Retired pledge button link still present');
 });
 await tab.goto(base+'/gallery/',{waitUntil:'domcontentloaded'});await tab.waitForTimeout(2500);
 await check(`Gallery opens, advances, and closes with Escape (${width})`,async()=>{
