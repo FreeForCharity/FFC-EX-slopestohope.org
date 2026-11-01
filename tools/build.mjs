@@ -12,7 +12,10 @@ await cp(resolve('public'),out,{recursive:true});
 for(const icon of Object.values(FAVICON_PATHS))await access(resolve(out,'.'+icon));
 for(const file of await glob('**/*.html',{cwd:out,nodir:true})){
   const path=resolve(out,file);
-  await writeFile(path,applyFaviconLinks(await readFile(path,'utf8')));
+  const html=await readFile(path,'utf8');
+  // Some legacy HTML assets are fragments, not pages; preserve those verbatim.
+  if(!/<head\b[^>]*>/i.test(html))continue;
+  await writeFile(path,applyFaviconLinks(html));
 }
 
 const inventory=JSON.parse(await readFile('migration/inventory.json'));
