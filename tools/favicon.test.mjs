@@ -32,6 +32,7 @@ test('every current published HTML source can receive the shared favicon',async(
    if(entry.isDirectory())await visit(path);
    else if(entry.name.endsWith('.html')){
     const html=await readFile(path,'utf8');
+    if(!/<head\b[^>]*>/i.test(html))continue; // Legacy HTML fragments are not standalone pages.
     const updated=applyFaviconLinks(html);
     for(const icon of Object.values(FAVICON_PATHS))assert(updated.includes('href="'+icon+'"'),path);
     assert.equal((updated.match(/rel="icon"/g)||[]).length,2,path);
