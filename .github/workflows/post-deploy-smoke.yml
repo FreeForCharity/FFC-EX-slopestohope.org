@@ -252,7 +252,8 @@ jobs:
           # (e.g., site uses NO cookies / NO analytics).
           SMOKE_REQUIRE_COOKIE_CONSENT: ${{ vars.SMOKE_REQUIRE_COOKIE_CONSENT }}
           # Donations are a first-class feature of the Slopes to Hope site.
-          # Current approved website fundraising providers are Givebutter and RallyUp.
+          # Approved providers are Givebutter and RallyUp. Givebutter is required;
+          # RallyUp may be absent after the retired pledge button was removed.
           # SMOKE_DONATION_SCOPE may be set to "none" only if donations are intentionally disabled.
           SMOKE_DONATION_SCOPE: ${{ vars.SMOKE_DONATION_SCOPE }}
           # 'true' on template repos: their sites ARE the template default.
@@ -343,7 +344,8 @@ jobs:
               { name: 'givebutter', hosts: ['givebutter.com'] },
               { name: 'rallyup', hosts: ['rallyup.com'] },
             ];
-            const REQUIRED_PROVIDERS = ['givebutter', 'rallyup'];
+            // Givebutter must remain available; RallyUp is approved but optional.
+            const REQUIRED_PROVIDERS = ['givebutter'];
             const donationSurfaces = await page.evaluate((providers) => {
               const out = [];
               const provOf = (u) => {
@@ -370,7 +372,7 @@ jobs:
               return out;
             }, PROVIDERS).catch(() => []);
             // Donation surfaces may live on subpages rather than the homepage.
-            // Sweep published routes until both approved fundraising providers are found.
+            // Sweep published routes until the required fundraising provider is found.
             const sitewideProviders = new Set(donationSurfaces.map(s => s.provider));
             if (!REQUIRED_PROVIDERS.every(p => sitewideProviders.has(p))) {
               try {
@@ -454,7 +456,7 @@ jobs:
             if (isApex && !placeholder && donationScope !== 'none') {
               const missingProviders = REQUIRED_PROVIDERS.filter(p => !sitewideProviders.has(p));
               if (missingProviders.length > 0) {
-                complianceFailures.push(`Missing approved fundraising provider(s): ${missingProviders.join(', ')}. Slopes to Hope expects both Givebutter and RallyUp.`);
+                complianceFailures.push(`Missing required fundraising provider(s): ${missingProviders.join(', ')}. Givebutter must remain available; RallyUp is optional.`);
               }
             }
             // Every surface must be reachable, whatever the provider.
