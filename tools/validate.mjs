@@ -15,6 +15,7 @@ const sitemapRoutes=[...publishedRoutes,...POLICY_ROUTES];
 if(sitemapRoutes.length!==12||new Set(sitemapRoutes.map(r=>r.path)).size!==12)issues.push({path:'/sitemap.xml',error:'Published sitemap route inventory must contain exactly 12 unique pages'});
 if(sitemapRoutes.some(r=>!r.path.startsWith('/')||r.path.includes('?')||r.path.includes('#')))issues.push({path:'/sitemap.xml',error:'Published sitemap route contains an invalid path'});
 const normalize=s=>s.replace(/\s+/g,' ').trim();
+const REMOVED_HOME_PLEDGE_URL='https://slopestohope.rallyup.com/slopestohope/Campaign/Details';
 const PRIMARY_IMAGES=new Map([
  ['/',{url:'https://slopestohope.org/wp-content/uploads/2026/02/IMG_20260210_201111-scaled-e1771290868699.jpg',alt:'A group posing beside a moving truck.'}],
  ['/gallery/',{url:'https://slopestohope.org/wp-content/uploads/2026/08/Marriotts-Mountain-Valley-Lodge-PillowCollection.jpg',alt:'People standing beside a moving truck outside a lodge.'}],
@@ -41,6 +42,7 @@ for(const r of publishedRoutes){
  }
  if(r.path==='/'){
   bodyText=bodyText.replaceAll('$9,123 raised$25,000 goal','$8,068.03');
+  if(d.querySelector(`[data-id="cee4ba4"],a[href="${REMOVED_HOME_PLEDGE_URL}"]`))issues.push({path:r.path,error:'Retired Pledge-per-Pound homepage button returned'});
   if(d.querySelector('.sth-hero a[href="/gallery/"],.eael-wrapper-link-5a53669d[href="/gallery/"]'))issues.push({path:r.path,error:'Homepage hero must not be a Gallery navigation target'});
   if(!d.querySelector('.sth-hero .sth-hero__media'))issues.push({path:r.path,error:'Homepage hero media wrapper missing'});
  }
@@ -60,7 +62,7 @@ for(const r of publishedRoutes){
     else hiddenHeading.remove();
     if(normalize(faq.textContent)!=='F.A.Q.For questions about Slopes to Hope, please contact us.')issues.push({path:r.path,error:'Approved legacy-content adaptation changed'});
    }
- } else if(bodyText!==r.bodyText)issues.push({path:r.path,error:'Source wording changed'});
+ } else if(bodyText!==(r.path==='/'?normalize(r.bodyText.replace('Pledge-per-Pound','')):r.bodyText))issues.push({path:r.path,error:'Source wording changed'});
  for(const a of d.querySelectorAll('a[href]')){
   const u=new URL(a.href);if(u.origin!=='https://slopestohope.org'||a.getAttribute('href').startsWith('#'))continue;
   if(knownBroken.has(u.pathname))continue;
@@ -79,6 +81,7 @@ for(const r of publishedRoutes){
  }
  for(const l of r.links.filter(l=>/^https?:/.test(l.url)&&!new URL(l.url).hostname.endsWith('slopestohope.com'))){
   if(REMOVED_CANDID_SEAL_LINKS.has(l.url))continue;
+  if(r.path==='/'&&l.url===REMOVED_HOME_PLEDGE_URL)continue;
   const expected=LINK_REPLACEMENTS.get(l.url)||l.url;
   if(![...d.querySelectorAll('a[href]')].some(a=>a.href===expected))issues.push({path:r.path,error:'External destination changed',url:l.url,expected});
  }
