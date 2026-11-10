@@ -1,6 +1,8 @@
 # Current migration runbook
 
-Updated September 20, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete. Verify current routing before future production work.
+Updated November 10, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete.
+
+On November 10, 2026, slopestohope.com returned a path-preserving HTTP 301 to the matching .org path on every URL tested, including WordPress-only paths such as /wp-login.php and /?p=1. The response carried `server: cloudflare` and a `cf-ray` header with no origin hit, so the rule is terminated at the Cloudflare edge rather than by WordPress. Cutover is therefore complete in both directions: .com serves none of its own content. Two things this does not establish, both unverified from outside the accounts: whether the WordPress origin still runs behind the redirect, and where in the Cloudflare configuration the rule lives. Verify current routing before future production work.
 
 ## Architecture
 

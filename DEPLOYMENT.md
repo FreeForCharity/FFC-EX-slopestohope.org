@@ -25,4 +25,4 @@ Rendering does not verify submission storage, email delivery, or payments. Contr
 
 The existing fleet smoke workflow can create or close issues automatically and targets production. Do not manually dispatch it during local-only preparation.
 
-If behavior regresses, preserve evidence and obtain approval to use the rollback runbook. Redirecting to .com is not an equivalent fallback because the last audit found no COO page there.
+If behavior regresses, preserve evidence and obtain approval to use the rollback runbook. Redirecting to .com is no longer a fallback at all: as of November 10, 2026 .com itself returns a path-preserving 301 to .org at the Cloudflare edge, so pointing traffic there returns it to this site. Any rollback depending on .com serving content must change that Cloudflare rule first. The last audit also found no COO page there.
