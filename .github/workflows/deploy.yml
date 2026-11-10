@@ -16,8 +16,19 @@ permissions:
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+#
+# The group is deliberately NOT the stock "pages". On 2026-11-09 run #111
+# (42670144136) wedged permanently in `waiting` on the github-pages environment:
+# GitHub holds a pending-deployment record for it that requires a review, while
+# the environment has no protection rules at all, so there is nothing to satisfy
+# and no reviewer who can approve it. That run cannot be cancelled (409),
+# force-cancelled (409), rejected (403) or deleted (403), so it holds its
+# concurrency slot forever and every later deployment queues behind it.
+# Renaming the group leaves the wedged run alone in the old group and lets real
+# deployments proceed. Mutual exclusion between real deployments is unaffected —
+# they all share this new group.
 concurrency:
-  group: "pages"
+  group: "pages-deploy"
   cancel-in-progress: false
 
 jobs:
