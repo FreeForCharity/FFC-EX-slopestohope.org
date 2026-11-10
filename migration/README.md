@@ -2,7 +2,9 @@
 
 Updated November 10, 2026. This supersedes the [September 11 checkpoint](history/september-11-checkpoint.md). The September 18 audit recorded .org serving the static release independently of .com; initial cutover was complete.
 
-On November 10, 2026, slopestohope.com returned a path-preserving HTTP 301 to the matching .org path on every URL tested, including WordPress-only paths such as /wp-login.php and /?p=1. The response carried `server: cloudflare` and a `cf-ray` header with no origin hit, so the rule is terminated at the Cloudflare edge rather than by WordPress. Cutover is therefore complete in both directions: .com serves none of its own content. Two things this does not establish, both unverified from outside the accounts: whether the WordPress origin still runs behind the redirect, and where in the Cloudflare configuration the rule lives. Verify current routing before future production work.
+On November 10, 2026, slopestohope.com returned a path-preserving HTTP 301 to the matching .org path on every URL tested, including WordPress-only paths such as /wp-login.php and /?p=1. Cutover is therefore complete in both directions as observed from outside: .com serves none of its own content.
+
+**What generates that 301 is undetermined.** The response carries `server: cloudflare`, a `cf-ray` header and Cloudflare NEL reporting, but Cloudflare adds those to everything it proxies, including responses an origin produced, so they place Cloudflare in the request path and prove nothing about where the redirect is applied. Two observations lean weakly the other way — toward an origin generating it — and neither is proof: the response sets `content-type: text/html; charset=UTF-8`, which a Cloudflare redirect rule does not normally do, and time-to-first-byte measured 170–350 ms across three requests, longer than an edge rule would typically take. Settling this needs account access, not more probing from outside, and it has a retirement consequence recorded under [domain fallback and retirement](rollback-runbook.md#domain-fallback-and-retirement). Verify current routing before future production work.
 
 ## Architecture
 

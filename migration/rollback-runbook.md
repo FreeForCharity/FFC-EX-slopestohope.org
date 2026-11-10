@@ -40,7 +40,7 @@ The archive and generated export are local ignored artifacts, not a substitute f
 |---|---|---|
 | Static website | Git revision, lockfile, deploy workflow, Pages configuration, and exported artifact/checksums | Revision rebuilt locally; report contains page hashes; private Pages settings and artifact retention not verified |
 | WordPress/Hostinger | Complete database, uploads/media, themes/plugins, configuration, backup date, off-host copy, and tested restore location | Not verified; owner/location pending |
-| Cloudflare | DNS export, redirect/rules configuration, proxy/TLS settings, disabled prior .org-to-.com rules, and the current blanket .com-to-.org 301 observed November 10, 2026 | Private dashboard configuration and backup location not verified; the .com-to-.org rule is observed only from outside, its definition not retained |
+| Cloudflare | DNS export, redirect/rules configuration, proxy/TLS settings, disabled prior .org-to-.com rules, and the source of the blanket .com-to-.org 301 observed November 10, 2026 | Private dashboard configuration and backup location not verified; the .com-to-.org 301 is observed only from outside and may not be Cloudflare's at all, so check the origin too before recording it here |
 | HubSpot | Three form definitions, property mappings, notifications, subscription/workflow settings, and ownership | Rendered forms verified; configuration export/restore evidence pending |
 | Google Workspace | Baseline MX/TXT/CNAME mail records, SPF/DKIM/DMARC configuration, and authorized mail administrator | Public MX was observed in earlier audit; delivery and private configuration not verified |
 | Analytics/Search Console | Property ownership, measurement configuration, domain verification, and reporting access | Private access verification pending |
@@ -51,6 +51,12 @@ Drew is the production approver. Technical operator, backup custodian, notificat
 
 The former .org-to-.com redirect is incomplete rollback coverage: .com/coosummit26 was missing in the latest audit. A domain fallback requires its own approved route map, QR/query checks, and feature-gap resolution. Preserve Google Workspace mail records.
 
-As of November 10, 2026 the direction is reversed and blanket: .com returns a path-preserving 301 to .org at the Cloudflare edge for every URL tested. Two consequences for rollback. A domain fallback is now circular until that rule is changed, because traffic sent to .com comes straight back to .org. And WordPress admin is no longer reachable over the .com hostname: /wp-login.php and /wp-admin/ redirect to .org paths that do not exist there, so any recovery or export from WordPress must reach the Hostinger origin directly. Neither the origin's continued existence nor its reachable address was verified from outside the accounts; confirm both before relying on a WordPress rollback path.
+As of November 10, 2026 the direction is reversed and blanket: .com returns a path-preserving 301 to .org for every URL tested, with Cloudflare in the request path. Three consequences for rollback and retirement.
+
+A domain fallback is now circular until the redirect is disabled, because traffic sent to .com comes straight back to .org.
+
+WordPress admin is no longer reachable over the .com hostname: /wp-login.php and /wp-admin/ redirect to .org paths that do not exist there, so any recovery or export from WordPress must reach the Hostinger origin directly. Neither the origin's continued existence nor its reachable address was verified; confirm both before relying on a WordPress rollback path.
+
+**Find out what generates the 301 before decommissioning anything.** It is undetermined. Cloudflare's headers appear on everything it proxies and so do not locate the rule, while two weaker signals point toward an origin rather than the edge: the response sets `content-type: text/html; charset=UTF-8`, unusual for a Cloudflare redirect rule, and time-to-first-byte measured 170–350 ms, longer than an edge rule would typically take. If an origin does generate it, the redirect depends on that origin staying up, and retiring Hostinger would break every inbound .com link rather than leaving them redirecting. That possibility is a reason to keep the existing instruction below, not an argument against it.
 
 Do not cancel Hostinger, delete WordPress, remove backups, or change renewal settings during cleanup. A retirement plan must confirm route coverage, independent recoverable backups, integration dependencies, retention needs, owners, and Drew's explicit approval.
