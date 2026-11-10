@@ -8,7 +8,19 @@ On November 10, 2026, slopestohope.com returned a path-preserving HTTP 301 to th
 
 `public/` is the maintained source tree. `tools/validate.mjs` checks captured wording, links, assets, legacy-residue exclusions, metadata, exact HubSpot embeds, consent wiring, and accessibility invariants. `tools/build.mjs` copies public to out and generates sitemap.xml and robots.txt. Pages publishes only out.
 
-The 11 pages are Home, Contact Us, Our Story, FAQ, Donors, Team, Gallery, Partners, COO Summit 2026, Privacy Policy, and Terms of Service. /staff/ uses an HTML browser redirect, not a server-side 301. Retired archives, GiveWP pages, policy shells, and the empty Volunteer page remain excluded.
+### Route classes
+
+`out/` holds 22 `index.html` files in three classes. Each class is defined by a signal carried in the file, so membership can be re-derived from a build instead of trusted from this list. Prefer re-deriving it: the published count below read 11 from launch until November 10, 2026, because /pickup/ was added on October 26 and never added to the prose.
+
+**Published pages — 12.** Indexable, listed in `sitemap.xml`, `robots` meta `max-image-preview:large`. Home, Contact Us, Our Story, FAQ, Donors, Team, Gallery, Partners, Pickup, COO Summit 2026, Privacy Policy, Terms of Service. This is the count that "published pages" means everywhere in these docs.
+
+**Unlisted pages — 9.** `noindex,nofollow` and absent from `sitemap.xml`. Eight are QR redirect shims — /card, /flyer, /tote, /banner, /thanks, /poster, /tr, /slides — each a title-only document whose body is a three-layer redirect (meta refresh, `location.replace`, and a visible link) to the homepage carrying the UTM tags in [qr-redirects.json](qr-redirects.json). They exist so printed material can use a short URL, and they live in the repo as GitHub fallbacks while Cloudflare account rules stay unverified. The ninth is /coosummit26confirm/, the COO Summit form confirmation page.
+
+**Compatibility redirect — 1.** /staff/ is an HTML browser redirect to /team/, not a server-side 301. It is the only route carrying no `robots` meta at all; the QR shims are `noindex` and it is not, which is an inconsistency, not a decision anyone recorded.
+
+Retired archives, GiveWP pages, policy shells, and the empty Volunteer page remain excluded.
+
+`qr-redirects.json` is a written record, not an input: no tool reads it, so it and the eight shim files can disagree without anything failing. PR #138 existed to fix exactly that drift, after /presentation was renamed to /slides but kept `utm_content=presentation` and would have misreported the item in analytics.
 
 Original Elementor/BuddyX runtimes and mirrored media preserve presentation. Approved .org changes include the hero, Candid integration, Partners and FAQ cleanup, policies, analytics behavior, exact form embeds, and COO page. Blind recapture of .com can overwrite these changes.
 
